@@ -1,0 +1,726 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56DB831A2561843C004E5993 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB83192561843C004E5993 /* Tests_iOS.swift */; };
+		56DB83252561843D004E5993 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB83242561843D004E5993 /* Tests_macOS.swift */; };
+		56DB83272561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */; };
+		56DB83282561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */; };
+		56DB83292561843D004E5993 /* EBookTrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */; };
+		56DB832A2561843D004E5993 /* EBookTrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */; };
+		56DB832B2561843D004E5993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FE2561843B004E5993 /* ContentView.swift */; };
+		56DB832C2561843D004E5993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FE2561843B004E5993 /* ContentView.swift */; };
+		56DB832D2561843D004E5993 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FF2561843B004E5993 /* Persistence.swift */; };
+		56DB832E2561843D004E5993 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FF2561843B004E5993 /* Persistence.swift */; };
+		56DB832F2561843D004E5993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DB83002561843C004E5993 /* Assets.xcassets */; };
+		56DB83302561843D004E5993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DB83002561843C004E5993 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56DB83162561843C004E5993 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DB82F62561843A004E5993 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56DB83042561843C004E5993;
+			remoteInfo = "EBookTracking (iOS)";
+		};
+		56DB83212561843D004E5993 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DB82F62561843A004E5993 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56DB830C2561843C004E5993;
+			remoteInfo = "EBookTracking (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		56DB82FC2561843B004E5993 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookTrackingApp.swift; sourceTree = "<group>"; };
+		56DB82FE2561843B004E5993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56DB82FF2561843B004E5993 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		56DB83002561843C004E5993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56DB83052561843C004E5993 /* EBookTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBookTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DB83082561843C004E5993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DB830D2561843C004E5993 /* EBookTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBookTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DB830F2561843C004E5993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DB83102561843C004E5993 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		56DB83152561843C004E5993 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DB83192561843C004E5993 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		56DB831B2561843D004E5993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DB83202561843D004E5993 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DB83242561843D004E5993 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		56DB83262561843D004E5993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56DB83022561843C004E5993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB830A2561843C004E5993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB83122561843C004E5993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB831D2561843D004E5993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		56DB82F52561843A004E5993 = {
+			isa = PBXGroup;
+			children = (
+				56DB82FA2561843B004E5993 /* Shared */,
+				56DB83072561843C004E5993 /* iOS */,
+				56DB830E2561843C004E5993 /* macOS */,
+				56DB83182561843C004E5993 /* Tests iOS */,
+				56DB83232561843D004E5993 /* Tests macOS */,
+				56DB83062561843C004E5993 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		56DB82FA2561843B004E5993 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */,
+				56DB82FE2561843B004E5993 /* ContentView.swift */,
+				56DB82FF2561843B004E5993 /* Persistence.swift */,
+				56DB83002561843C004E5993 /* Assets.xcassets */,
+				56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		56DB83062561843C004E5993 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56DB83052561843C004E5993 /* EBookTracking.app */,
+				56DB830D2561843C004E5993 /* EBookTracking.app */,
+				56DB83152561843C004E5993 /* Tests iOS.xctest */,
+				56DB83202561843D004E5993 /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56DB83072561843C004E5993 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				56DB83082561843C004E5993 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		56DB830E2561843C004E5993 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				56DB830F2561843C004E5993 /* Info.plist */,
+				56DB83102561843C004E5993 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		56DB83182561843C004E5993 /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				56DB83192561843C004E5993 /* Tests_iOS.swift */,
+				56DB831B2561843D004E5993 /* Info.plist */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		56DB83232561843D004E5993 /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				56DB83242561843D004E5993 /* Tests_macOS.swift */,
+				56DB83262561843D004E5993 /* Info.plist */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		56DB83042561843C004E5993 /* EBookTracking (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56DB83332561843D004E5993 /* Build configuration list for PBXNativeTarget "EBookTracking (iOS)" */;
+			buildPhases = (
+				56DB83012561843C004E5993 /* Sources */,
+				56DB83022561843C004E5993 /* Frameworks */,
+				56DB83032561843C004E5993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EBookTracking (iOS)";
+			productName = "EBookTracking (iOS)";
+			productReference = 56DB83052561843C004E5993 /* EBookTracking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56DB830C2561843C004E5993 /* EBookTracking (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56DB83362561843D004E5993 /* Build configuration list for PBXNativeTarget "EBookTracking (macOS)" */;
+			buildPhases = (
+				56DB83092561843C004E5993 /* Sources */,
+				56DB830A2561843C004E5993 /* Frameworks */,
+				56DB830B2561843C004E5993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EBookTracking (macOS)";
+			productName = "EBookTracking (macOS)";
+			productReference = 56DB830D2561843C004E5993 /* EBookTracking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56DB83142561843C004E5993 /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56DB83392561843D004E5993 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				56DB83112561843C004E5993 /* Sources */,
+				56DB83122561843C004E5993 /* Frameworks */,
+				56DB83132561843C004E5993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56DB83172561843C004E5993 /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = 56DB83152561843C004E5993 /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		56DB831F2561843D004E5993 /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56DB833C2561843D004E5993 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				56DB831C2561843D004E5993 /* Sources */,
+				56DB831D2561843D004E5993 /* Frameworks */,
+				56DB831E2561843D004E5993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56DB83222561843D004E5993 /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = 56DB83202561843D004E5993 /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56DB82F62561843A004E5993 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					56DB83042561843C004E5993 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					56DB830C2561843C004E5993 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					56DB83142561843C004E5993 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 56DB83042561843C004E5993;
+					};
+					56DB831F2561843D004E5993 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 56DB830C2561843C004E5993;
+					};
+				};
+			};
+			buildConfigurationList = 56DB82F92561843A004E5993 /* Build configuration list for PBXProject "EBookTracking" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 56DB82F52561843A004E5993;
+			productRefGroup = 56DB83062561843C004E5993 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56DB83042561843C004E5993 /* EBookTracking (iOS) */,
+				56DB830C2561843C004E5993 /* EBookTracking (macOS) */,
+				56DB83142561843C004E5993 /* Tests iOS */,
+				56DB831F2561843D004E5993 /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56DB83032561843C004E5993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DB832F2561843D004E5993 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB830B2561843C004E5993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DB83302561843D004E5993 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB83132561843C004E5993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB831E2561843D004E5993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56DB83012561843C004E5993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DB83272561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */,
+				56DB832D2561843D004E5993 /* Persistence.swift in Sources */,
+				56DB83292561843D004E5993 /* EBookTrackingApp.swift in Sources */,
+				56DB832B2561843D004E5993 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB83092561843C004E5993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DB83282561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */,
+				56DB832E2561843D004E5993 /* Persistence.swift in Sources */,
+				56DB832A2561843D004E5993 /* EBookTrackingApp.swift in Sources */,
+				56DB832C2561843D004E5993 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB83112561843C004E5993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DB831A2561843C004E5993 /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DB831C2561843D004E5993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DB83252561843D004E5993 /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56DB83172561843C004E5993 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56DB83042561843C004E5993 /* EBookTracking (iOS) */;
+			targetProxy = 56DB83162561843C004E5993 /* PBXContainerItemProxy */;
+		};
+		56DB83222561843D004E5993 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56DB830C2561843C004E5993 /* EBookTracking (macOS) */;
+			targetProxy = 56DB83212561843D004E5993 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		56DB83312561843D004E5993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		56DB83322561843D004E5993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		56DB83342561843D004E5993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.EBookTracking;
+				PRODUCT_NAME = EBookTracking;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		56DB83352561843D004E5993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.EBookTracking;
+				PRODUCT_NAME = EBookTracking;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56DB83372561843D004E5993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.EBookTracking;
+				PRODUCT_NAME = EBookTracking;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		56DB83382561843D004E5993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.EBookTracking;
+				PRODUCT_NAME = EBookTracking;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		56DB833A2561843D004E5993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "veit.pro.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EBookTracking (iOS)";
+			};
+			name = Debug;
+		};
+		56DB833B2561843D004E5993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "veit.pro.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EBookTracking (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56DB833D2561843D004E5993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "veit.pro.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "EBookTracking (macOS)";
+			};
+			name = Debug;
+		};
+		56DB833E2561843D004E5993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "veit.pro.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "EBookTracking (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56DB82F92561843A004E5993 /* Build configuration list for PBXProject "EBookTracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56DB83312561843D004E5993 /* Debug */,
+				56DB83322561843D004E5993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56DB83332561843D004E5993 /* Build configuration list for PBXNativeTarget "EBookTracking (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56DB83342561843D004E5993 /* Debug */,
+				56DB83352561843D004E5993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56DB83362561843D004E5993 /* Build configuration list for PBXNativeTarget "EBookTracking (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56DB83372561843D004E5993 /* Debug */,
+				56DB83382561843D004E5993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56DB83392561843D004E5993 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56DB833A2561843D004E5993 /* Debug */,
+				56DB833B2561843D004E5993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56DB833C2561843D004E5993 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56DB833D2561843D004E5993 /* Debug */,
+				56DB833E2561843D004E5993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56DB82FC2561843B004E5993 /* Shared.xcdatamodel */,
+			);
+			currentVersion = 56DB82FC2561843B004E5993 /* Shared.xcdatamodel */;
+			path = EBookTracking.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 56DB82F62561843A004E5993 /* Project object */;
+}
