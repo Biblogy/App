@@ -3,10 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560A7D642572553C00B8548A /* Tests_Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7D632572553C00B8548A /* Tests_Shared.swift */; };
+		56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
+		56BD9D102566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
+		56BD9D22256706670060ACC1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D21256706670060ACC1 /* Alamofire */; };
+		56BD9D292569414A0060ACC1 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D28256941490060ACC1 /* ResponseType.swift */; };
+		56BD9D2A2569414A0060ACC1 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D28256941490060ACC1 /* ResponseType.swift */; };
+		56BD9D43256975080060ACC1 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D42256975080060ACC1 /* SDWebImageSwiftUI */; };
+		56BD9D4D256AFE650060ACC1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D4C256AFE650060ACC1 /* Alamofire */; };
+		56BD9D4F256AFE6B0060ACC1 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D4E256AFE6B0060ACC1 /* SDWebImageSwiftUI */; };
 		56DB831A2561843C004E5993 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB83192561843C004E5993 /* Tests_iOS.swift */; };
 		56DB83252561843D004E5993 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB83242561843D004E5993 /* Tests_macOS.swift */; };
 		56DB83272561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */; };
@@ -19,9 +28,18 @@
 		56DB832E2561843D004E5993 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FF2561843B004E5993 /* Persistence.swift */; };
 		56DB832F2561843D004E5993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DB83002561843C004E5993 /* Assets.xcassets */; };
 		56DB83302561843D004E5993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DB83002561843C004E5993 /* Assets.xcassets */; };
+		56DB834425645D71004E5993 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB834325645D71004E5993 /* Sidebar.swift */; };
+		56DB834525645D71004E5993 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB834325645D71004E5993 /* Sidebar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		560A7D662572553C00B8548A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DB82F62561843A004E5993 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56DB83042561843C004E5993;
+			remoteInfo = "EBookTracking (iOS)";
+		};
 		56DB83162561843C004E5993 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56DB82F62561843A004E5993 /* Project object */;
@@ -39,6 +57,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		560A7D612572553C00B8548A /* Tests Shared.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests Shared.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560A7D632572553C00B8548A /* Tests_Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_Shared.swift; sourceTree = "<group>"; };
+		560A7D652572553C00B8548A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56BD9D0E2566F8D90060ACC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		56BD9D28256941490060ACC1 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		56DB82FC2561843B004E5993 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookTrackingApp.swift; sourceTree = "<group>"; };
 		56DB82FE2561843B004E5993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,13 +78,23 @@
 		56DB83202561843D004E5993 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DB83242561843D004E5993 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		56DB83262561843D004E5993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DB834325645D71004E5993 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		560A7D5E2572553C00B8548A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56DB83022561843C004E5993 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BD9D4F256AFE6B0060ACC1 /* SDWebImageSwiftUI in Frameworks */,
+				56BD9D4D256AFE650060ACC1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BD9D43256975080060ACC1 /* SDWebImageSwiftUI in Frameworks */,
+				56BD9D22256706670060ACC1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +124,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		560A7D622572553C00B8548A /* Tests Shared */ = {
+			isa = PBXGroup;
+			children = (
+				560A7D632572553C00B8548A /* Tests_Shared.swift */,
+				560A7D652572553C00B8548A /* Info.plist */,
+			);
+			path = "Tests Shared";
+			sourceTree = "<group>";
+		};
+		56BD9D27256941330060ACC1 /* Shema */ = {
+			isa = PBXGroup;
+			children = (
+				56BD9D28256941490060ACC1 /* ResponseType.swift */,
+			);
+			path = Shema;
+			sourceTree = "<group>";
+		};
+		56BD9D362569732D0060ACC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		56DB82F52561843A004E5993 = {
 			isa = PBXGroup;
 			children = (
@@ -97,16 +156,21 @@
 				56DB830E2561843C004E5993 /* macOS */,
 				56DB83182561843C004E5993 /* Tests iOS */,
 				56DB83232561843D004E5993 /* Tests macOS */,
+				560A7D622572553C00B8548A /* Tests Shared */,
 				56DB83062561843C004E5993 /* Products */,
+				56BD9D362569732D0060ACC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		56DB82FA2561843B004E5993 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				56BD9D27256941330060ACC1 /* Shema */,
 				56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */,
 				56DB82FE2561843B004E5993 /* ContentView.swift */,
 				56DB82FF2561843B004E5993 /* Persistence.swift */,
+				56DB834325645D71004E5993 /* Sidebar.swift */,
+				56BD9D0E2566F8D90060ACC1 /* AddView.swift */,
 				56DB83002561843C004E5993 /* Assets.xcassets */,
 				56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */,
 			);
@@ -120,6 +184,7 @@
 				56DB830D2561843C004E5993 /* EBookTracking.app */,
 				56DB83152561843C004E5993 /* Tests iOS.xctest */,
 				56DB83202561843D004E5993 /* Tests macOS.xctest */,
+				560A7D612572553C00B8548A /* Tests Shared.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +227,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		560A7D602572553C00B8548A /* Tests Shared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 560A7D682572553C00B8548A /* Build configuration list for PBXNativeTarget "Tests Shared" */;
+			buildPhases = (
+				560A7D5D2572553C00B8548A /* Sources */,
+				560A7D5E2572553C00B8548A /* Frameworks */,
+				560A7D5F2572553C00B8548A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				560A7D672572553C00B8548A /* PBXTargetDependency */,
+			);
+			name = "Tests Shared";
+			productName = "Tests Shared";
+			productReference = 560A7D612572553C00B8548A /* Tests Shared.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		56DB83042561843C004E5993 /* EBookTracking (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56DB83332561843D004E5993 /* Build configuration list for PBXNativeTarget "EBookTracking (iOS)" */;
@@ -175,6 +258,10 @@
 			dependencies = (
 			);
 			name = "EBookTracking (iOS)";
+			packageProductDependencies = (
+				56BD9D4C256AFE650060ACC1 /* Alamofire */,
+				56BD9D4E256AFE6B0060ACC1 /* SDWebImageSwiftUI */,
+			);
 			productName = "EBookTracking (iOS)";
 			productReference = 56DB83052561843C004E5993 /* EBookTracking.app */;
 			productType = "com.apple.product-type.application";
@@ -192,6 +279,10 @@
 			dependencies = (
 			);
 			name = "EBookTracking (macOS)";
+			packageProductDependencies = (
+				56BD9D21256706670060ACC1 /* Alamofire */,
+				56BD9D42256975080060ACC1 /* SDWebImageSwiftUI */,
+			);
 			productName = "EBookTracking (macOS)";
 			productReference = 56DB830D2561843C004E5993 /* EBookTracking.app */;
 			productType = "com.apple.product-type.application";
@@ -241,6 +332,10 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					560A7D602572553C00B8548A = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 56DB83042561843C004E5993;
+					};
 					56DB83042561843C004E5993 = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -266,6 +361,10 @@
 				Base,
 			);
 			mainGroup = 56DB82F52561843A004E5993;
+			packageReferences = (
+				56BD9D20256706670060ACC1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				56BD9D41256975080060ACC1 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 56DB83062561843C004E5993 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,11 +373,19 @@
 				56DB830C2561843C004E5993 /* EBookTracking (macOS) */,
 				56DB83142561843C004E5993 /* Tests iOS */,
 				56DB831F2561843D004E5993 /* Tests macOS */,
+				560A7D602572553C00B8548A /* Tests Shared */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		560A7D5F2572553C00B8548A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56DB83032561843C004E5993 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,14 +419,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		560A7D5D2572553C00B8548A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560A7D642572553C00B8548A /* Tests_Shared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56DB83012561843C004E5993 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DB834425645D71004E5993 /* Sidebar.swift in Sources */,
 				56DB83272561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */,
+				56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */,
 				56DB832D2561843D004E5993 /* Persistence.swift in Sources */,
 				56DB83292561843D004E5993 /* EBookTrackingApp.swift in Sources */,
 				56DB832B2561843D004E5993 /* ContentView.swift in Sources */,
+				56BD9D292569414A0060ACC1 /* ResponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +445,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DB834525645D71004E5993 /* Sidebar.swift in Sources */,
 				56DB83282561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */,
+				56BD9D102566F8D90060ACC1 /* AddView.swift in Sources */,
 				56DB832E2561843D004E5993 /* Persistence.swift in Sources */,
 				56DB832A2561843D004E5993 /* EBookTrackingApp.swift in Sources */,
 				56DB832C2561843D004E5993 /* ContentView.swift in Sources */,
+				56BD9D2A2569414A0060ACC1 /* ResponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +474,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		560A7D672572553C00B8548A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56DB83042561843C004E5993 /* EBookTracking (iOS) */;
+			targetProxy = 560A7D662572553C00B8548A /* PBXContainerItemProxy */;
+		};
 		56DB83172561843C004E5993 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56DB83042561843C004E5993 /* EBookTracking (iOS) */;
@@ -366,6 +492,51 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		560A7D692572553C00B8548A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				INFOPLIST_FILE = "Tests Shared/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "veit.pro.Tests-Shared";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EBookTracking.app/EBookTracking";
+			};
+			name = Debug;
+		};
+		560A7D6A2572553C00B8548A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				INFOPLIST_FILE = "Tests Shared/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "veit.pro.Tests-Shared";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EBookTracking.app/EBookTracking";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		56DB83312561843D004E5993 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -662,6 +833,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		560A7D682572553C00B8548A /* Build configuration list for PBXNativeTarget "Tests Shared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560A7D692572553C00B8548A /* Debug */,
+				560A7D6A2572553C00B8548A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		56DB82F92561843A004E5993 /* Build configuration list for PBXProject "EBookTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -708,6 +888,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		56BD9D20256706670060ACC1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		56BD9D41256975080060ACC1 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56BD9D21256706670060ACC1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56BD9D20256706670060ACC1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		56BD9D42256975080060ACC1 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56BD9D41256975080060ACC1 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		56BD9D4C256AFE650060ACC1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56BD9D20256706670060ACC1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		56BD9D4E256AFE6B0060ACC1 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56BD9D41256975080060ACC1 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */ = {

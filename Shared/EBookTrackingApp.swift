@@ -13,8 +13,60 @@ struct EBookTrackingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            #if os(iOS)
+                NavigationIos()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            #else
+                NavigationMac()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            #endif
         }
+
+    }
+    
+    
+}
+
+#if os(iOS)
+struct NavigationIos: View {
+    var body: some View {
+        NavigationView() {
+            ContentView()
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+//        .toolbar {
+//            ToolbarItem(placement: .navigation) {
+//                Button(action: toggleSidebar, label: {
+//                    Image(systemName: "sidebar.left")
+//                })
+//            }
+//        }
     }
 }
+#endif
+
+struct NavigationMac: View {
+    var body: some View {
+        NavigationView() {
+            Sidebar()
+            
+            ContentView()
+        }
+        .toolbar {
+            ToolbarItem(placement: ToolbarItemPlacement.navigation, content: {
+                Button(action: toggleSidebar, label: {
+                    Image(systemName: "sidebar.left")
+                })
+            })
+        }
+    }
+    
+    private func toggleSidebar() {
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
+    }
+
+}
+

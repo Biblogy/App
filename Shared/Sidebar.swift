@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import Combine
+
+enum NavigationViews {
+    case BookToReadView
+    case BookDoneReadView
+}
+
+class NavigationItem: ObservableObject {
+    init() {
+    }
+}
 
 struct Sidebar: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: HorizontalAlignment.leading) {
+            Text("Hello, World!")
+            Spacer()
+        }.frame(minWidth: 0, maxWidth: .infinity)
     }
 }
 
