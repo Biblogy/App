@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		560A7D642572553C00B8548A /* Tests_Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7D632572553C00B8548A /* Tests_Shared.swift */; };
+		560A7D852572EBEC00B8548A /* BooksDoneRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7D842572EBEC00B8548A /* BooksDoneRead.swift */; };
+		560A7D862572EBEC00B8548A /* BooksDoneRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7D842572EBEC00B8548A /* BooksDoneRead.swift */; };
 		56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
 		56BD9D102566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
 		56BD9D22256706670060ACC1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D21256706670060ACC1 /* Alamofire */; };
@@ -60,6 +62,7 @@
 		560A7D612572553C00B8548A /* Tests Shared.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests Shared.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		560A7D632572553C00B8548A /* Tests_Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_Shared.swift; sourceTree = "<group>"; };
 		560A7D652572553C00B8548A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560A7D842572EBEC00B8548A /* BooksDoneRead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksDoneRead.swift; sourceTree = "<group>"; };
 		56BD9D0E2566F8D90060ACC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		56BD9D28256941490060ACC1 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		56DB82FC2561843B004E5993 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 				56BD9D0E2566F8D90060ACC1 /* AddView.swift */,
 				56DB83002561843C004E5993 /* Assets.xcassets */,
 				56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */,
+				560A7D842572EBEC00B8548A /* BooksDoneRead.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -437,6 +441,7 @@
 				56DB832D2561843D004E5993 /* Persistence.swift in Sources */,
 				56DB83292561843D004E5993 /* EBookTrackingApp.swift in Sources */,
 				56DB832B2561843D004E5993 /* ContentView.swift in Sources */,
+				560A7D852572EBEC00B8548A /* BooksDoneRead.swift in Sources */,
 				56BD9D292569414A0060ACC1 /* ResponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +456,7 @@
 				56DB832E2561843D004E5993 /* Persistence.swift in Sources */,
 				56DB832A2561843D004E5993 /* EBookTrackingApp.swift in Sources */,
 				56DB832C2561843D004E5993 /* ContentView.swift in Sources */,
+				560A7D862572EBEC00B8548A /* BooksDoneRead.swift in Sources */,
 				56BD9D2A2569414A0060ACC1 /* ResponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

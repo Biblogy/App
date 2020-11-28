@@ -46,11 +46,19 @@ struct NavigationIos: View {
 #endif
 
 struct NavigationMac: View {
+    @ObservedObject var items = NavigationItemData(view: .BookToReadView)
     var body: some View {
         NavigationView() {
-            Sidebar()
+            Sidebar(items: items)
             
-            ContentView()
+            VStack() {
+                switch items.view {
+                case .BookToReadView:
+                    ContentView()
+                case .BookDoneReadView:
+                    BooksDoneRead()
+                }
+            }
         }
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.navigation, content: {
