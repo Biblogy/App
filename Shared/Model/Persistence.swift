@@ -14,7 +14,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
+            let newItem = Book(context: viewContext)
 //            newItem.timestamp = Date()
             newItem.title = "demo"
             newItem.progress = 0

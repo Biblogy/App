@@ -6,15 +6,65 @@
 //
 
 import SwiftUI
+import Alamofire
+import SDWebImageSwiftUI
+import CoreData
+import Combine
 
+#if os(iOS)
 struct AddViewIOS: View {
+    @Binding var isOpen: Bool
+    @State private var bookTitle = "QualityLand"
+    @State private var books = [Doc]()
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView() {
+            VStack() {
+                List() {
+                    TextField("Search", text: $bookTitle)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                    VStack() {
+                        CustomAddView(title: $bookTitle)
+                    }
+                    ForEach(books) { book in
+                        VStack() {
+                            
+                            HStack() {
+                                DisplayInformation(book: book)
+                            }.frame(minWidth: 0, maxWidth: .infinity)
+                            
+                            AddViewControll(book: book)
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Add View")
+            .toolbar(content: {
+                ToolbarItemGroup(placement: .navigationBarTrailing, content: {
+                    Button(action: {
+                        isOpen.toggle()
+                    }, label: {
+                        Text("Close")
+                    })
+                    
+                    Button(action: {
+                        getBooks(bookTitle: bookTitle) { result in
+                            switch result {
+                            case .failure(let error):
+                                print(error)
+                            case .success(let value):
+                                books = value
+                                print(books)
+                            }
+                        }
+                    }, label: {
+                        Text("Search")
+                    })
+                })
+            })
+        }
     }
 }
-
-struct AddViewIOS_Previews: PreviewProvider {
-    static var previews: some View {
-        AddViewIOS()
-    }
-}
+#endif

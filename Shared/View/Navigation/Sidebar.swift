@@ -18,6 +18,9 @@ struct Sidebar: View {
                 NavigationLink(destination: BooksDoneRead(), label: {
                     Label("Books Done", systemImage: "book.closed")
                 })
+                NavigationLink(destination: ChallengeView(), label: {
+                    Label("Challenges", systemImage: "book.closed")
+                })
             }
             Spacer()
         }.frame(minWidth: 0, maxWidth: .infinity)

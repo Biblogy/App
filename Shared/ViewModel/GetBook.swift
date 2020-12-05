@@ -6,3 +6,21 @@
 //
 
 import Foundation
+import Combine
+import Alamofire
+
+func getBooks(bookTitle: String, completion: @escaping (Result<[Doc], Error>) -> Void) {
+    print("=====")
+    let url = "https://openlibrary.org/search.json?title=\(bookTitle)"
+    print(url)
+    AF.request(url, method: .get)
+        .validate()
+        .responseDecodable(of: Welcome.self) { (response) in
+            switch response.result {
+            case .success(let value):
+                completion(.success(value.docs))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+}
