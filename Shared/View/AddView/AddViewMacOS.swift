@@ -27,17 +27,21 @@ struct AddViewMacOS: View {
                 VStack() {
                     CustomAddView(title: $bookTitle)
                 }
+                
+                if !books.isEmpty {
+                    Text("Search Results").font(Font.subheadline).padding([.leading], 7)
+                }
+                
                 ForEach(books) { book in
-                    VStack() {
-                        HStack() {
-                            DisplayInformation(book: book)
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                        
-                        AddViewControll(book: book)
+                    GroupBox() {
+                        VStack() {
+                            HStack() {
+                                DisplayInformation(book: book)
+                            }.frame(minWidth: 0, maxWidth: .infinity)
+                            
+                            AddViewControll(book: book)
+                        }
                     }
-                    .padding()
-                    .background(Color.secondary.opacity(0.3))
-                    .cornerRadius(5)
                 }
             }
         }

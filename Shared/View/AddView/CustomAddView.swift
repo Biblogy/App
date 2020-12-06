@@ -22,14 +22,26 @@ struct CustomAddView: View {
                 HStack() {
                     Text("Title:")
                     TextField("Title", text: self.$title)
+                        .background(
+                          RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color.secondary, lineWidth: 1)
+                        )
                 }
                 HStack() {
                     Text("Author:")
                     TextField("Author", text: self.$author)
+                        .background(
+                          RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color.secondary, lineWidth: 1)
+                        )
                 }
                 HStack() {
                     Text("Pages:")
                     TextField("Pages", text: self.$pages)
+                        .background(
+                          RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color.secondary, lineWidth: 1)
+                        )
                         .onReceive(Just(pages)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
                             if filtered != newValue {

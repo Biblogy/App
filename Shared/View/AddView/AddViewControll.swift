@@ -23,7 +23,6 @@ struct AddViewControll: View {
                         book.pages = filtered
                     }
                 }
-                .padding(3)
                 .background(
                   RoundedRectangle(cornerRadius: 5)
                     .strokeBorder(book.isCorrect ?? false ? Color.red : Color.secondary, lineWidth: 1)

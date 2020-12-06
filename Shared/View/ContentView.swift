@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(items) { item in
-                BookView(item: ObservableBook(item: item)).padding().background(Color.secondary.opacity(0.3)).cornerRadius(5)
+                BookView(item: ObservableBook(item: item))
             }
             .onDelete(perform: deleteItems)
         }
