@@ -11,14 +11,24 @@
         <attribute name="progress" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="year" optional="YES" attributeType="String"/>
+        <relationship name="bookProgress" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Progress" inverseName="progressBook" inverseEntity="Progress"/>
+    </entity>
+    <entity name="Challenges" representedClassName="Challenges" syncable="YES" codeGenerationType="class">
+        <attribute name="book" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timeType" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Progress" representedClassName="Progress" syncable="YES" codeGenerationType="class">
         <attribute name="bookid" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="progress" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="progressBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookProgress" inverseEntity="Book"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-63" positionY="-18" width="128" height="179"/>
-        <element name="Progress" positionX="-63" positionY="54" width="128" height="74"/>
+        <element name="Book" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="Challenges" positionX="144" positionY="126" width="128" height="104"/>
+        <element name="Progress" positionX="350.59228515625" positionY="185.2919921875" width="128" height="89"/>
     </elements>
 </model>

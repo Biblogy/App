@@ -36,6 +36,8 @@
 		560A7E1B2576C03200B8548A /* NavigationIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E192576C03200B8548A /* NavigationIos.swift */; };
 		560A7E272576C05500B8548A /* NavigationMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E262576C05500B8548A /* NavigationMacOS.swift */; };
 		560A7E282576C05500B8548A /* NavigationMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E262576C05500B8548A /* NavigationMacOS.swift */; };
+		561060F1257D35B400A4A2AF /* AddChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561060F0257D35B400A4A2AF /* AddChallenge.swift */; };
+		56106101257D7B2800A4A2AF /* AddChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561060F0257D35B400A4A2AF /* AddChallenge.swift */; };
 		563AEC2E257C20DB00E26BE1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */; };
 		563AEC2F257C20DB00E26BE1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */; };
 		56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
@@ -104,6 +106,7 @@
 		560A7E0B2576BECD00B8548A /* AddViewMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewMacOS.swift; sourceTree = "<group>"; };
 		560A7E192576C03200B8548A /* NavigationIos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIos.swift; sourceTree = "<group>"; };
 		560A7E262576C05500B8548A /* NavigationMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMacOS.swift; sourceTree = "<group>"; };
+		561060F0257D35B400A4A2AF /* AddChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallenge.swift; sourceTree = "<group>"; };
 		563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		56BD9D0E2566F8D90060ACC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		56BD9D28256941490060ACC1 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 		560A7D9425757DC600B8548A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				561060EF257D359E00A4A2AF /* ConifugreChallenge */,
 				563AEC2C257C209100E26BE1 /* MainViews */,
 				560A7E182576C02100B8548A /* Navigation */,
 				560A7DFA2576BE3C00B8548A /* AddView */,
@@ -229,6 +233,14 @@
 				56DB834325645D71004E5993 /* Sidebar.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		561060EF257D359E00A4A2AF /* ConifugreChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				561060F0257D35B400A4A2AF /* AddChallenge.swift */,
+			);
+			path = ConifugreChallenge;
 			sourceTree = "<group>";
 		};
 		563AEC2C257C209100E26BE1 /* MainViews */ = {
@@ -558,6 +570,7 @@
 				56DB832B2561843D004E5993 /* ContentView.swift in Sources */,
 				560A7DC62575814E00B8548A /* GetBook.swift in Sources */,
 				560A7DF325758F7500B8548A /* CustomAddView.swift in Sources */,
+				561060F1257D35B400A4A2AF /* AddChallenge.swift in Sources */,
 				560A7D852572EBEC00B8548A /* BooksDoneRead.swift in Sources */,
 				56BD9D292569414A0060ACC1 /* ResponseType.swift in Sources */,
 				560A7E272576C05500B8548A /* NavigationMacOS.swift in Sources */,
@@ -587,6 +600,7 @@
 				56DB832C2561843D004E5993 /* ContentView.swift in Sources */,
 				560A7DC72575814E00B8548A /* GetBook.swift in Sources */,
 				560A7DF425758F7500B8548A /* CustomAddView.swift in Sources */,
+				56106101257D7B2800A4A2AF /* AddChallenge.swift in Sources */,
 				560A7D862572EBEC00B8548A /* BooksDoneRead.swift in Sources */,
 				56BD9D2A2569414A0060ACC1 /* ResponseType.swift in Sources */,
 				560A7E282576C05500B8548A /* NavigationMacOS.swift in Sources */,

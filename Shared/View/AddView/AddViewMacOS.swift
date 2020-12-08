@@ -15,7 +15,7 @@ import Combine
 struct AddViewMacOS: View {
     @Binding var isOpen: Bool
     @State private var bookTitle = "QualityLand"
-    @State private var books = [Doc]()
+    @State private var books = [BookItem]()
     @Environment(\.managedObjectContext) private var viewContext
         
     var body: some View {

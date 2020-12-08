@@ -60,6 +60,12 @@ struct BookView: View {
                                 } else {
                                     hasError = false
                                     item.item.progress = newRead
+                                    
+                                    let progress = Progress()
+                                    progress.date = Date()
+                                    progress.progress = Int64(newRead)
+                                    progress.bookid = item.item.id
+                                    item.item.addToBookProgress(progress)
                                 }
                                 
                                 if item.item.pages == item.item.progress {

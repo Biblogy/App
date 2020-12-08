@@ -10,7 +10,7 @@ import Alamofire
 import CoreData
 import Combine
 
-func DisplayInformation(book: Doc) -> some View {
+func DisplayInformation(book: BookItem) -> some View {
     return VStack(alignment: .leading) {
         Text(book.title).font(.headline)
         Text("Author:")

@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 struct AddViewControll: View {
-    @State var book: Doc
+    @State var book: BookItem
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {

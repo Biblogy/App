@@ -14,7 +14,7 @@ struct EBookTrackingApp: App {
     var body: some Scene {
         WindowGroup {
             #if os(iOS)
-                NavigationIos()
+                TabViewIos()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             #else
                 NavigationMac()

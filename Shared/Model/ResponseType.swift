@@ -1,14 +1,14 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
+//   let welcome = try? newJSONDecoder().decode(BooksResponse.self, from: jsonData)
 
 import Foundation
 
-// MARK: - Welcome
-struct Welcome: Codable {
+// MARK: - BooksResponse
+struct BooksResponse: Codable {
     let start, welcomeNumFound, numFound: Int
-    let docs: [Doc]
+    let docs: [BookItem]
 
     enum CodingKeys: String, CodingKey {
         case start
@@ -17,8 +17,8 @@ struct Welcome: Codable {
     }
 }
 
-// MARK: - Doc
-struct Doc: Codable, Identifiable {
+// MARK: - Book
+struct BookItem: Codable, Identifiable {
     let id: String
     let titleSuggest: String
     let editionKey: [String]
