@@ -10,6 +10,7 @@ import SwiftUI
 struct ChallengeView: View {
     @State private var selected = 1
     
+    @EnvironmentObject var sheetData: AddSheetData
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -29,10 +30,20 @@ struct ChallengeView: View {
             
             List() {
                 ForEach(items) { item in
-                    Text(String(item.challengeBook?.title ?? "error"))
+                    GroupBox() {
+                        HStack() {
+                            Text(String(item.challengeBook?.title ?? "error"))
+                            Spacer()
+                            Text(String("/\(item.time)"))
+                                .foregroundColor(Color.green)
+                                .bold()
+                        }
+                        .font(.system(.title))
+                    }
                 }.onDelete(perform: deleteItems)
             }
-        }.sheet(isPresented: self.$openAdd, content: {
+        }
+        .sheet(isPresented: self.$openAdd, content: {
             AddChallenge(isOpen: self.$openAdd)
         })
         .padding([.top], 10)

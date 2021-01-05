@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct BookView: View {
-    @ObservedObject var item: ObservableBook
+    @ObservedObject var item: BookModel
     @State private var hasError = false
     @Environment(\.managedObjectContext) private var viewContext
 

@@ -24,6 +24,7 @@ struct TabViewIos: View {
 
 struct NavigationIos: View {
     @State private var showAddView = false
+    @EnvironmentObject var sheetData: AddSheetData
 
     var body: some View {
         NavigationView() {
@@ -34,7 +35,7 @@ struct NavigationIos: View {
                     })
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing, content: {
-                        Button(action: {showAddView.toggle()}) {
+                        Button(action: {self.sheetData.isOpen.toggle()}) {
                             Label("Add Item", systemImage: "plus")
                         }
                     })
@@ -42,8 +43,12 @@ struct NavigationIos: View {
                 .navigationBarTitle("Booer")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: self.$showAddView, content: {
-            AddView(isOpen: self.$showAddView)
+        .sheet(isPresented: self.$sheetData.isOpen, content: {
+            if sheetData.selectedSheet == .AddBook {
+                AddView(isOpen: self.$showAddView)
+            } else if sheetData.selectedSheet == .AddChallenge {
+                AddView(isOpen: self.$showAddView)
+            }
         })
     }
 }

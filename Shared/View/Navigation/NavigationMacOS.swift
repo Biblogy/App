@@ -9,28 +9,38 @@ import SwiftUI
 
 struct NavigationMac: View {
     @State private var showAddView = false
+    @EnvironmentObject var sheetData: AddSheetData
 
     var body: some View {
-        NavigationView() {
-            Sidebar()
-            
-            ContentView()
-        }
-        .toolbar {
-            ToolbarItem(placement: ToolbarItemPlacement.navigation, content: {
-                Button(action: toggleSidebar, label: {
-                    Image(systemName: "sidebar.left")
+        VStack() {
+            NavigationView() {
+                Sidebar()
+                
+                ContentView()
+            }
+            .toolbar {
+                ToolbarItem(placement: ToolbarItemPlacement.navigation, content: {
+                    Button(action: toggleSidebar, label: {
+                        Image(systemName: "sidebar.left")
+                    })
                 })
-            })
-            ToolbarItem(content: {
-                Button(action: {showAddView.toggle()}) {
-                    Label("Add Item", systemImage: "plus")
+                ToolbarItem(content: {
+                    Button(action: {
+                        sheetData.selectedSheet = .AddBook
+                        sheetData.isOpen.toggle()
+                    }) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                })
+            }
+            .sheet(isPresented: self.$sheetData.isOpen, content: {
+                if sheetData.selectedSheet == .AddBook {
+                    AddView(isOpen: self.$showAddView)
+                } else if sheetData.selectedSheet == .AddChallenge {
+                    AddView(isOpen: self.$showAddView)
                 }
             })
         }
-        .sheet(isPresented: self.$showAddView, content: {
-            AddView(isOpen: self.$showAddView)
-        })
     }
     
     private func toggleSidebar() {

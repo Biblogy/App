@@ -7,19 +7,32 @@
 
 import SwiftUI
 
+enum addSheets {
+    case AddBook
+    case AddChallenge
+}
+
+class AddSheetData: ObservableObject {
+    @Published var selectedSheet = addSheets.AddBook
+    @Published var isOpen = false
+}
+
 @main
 struct EBookTrackingApp: App {
+    var sheetData = AddSheetData()
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            #if os(iOS)
-                TabViewIos()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            #else
-                NavigationMac()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            #endif
+            VStack() {
+                #if os(iOS)
+                    TabViewIos()
+                #else
+                    NavigationMac()
+                #endif
+            }
+            .environmentObject(sheetData)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
 
     }

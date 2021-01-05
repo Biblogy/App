@@ -11,6 +11,7 @@ import Combine
 
 struct BooksDoneRead: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var sheetData: AddSheetData
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Book.progress, ascending: true)],
@@ -20,7 +21,7 @@ struct BooksDoneRead: View {
     var body: some View {
         List {
             ForEach(items) { item in
-                BookView(item: ObservableBook(item: item))
+                BookView(item: BookModel(item: item))
             }
             .onDelete(perform: deleteItems)
         }
