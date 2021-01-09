@@ -38,6 +38,8 @@
 		560A7E282576C05500B8548A /* NavigationMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E262576C05500B8548A /* NavigationMacOS.swift */; };
 		561060F1257D35B400A4A2AF /* AddChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561060F0257D35B400A4A2AF /* AddChallenge.swift */; };
 		56106101257D7B2800A4A2AF /* AddChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561060F0257D35B400A4A2AF /* AddChallenge.swift */; };
+		562ADCB725A78DAF00841ADD /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADCB625A78DAF00841ADD /* ChallengeModel.swift */; };
+		562ADCB825A78DAF00841ADD /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADCB625A78DAF00841ADD /* ChallengeModel.swift */; };
 		563AEC2E257C20DB00E26BE1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */; };
 		563AEC2F257C20DB00E26BE1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */; };
 		56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
@@ -107,6 +109,7 @@
 		560A7E192576C03200B8548A /* NavigationIos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIos.swift; sourceTree = "<group>"; };
 		560A7E262576C05500B8548A /* NavigationMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMacOS.swift; sourceTree = "<group>"; };
 		561060F0257D35B400A4A2AF /* AddChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallenge.swift; sourceTree = "<group>"; };
+		562ADCB625A78DAF00841ADD /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
 		563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		56BD9D0E2566F8D90060ACC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		56BD9D28256941490060ACC1 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 				560A7DBD2575813300B8548A /* ExtensionOptional.swift */,
 				560A7DC52575814E00B8548A /* GetBook.swift */,
 				560A7DB52575807D00B8548A /* AddItem.swift */,
+				562ADCB625A78DAF00841ADD /* ChallengeModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -562,6 +566,7 @@
 				560A7DA125757E1900B8548A /* BookModel.swift in Sources */,
 				560A7DFC2576BE4800B8548A /* AddViewIOS.swift in Sources */,
 				560A7E042576BE8400B8548A /* DisplayInfo.swift in Sources */,
+				562ADCB725A78DAF00841ADD /* ChallengeModel.swift in Sources */,
 				560A7D8D25757DAA00B8548A /* BookView.swift in Sources */,
 				56DB834425645D71004E5993 /* Sidebar.swift in Sources */,
 				560A7E1A2576C03200B8548A /* NavigationIos.swift in Sources */,
@@ -592,6 +597,7 @@
 				560A7DA225757E1900B8548A /* BookModel.swift in Sources */,
 				560A7DFD2576BE4800B8548A /* AddViewIOS.swift in Sources */,
 				560A7E052576BE8400B8548A /* DisplayInfo.swift in Sources */,
+				562ADCB825A78DAF00841ADD /* ChallengeModel.swift in Sources */,
 				560A7D8E25757DAA00B8548A /* BookView.swift in Sources */,
 				56DB834525645D71004E5993 /* Sidebar.swift in Sources */,
 				560A7E1B2576C03200B8548A /* NavigationIos.swift in Sources */,

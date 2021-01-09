@@ -18,35 +18,13 @@ struct NavigationMac: View {
                 
                 ContentView()
             }
-            .toolbar {
-                ToolbarItem(placement: ToolbarItemPlacement.navigation, content: {
-                    Button(action: toggleSidebar, label: {
-                        Image(systemName: "sidebar.left")
-                    })
-                })
-                ToolbarItem(content: {
-                    Button(action: {
-                        sheetData.selectedSheet = .AddBook
-                        sheetData.isOpen.toggle()
-                    }) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                })
-            }
             .sheet(isPresented: self.$sheetData.isOpen, content: {
                 if sheetData.selectedSheet == .AddBook {
-                    AddView(isOpen: self.$showAddView)
+                    AddView(isOpen: self.$sheetData.isOpen)
                 } else if sheetData.selectedSheet == .AddChallenge {
-                    AddView(isOpen: self.$showAddView)
+                    AddChallenge(isOpen: self.$sheetData.isOpen)
                 }
             })
         }
-    }
-    
-    private func toggleSidebar() {
-        #if os(iOS)
-        #else
-        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
-        #endif
     }
 }

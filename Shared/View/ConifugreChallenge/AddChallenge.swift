@@ -31,26 +31,27 @@ struct AddChallenge: View {
     @ObservedObject var data = challengeData(bookTitle: "select a book")
     
     var body: some View {
-        NavigationView() {
+//        NavigationView() {
             VStack() {
-                Picker("", selection: $selected) {
-                    Text("Book")
-                    Text("Time")
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .frame(width: 200)
+//                Picker("", selection: $selected) {
+//                    Text("Book")
+//                    Text("Time")
+//                }
+//                .pickerStyle(SegmentedPickerStyle())
+//                .frame(width: 200)
                 
                 Text("I will read").font(.title).bold().frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 HStack() {
                     Text("for").font(.title).bold()
                     Spacer()
                     TextField("10", text: $time)
-                    Menu(self.menuTime.rawValue) {
-                        Button("days") { self.menuTime = .days }
-                        Button("weeks") { self.menuTime = .weeks }
-                        Button("month") { self.menuTime = .month }
-                        Button("years") { self.menuTime = .years }
-                    }
+                    Text("days").font(.title).bold()
+//                    Menu(self.menuTime.rawValue) {
+//                        Button("days") { self.menuTime = .days }
+//                        Button("weeks") { self.menuTime = .weeks }
+//                        Button("month") { self.menuTime = .month }
+//                        Button("years") { self.menuTime = .years }
+//                    }
                 }
                 HStack() {
                     Text("the book:").font(.title).bold()
@@ -87,7 +88,7 @@ struct AddChallenge: View {
                         Text("Close")
                     })
                 }
-                
+
                 ToolbarItem(placement: ToolbarItemPlacement.confirmationAction) {
                     Button(action: {
                         if self.data.book != nil {
@@ -99,8 +100,8 @@ struct AddChallenge: View {
                 }
             })
             .padding([.top, .leading, .trailing], 20)
-        }
-        .frame(minWidth: 0, idealWidth: 500, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
+            .frame(minWidth: 0, idealWidth: 500, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
+//    }
     }
 
     func addChallenge(bookId: String, time: Int16, timeType: String, book: Book) {

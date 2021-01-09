@@ -12,16 +12,16 @@ import Combine
 
 func DisplayInformation(book: BookItem) -> some View {
     return VStack(alignment: .leading) {
-        Text(book.title).font(.headline)
+        Text(book.title ?? "Error").font(.headline)
         Text("Author:")
         
-        ForEach(Array(Set(book.authorName)), id: \.self) { name in
+        ForEach(Array(Set(book.authorName ?? ["Error"])).sorted(), id: \.self) { name in
             Text(name)
         }
         
         Text("Date:")
         
-        ForEach(Array(Set(arrayLiteral: String("\(book.publishYear)"))), id: \.self) { date in
+        ForEach(Array(Set(arrayLiteral: String("\(book.publishYear)"))).sorted(), id: \.self) { date in
             Text(date)
         }
         Spacer()

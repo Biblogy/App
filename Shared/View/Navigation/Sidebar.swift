@@ -51,7 +51,20 @@ struct Sidebar: View {
             
             Spacer()
         }.frame(minWidth: 0, maxWidth: .infinity)
-
+        .toolbar {
+            ToolbarItem(content: {
+                Button(action: toggleSidebar, label: {
+                    Image(systemName: "sidebar.left")
+                })
+            })
+        }
+    }
+    
+    private func toggleSidebar() {
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
     }
 }
 

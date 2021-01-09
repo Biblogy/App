@@ -21,10 +21,19 @@ struct BooksDoneRead: View {
     var body: some View {
         List {
             ForEach(items) { item in
-                BookView(item: BookModel(item: item))
+                BookView(item: BookModel(item: item, context: viewContext))
             }
             .onDelete(perform: deleteItems)
-        }
+        }.toolbar(content: {
+            ToolbarItem(content: {
+                Button(action: {
+                    sheetData.selectedSheet = .AddBook
+                    sheetData.isOpen.toggle()
+                }) {
+                    Label("Add Item", systemImage: "plus")
+                }
+            })
+        })
     }
     
     private func deleteItems(offsets: IndexSet) {

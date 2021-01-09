@@ -55,26 +55,7 @@ struct BookView: View {
                             Button(action: {
                                 let newRead = Float(item.read) ?? item.item.progress
                                 print(newRead)
-                                if newRead > item.item.pages {
-                                    hasError = true
-                                } else {
-                                    hasError = false
-                                    item.item.progress = newRead
-                                    
-                                    let progress = Progress()
-                                    progress.date = Date()
-                                    progress.progress = Int64(newRead)
-                                    progress.bookid = item.item.id
-                                    item.item.addToBookProgress(progress)
-                                }
-                                
-                                if item.item.pages == item.item.progress {
-                                    item.item.done = true
-                                    item.item.doneAt = Date()
-                                } else {
-                                    item.item.done = false
-                                    item.item.doneAt = nil
-                                }
+                                hasError = item.updateItem(read: newRead)
                                 
                                 do {
                                     try viewContext.save()
@@ -90,15 +71,7 @@ struct BookView: View {
                             })
                         } else {
                             Button(action: {
-                                item.item.progress -= 1
-                                
-                                if item.item.pages == item.item.progress {
-                                    item.item.done = true
-                                    item.item.doneAt = Date()
-                                } else {
-                                    item.item.done = false
-                                    item.item.doneAt = nil
-                                }
+                                item.editItem()
                                 
                                 do {
                                     try viewContext.save()
@@ -109,7 +82,7 @@ struct BookView: View {
                                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                                 }
                             }, label: {
-                                Text("Edit")
+                                Text("Not Done ?")
                             })
                         }
                     }

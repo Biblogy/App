@@ -20,24 +20,24 @@ struct BooksResponse: Codable {
 // MARK: - Book
 struct BookItem: Codable, Identifiable {
     let id: String
-    let titleSuggest: String
-    let editionKey: [String]
+    let titleSuggest: String?
+    let editionKey: [String]?
     let coverI: Int?
     let isbn: [String]?
-    let hasFulltext: Bool
-    let text, authorName, seed: [String]
+    let hasFulltext: Bool?
+    let text, authorName, seed: [String]?
     let oclc: [String]?
-    let authorKey: [String]
+    let authorKey: [String]?
     let subject: [String]?
-    let title: String
-    let publishDate: [String]
-    let type: String
-    let ebookCountI: Int
-    let publishPlace: [String]
-    let editionCount: Int
+    let title: String?
+    let publishDate: [String]?
+    let type: String?
+    let ebookCountI: Int?
+    let publishPlace: [String]?
+    let editionCount: Int?
     let lcc: [String]?
-    let publisher, language: [String]
-    let lastModifiedI: Int
+    let publisher, language: [String]?
+    let lastModifiedI: Int?
     let coverEditionKey: String?
     let publishYear: [Int]?
     let firstPublishYear: Int?

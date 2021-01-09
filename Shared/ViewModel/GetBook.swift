@@ -11,7 +11,7 @@ import Alamofire
 
 func getBooks(bookTitle: String, completion: @escaping (Result<[BookItem], Error>) -> Void) {
     print("=====")
-    let url = "https://openlibrary.org/search.json?title=\(bookTitle)"
+    let url = "https://openlibrary.org/search.json?q=\(bookTitle.replacingOccurrences(of: " ", with: "+"))&mode=everything"
     print(url)
     AF.request(url, method: .get)
         .validate()

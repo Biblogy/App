@@ -47,25 +47,29 @@ struct AddViewMacOS: View {
         }
         .padding([.leading, .trailing, .top])
         .toolbar(content: {
-            Button(action: {
-                isOpen.toggle()
-            }, label: {
-                Text("Close")
-            })
+            ToolbarItem(placement: ToolbarItemPlacement.cancellationAction) {
+                Button(action: {
+                    isOpen.toggle()
+                }, label: {
+                    Text("Close")
+                })
+            }
             
-            Button(action: {
-                getBooks(bookTitle: bookTitle) { result in
-                    switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(let value):
-                        books = value
-                        print(books)
+            ToolbarItem(placement: ToolbarItemPlacement.confirmationAction) {
+                Button(action: {
+                    getBooks(bookTitle: bookTitle) { result in
+                        switch result {
+                        case .failure(let error):
+                            print(error)
+                        case .success(let value):
+                            books = value
+                            print(books)
+                        }
                     }
-                }
-            }, label: {
-                Text("Search")
-            })
+                }, label: {
+                    Text("Search")
+                })
+            }
         })
         .frame(minWidth: 0, idealWidth: 500, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
     }
