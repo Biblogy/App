@@ -23,7 +23,7 @@ struct BooksDoneRead: View {
             ForEach(items) { item in
                 BookView(item: BookModel(item: item, context: viewContext))
             }
-            .onDelete(perform: deleteItems)
+//            .onDelete(perform: deleteItems)
         }.toolbar(content: {
             ToolbarItem(content: {
                 Button(action: {
