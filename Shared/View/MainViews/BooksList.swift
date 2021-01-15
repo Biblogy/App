@@ -14,7 +14,7 @@ struct ContentView: View {
     @EnvironmentObject var sheetData: AddSheetData
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Book.progress, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)],
         predicate: NSPredicate(format: "done == false"), animation: .default)
     private var items: FetchedResults<Book>
         

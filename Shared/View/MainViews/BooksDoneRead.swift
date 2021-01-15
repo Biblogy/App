@@ -14,7 +14,7 @@ struct BooksDoneRead: View {
     @EnvironmentObject var sheetData: AddSheetData
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Book.progress, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Book.doneAt, ascending: false)],
         predicate: NSPredicate(format: "done == true"), animation: .default)
     private var items: FetchedResults<Book>
     

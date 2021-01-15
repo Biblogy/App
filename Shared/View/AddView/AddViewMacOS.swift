@@ -17,15 +17,26 @@ struct AddViewMacOS: View {
     @State private var bookTitle = "QualityLand"
     @State private var books = [BookItem]()
     @Environment(\.managedObjectContext) private var viewContext
-        
+    @State private var addCustomShow = false
+    
     var body: some View {
         VStack() {
-            TextField("Search", text: $bookTitle)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
             
+            if !addCustomShow {
+                TextField("Search", text: $bookTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding([.leading, .trailing,])
+            } else {
+                CustomAddView(title: $bookTitle)
+                    .padding([.leading, .trailing,])
+            }
             List() {
                 VStack() {
-                    CustomAddView(title: $bookTitle)
+                    Button(action: {
+                        addCustomShow.toggle()
+                    }) {
+                        Text(self.addCustomShow ? "Back to search" : "Not Found? Add it your self")
+                    }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 
                 if !books.isEmpty {
@@ -45,7 +56,7 @@ struct AddViewMacOS: View {
                 }
             }
         }
-        .padding([.leading, .trailing, .top])
+        .padding([.top])
         .toolbar(content: {
             ToolbarItem(placement: ToolbarItemPlacement.cancellationAction) {
                 Button(action: {

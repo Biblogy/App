@@ -45,6 +45,7 @@ struct BookView: View {
                                                     .strokeBorder(hasError ? Color.red : Color.secondary, lineWidth: 1)
                                     )
                                     .cornerRadius(5.0)
+                                    .frame(maxWidth: 100)
                             } else {
                                 Text("Done")
                                     .foregroundColor(Color.green)
@@ -57,6 +58,7 @@ struct BookView: View {
                                     let newRead = Float(item.read) ?? item.item.progress
                                     print(newRead)
                                     hasError = item.updateItem(read: newRead)
+                                    item.getChallenge()
                                     
                                     do {
                                         try viewContext.save()
@@ -97,9 +99,20 @@ struct BookView: View {
                 
                 Image(systemName: "xmark").onTapGesture {
                     viewContext.delete(item.item)
+                    
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        // Replace this implementation with code to handle the error appropriately.
+                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    }
                 }
             }
-        }
+        }.onAppear(perform: {
+            item.getChallenge()
+        })
     }
 }
 

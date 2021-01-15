@@ -17,9 +17,16 @@ class AddSheetData: ObservableObject {
     @Published var isOpen = false
 }
 
+class DeleteAlert: ObservableObject {
+    @Published var objectName = ""
+    @Published var item: NSObject?
+    @Published var show = false
+}
+
 @main
 struct EBookTrackingApp: App {
     var sheetData = AddSheetData()
+    var alertData = DeleteAlert()
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

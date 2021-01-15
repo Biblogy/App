@@ -19,6 +19,7 @@ func addItem(book: BookItem, viewContext: NSManagedObjectContext) {
         newItem.author = "veit"
         newItem.isbn = "w"
         newItem.year = "ww"
+        newItem.addedAt = Date()
         newItem.id = UUID().uuidString
         newItem.done = false
         newItem.pages = Float(book.pages ?? "0") ?? 0

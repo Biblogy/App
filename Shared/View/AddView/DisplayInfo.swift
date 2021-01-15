@@ -15,14 +15,16 @@ func DisplayInformation(book: BookItem) -> some View {
         Text(book.title ?? "Error").font(.headline)
         Text("Author:")
         
-        ForEach(Array(Set(book.authorName ?? ["Error"])).sorted(), id: \.self) { name in
-            Text(name)
+        Group() {
+            ForEach(Array(Set(book.authorName ?? ["Error"])).sorted(), id: \.self) { name in
+                Text(name)
+            }
         }
+
+        Text("Date:").padding([.top], 5)
         
-        Text("Date:")
-        
-        ForEach(Array(Set(arrayLiteral: String("\(book.publishYear)"))).sorted(), id: \.self) { date in
-            Text(date)
+        ForEach(Array(Set(book.publishYear?.sorted() ?? [])), id: \.self) { date in
+            Text(String(date))
         }
         Spacer()
     }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

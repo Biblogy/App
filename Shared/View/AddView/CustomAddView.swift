@@ -55,9 +55,9 @@ struct CustomAddView: View {
                             let newItem = Book(context: viewContext)
                             newItem.title = title
                             newItem.progress = 0
-                            newItem.author = "veit"
-                            newItem.isbn = "w"
-                            newItem.year = "ww"
+                            newItem.author = author
+                            newItem.isbn = "000"
+                            newItem.year = "000"
                             newItem.id = UUID().uuidString
                             newItem.pages = Float(pages) ?? 0
 

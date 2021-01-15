@@ -13,17 +13,17 @@ struct ChallengeView: View {
     @EnvironmentObject var sheetData: AddSheetData
     @Environment(\.managedObjectContext) private var viewContext
 
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Challenges.start, ascending: false)], animation: .default)
-        
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Challenges.start, ascending: false)],predicate: NSPredicate(format: "isDone == false"), animation: .default)
+    
     private var items: FetchedResults<Challenges>
     
     var body: some View {
         VStack() {
-            List() {
-                ForEach(items) { item in
-                    ChallengeItemView(data: ChallengeModel(challenge: item))
+            VStack() {
+                List() {
+                    ChallengeSectionNotDone()
+                    ChallengeSectionDone()
                 }
-//                .onDelete(perform: deleteItems)
             }
         }
         .toolbar(content: {
@@ -38,52 +38,72 @@ struct ChallengeView: View {
         })
         .padding([.top], 10)
     }
+}
+
+struct ChallengeSectionNotDone: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Challenges.start, ascending: false)],predicate: NSPredicate(format: "isDone == false"), animation: .default)
     
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
+    private var items: FetchedResults<Challenges>
+    
+    var body: some View {
+        Section(header: Text("ToDo:"), content: {
+            ForEach(items) { item in
+                HStack() {
+                    ChallengeItemView(data: item)
+                }
+            }
+        })
+    }
+}
+
+struct ChallengeSectionDone: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Challenges.start, ascending: false)],predicate: NSPredicate(format: "isDone == true"), animation: .default)
+    
+    private var items: FetchedResults<Challenges>
+    
+    var body: some View {
+        Section(header: Text("Done:"), content: {
+            ForEach(items) { item in
+                ChallengeItemView(data: item)
+            }
+        })
+    }
 }
 
 struct ChallengeItemView: View {
-    @ObservedObject var data: ChallengeModel
+    @ObservedObject var data: Challenges
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     var body: some View {
         HStack() {
             GroupBox() {
                 HStack() {
-                    Text(String(data.challenge.challengeBook?.title ?? "error"))
+                    Text(String(data.challengeBook?.title ?? "error"))
                     Spacer()
-                    if data.challenge.isFailed {
+                    if data.isFailed {
                         Text("Failed")
                             .foregroundColor(Color.red)
                             .bold()
-                    } else if data.challenge.isDone {
+                    } else if data.isDone {
                         Text("Done")
                             .foregroundColor(Color.green)
                             .bold()
                     } else {
-                        Text(String("\(data.streak)/\(data.challenge.time)"))
+                        Text(String("\(data.streak)/\(data.time)"))
                             .foregroundColor(Color.green)
                             .bold()
                     }
                 }
                 .font(.system(.title))
             }
+            
             Image(systemName: "xmark")
                 .onTapGesture {
-                    viewContext.delete(data.challenge)
+                    viewContext.delete(data)
                 }
         }
     }

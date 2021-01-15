@@ -14,6 +14,7 @@ class BookModel: ObservableObject {
     @Published var read: String
     
     var context: NSManagedObjectContext
+    var challenge: ChallengeModel?
     
     init(item: Book, context: NSManagedObjectContext) {
         self.item = item
@@ -43,19 +44,30 @@ class BookModel: ObservableObject {
         }
     }
     
-    private func setProgress(read: Float) -> Bool {
+    private func setProgress(read: Float, date:Date = Date()) -> Bool {
         if read > item.pages {
             return true
         } else {
             item.progress = read
             
             let progress = Progress(context: context)
-            progress.date = Date()
+            progress.date = date
             progress.progress = Int64(read)
             progress.bookid = item.id
             item.addToBookProgress(progress)
             
             return false
+        }
+    }
+    
+    func getChallenge() {
+        if item.bookChallenge != nil {
+            for item in item.bookChallenge!.allObjects {
+                let challenge = item as! Challenges
+                
+                self.challenge = ChallengeModel(challenge: challenge, context: context)
+//                self.challenge?.testDone()
+            }
         }
     }
 }
