@@ -11,6 +11,7 @@ import Combine
 struct BookView: View {
     @ObservedObject var item: BookModel
     @State private var hasError = false
+    @EnvironmentObject var alertData: DeleteAlert
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
@@ -19,7 +20,7 @@ struct BookView: View {
                 VStack() {
                     HStack() {
                         VStack() {
-                            Text("\(item.item.title!)").font(.title)
+                            Text("\(item.item.title ?? "error")").font(.title)
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 .layoutPriority(1)
                             HStack() {
@@ -98,16 +99,20 @@ struct BookView: View {
                 }.frame(height: 100)
                 
                 Image(systemName: "xmark").onTapGesture {
-                    viewContext.delete(item.item)
+                    alertData.item = item.item
+                    alertData.objectName = item.item.title ?? "error"
+                    alertData.type = "book"
+                    alertData.show = true
+//                    viewContext.delete(item.item)
                     
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                        let nsError = error as NSError
-                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                    }
+//                    do {
+//                        try viewContext.save()
+//                    } catch {
+//                        // Replace this implementation with code to handle the error appropriately.
+//                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                        let nsError = error as NSError
+//                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//                    }
                 }
             }
         }.onAppear(perform: {

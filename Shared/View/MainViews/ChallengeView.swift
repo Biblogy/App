@@ -76,6 +76,8 @@ struct ChallengeSectionDone: View {
 
 struct ChallengeItemView: View {
     @ObservedObject var data: Challenges
+    
+    @EnvironmentObject var alertData: DeleteAlert
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
@@ -103,7 +105,10 @@ struct ChallengeItemView: View {
             
             Image(systemName: "xmark")
                 .onTapGesture {
-                    viewContext.delete(data)
+                    alertData.item = data
+                    alertData.objectName = data.challengeBook?.title ?? "error"
+                    alertData.type = "challenge"
+                    alertData.show = true
                 }
         }
     }

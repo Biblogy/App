@@ -21,6 +21,7 @@ struct AddChallenge: View {
     @State private var time = ""
     @State private var selected = 1
     @State private var menuTime: time = .days
+    @State private var isNotValid = false
     @Binding var isOpen: Bool
 
     @Environment(\.managedObjectContext) private var viewContext
@@ -45,6 +46,10 @@ struct AddChallenge: View {
                     Text("for").font(.title).bold()
                     Spacer()
                     TextField("10", text: $time)
+                        .background(
+                          RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(isNotValid ? Color.red : Color.secondary, lineWidth: 1)
+                        )
                     Text("days").font(.title).bold()
 //                    Menu(self.menuTime.rawValue) {
 //                        Button("days") { self.menuTime = .days }
@@ -75,7 +80,10 @@ struct AddChallenge: View {
                                 Text("\(book.title ?? "error")")
                             })
                         }
-                    }
+                    }.background(
+                        RoundedRectangle(cornerRadius: 5)
+                          .strokeBorder(isNotValid ? Color.red : Color.secondary, lineWidth: 1)
+                      )
                 }
                 Spacer()
             }
@@ -91,7 +99,8 @@ struct AddChallenge: View {
 
                 ToolbarItem(placement: ToolbarItemPlacement.confirmationAction) {
                     Button(action: {
-                        if self.data.book != nil {
+                        validatingData(bookId: data.bookID, time: Int16(time) ?? -404, timeType: menuTime.rawValue, book: self.data.book)
+                        if !isNotValid {
                             addChallenge(bookId: data.bookID, time: Int16(time) ?? -404, timeType: menuTime.rawValue, book: self.data.book!)
                         }
                     }, label: {
@@ -121,6 +130,19 @@ struct AddChallenge: View {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
+    }
+    
+    func validatingData(bookId: String, time: Int16, timeType: String, book: Book?) {
+        print("www === Wwww === Wwww")
+        if bookId != "" &&
+            time != -404 &&
+            timeType != "" &&
+            book != nil {
+            self.isNotValid = false
+        } else {
+            self.isNotValid = true
+        }
+        print(self.isNotValid)
     }
 }
 //struct AddChallenge_Previews: PreviewProvider {

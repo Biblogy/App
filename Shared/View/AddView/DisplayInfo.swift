@@ -23,7 +23,7 @@ func DisplayInformation(book: BookItem) -> some View {
 
         Text("Date:").padding([.top], 5)
         
-        ForEach(Array(Set(book.publishYear?.sorted() ?? [])), id: \.self) { date in
+        ForEach(Array(Set(book.publishYear ?? [])).sorted(), id: \.self) { date in
             Text(String(date))
         }
         Spacer()

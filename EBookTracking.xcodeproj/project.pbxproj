@@ -188,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				56EBE0612584DCC300032F14 /* book */,
-				561060EF257D359E00A4A2AF /* ConifugreChallenge */,
 				563AEC2C257C209100E26BE1 /* MainViews */,
 				560A7E182576C02100B8548A /* Navigation */,
 				560A7DFA2576BE3C00B8548A /* AddView */,
@@ -225,6 +224,7 @@
 				560A7E0B2576BECD00B8548A /* AddViewMacOS.swift */,
 				560A7E032576BE8400B8548A /* DisplayInfo.swift */,
 				560A7DF225758F7500B8548A /* CustomAddView.swift */,
+				561060F0257D35B400A4A2AF /* AddChallenge.swift */,
 			);
 			path = AddView;
 			sourceTree = "<group>";
@@ -237,14 +237,6 @@
 				56DB834325645D71004E5993 /* Sidebar.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		561060EF257D359E00A4A2AF /* ConifugreChallenge */ = {
-			isa = PBXGroup;
-			children = (
-				561060F0257D35B400A4A2AF /* AddChallenge.swift */,
-			);
-			path = ConifugreChallenge;
 			sourceTree = "<group>";
 		};
 		563AEC2C257C209100E26BE1 /* MainViews */ = {

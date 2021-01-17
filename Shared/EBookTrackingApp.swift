@@ -19,8 +19,9 @@ class AddSheetData: ObservableObject {
 
 class DeleteAlert: ObservableObject {
     @Published var objectName = ""
-    @Published var item: NSObject?
+    @Published var item: NSManagedObject?
     @Published var show = false
+    @Published var type = ""
 }
 
 @main
@@ -39,6 +40,7 @@ struct EBookTrackingApp: App {
                 #endif
             }
             .environmentObject(sheetData)
+            .environmentObject(alertData)
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .onAppear(perform: {
                 getCoreDataDBPath()
