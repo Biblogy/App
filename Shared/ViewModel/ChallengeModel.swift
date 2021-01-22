@@ -34,6 +34,7 @@ class ChallengeModel {
         print(Array(readDays).sorted())
         print(Array(days).sorted())
         print(readDays.isSubset(of: days))
+        
         if readDays.isSubset(of: days) {
             challenge.isFailed = false
             challenge.streak = Int16(readDays.count - 1)

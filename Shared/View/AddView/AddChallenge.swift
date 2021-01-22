@@ -34,12 +34,6 @@ struct AddChallenge: View {
     var body: some View {
 //        NavigationView() {
             VStack() {
-//                Picker("", selection: $selected) {
-//                    Text("Book")
-//                    Text("Time")
-//                }
-//                .pickerStyle(SegmentedPickerStyle())
-//                .frame(width: 200)
                 
                 Text("I will read").font(.title).bold().frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 HStack() {
@@ -51,12 +45,6 @@ struct AddChallenge: View {
                             .strokeBorder(isNotValid ? Color.red : Color.secondary, lineWidth: 1)
                         )
                     Text("days").font(.title).bold()
-//                    Menu(self.menuTime.rawValue) {
-//                        Button("days") { self.menuTime = .days }
-//                        Button("weeks") { self.menuTime = .weeks }
-//                        Button("month") { self.menuTime = .month }
-//                        Button("years") { self.menuTime = .years }
-//                    }
                 }
                 HStack() {
                     Text("the book:").font(.title).bold()
