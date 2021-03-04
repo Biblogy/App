@@ -57,7 +57,7 @@ struct CustomAddView: View {
                             newItem.progress = 0
                             newItem.author = author
                             newItem.isbn = "000"
-                            newItem.year = "000"
+                            newItem.year = Date()
                             newItem.id = UUID().uuidString
                             newItem.pages = Float(pages) ?? 0
 

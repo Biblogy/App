@@ -18,7 +18,7 @@ func addItem(book: BookItem, viewContext: NSManagedObjectContext) {
         newItem.progress = 0
         newItem.author = "veit"
         newItem.isbn = "w"
-        newItem.year = "ww"
+        newItem.year = Date()
         newItem.addedAt = Date()
         newItem.id = UUID().uuidString
         newItem.done = false

@@ -20,7 +20,7 @@ struct PersistenceController {
             newItem.progress = 0
             newItem.author = "veit"
             newItem.isbn = "w"
-            newItem.year = "ww"
+            newItem.year = Date()
             newItem.id = UUID().uuidString
             newItem.pages = 100
         }

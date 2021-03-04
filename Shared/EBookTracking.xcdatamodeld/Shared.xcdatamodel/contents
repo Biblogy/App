@@ -11,7 +11,7 @@
         <attribute name="pages" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="progress" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="year" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="bookChallenge" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Challenges" inverseName="challengeBook" inverseEntity="Challenges"/>
         <relationship name="bookProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Progress" inverseName="progressBook" inverseEntity="Progress"/>
     </entity>
@@ -33,7 +33,7 @@
         <relationship name="progressBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookProgress" inverseEntity="Book"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-24.443359375" positionY="-10.66429138183594" width="128" height="238"/>
+        <element name="Book" positionX="-24.443359375" positionY="-10.66429138183594" width="128" height="224"/>
         <element name="Challenges" positionX="263.9427490234375" positionY="200.0207824707031" width="128" height="178"/>
         <element name="Progress" positionX="-256.3842163085938" positionY="36.66964721679688" width="128" height="89"/>
     </elements>

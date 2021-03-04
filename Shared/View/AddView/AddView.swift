@@ -18,7 +18,7 @@ struct AddView: View {
         #if os(iOS)
         AddViewIOS(isOpen: $isOpen)
         #else
-        AddViewMacOS(isOpen: $isOpen)
+        AddViewMac(isOpen: $isOpen)
         #endif
     }
 }

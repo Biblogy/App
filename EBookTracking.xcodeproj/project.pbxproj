@@ -30,18 +30,24 @@
 		560A7DFD2576BE4800B8548A /* AddViewIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7DFB2576BE4800B8548A /* AddViewIOS.swift */; };
 		560A7E042576BE8400B8548A /* DisplayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E032576BE8400B8548A /* DisplayInfo.swift */; };
 		560A7E052576BE8400B8548A /* DisplayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E032576BE8400B8548A /* DisplayInfo.swift */; };
-		560A7E0C2576BECD00B8548A /* AddViewMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E0B2576BECD00B8548A /* AddViewMacOS.swift */; };
 		560A7E0D2576BECD00B8548A /* AddViewMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E0B2576BECD00B8548A /* AddViewMacOS.swift */; };
 		560A7E1A2576C03200B8548A /* NavigationIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E192576C03200B8548A /* NavigationIos.swift */; };
 		560A7E1B2576C03200B8548A /* NavigationIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E192576C03200B8548A /* NavigationIos.swift */; };
-		560A7E272576C05500B8548A /* NavigationMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E262576C05500B8548A /* NavigationMacOS.swift */; };
 		560A7E282576C05500B8548A /* NavigationMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A7E262576C05500B8548A /* NavigationMacOS.swift */; };
 		561060F1257D35B400A4A2AF /* AddChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561060F0257D35B400A4A2AF /* AddChallenge.swift */; };
 		56106101257D7B2800A4A2AF /* AddChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561060F0257D35B400A4A2AF /* AddChallenge.swift */; };
+		5620CC6225F1616F00715676 /* AddChallengeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CC6125F1616F00715676 /* AddChallengeHelper.swift */; };
+		5620CC6325F1616F00715676 /* AddChallengeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CC6125F1616F00715676 /* AddChallengeHelper.swift */; };
 		562ADCB725A78DAF00841ADD /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADCB625A78DAF00841ADD /* ChallengeModel.swift */; };
 		562ADCB825A78DAF00841ADD /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ADCB625A78DAF00841ADD /* ChallengeModel.swift */; };
 		563AEC2E257C20DB00E26BE1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */; };
 		563AEC2F257C20DB00E26BE1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */; };
+		563CA29425BC2E0B00C02D9B /* AddViewMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563CA28D25BC25F900C02D9B /* AddViewMac.swift */; };
+		563CA2AC25BC3AFE00C02D9B /* SheetViewModifiyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563CA29B25BC317600C02D9B /* SheetViewModifiyable.swift */; };
+		563CA2B425BC71A200C02D9B /* DecimalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563CA2B325BC71A200C02D9B /* DecimalText.swift */; };
+		563CA2BA25BC71C200C02D9B /* DecimalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563CA2B325BC71A200C02D9B /* DecimalText.swift */; };
+		56AE011125F008C500B06116 /* challengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AE011025F008C500B06116 /* challengeData.swift */; };
+		56AE011225F008C500B06116 /* challengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AE011025F008C500B06116 /* challengeData.swift */; };
 		56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
 		56BD9D102566F8D90060ACC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD9D0E2566F8D90060ACC1 /* AddView.swift */; };
 		56BD9D22256706670060ACC1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D21256706670060ACC1 /* Alamofire */; };
@@ -50,6 +56,8 @@
 		56BD9D43256975080060ACC1 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D42256975080060ACC1 /* SDWebImageSwiftUI */; };
 		56BD9D4D256AFE650060ACC1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D4C256AFE650060ACC1 /* Alamofire */; };
 		56BD9D4F256AFE6B0060ACC1 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 56BD9D4E256AFE6B0060ACC1 /* SDWebImageSwiftUI */; };
+		56CD134D25BF4E060070D1F5 /* ShowErrorBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD134C25BF4E060070D1F5 /* ShowErrorBorder.swift */; };
+		56CD134E25BF4E060070D1F5 /* ShowErrorBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD134C25BF4E060070D1F5 /* ShowErrorBorder.swift */; };
 		56DB831A2561843C004E5993 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB83192561843C004E5993 /* Tests_iOS.swift */; };
 		56DB83252561843D004E5993 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB83242561843D004E5993 /* Tests_macOS.swift */; };
 		56DB83272561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FB2561843B004E5993 /* EBookTracking.xcdatamodeld */; };
@@ -62,7 +70,6 @@
 		56DB832E2561843D004E5993 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB82FF2561843B004E5993 /* Persistence.swift */; };
 		56DB832F2561843D004E5993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DB83002561843C004E5993 /* Assets.xcassets */; };
 		56DB83302561843D004E5993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DB83002561843C004E5993 /* Assets.xcassets */; };
-		56DB834425645D71004E5993 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB834325645D71004E5993 /* Sidebar.swift */; };
 		56DB834525645D71004E5993 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB834325645D71004E5993 /* Sidebar.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,10 +116,16 @@
 		560A7E192576C03200B8548A /* NavigationIos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIos.swift; sourceTree = "<group>"; };
 		560A7E262576C05500B8548A /* NavigationMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMacOS.swift; sourceTree = "<group>"; };
 		561060F0257D35B400A4A2AF /* AddChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallenge.swift; sourceTree = "<group>"; };
+		5620CC6125F1616F00715676 /* AddChallengeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallengeHelper.swift; sourceTree = "<group>"; };
 		562ADCB625A78DAF00841ADD /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
 		563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
+		563CA28D25BC25F900C02D9B /* AddViewMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewMac.swift; sourceTree = "<group>"; };
+		563CA29B25BC317600C02D9B /* SheetViewModifiyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewModifiyable.swift; sourceTree = "<group>"; };
+		563CA2B325BC71A200C02D9B /* DecimalText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalText.swift; sourceTree = "<group>"; };
+		56AE011025F008C500B06116 /* challengeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challengeData.swift; sourceTree = "<group>"; };
 		56BD9D0E2566F8D90060ACC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		56BD9D28256941490060ACC1 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
+		56CD134C25BF4E060070D1F5 /* ShowErrorBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorBorder.swift; sourceTree = "<group>"; };
 		56DB82FC2561843B004E5993 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		56DB82FD2561843B004E5993 /* EBookTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookTrackingApp.swift; sourceTree = "<group>"; };
 		56DB82FE2561843B004E5993 /* BooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksList.swift; sourceTree = "<group>"; };
@@ -189,8 +202,9 @@
 			children = (
 				56EBE0612584DCC300032F14 /* book */,
 				563AEC2C257C209100E26BE1 /* MainViews */,
-				560A7E182576C02100B8548A /* Navigation */,
 				560A7DFA2576BE3C00B8548A /* AddView */,
+				563CA2B325BC71A200C02D9B /* DecimalText.swift */,
+				56CD134C25BF4E060070D1F5 /* ShowErrorBorder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +212,7 @@
 		560A7D9525757DDD00B8548A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				56AE011825F008FB00B06116 /* AddChallange */,
 				560A7DDF2575831A00B8548A /* AddView */,
 				560A7DA025757E1900B8548A /* BookModel.swift */,
 				560A7DBD2575813300B8548A /* ExtensionOptional.swift */,
@@ -218,25 +233,20 @@
 		560A7DFA2576BE3C00B8548A /* AddView */ = {
 			isa = PBXGroup;
 			children = (
-				560A7DE02575834E00B8548A /* AddViewControll.swift */,
+				5620CC6025F1614900715676 /* AddChallenge */,
+				569E5C1825CC7F5B00927304 /* iOS */,
 				56BD9D0E2566F8D90060ACC1 /* AddView.swift */,
-				560A7DFB2576BE4800B8548A /* AddViewIOS.swift */,
-				560A7E0B2576BECD00B8548A /* AddViewMacOS.swift */,
-				560A7E032576BE8400B8548A /* DisplayInfo.swift */,
-				560A7DF225758F7500B8548A /* CustomAddView.swift */,
-				561060F0257D35B400A4A2AF /* AddChallenge.swift */,
 			);
 			path = AddView;
 			sourceTree = "<group>";
 		};
-		560A7E182576C02100B8548A /* Navigation */ = {
+		5620CC6025F1614900715676 /* AddChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				560A7E192576C03200B8548A /* NavigationIos.swift */,
-				560A7E262576C05500B8548A /* NavigationMacOS.swift */,
-				56DB834325645D71004E5993 /* Sidebar.swift */,
+				561060F0257D35B400A4A2AF /* AddChallenge.swift */,
+				5620CC6125F1616F00715676 /* AddChallengeHelper.swift */,
 			);
-			path = Navigation;
+			path = AddChallenge;
 			sourceTree = "<group>";
 		};
 		563AEC2C257C209100E26BE1 /* MainViews */ = {
@@ -247,6 +257,59 @@
 				563AEC2D257C20DB00E26BE1 /* ChallengeView.swift */,
 			);
 			path = MainViews;
+			sourceTree = "<group>";
+		};
+		563CA29A25BC316100C02D9B /* CointainerViews */ = {
+			isa = PBXGroup;
+			children = (
+				563CA29B25BC317600C02D9B /* SheetViewModifiyable.swift */,
+			);
+			path = CointainerViews;
+			sourceTree = "<group>";
+		};
+		569E5C1825CC7F5B00927304 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				560A7DFB2576BE4800B8548A /* AddViewIOS.swift */,
+				560A7DE02575834E00B8548A /* AddViewControll.swift */,
+				560A7DF225758F7500B8548A /* CustomAddView.swift */,
+				560A7E032576BE8400B8548A /* DisplayInfo.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		56AE00FE25F0058700B06116 /* AddView */ = {
+			isa = PBXGroup;
+			children = (
+				563CA28D25BC25F900C02D9B /* AddViewMac.swift */,
+				560A7E0B2576BECD00B8548A /* AddViewMacOS.swift */,
+			);
+			path = AddView;
+			sourceTree = "<group>";
+		};
+		56AE010425F0068A00B06116 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				560A7E262576C05500B8548A /* NavigationMacOS.swift */,
+				56DB834325645D71004E5993 /* Sidebar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		56AE010525F0069A00B06116 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				560A7E192576C03200B8548A /* NavigationIos.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		56AE011825F008FB00B06116 /* AddChallange */ = {
+			isa = PBXGroup;
+			children = (
+				56AE011025F008C500B06116 /* challengeData.swift */,
+			);
+			path = AddChallange;
 			sourceTree = "<group>";
 		};
 		56BD9D27256941330060ACC1 /* Model */ = {
@@ -308,6 +371,7 @@
 		56DB83072561843C004E5993 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				56AE010525F0069A00B06116 /* Navigation */,
 				56DB83082561843C004E5993 /* Info.plist */,
 			);
 			path = iOS;
@@ -316,6 +380,9 @@
 		56DB830E2561843C004E5993 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				56AE010425F0068A00B06116 /* Navigation */,
+				56AE00FE25F0058700B06116 /* AddView */,
+				563CA29A25BC316100C02D9B /* CointainerViews */,
 				56DB830F2561843C004E5993 /* Info.plist */,
 				56DB83102561843C004E5993 /* macOS.entitlements */,
 			);
@@ -557,20 +624,22 @@
 			files = (
 				560A7DA125757E1900B8548A /* BookModel.swift in Sources */,
 				560A7DFC2576BE4800B8548A /* AddViewIOS.swift in Sources */,
+				5620CC6225F1616F00715676 /* AddChallengeHelper.swift in Sources */,
 				560A7E042576BE8400B8548A /* DisplayInfo.swift in Sources */,
 				562ADCB725A78DAF00841ADD /* ChallengeModel.swift in Sources */,
 				560A7D8D25757DAA00B8548A /* BookView.swift in Sources */,
-				56DB834425645D71004E5993 /* Sidebar.swift in Sources */,
 				560A7E1A2576C03200B8548A /* NavigationIos.swift in Sources */,
 				560A7DE12575834E00B8548A /* AddViewControll.swift in Sources */,
+				563CA2B425BC71A200C02D9B /* DecimalText.swift in Sources */,
 				56DB83272561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */,
 				56BD9D0F2566F8D90060ACC1 /* AddView.swift in Sources */,
 				560A7DAE25757E4A00B8548A /* ItemFormater.swift in Sources */,
+				56AE011125F008C500B06116 /* challengeData.swift in Sources */,
 				560A7DBE2575813300B8548A /* ExtensionOptional.swift in Sources */,
-				560A7E0C2576BECD00B8548A /* AddViewMacOS.swift in Sources */,
 				56DB832D2561843D004E5993 /* Persistence.swift in Sources */,
 				56DB83292561843D004E5993 /* EBookTrackingApp.swift in Sources */,
 				563AEC2E257C20DB00E26BE1 /* ChallengeView.swift in Sources */,
+				56CD134D25BF4E060070D1F5 /* ShowErrorBorder.swift in Sources */,
 				560A7DB62575807D00B8548A /* AddItem.swift in Sources */,
 				56DB832B2561843D004E5993 /* BooksList.swift in Sources */,
 				560A7DC62575814E00B8548A /* GetBook.swift in Sources */,
@@ -578,7 +647,6 @@
 				561060F1257D35B400A4A2AF /* AddChallenge.swift in Sources */,
 				560A7D852572EBEC00B8548A /* BooksDoneRead.swift in Sources */,
 				56BD9D292569414A0060ACC1 /* ResponseType.swift in Sources */,
-				560A7E272576C05500B8548A /* NavigationMacOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,15 +658,20 @@
 				560A7DFD2576BE4800B8548A /* AddViewIOS.swift in Sources */,
 				560A7E052576BE8400B8548A /* DisplayInfo.swift in Sources */,
 				562ADCB825A78DAF00841ADD /* ChallengeModel.swift in Sources */,
+				56AE011225F008C500B06116 /* challengeData.swift in Sources */,
+				563CA2AC25BC3AFE00C02D9B /* SheetViewModifiyable.swift in Sources */,
 				560A7D8E25757DAA00B8548A /* BookView.swift in Sources */,
 				56DB834525645D71004E5993 /* Sidebar.swift in Sources */,
+				563CA2BA25BC71C200C02D9B /* DecimalText.swift in Sources */,
 				560A7E1B2576C03200B8548A /* NavigationIos.swift in Sources */,
+				56CD134E25BF4E060070D1F5 /* ShowErrorBorder.swift in Sources */,
 				560A7DE22575834E00B8548A /* AddViewControll.swift in Sources */,
 				56DB83282561843D004E5993 /* EBookTracking.xcdatamodeld in Sources */,
 				56BD9D102566F8D90060ACC1 /* AddView.swift in Sources */,
 				560A7DAF25757E4A00B8548A /* ItemFormater.swift in Sources */,
 				560A7DBF2575813300B8548A /* ExtensionOptional.swift in Sources */,
 				560A7E0D2576BECD00B8548A /* AddViewMacOS.swift in Sources */,
+				5620CC6325F1616F00715676 /* AddChallengeHelper.swift in Sources */,
 				56DB832E2561843D004E5993 /* Persistence.swift in Sources */,
 				56DB832A2561843D004E5993 /* EBookTrackingApp.swift in Sources */,
 				563AEC2F257C20DB00E26BE1 /* ChallengeView.swift in Sources */,
@@ -608,6 +681,7 @@
 				560A7DF425758F7500B8548A /* CustomAddView.swift in Sources */,
 				56106101257D7B2800A4A2AF /* AddChallenge.swift in Sources */,
 				560A7D862572EBEC00B8548A /* BooksDoneRead.swift in Sources */,
+				563CA29425BC2E0B00C02D9B /* AddViewMac.swift in Sources */,
 				56BD9D2A2569414A0060ACC1 /* ResponseType.swift in Sources */,
 				560A7E282576C05500B8548A /* NavigationMacOS.swift in Sources */,
 			);
