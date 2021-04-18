@@ -9,12 +9,12 @@ import Combine
 import Foundation
 import CoreData
 
-class BookModel: ObservableObject {
+class BookModel: ObservableObject, BookModelProtocol {
     @Published var item: Book
     @Published var read: String
     
     var context: NSManagedObjectContext
-    var challenge: ChallengeModel?
+    var challenge: ChallengeModelProtocol?
     
     init(item: Book, context: NSManagedObjectContext) {
         self.item = item
@@ -34,7 +34,7 @@ class BookModel: ObservableObject {
         return progressError
     }
     
-    private func setDone() {
+    internal func setDone() {
         if item.pages == item.progress {
             item.done = true
             item.doneAt = Date()
@@ -44,7 +44,7 @@ class BookModel: ObservableObject {
         }
     }
     
-    private func setProgress(read: Float, date:Date = Date()) -> Bool {
+    internal func setProgress(read: Float, date:Date = Date()) -> Bool {
         if read > item.pages {
             return true
         } else {
@@ -66,7 +66,9 @@ class BookModel: ObservableObject {
                 let challenge = item as! Challenges
                 
                 self.challenge = ChallengeModel(challenge: challenge, context: context)
-//                self.challenge?.testDone()
+                self.challenge?.calcStreak()
+                self.challenge?.setDone()
+                self.challenge?.saveItem()
             }
         }
     }

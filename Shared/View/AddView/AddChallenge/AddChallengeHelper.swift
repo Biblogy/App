@@ -10,7 +10,7 @@ import SwiftUI
 
 struct bookPicker: View {
     @ObservedObject var addChallangeData = AddChallangeData()
-    @ObservedObject var data = challengeData(bookTitle: "select a book")
+    @ObservedObject var data = ChallengeData(bookTitle: "select a book")
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(

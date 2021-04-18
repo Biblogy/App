@@ -9,58 +9,9 @@ import Foundation
 import Combine
 import CoreData
 
-class ChallengeModel {
-    
-    var challenge: Challenges
-    var readDays: Set<Date> = []
-    var days: Set<Date> = []
-    
-    var context: NSManagedObjectContext
-        
-    init(challenge: Challenges, context: NSManagedObjectContext) {
-        self.context = context
-        self.challenge = challenge
-       
-        self.readDays = getReadDays()
-        self.days = getDates()
-        self.calcStreak()
-        self.setDone()
-        self.saveItem()
-    }
-    
-    func calcStreak() {
-        print("===== \(challenge.challengeBook?.title ?? "ww") ======")
-        print("===== \(challenge.time) ======")
-        print(Array(readDays).sorted())
-        print(Array(days).sorted())
-        print(readDays.isSubset(of: days))
-        
-        if readDays.isSubset(of: days) {
-            challenge.isFailed = false
-            challenge.streak = Int16(readDays.count - 1)
-        } else if readDays.isEmpty {
-            challenge.streak = 0
-            challenge.isFailed = false
-        } else {
-            challenge.streak = 0
-            challenge.isFailed = true
-            challenge.isDone = false
-        }
-    }
-    
-    
-    func getReadDays() -> Set<Date> {
-        var days = challenge.challengeBook!.bookProgress!.map({
-            ($0 as! Progress).date!.removeTime()
-        })
-        days = days.filter { item in
-            return item >= challenge.start!.removeTime()
-        }
-        return Set(days)
-    }
-    
-    func getDates() -> Set<Date> {
-        let start = challenge.start!.removeTime()
+class CalcChallengeDays: CalcChallengeDaysProtocol {
+    func readDays(challenge: Challenges) -> Set<Date> {
+        let start = challenge.start?.removeTime() ?? Date().removeTime()
         let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!.removeTime()
 
         var dates = Set<Date>()
@@ -74,37 +25,95 @@ class ChallengeModel {
         return dates
     }
     
-    func setDone() {
+    func neededDays(challenge: Challenges) -> Set<Date> {
+        if challenge.challengeBook != nil {
+            var days = challenge.challengeBook!.bookProgress!.map({
+                ($0 as! Progress).date!.removeTime()
+            })
+            days = days.filter { item in
+                return item >= challenge.start!.removeTime()
+            }
+            return Set(days)
+        } else {
+            return Set()
+        }
+    }
+}
+
+class ChallengeModel: ChallengeModelProtocol {
+    var challenge: Challenges
+    var readDays: Set<Date> = []
+    var days: Set<Date> = []
+    
+    var context: NSManagedObjectContext
+    
+    internal var bookIsRead = false
+        
+    init(challenge: Challenges,
+         context: NSManagedObjectContext,
+         days: CalcChallengeDaysProtocol = CalcChallengeDays()) {
+        self.context = context
+        self.challenge = challenge
+       
+        self.readDays = days.neededDays(challenge: challenge)
+        self.days = days.neededDays(challenge: challenge)
+    }
+    
+    func calcStreak() {
+        print("===== \(challenge.challengeBook?.title ?? "ww") ======")
+        print("===== \(challenge.time) ======")
+        print(Array(readDays).sorted())
+        print(Array(days).sorted())
+        print(readDays.isSubset(of: days))
+        
+        if !readDays.isEmpty {
+            if readDays.isSubset(of: days) {
+                challenge.isFailed = false
+                challenge.streak = Int16(readDays.count)
+            } else {
+                challenge.streak = 0
+                challenge.isFailed = true
+                challenge.isDone = false
+            }
+        } else {
+            challenge.streak = 0
+            challenge.isFailed = false
+        }
+    }
+    
+    @discardableResult func setDone() -> Bool {
         if readDays.max() != nil {
-            let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!
-            if readDays.max() == end {
+            let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time) - 1, to: challenge.start!)!
+            if readDays.max()?.removeTime() == end.removeTime() {
                 challenge.isDone = true
-            } else if challenge.challengeBook?.done ?? false {
+            } else if challenge.challengeBook?.done ?? bookIsRead {
                 challenge.isDone = true
             } else {
                 challenge.isDone = false
             }
+            return true
         }
+        return false
     }
     
-    func testDone() {
-        let start = challenge.start
-        let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!
-
-        var dates = Array<Date>()
-        var check = start
-
-        while check! <= end {
-            dates.append(check!)
-            check = Calendar.current.date(byAdding: .day, value: 1, to: check!)!
-        }
-        
-        for time in dates {
-            setProgress(read: 1, date: time)
-        }
-        
-        saveItem()
-    }
+//    func testDone() {
+//        let start = challenge.start
+//        let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!
+//
+//        var dates = Array<Date>()
+//        var check = start
+//
+//        while check! <= end {
+//            dates.append(check!)
+//            check = Calendar.current.date(byAdding: .day, value: 1, to: check!)!
+//        }
+//
+//        for time in dates {
+//            setProgress(read: 1, date: time)
+//        }
+//
+//        saveItem()
+//    }
     
     @discardableResult private func setProgress(read: Float, date:Date = Date()) -> Bool {
         if read > challenge.challengeBook!.pages {

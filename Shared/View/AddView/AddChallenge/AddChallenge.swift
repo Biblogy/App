@@ -19,7 +19,7 @@ struct AddChallenge: View {
     @Binding var isOpen: Bool
     
     @ObservedObject var addChallangeData = AddChallangeData()
-    @ObservedObject var data = challengeData(bookTitle: "select a book")
+    @ObservedObject var data = ChallengeData(bookTitle: "select a book")
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {

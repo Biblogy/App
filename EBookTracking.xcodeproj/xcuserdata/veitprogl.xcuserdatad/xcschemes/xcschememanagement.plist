@@ -7,12 +7,40 @@
 		<key>EBookTracking (iOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>EBookTracking (macOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>560A7D602572553C00B8548A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>56DB83042561843C004E5993</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>56DB830C2561843C004E5993</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>56DB83142561843C004E5993</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>56DB831F2561843D004E5993</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
