@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-04-18 15:44:37 +0000
+// MARK: - Mocks generated from file: Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-04-21 19:41:40 +0000
 
 //
 //  BookModelProtocol.swift
@@ -163,7 +163,7 @@ import Foundation
 }
 
 
-// MARK: - Mocks generated from file: Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-04-18 15:44:37 +0000
+// MARK: - Mocks generated from file: Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-04-21 19:41:40 +0000
 
 //
 //  CalcChallengeDaysProtocol.swift
@@ -298,7 +298,7 @@ import Foundation
 }
 
 
-// MARK: - Mocks generated from file: Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-04-18 15:44:37 +0000
+// MARK: - Mocks generated from file: Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-04-21 19:41:40 +0000
 
 //
 //  ChallengeModelProtocol.swift
