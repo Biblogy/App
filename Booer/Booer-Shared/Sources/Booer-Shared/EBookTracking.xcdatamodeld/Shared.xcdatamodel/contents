@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D5029f" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="addedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="cover" optional="YES" attributeType="Binary"/>
+        <attribute name="done" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="doneAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isbn" optional="YES" attributeType="String"/>
+        <attribute name="pages" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="progress" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="bookChallenge" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Challenges" inverseName="challengeBook" inverseEntity="Challenges"/>
+        <relationship name="bookProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Progress" inverseName="progressBook" inverseEntity="Progress"/>
+    </entity>
+    <entity name="Challenges" representedClassName="Challenges" syncable="YES" codeGenerationType="class">
+        <attribute name="book" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isDone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isFailed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="streak" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timeType" optional="YES" attributeType="String"/>
+        <relationship name="challengeBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookChallenge" inverseEntity="Book"/>
+    </entity>
+    <entity name="Progress" representedClassName="Progress" syncable="YES" codeGenerationType="class">
+        <attribute name="bookid" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="progress" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="progressBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookProgress" inverseEntity="Book"/>
+    </entity>
+    <elements>
+        <element name="Book" positionX="-24.443359375" positionY="-10.66429138183594" width="128" height="224"/>
+        <element name="Challenges" positionX="263.9427490234375" positionY="200.0207824707031" width="128" height="178"/>
+        <element name="Progress" positionX="-256.3842163085938" positionY="36.66964721679688" width="128" height="89"/>
+    </elements>
+</model>
