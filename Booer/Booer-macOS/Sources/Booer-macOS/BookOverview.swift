@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  BookOverview.swift
 //  Shared
 //
 //  Created by Veit Progl on 15.11.20.
@@ -8,8 +8,9 @@
 import SwiftUI
 import CoreData
 import Combine
+import Booer_Shared
 
-struct ContentView: View {
+struct BookOverview: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var sheetData: AddSheetData
 
@@ -48,11 +49,5 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

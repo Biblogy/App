@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CalcChallengeDaysProtocol {
+public protocol CalcChallengeDaysProtocol {
     func readDays(challenge: Challenges) -> Set<Date>
     func neededDays(challenge: Challenges) -> Set<Date>
 }

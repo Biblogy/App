@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import CoreData
 
-class CalcChallengeDays: CalcChallengeDaysProtocol {
-    func readDays(challenge: Challenges) -> Set<Date> {
+public class CalcChallengeDays: CalcChallengeDaysProtocol {
+    public func readDays(challenge: Challenges) -> Set<Date> {
         let start = challenge.start?.removeTime() ?? Date().removeTime()
         let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!.removeTime()
 
@@ -25,7 +25,7 @@ class CalcChallengeDays: CalcChallengeDaysProtocol {
         return dates
     }
     
-    func neededDays(challenge: Challenges) -> Set<Date> {
+    public func neededDays(challenge: Challenges) -> Set<Date> {
         if challenge.challengeBook != nil {
             var days = challenge.challengeBook!.bookProgress!.map({
                 ($0 as! Progress).date!.removeTime()
@@ -40,7 +40,7 @@ class CalcChallengeDays: CalcChallengeDaysProtocol {
     }
 }
 
-class ChallengeModel: ChallengeModelProtocol {
+public class ChallengeModel: ChallengeModelProtocol {
     var challenge: Challenges
     var readDays: Set<Date> = []
     var days: Set<Date> = []
@@ -59,7 +59,7 @@ class ChallengeModel: ChallengeModelProtocol {
         self.days = days.neededDays(challenge: challenge)
     }
     
-    func calcStreak() {
+    public func calcStreak() {
         print("===== \(challenge.challengeBook?.title ?? "ww") ======")
         print("===== \(challenge.time) ======")
         print(Array(readDays).sorted())
@@ -81,7 +81,7 @@ class ChallengeModel: ChallengeModelProtocol {
         }
     }
     
-    @discardableResult func setDone() -> Bool {
+    @discardableResult public func setDone() -> Bool {
         if readDays.max() != nil {
             let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time) - 1, to: challenge.start!)!
             if readDays.max()?.removeTime() == end.removeTime() {
@@ -131,7 +131,7 @@ class ChallengeModel: ChallengeModelProtocol {
         }
     }
     
-    func saveItem() {
+    public func saveItem() {
         do {
             try context.save()
         } catch {
@@ -144,12 +144,12 @@ class ChallengeModel: ChallengeModelProtocol {
 }
 
 extension Date {
-    func getDay() -> Int {
+    public func getDay() -> Int {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         return components.day!
     }
     
-    func removeTime() -> Date {
+    public func removeTime() -> Date {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         return Calendar.current.date(from: components)!
     }

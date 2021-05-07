@@ -15,14 +15,18 @@ class AddChallangeData: ObservableObject {
     @Published var time = ""
 }
 
-struct AddChallenge: View {
+public struct AddChallenge: View {
     @Binding var isOpen: Bool
     
     @ObservedObject var addChallangeData = AddChallangeData()
     @ObservedObject var data = ChallengeData(bookTitle: "select a book")
     @Environment(\.managedObjectContext) private var viewContext
 
-    var body: some View {
+    public init(isOpen: Binding<Bool>) {
+        self._isOpen = isOpen
+    }
+    
+    public var body: some View {
             VStack() {
                 Text("I will read")
                     .font(.title).bold()

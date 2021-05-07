@@ -3,21 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5676B633263378780039E692 /* BooerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676B620263378760039E692 /* BooerApp.swift */; };
 		5676B634263378780039E692 /* BooerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676B620263378760039E692 /* BooerApp.swift */; };
-		5676B635263378780039E692 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676B621263378760039E692 /* ContentView.swift */; };
-		5676B636263378780039E692 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676B621263378760039E692 /* ContentView.swift */; };
 		5676B637263378780039E692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5676B622263378780039E692 /* Assets.xcassets */; };
 		5676B638263378780039E692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5676B622263378780039E692 /* Assets.xcassets */; };
+		5676B65F263436080039E692 /* Booer-macOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B65E263436080039E692 /* Booer-macOS */; };
+		5676B6652634366B0039E692 /* Booer-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B6642634366B0039E692 /* Booer-iOS */; };
+		5676B667263436700039E692 /* Booer-Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B666263436700039E692 /* Booer-Shared */; };
+		5676B6692634367B0039E692 /* Booer-Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B6682634367B0039E692 /* Booer-Shared */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5676B620263378760039E692 /* BooerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerApp.swift; sourceTree = "<group>"; };
-		5676B621263378760039E692 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5676B622263378780039E692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5676B627263378780039E692 /* Booer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5676B62A263378780039E692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +28,7 @@
 		5676B6432633789A0039E692 /* Booer-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-iOS"; sourceTree = "<group>"; };
 		5676B646263379030039E692 /* Booer-macOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-macOS"; sourceTree = "<group>"; };
 		5676B649263379090039E692 /* Booer-Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-Shared"; sourceTree = "<group>"; };
+		5676B675263478380039E692 /* Booer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Booer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5676B6652634366B0039E692 /* Booer-iOS in Frameworks */,
+				5676B667263436700039E692 /* Booer-Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5676B65F263436080039E692 /* Booer-macOS in Frameworks */,
+				5676B6692634367B0039E692 /* Booer-Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +56,7 @@
 		5676B61A263378760039E692 = {
 			isa = PBXGroup;
 			children = (
+				5676B675263478380039E692 /* Booer.entitlements */,
 				5676B649263379090039E692 /* Booer-Shared */,
 				5676B6432633789A0039E692 /* Booer-iOS */,
 				5676B646263379030039E692 /* Booer-macOS */,
@@ -57,6 +64,7 @@
 				5676B629263378780039E692 /* iOS */,
 				5676B630263378780039E692 /* macOS */,
 				5676B628263378780039E692 /* Products */,
+				5676B65D263436080039E692 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				5676B620263378760039E692 /* BooerApp.swift */,
-				5676B621263378760039E692 /* ContentView.swift */,
 				5676B622263378780039E692 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -96,6 +103,13 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		5676B65D263436080039E692 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +126,10 @@
 			dependencies = (
 			);
 			name = "Booer (iOS)";
+			packageProductDependencies = (
+				5676B6642634366B0039E692 /* Booer-iOS */,
+				5676B666263436700039E692 /* Booer-Shared */,
+			);
 			productName = "Booer (iOS)";
 			productReference = 5676B627263378780039E692 /* Booer.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +147,10 @@
 			dependencies = (
 			);
 			name = "Booer (macOS)";
+			packageProductDependencies = (
+				5676B65E263436080039E692 /* Booer-macOS */,
+				5676B6682634367B0039E692 /* Booer-Shared */,
+			);
 			productName = "Booer (macOS)";
 			productReference = 5676B62F263378780039E692 /* Booer.app */;
 			productType = "com.apple.product-type.application";
@@ -193,7 +215,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5676B635263378780039E692 /* ContentView.swift in Sources */,
 				5676B633263378780039E692 /* BooerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5676B636263378780039E692 /* ContentView.swift in Sources */,
 				5676B634263378780039E692 /* BooerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +281,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,6 +336,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -326,6 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Booer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RPD69GC7T;
 				ENABLE_PREVIEWS = YES;
@@ -348,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Booer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RPD69GC7T;
 				ENABLE_PREVIEWS = YES;
@@ -445,6 +471,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5676B65E263436080039E692 /* Booer-macOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "Booer-macOS";
+		};
+		5676B6642634366B0039E692 /* Booer-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "Booer-iOS";
+		};
+		5676B666263436700039E692 /* Booer-Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "Booer-Shared";
+		};
+		5676B6682634367B0039E692 /* Booer-Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "Booer-Shared";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5676B61B263378760039E692 /* Project object */;
 }

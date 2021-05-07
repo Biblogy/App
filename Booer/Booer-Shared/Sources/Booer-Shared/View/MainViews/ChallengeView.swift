@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChallengeView: View {
+public struct ChallengeView: View {
     @State private var selected = 1
     
     @EnvironmentObject var sheetData: AddSheetData
@@ -17,7 +17,9 @@ struct ChallengeView: View {
     
     private var items: FetchedResults<Challenges>
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         VStack() {
             VStack() {
                 List() {

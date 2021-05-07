@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ChallengeModelProtocol {
+public protocol ChallengeModelProtocol {
     func calcStreak()
     func setDone() -> Bool
     func saveItem()

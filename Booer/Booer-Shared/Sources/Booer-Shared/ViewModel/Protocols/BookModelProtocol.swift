@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BookModelProtocol {
+public protocol BookModelProtocol {
     func editItem()
     func updateItem(read: Float) -> Bool
     func getChallenge()

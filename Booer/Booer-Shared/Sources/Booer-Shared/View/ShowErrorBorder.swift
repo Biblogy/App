@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct ShowErrorBorder: ViewModifier {
+public struct ShowErrorBorder: ViewModifier {
     let isCorrect: Binding<Bool>
     
-    func body(content: Content) -> some View {
+    public init(isCorrect: Binding<Bool>) {
+        self.isCorrect = isCorrect
+    }
+    
+    public func body(content: Content) -> some View {
         content
             .background(
                 RoundedRectangle(cornerRadius: 5)

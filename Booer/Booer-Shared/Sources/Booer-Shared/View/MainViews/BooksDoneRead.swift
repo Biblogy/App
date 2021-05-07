@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 import Combine
 
-struct BooksDoneRead: View {
+public struct BooksDoneRead: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var sheetData: AddSheetData
 
@@ -18,10 +18,12 @@ struct BooksDoneRead: View {
         predicate: NSPredicate(format: "done == true"), animation: .default)
     private var items: FetchedResults<Book>
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         List {
             ForEach(items) { item in
-                BookView(item: BookModel(item: item, context: viewContext))
+                BookView(book: BookModel(item: item, context: viewContext))
             }
         }.toolbar(content: {
             ToolbarItem(content: {

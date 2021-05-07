@@ -2,20 +2,19 @@
 //  Persistence.swift
 //  Shared
 //
-//  Created by Veit Progl on 15.11.20.
+//  Created by Veit Progl on 24.04.21.
 //
 
 import CoreData
 
-struct PersistenceController {
-    static let shared = PersistenceController()
+public struct PersistenceController {
+    public static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    public static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem = Book(context: viewContext)
-//            newItem.timestamp = Date()
             newItem.title = "demo"
             newItem.progress = 0
             newItem.author = "veit"
@@ -35,10 +34,13 @@ struct PersistenceController {
         return result
     }()
 
-    let container: NSPersistentCloudKitContainer
+    public let container: NSPersistentCloudKitContainer
 
-    init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "EBookTracking")
+    public init(inMemory: Bool = false) {
+        let modelURL = Bundle.module.url(forResource:"BooerCloud", withExtension: "momd")
+        let model = NSManagedObjectModel(contentsOf: modelURL!)
+        
+        container = NSPersistentCloudKitContainer(name: "BooerCloud", managedObjectModel: model!)
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

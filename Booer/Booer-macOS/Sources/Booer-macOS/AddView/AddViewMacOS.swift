@@ -6,20 +6,9 @@
 //
 
 import SwiftUI
-import Alamofire
-import SDWebImageSwiftUI
 import CoreData
 import Combine
-
-class AddBookData: ObservableObject {
-    @Published var title = ""
-    @Published var progress: Float = 0
-    @Published var author = ""
-    @Published var isbn = "000"
-    @Published var baugtAt = Date()
-    @Published var id = UUID().uuidString
-    @Published var pages: Decimal?
-}
+import Booer_Shared
 
 struct AddViewMacOS: View {
     @Binding var isOpen: Bool
@@ -61,7 +50,7 @@ struct AddViewMacOS: View {
             }
         }, conformAction: {
             Button(action: {
-                getBooks(bookTitle: self.book.title) { result in
+                OpenLibary().getBooks(bookTitle: self.book.title) { result in
                     switch result {
                     case .failure(let error):
                         print(error)
@@ -78,7 +67,8 @@ struct AddViewMacOS: View {
         })
         .onAppear(perform: {
             if self.book.title != "" {
-                getBooks(bookTitle: self.book.title) { result in
+                
+                OpenLibary().getBooks(bookTitle: self.book.title) { result in
                     switch result {
                     case .failure(let error):
                         print(error)

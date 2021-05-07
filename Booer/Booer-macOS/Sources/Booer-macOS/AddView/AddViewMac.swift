@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
+import Booer_Shared
 
 struct AddViewMac: View {
     @Binding var isOpen: Bool
-    @State var book = AddBookData()
+    @State private var book = AddBookData()
     
     @State private var isCorrect = true
     @State private var showSheet = false
     @Environment(\.managedObjectContext) private var viewContext
 
+    @State private var booktitle = ""
+    
+    public init(isOpen: Binding<Bool>) {
+        self._isOpen = isOpen
+    }
+    
     fileprivate func LabeledTextedField(title: String, textField: Binding<String>) -> some View {
         return HStack() {
             Text(title + ":").bold()
@@ -65,13 +72,20 @@ struct AddViewMac: View {
                     VStack() {
                         HStack() {
                             LabeledTextedField(title: "Title", textField: self.$book.title)
+                            
                             Button(action: {
                                 self.showSheet.toggle()
                             }, label: {
                                 Image(systemName: "magnifyingglass")
                             })
                         }
-                        LabeledTextedField(title: "Author", textField: self.$book.author)
+//                        LabeledTextedField(title: "Author", textField: self.$book.author)
+                        HStack() {
+                            Text("Author:").bold()
+                            TextField("Author", text: self.$book.author)
+                                .modifier(ShowErrorBorder(isCorrect: self.$isCorrect))
+                        }
+                        
                         HStack() {
                             Text("Pages:").bold()
                             DecimalField("Pages", value: self.$book.pages, formatter: AddViewMac.numerDottetFormatter)

@@ -6,23 +6,26 @@
 //
 
 import SwiftUI
+import Booer_Shared
 
-struct NavigationMac: View {
+public struct NavigationMac: View {
     @State private var showAddView = false
     @EnvironmentObject var sheetData: AddSheetData
     @EnvironmentObject var alertData: DeleteAlert
     @Environment(\.managedObjectContext) private var viewContext
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         VStack() {
             NavigationView() {
                 Sidebar()
                 
-                ContentView()
+                BookOverview()
             }
             .sheet(isPresented: self.$sheetData.isOpen, content: {
                 if sheetData.selectedSheet == .AddBook {
-                    AddView(isOpen: self.$sheetData.isOpen)
+                    AddViewMac(isOpen: self.$sheetData.isOpen)
                 } else if sheetData.selectedSheet == .AddChallenge {
                     AddChallenge(isOpen: self.$sheetData.isOpen)
                 }
@@ -30,7 +33,7 @@ struct NavigationMac: View {
             .alert(isPresented: self.$alertData.show, content: {
                 let primaryButton = Alert.Button.default(Text("Do it")) {
                     viewContext.delete(self.alertData.item!)
-                    
+
                     do {
                         try viewContext.save()
                     } catch {

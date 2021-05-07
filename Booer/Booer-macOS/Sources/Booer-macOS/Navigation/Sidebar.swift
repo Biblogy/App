@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Booer_Shared
 
 enum NavigationActive: String {
     case Book
@@ -38,7 +39,7 @@ struct Sidebar: View {
                 Text(navigation.selected.rawValue)
             }
             Group() {
-                NavigationLink(destination: ContentView(), label: {
+                NavigationLink(destination: BookOverview(), label: {
                     Label("Books to read", systemImage: "book")
                 })
                 NavigationLink(destination: BooksDoneRead(), label: {

@@ -8,13 +8,17 @@
 import SwiftUI
 import Combine
 
-struct BookView: View {
+public struct BookView: View {
     @ObservedObject var item: BookModel
     @State private var hasError = false
     @EnvironmentObject var alertData: DeleteAlert
     @Environment(\.managedObjectContext) private var viewContext
 
-    var body: some View {
+    public init(book: BookModel) {
+        self.item = book
+    }
+    
+    public var body: some View {
         GroupBox(){
             HStack(alignment: .top) {
                 VStack() {

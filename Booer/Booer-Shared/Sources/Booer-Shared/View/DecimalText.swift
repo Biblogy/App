@@ -27,7 +27,7 @@
 import SwiftUI
 import Combine
 
-struct DecimalField : View {
+public struct DecimalField : View {
     let label: LocalizedStringKey
     @Binding var value: Decimal?
     let formatter: NumberFormatter
@@ -46,7 +46,7 @@ struct DecimalField : View {
     // before the view is fully initialized.
     @State private var hasInitialTextValue = false
     
-    init(
+    public init(
         _ label: LocalizedStringKey,
         value: Binding<Decimal?>,
         formatter: NumberFormatter,
@@ -72,7 +72,7 @@ struct DecimalField : View {
         self.editStringFormatter.multiplier = formatter.multiplier
     }
     
-    var body: some View {
+    public var body: some View {
         TextField(label, text: $textValue, onEditingChanged: { isInFocus in
 //             When the field is in focus we replace the field's contents
 //             with a plain specifically formatted number. When not in focus, the field

@@ -47,7 +47,6 @@ struct EBookTrackingApp: App {
                 getCoreDataDBPath()
             })
         }
-
     }
     
     func getCoreDataDBPath() {

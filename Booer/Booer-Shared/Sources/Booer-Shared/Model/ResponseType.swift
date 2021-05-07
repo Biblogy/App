@@ -6,7 +6,7 @@
 import Foundation
 
 // MARK: - BooksResponse
-struct BooksResponse: Codable {
+public struct BooksResponse: Codable {
     let start, welcomeNumFound, numFound: Int
     let docs: [BookItem]
 
@@ -18,35 +18,35 @@ struct BooksResponse: Codable {
 }
 
 // MARK: - Book
-struct BookItem: Codable, Identifiable {
-    let id: String
-    let titleSuggest: String?
-    let editionKey: [String]?
-    let coverI: Int?
-    let isbn: [String]?
-    let hasFulltext: Bool?
-    let text, authorName, seed: [String]?
-    let oclc: [String]?
-    let authorKey: [String]?
-    let subject: [String]?
-    let title: String?
-    let publishDate: [String]?
-    let type: String?
-    let ebookCountI: Int?
-    let publishPlace: [String]?
-    let editionCount: Int?
-    let lcc: [String]?
-    let publisher, language: [String]?
-    let lastModifiedI: Int?
-    let coverEditionKey: String?
-    let publishYear: [Int]?
-    let firstPublishYear: Int?
-    let idDnb: [String]?
-    let subtitle: String?
-    let place: [String]?
-    var pages: String? = ""
-    var numberOfPages: String?
-    var isCorrect: Bool?
+public struct BookItem: Codable, Identifiable {
+    public let id: String
+    public let titleSuggest: String?
+    public let editionKey: [String]?
+    public let coverI: Int?
+    public let isbn: [String]?
+    public let hasFulltext: Bool?
+    public let text, authorName, seed: [String]?
+    public let oclc: [String]?
+    public let authorKey: [String]?
+    public let subject: [String]?
+    public let title: String?
+    public let publishDate: [String]?
+    public let type: String?
+    public let ebookCountI: Int?
+    public let publishPlace: [String]?
+    public let editionCount: Int?
+    public let lcc: [String]?
+    public let publisher, language: [String]?
+    public let lastModifiedI: Int?
+    public let coverEditionKey: String?
+    public let publishYear: [Int]?
+    public let firstPublishYear: Int?
+    public let idDnb: [String]?
+    public let subtitle: String?
+    public let place: [String]?
+    public var pages: String? = ""
+    public var numberOfPages: String?
+    public var isCorrect: Bool?
 
     
     enum CodingKeys: String, CodingKey {

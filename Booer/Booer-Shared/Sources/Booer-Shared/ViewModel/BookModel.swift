@@ -9,25 +9,25 @@ import Combine
 import Foundation
 import CoreData
 
-class BookModel: ObservableObject, BookModelProtocol {
+public class BookModel: ObservableObject, BookModelProtocol {
     @Published var item: Book
     @Published var read: String
     
     var context: NSManagedObjectContext
     var challenge: ChallengeModelProtocol?
     
-    init(item: Book, context: NSManagedObjectContext) {
+    public init(item: Book, context: NSManagedObjectContext) {
         self.item = item
         self.context = context
         self.read = "\(Int(item.progress))"
     }
     
-    func editItem() {
+    public func editItem() {
         item.progress -= 1
         setDone()
     }
     
-    func updateItem(read: Float) -> Bool {
+    public func updateItem(read: Float) -> Bool {
         let progressError = setProgress(read: read)
         setDone()
         
@@ -60,7 +60,7 @@ class BookModel: ObservableObject, BookModelProtocol {
         }
     }
     
-    func getChallenge() {
+    public func getChallenge() {
         if item.bookChallenge != nil {
             for item in item.bookChallenge!.allObjects {
                 let challenge = item as! Challenges
