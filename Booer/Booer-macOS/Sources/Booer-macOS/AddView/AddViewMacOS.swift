@@ -37,7 +37,7 @@ struct AddViewMacOS: View {
                             Button(action: {
                                 self.book.title = book.title ?? ""
                                 self.book.author = book.authorName?.first ?? ""
-                                self.book.pages = Decimal(Int(book.pages ?? "") ?? 0)
+                                self.book.pages = book.pages ?? ""
                                 self.book.isbn = book.isbn?.first ?? ""
                                 
                                 self.isOpen.toggle()

@@ -18,5 +18,13 @@ public class AddBookData: ObservableObject {
     @Published public var isbn = "000"
     @Published public var baugtAt = Date()
     @Published public var id = UUID().uuidString
-    @Published public var pages: Decimal?
+    @Published public var pages = "" {
+        didSet {
+            let filtered = pages.filter { $0.isNumber }
+            
+            if pages != filtered {
+                pages = filtered
+            }
+        }
+    }
 }

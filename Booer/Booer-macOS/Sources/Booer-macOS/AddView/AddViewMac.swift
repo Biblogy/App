@@ -10,7 +10,7 @@ import Booer_Shared
 
 struct AddViewMac: View {
     @Binding var isOpen: Bool
-    @State private var book = AddBookData()
+    @ObservedObject var book = AddBookData()
     
     @State private var isCorrect = true
     @State private var showSheet = false
@@ -38,7 +38,7 @@ struct AddViewMac: View {
     }
     
     func saveToDB() {
-        if self.book.title != "" && self.book.pages != 0 && self.book.pages != nil {
+        if self.book.title != "" && self.book.pages != "" {
             let newItem = Book(context: viewContext)
             newItem.title = self.book.title
             newItem.progress = self.book.progress
@@ -46,7 +46,7 @@ struct AddViewMac: View {
             newItem.isbn = self.book.isbn
             newItem.year = self.book.baugtAt
             newItem.id = self.book.id
-            newItem.pages = Float(truncating: self.book.pages! as NSNumber)
+            newItem.pages = Float(self.book.pages) ?? 0
 
             do {
                 try viewContext.save()
@@ -71,7 +71,7 @@ struct AddViewMac: View {
                 GroupBox(label: Text("Required")) {
                     VStack() {
                         HStack() {
-                            LabeledTextedField(title: "Title", textField: self.$book.title)
+                            LabeledTextedField(title: "Search", textField: self.$book.title)
                             
                             Button(action: {
                                 self.showSheet.toggle()
@@ -79,16 +79,11 @@ struct AddViewMac: View {
                                 Image(systemName: "magnifyingglass")
                             })
                         }
-//                        LabeledTextedField(title: "Author", textField: self.$book.author)
-                        HStack() {
-                            Text("Author:").bold()
-                            TextField("Author", text: self.$book.author)
-                                .modifier(ShowErrorBorder(isCorrect: self.$isCorrect))
-                        }
+                        LabeledTextedField(title: "Author", textField: self.$book.author)
                         
                         HStack() {
                             Text("Pages:").bold()
-                            DecimalField("Pages", value: self.$book.pages, formatter: AddViewMac.numerDottetFormatter)
+                            TextField("Pages", text: self.$book.pages)
                                 .modifier(ShowErrorBorder(isCorrect: self.$isCorrect))
                         }
                     }
