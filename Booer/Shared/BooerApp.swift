@@ -8,9 +8,9 @@
 import SwiftUI
 import Booer_Shared
 import CoreData
+import Booer_iOS
 
 #if os(iOS)
-import Booer_iOS
 #else
 import Booer_macOS
 #endif
@@ -25,7 +25,7 @@ struct BooerApp: App {
         WindowGroup {
             VStack() {
                 #if os(iOS)
-                    TabViewIos()
+                    TestIos()
                 #else
                     NavigationMac()
                 #endif
@@ -33,6 +33,9 @@ struct BooerApp: App {
             .environmentObject(sheetData)
             .environmentObject(alertData)
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            .onAppear(perform: {
+//                self.alertData.context = persistenceController.container.viewContext
+//            })
         }
     }
 }

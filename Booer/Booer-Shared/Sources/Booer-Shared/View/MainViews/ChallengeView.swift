@@ -116,7 +116,7 @@ struct ChallengeItemView: View {
     }
 }
 
-enum time:String {
+public enum time:String {
     case days, weeks, month, years
 }
 

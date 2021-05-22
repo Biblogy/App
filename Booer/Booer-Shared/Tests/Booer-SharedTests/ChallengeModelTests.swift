@@ -8,7 +8,8 @@
 import Quick
 import Nimble
 import Cuckoo
-@testable import EBookTracking
+import Foundation
+@testable import Booer_Shared
 
 class ChallengeModelTests: QuickSpec {
     override func spec() {

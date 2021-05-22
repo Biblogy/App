@@ -8,8 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct bookPicker: View {
-    @ObservedObject var addChallangeData = AddChallangeData()
+public struct bookPicker: View {
     @ObservedObject var data = ChallengeData(bookTitle: "select a book")
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -17,7 +16,13 @@ struct bookPicker: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Book.title, ascending: true)], predicate: NSPredicate(format: "done != true"), animation: .default)
     private var items: FetchedResults<Book>
     
-    var body: some View {
+    public init() {}
+
+    public init(data: ChallengeData) {
+        self.data = data
+    }
+    
+    public var body: some View {
         VStack() {
             HStack() {
                 Text("the book:").font(.title).bold()
@@ -41,28 +46,31 @@ struct bookPicker: View {
                             Text("\(book.title ?? "error")")
                         })
                     }
-                }.background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(addChallangeData.isNotValid ? Color.red : Color.secondary, lineWidth: 1)
-                )
+                }
             }
         }
     }
 }
 
-struct daysTextField: View {
-    @ObservedObject var addChallangeData = AddChallangeData()
-
-    var body: some View {
+public struct daysTextField: View {
+    @ObservedObject var data = ChallengeData()
+    
+    public init() {}
+    
+    public init(data: ChallengeData) {
+        self.data = data
+    }
+    
+    public var body: some View {
         HStack() {
             Text("for")
                 .font(.title)
                 .bold()
             Spacer()
-            TextField("10", text: $addChallangeData.time)
+            TextField("10", text: $data.time)
                 .background(
                     RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(addChallangeData.isNotValid ? Color.red : Color.secondary, lineWidth: 1)
+                        .strokeBorder(data.isNotValid ? Color.red : Color.secondary, lineWidth: 1)
                 )
             Text("days")
                 .font(.title)

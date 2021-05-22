@@ -18,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56720A5A2646B245003407DC /* BooerSharedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerSharedTests.swift; sourceTree = "<group>"; };
+		56720A5C2646B245003407DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5676B620263378760039E692 /* BooerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerApp.swift; sourceTree = "<group>"; };
 		5676B622263378780039E692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5676B627263378780039E692 /* Booer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56720A592646B245003407DC /* BooerSharedTests */ = {
+			isa = PBXGroup;
+			children = (
+				56720A5A2646B245003407DC /* BooerSharedTests.swift */,
+				56720A5C2646B245003407DC /* Info.plist */,
+			);
+			path = BooerSharedTests;
+			sourceTree = "<group>";
+		};
 		5676B61A263378760039E692 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +74,7 @@
 				5676B61F263378760039E692 /* Shared */,
 				5676B629263378780039E692 /* iOS */,
 				5676B630263378780039E692 /* macOS */,
+				56720A592646B245003407DC /* BooerSharedTests */,
 				5676B628263378780039E692 /* Products */,
 				5676B65D263436080039E692 /* Frameworks */,
 			);
@@ -117,6 +129,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5676B63B263378780039E692 /* Build configuration list for PBXNativeTarget "Booer (iOS)" */;
 			buildPhases = (
+				56720A632646E83E003407DC /* ShellScript */,
 				5676B623263378780039E692 /* Sources */,
 				5676B624263378780039E692 /* Frameworks */,
 				5676B625263378780039E692 /* Resources */,
@@ -138,6 +151,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5676B63E263378780039E692 /* Build configuration list for PBXNativeTarget "Booer (macOS)" */;
 			buildPhases = (
+				56720A532646ABC1003407DC /* ShellScript */,
 				5676B62B263378780039E692 /* Sources */,
 				5676B62C263378780039E692 /* Frameworks */,
 				5676B62D263378780039E692 /* Resources */,
@@ -161,7 +175,7 @@
 		5676B61B263378760039E692 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					5676B626263378780039E692 = {
@@ -209,6 +223,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56720A532646ABC1003407DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
+		56720A632646E83E003407DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/Booer-Shared/Tests/Booer-SharedTests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PROJECT_DIR}/run\" --download generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/BookModelProtocol.swift\" \\\n\"${INPUT_DIR}/ChallengeModelProtocol.swift\" \\\n\"${INPUT_DIR}/CalcChallengeDaysProtocol.swift\"\n# ... and so forth, the last line should never end with a backslash \\\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5676B623263378780039E692 /* Sources */ = {

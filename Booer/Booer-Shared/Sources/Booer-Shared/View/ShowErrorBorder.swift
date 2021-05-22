@@ -16,6 +16,7 @@ public struct ShowErrorBorder: ViewModifier {
     
     public func body(content: Content) -> some View {
         content
+            .padding(2)
             .background(
                 RoundedRectangle(cornerRadius: 5)
                     .strokeBorder(isCorrect.wrappedValue ? Color.secondary : Color.red, lineWidth: 1)

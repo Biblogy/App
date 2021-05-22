@@ -10,7 +10,7 @@ import CoreData
 import SwiftUI
 
 
-func addItem(book: BookItem, viewContext: NSManagedObjectContext) {
+public func addItem(book: BookItem, viewContext: NSManagedObjectContext) {
     withAnimation {
         let newItem = Book(context: viewContext)
 //            newItem.timestamp = Date()

@@ -8,17 +8,9 @@
 import SwiftUI
 import Combine
 
-class AddChallangeData: ObservableObject {
-    @Published var isNotValid = false
-    @Published var menuTime: time = .days
-    @Published var selected = 1
-    @Published var time = ""
-}
-
 public struct AddChallenge: View {
     @Binding var isOpen: Bool
     
-    @ObservedObject var addChallangeData = AddChallangeData()
     @ObservedObject var data = ChallengeData(bookTitle: "select a book")
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -32,8 +24,8 @@ public struct AddChallenge: View {
                     .font(.title).bold()
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 
-                daysTextField(addChallangeData: addChallangeData)
-                bookPicker(addChallangeData: addChallangeData, data: data)
+                daysTextField(data: data)
+                bookPicker(data: data)
                 Spacer()
             }
             .toolbar(content: {
@@ -47,9 +39,9 @@ public struct AddChallenge: View {
 
                 ToolbarItem(placement: ToolbarItemPlacement.confirmationAction) {
                     Button(action: {
-                        validatingData(bookId: data.bookID, time: Int16(addChallangeData.time) ?? -404, timeType: addChallangeData.menuTime.rawValue, book: self.data.book)
-                        if !addChallangeData.isNotValid {
-                            addChallenge(bookId: data.bookID, time: Int16(addChallangeData.time) ?? -404, timeType: addChallangeData.menuTime.rawValue, book: self.data.book!)
+                        validatingData(bookId: data.bookID, time: Int16(data.time) ?? -404, timeType: data.menuTime.rawValue, book: self.data.book)
+                        if !data.isNotValid {
+                            addChallenge(bookId: data.bookID, time: Int16(data.time) ?? -404, timeType: data.menuTime.rawValue, book: self.data.book!)
                         }
                     }, label: {
                         Text("Add")
@@ -65,9 +57,9 @@ public struct AddChallenge: View {
             time != -404 &&
             timeType != "" &&
             book != nil {
-            self.addChallangeData.isNotValid = false
+            self.data.isNotValid = false
         } else {
-            self.addChallangeData.isNotValid = true
+            self.data.isNotValid = true
         }
     }
     

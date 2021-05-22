@@ -1,0 +1,53 @@
+import SwiftUI
+import Booer_Shared
+
+public struct TestIos: View {
+    public init() {}
+    
+    public var body: some View {
+        TabView {
+           NavigationIos()
+               .tabItem { Label("Books to read", systemImage: "books.vertical") }
+            BooksDone()
+                .tabItem { Label("Books Done", systemImage: "books.vertical.fill") }
+            ChallengeList()
+                .tabItem { Label("Challenges", systemImage: "checkmark.seal") }
+       }
+    }
+}
+
+public struct NavigationIos: View {
+    @State private var showAddView = false
+    @EnvironmentObject var sheetData: AddSheetData
+    @EnvironmentObject var alertData: DeleteAlert
+    @Environment(\.managedObjectContext) private var viewContext
+
+    public init() {}
+
+    public var body: some View {
+        NavigationView() {
+            BookOverview()
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarTrailing, content: {
+                       EditButton()
+                    })
+
+                    ToolbarItemGroup(placement: .navigationBarTrailing, content: {
+                        Button(action: {self.sheetData.isOpen.toggle()}) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    })
+                })
+                .navigationBarTitle("Booer")
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: self.$sheetData.isOpen, content: {
+            if sheetData.selectedSheet == .AddBook {
+                AddView(isOpen: self.$showAddView)
+            } else if sheetData.selectedSheet == .AddChallenge {
+                AddChallengeMobile(isOpen: self.$showAddView)
+            }
+        })
+        .alert(isPresented: self.$alertData.show, content: self.alertData.getAlert)
+    }
+}
