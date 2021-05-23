@@ -40,14 +40,16 @@ public struct NavigationIos: View {
                 })
                 .navigationBarTitle("Booer")
         }
+        .alert(isPresented: self.$alertData.show, content: self.alertData.getAlert)
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: self.$sheetData.isOpen, content: {
             if sheetData.selectedSheet == .AddBook {
                 AddView(isOpen: self.$showAddView)
             } else if sheetData.selectedSheet == .AddChallenge {
                 AddChallengeMobile(isOpen: self.$showAddView)
+                    .environmentObject(alertData)
             }
         })
-        .alert(isPresented: self.$alertData.show, content: self.alertData.getAlert)
+//
     }
 }

@@ -17,14 +17,15 @@ let package = Package(
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.4.0"),
         .package(url: "https://github.com/Brightify/Cuckoo.git", .upToNextMajor(from: "1.3.0")),
         .package(url: "https://github.com/Quick/Quick", .upToNextMajor(from: "3.0.0")),
-        .package(url: "https://github.com/Quick/Nimble", .upToNextMajor(from: "9.0.0"))
+        .package(url: "https://github.com/Quick/Nimble", .upToNextMajor(from: "9.0.0")),
+        .package(url: "https://github.com/mindbody/Relay.git", from: "0.3.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Booer-Shared",
-            dependencies: ["Alamofire"]),
+            dependencies: ["Alamofire", "Relay"]),
         .testTarget(
             name: "Booer-SharedTests",
             dependencies: ["Booer-Shared", "Cuckoo", "Quick", "Nimble"]),

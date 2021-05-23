@@ -14,6 +14,7 @@ public struct AddChallengeMobile: View {
     
     @ObservedObject var data = ChallengeData(bookTitle: "select a book")
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var alertData: DeleteAlert
 
     public init(isOpen: Binding<Bool>) {
         self._isOpen = isOpen
@@ -45,7 +46,8 @@ public struct AddChallengeMobile: View {
                         if !data.isNotValid {
                             data.addChallenge(context: viewContext)
                         } else {
-                            
+                            alertData.alertType = .missing
+                            alertData.show = true
                         }
                     }, label: {
                         Text("Add")
@@ -53,13 +55,7 @@ public struct AddChallengeMobile: View {
                 }
             })
             .padding([.leading, .trailing], 20)
+            .alert(isPresented: self.$alertData.show, content: self.alertData.getAlert)
         }
     }
 }
-
-//struct AddChallenge_Previews: PreviewProvider {
-//    @State private var isOpen = true
-//    static var previews: some View {
-//        AddChallenge(isOpen: self.$isOpen)
-//    }
-//}

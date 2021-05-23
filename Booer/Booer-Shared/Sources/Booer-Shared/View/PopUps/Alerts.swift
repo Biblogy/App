@@ -19,8 +19,23 @@ public class DeleteAlert: ObservableObject {
     
     public init() {}
     
+    
+    public enum AlertType {
+        case error
+        case delete
+        case missing
+    }
+    public var alertType: AlertType = .error
+
     public func getAlert() -> Alert {
-        return cancelAlert()
+        switch alertType {
+        case .delete:
+            return cancelAlert()
+        case .error:
+            return errorAlert()
+        case .missing:
+            return missingFelds()
+        }
     }
     
     func cancelAlert() -> Alert {
@@ -53,7 +68,16 @@ public class DeleteAlert: ObservableObject {
             self.show = false
         }
         return Alert(title: Text("Whoops"),
-                     message: Text("Booer! We got a error! That shouldn't happen"),
+                     message: Text("We got a error! That shouldn't happen"),
+                     dismissButton: closeButton)
+    }
+    
+    func missingFelds() -> Alert {
+        let closeButton = Alert.Button.cancel(Text("Close")) {
+            self.show = false
+        }
+        return Alert(title: Text("Something is missing"),
+                     message: Text("It seams like that something is missing"),
                      dismissButton: closeButton)
     }
 }
