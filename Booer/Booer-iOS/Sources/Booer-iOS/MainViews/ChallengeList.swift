@@ -115,6 +115,7 @@ struct ChallengeItemView: View {
                     alertData.item = data
                     alertData.objectName = data.challengeBook?.title ?? "error"
                     alertData.type = "challenge"
+                    alertData.alertType = .delete
                     alertData.show = true
                 }
         }
