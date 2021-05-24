@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D5029f" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F5046g" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
         <attribute name="addedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="author" optional="YES" attributeType="String"/>
@@ -26,9 +26,6 @@
         <attribute name="timeType" optional="YES" attributeType="String"/>
         <relationship name="challengeBook" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Book" inverseName="bookChallenge" inverseEntity="Book"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
     <entity name="Progress" representedClassName="Progress" syncable="YES" codeGenerationType="class">
         <attribute name="bookid" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -38,7 +35,6 @@
     <elements>
         <element name="Book" positionX="-54" positionY="0" width="128" height="224"/>
         <element name="Challenges" positionX="-36" positionY="9" width="128" height="164"/>
-        <element name="Item" positionX="-27" positionY="117" width="128" height="44"/>
         <element name="Progress" positionX="-63" positionY="-9" width="128" height="89"/>
     </elements>
 </model>
