@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import CoreData
 
 public class AddBookData: ObservableObject {
     public init () {}
@@ -25,6 +26,32 @@ public class AddBookData: ObservableObject {
             if pages != filtered {
                 pages = filtered
             }
+        }
+    }
+    
+    public func saveToDB(context: NSManagedObjectContext) -> Bool {
+        if self.title != "" && self.pages != "" {
+            let newItem = Book(context: context)
+            newItem.title = self.title
+            newItem.progress = self.progress
+            newItem.author = self.author
+            newItem.isbn = self.isbn
+            newItem.year = self.baugtAt
+            newItem.id = self.id
+            newItem.pages = Float(self.pages) ?? 0
+
+            do {
+                try context.save()
+                return true
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        } else {
+//            isCorrect = false
+            return false
         }
     }
 }

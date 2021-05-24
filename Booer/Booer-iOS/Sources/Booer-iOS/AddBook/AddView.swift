@@ -38,30 +38,6 @@ struct AddView: View {
         return nf
     }
     
-    func saveToDB() {
-        if self.book.title != "" && self.book.pages != "" {
-            let newItem = Book(context: viewContext)
-            newItem.title = self.book.title
-            newItem.progress = self.book.progress
-            newItem.author = self.book.author
-            newItem.isbn = self.book.isbn
-            newItem.year = self.book.baugtAt
-            newItem.id = self.book.id
-            newItem.pages = Float(self.book.pages) ?? 0
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        } else {
-            isCorrect = false
-        }
-    }
-    
     var body: some View {
         NavigationView() {
             List() {
@@ -101,7 +77,7 @@ struct AddView: View {
             .toolbar(content: {
                 ToolbarItem(placement: ToolbarItemPlacement.confirmationAction, content: {
                     Button(action: {
-                        self.saveToDB()
+                        self.isCorrect = self.book.saveToDB(context: viewContext)
                     }, label: {
                         Text("Add")
                     })
