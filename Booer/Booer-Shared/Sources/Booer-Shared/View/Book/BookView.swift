@@ -105,6 +105,7 @@ public struct BookView: View {
                 Image(systemName: "xmark").onTapGesture {
                     alertData.item = item.item
                     alertData.objectName = item.item.title ?? "error"
+                    alertData.alertType = .delete
                     alertData.type = "book"
                     alertData.show = true
                 }

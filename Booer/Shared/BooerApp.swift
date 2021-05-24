@@ -33,9 +33,9 @@ struct BooerApp: App {
             .environmentObject(sheetData)
             .environmentObject(alertData)
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//            .onAppear(perform: {
-//                self.alertData.context = persistenceController.container.viewContext
-//            })
+            .onAppear(perform: {
+                self.alertData.context = persistenceController.container.viewContext
+            })
         }
     }
 }

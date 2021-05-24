@@ -3,6 +3,8 @@
 //  EBookTracking
 //
 //  Created by Veit Progl on 30.11.20.
+import SwiftUI
+import Booer_Shared
 
 struct SearchBook: View {
     @Binding var isOpen: Bool

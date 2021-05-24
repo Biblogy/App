@@ -36,6 +36,7 @@ public class DeleteAlert: ObservableObject {
         case .missing:
             return missingFelds()
         }
+        alertType = .error
     }
     
     func cancelAlert() -> Alert {
