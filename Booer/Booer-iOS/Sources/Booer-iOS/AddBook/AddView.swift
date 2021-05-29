@@ -9,6 +9,41 @@ import Foundation
 import SwiftUI
 import Booer_Shared
 
+struct ImagePicker: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var image: UIImage?
+
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                parent.image = uiImage
+            }
+
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
+
+    }
+}
+
 struct AddView: View {
     @Binding var isOpen: Bool
     @ObservedObject var book = AddBookData()
@@ -18,9 +53,18 @@ struct AddView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var booktitle = ""
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    @State private var image: Image?
     
     public init(isOpen: Binding<Bool>) {
         self._isOpen = isOpen
+    }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        self.book.image = inputImage
+        image = Image(uiImage: inputImage)
     }
     
     fileprivate func LabeledTextedField(title: String, textField: Binding<String>) -> some View {
@@ -45,6 +89,21 @@ struct AddView: View {
                     Text("There is some required feld missing, plase check")
                         .foregroundColor(Color.red)
                 }
+                
+                VStack() {
+                    if image != nil {
+                        image!
+                            .resizable()
+                            .frame(width: 70, height: 70)
+                    }
+                }
+                
+                Button(action: {
+                    self.showingImagePicker = true
+                }, label: {
+                    Text("Add Cover")
+                })
+                
                 Section(header: Text("Required")) {
                     VStack() {
                         HStack() {
@@ -94,5 +153,8 @@ struct AddView: View {
         .sheet(isPresented: self.$showSheet, content: {
             SearchBook(isOpen: self.$showSheet, book: book)
         })
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: self.$inputImage)
+        }
     }
 }

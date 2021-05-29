@@ -20,7 +20,7 @@ public struct BookOverview: View {
     private var items: FetchedResults<Book>
         
     public var body: some View {
-        List {
+        List() {
             ForEach(items) { item in
                 BookView(book: BookModel(item: item, context: viewContext))
             }

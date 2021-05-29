@@ -19,6 +19,7 @@ public class AddBookData: ObservableObject {
     @Published public var isbn = "000"
     @Published public var baugtAt = Date()
     @Published public var id = UUID().uuidString
+    @Published public var image: UIImage?
     @Published public var pages = "" {
         didSet {
             let filtered = pages.filter { $0.isNumber }
@@ -36,6 +37,7 @@ public class AddBookData: ObservableObject {
             newItem.progress = self.progress
             newItem.author = self.author
             newItem.isbn = self.isbn
+            newItem.cover = image?.pngData()
             newItem.year = self.baugtAt
             newItem.id = self.id
             newItem.pages = Float(self.pages) ?? 0
