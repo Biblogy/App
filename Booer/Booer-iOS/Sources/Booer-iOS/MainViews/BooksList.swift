@@ -10,41 +10,90 @@ import CoreData
 import Combine
 import Booer_Shared
 
-public struct BookOverview: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var sheetData: AddSheetData
 
+
+
+
+enum displayState: String {
+    case all = "all"
+    case done = "done"
+    case open = "open"
+}
+public struct BookOverview: View {
+    @EnvironmentObject var sheetData: AddSheetData
+    @EnvironmentObject var alertData: DeleteAlert
+    @State var display: displayState = .all
+    
+    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)],
-        predicate: NSPredicate(format: "done == false"), animation: .default)
-    private var items: FetchedResults<Book>
-        
+        entity: ReadProgress.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \ReadProgress.date, ascending: false)])
+    var items: FetchedResults<ReadProgress>
+    
     public var body: some View {
+
         List() {
+            
+            if display == .done {
+                displayClose()
+            } else if display == .open {
+                displayOpen()
+            } else if display == .all {
+                displayAll()
+            }
+        }
+        .toolbar(content: {
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading, content: {
+                Menu(content: {
+                    Button("All") { self.display = .all }
+                    Button("Done") { self.display = .done }
+                    Button("Open") { self.display = .open }
+                }, label: {
+                    Image(systemName: "line.horizontal.3.decrease.circle")
+                        .imageScale(.large)
+                })
+            })
+        })
+    }
+    
+    struct displayAll: View {
+        @Environment(\.managedObjectContext) private var viewContext
+        @FetchRequest(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)], animation: .default)
+        private var items: FetchedResults<Book>
+        
+        var body: some View {
             ForEach(items) { item in
                 BookView(book: BookModel(item: item, context: viewContext))
             }
         }
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    
+    struct displayOpen: View {
+        @Environment(\.managedObjectContext) private var viewContext
+        @FetchRequest(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)],
+            predicate: NSPredicate(format: "done == false"), animation: .default)
+        private var items: FetchedResults<Book>
+        
+        var body: some View {
+            ForEach(items) { item in
+                BookView(book: BookModel(item: item, context: viewContext))
+            }
+        }
+    }
+    
+    struct displayClose: View {
+        @Environment(\.managedObjectContext) private var viewContext
+        @FetchRequest(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)],
+            predicate: NSPredicate(format: "done == true"), animation: .default)
+        private var items: FetchedResults<Book>
+        
+        var body: some View {
+            ForEach(items) { item in
+                BookView(book: BookModel(item: item, context: viewContext))
             }
         }
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
