@@ -8,8 +8,10 @@ public struct TestIos: View {
         TabView {
            NavigationIos()
                .tabItem { Label("Books to read", systemImage: "books.vertical") }
-            BooksDone()
-                .tabItem { Label("Books Done", systemImage: "books.vertical.fill") }
+            TimeCounter()
+                .tabItem { Label("Timer", systemImage: "stopwatch") }
+            LibaryList()
+                .tabItem { Label("Libary", systemImage: "books.vertical.fill") }
             ChallengeList()
                 .tabItem { Label("Challenges", systemImage: "checkmark.seal") }
        }
@@ -33,7 +35,10 @@ public struct NavigationIos: View {
                     })
 
                     ToolbarItemGroup(placement: .navigationBarTrailing, content: {
-                        Button(action: {self.sheetData.isOpen.toggle()}) {
+                        Button(action: {
+                                self.sheetData.selectedSheet = .AddBook
+                                self.sheetData.isOpen.toggle()
+                        }) {
                             Label("Add Item", systemImage: "plus")
                         }
                     })
