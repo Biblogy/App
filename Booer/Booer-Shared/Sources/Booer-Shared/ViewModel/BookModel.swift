@@ -50,7 +50,7 @@ public class BookModel: ObservableObject, BookModelProtocol {
         } else {
             item.progress = read
             
-            let progress = Progress(context: context)
+            let progress = ReadProgress(context: context)
             progress.date = date
             progress.progress = Int64(read)
             progress.bookid = item.id
@@ -67,9 +67,20 @@ public class BookModel: ObservableObject, BookModelProtocol {
                 
                 self.challenge = ChallengeModel(challenge: challenge, context: context)
                 self.challenge?.calcStreak()
-                self.challenge?.setDone()
+                _ = self.challenge?.setDone()
                 self.challenge?.saveItem()
             }
+        }
+    }
+    
+    public func saveBook() {
+        do {
+            try context.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }

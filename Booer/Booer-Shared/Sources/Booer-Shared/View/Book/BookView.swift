@@ -79,39 +79,23 @@ public struct BookView: View {
                         .padding([.top], 10)
 
 //                    if item.item.progress != item.item.pages {
-//                        Button(action: {
-//                            let newRead = Float(item.read) ?? item.item.progress
-//                            print(newRead)
-//                            hasError = item.updateItem(read: newRead)
-//                            item.getChallenge()
-//
-//                            do {
-//                                try viewContext.save()
-//                            } catch {
-//                                // Replace this implementation with code to handle the error appropriately.
-//                                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                                let nsError = error as NSError
-//                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//                            }
-//
-//                        }, label: {
-//                            Text("Change Read")
-//                        })
+                        Button(action: {
+                            let newRead = Float(item.read) ?? item.item.progress
+                            print(newRead)
+                            
+                            hasError = item.updateItem(read: newRead)
+                            item.getChallenge()
+                            item.saveBook()
+                        }, label: {
+                            Text("Change Read")
+                        }).buttonStyle(BorderlessButtonStyle())
 //                    } else {
 //                        Button(action: {
 //                            item.editItem()
-//
-//                            do {
-//                                try viewContext.save()
-//                            } catch {
-//                                // Replace this implementation with code to handle the error appropriately.
-//                                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                                let nsError = error as NSError
-//                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//                            }
+//                            item.saveBook()
 //                        }, label: {
 //                            Text("Not Done ?")
-//                        })
+//                        }).buttonStyle(BorderlessButtonStyle())
 //                    }
                 }
                 .padding()

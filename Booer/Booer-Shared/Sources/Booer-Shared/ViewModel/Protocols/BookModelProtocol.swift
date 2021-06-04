@@ -11,4 +11,5 @@ public protocol BookModelProtocol {
     func editItem()
     func updateItem(read: Float) -> Bool
     func getChallenge()
+    func saveBook()
 }

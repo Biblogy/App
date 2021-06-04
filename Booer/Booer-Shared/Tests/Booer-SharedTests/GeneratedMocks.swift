@@ -1,4 +1,5 @@
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-05-29 20:31:56 +0000
+@testable import Booer_Shared
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-06-04 16:26:29 +0000
 
 //
 //  BookModelProtocol.swift
@@ -81,6 +82,21 @@ public class MockBookModelProtocol: BookModelProtocol, Cuckoo.ProtocolMock {
         
     }
     
+    
+    
+    public func saveBook()  {
+        
+    return cuckoo_manager.call("saveBook()",
+            parameters: (),
+            escapingParameters: (),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.saveBook())
+        
+    }
+    
 
 	public struct __StubbingProxy_BookModelProtocol: Cuckoo.StubbingProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
@@ -103,6 +119,11 @@ public class MockBookModelProtocol: BookModelProtocol, Cuckoo.ProtocolMock {
 	    func getChallenge() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
 	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
 	        return .init(stub: cuckoo_manager.createStub(for: MockBookModelProtocol.self, method: "getChallenge()", parameterMatchers: matchers))
+	    }
+	    
+	    func saveBook() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return .init(stub: cuckoo_manager.createStub(for: MockBookModelProtocol.self, method: "saveBook()", parameterMatchers: matchers))
 	    }
 	    
 	}
@@ -139,6 +160,12 @@ public class MockBookModelProtocol: BookModelProtocol, Cuckoo.ProtocolMock {
 	        return cuckoo_manager.verify("getChallenge()", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
+	    @discardableResult
+	    func saveBook() -> Cuckoo.__DoNotUse<(), Void> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return cuckoo_manager.verify("saveBook()", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
+	    
 	}
 }
 
@@ -160,10 +187,14 @@ public class BookModelProtocolStub: BookModelProtocol {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
+    public func saveBook()   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
 }
 
 
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-05-29 20:31:56 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-06-04 16:26:29 +0000
 
 //
 //  CalcChallengeDaysProtocol.swift
@@ -298,7 +329,7 @@ public class CalcChallengeDaysProtocolStub: CalcChallengeDaysProtocol {
 }
 
 
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-05-29 20:31:56 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-06-04 16:26:29 +0000
 
 //
 //  ChallengeModelProtocol.swift
@@ -461,4 +492,3 @@ public class ChallengeModelProtocolStub: ChallengeModelProtocol {
     }
     
 }
-
