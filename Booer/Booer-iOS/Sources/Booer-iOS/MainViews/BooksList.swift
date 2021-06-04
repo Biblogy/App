@@ -10,6 +10,39 @@ import CoreData
 import Combine
 import Booer_Shared
 
+enum DashCellState: String {
+    case total = "Total"
+    case day = "Today"
+    case streak = "Streak"
+}
+
+struct DashCell: View {
+    @State var displayType: DashCellState = .streak
+    @ObservedObject var data: DashboardModel
+    var body: some View {
+        return Group {
+            VStack() {
+                Text(displayType.rawValue)
+                Text("\(data.calcStreak())")
+                    .font(.headline)
+                Text("days streak")
+            }.padding(5)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .background(Color.gray.opacity(0.3))
+        .cornerRadius(5)
+        .onTapGesture {
+            switch displayType {
+            case .streak:
+                self.displayType = .day
+            case .day:
+                self.displayType = .total
+            case .total:
+                self.displayType = .streak
+            }
+        }
+    }
+}
 
 
 
@@ -33,6 +66,11 @@ public struct BookOverview: View {
     public var body: some View {
 
         List() {
+            HStack(spacing: 15) {
+                DashCell(data: DashboardModel(items: items))
+                DashCell(data: DashboardModel(items: items))
+                DashCell(data: DashboardModel(items: items))
+            }
             
             if display == .done {
                 displayClose()
