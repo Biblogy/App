@@ -10,10 +10,11 @@
         <attribute name="isbn" optional="YES" attributeType="String"/>
         <attribute name="pages" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="progress" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stateValue" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="year" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="bookChallenge" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Challenges" inverseName="challengeBook" inverseEntity="Challenges"/>
-        <relationship name="bookProgress" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Progress" inverseName="progressBook" inverseEntity="Progress"/>
+        <relationship name="bookProgress" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="ReadProgress" inverseName="progressBook" inverseEntity="ReadProgress"/>
     </entity>
     <entity name="Challenges" representedClassName="Challenges" syncable="YES" codeGenerationType="class">
         <attribute name="book" optional="YES" attributeType="String"/>
@@ -26,15 +27,15 @@
         <attribute name="timeType" optional="YES" attributeType="String"/>
         <relationship name="challengeBook" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Book" inverseName="bookChallenge" inverseEntity="Book"/>
     </entity>
-    <entity name="Progress" representedClassName="Progress" syncable="YES" codeGenerationType="class">
+    <entity name="ReadProgress" representedClassName="ReadProgress" syncable="YES" codeGenerationType="class">
         <attribute name="bookid" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="progress" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="progressBook" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Book" inverseName="bookProgress" inverseEntity="Book"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-54" positionY="0" width="128" height="224"/>
+        <element name="Book" positionX="-54" positionY="0" width="128" height="239"/>
         <element name="Challenges" positionX="-36" positionY="9" width="128" height="164"/>
-        <element name="Progress" positionX="-63" positionY="-9" width="128" height="89"/>
+        <element name="ReadProgress" positionX="-63" positionY="-9" width="128" height="89"/>
     </elements>
 </model>

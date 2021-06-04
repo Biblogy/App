@@ -28,7 +28,7 @@ public class CalcChallengeDays: CalcChallengeDaysProtocol {
     public func neededDays(challenge: Challenges) -> Set<Date> {
         if challenge.challengeBook != nil {
             var days = challenge.challengeBook!.bookProgress!.map({
-                ($0 as! Progress).date!.removeTime()
+                ($0 as! ReadProgress).date!.removeTime()
             })
             days = days.filter { item in
                 return item >= challenge.start!.removeTime()
@@ -96,32 +96,13 @@ public class ChallengeModel: ChallengeModelProtocol {
         return false
     }
     
-//    func testDone() {
-//        let start = challenge.start
-//        let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!
-//
-//        var dates = Array<Date>()
-//        var check = start
-//
-//        while check! <= end {
-//            dates.append(check!)
-//            check = Calendar.current.date(byAdding: .day, value: 1, to: check!)!
-//        }
-//
-//        for time in dates {
-//            setProgress(read: 1, date: time)
-//        }
-//
-//        saveItem()
-//    }
-    
     @discardableResult private func setProgress(read: Float, date:Date = Date()) -> Bool {
         if read > challenge.challengeBook!.pages {
             return true
         } else {
             challenge.challengeBook!.progress = read
             
-            let progress = Progress(context: context)
+            let progress = ReadProgress(context: context)
             progress.date = date
             progress.progress = Int64(read)
             progress.bookid = challenge.challengeBook!.id
