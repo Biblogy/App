@@ -1,5 +1,5 @@
 @testable import Booer_Shared
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-06-04 16:26:29 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-06-05 14:59:28 +0000
 
 //
 //  BookModelProtocol.swift
@@ -194,7 +194,7 @@ public class BookModelProtocolStub: BookModelProtocol {
 }
 
 
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-06-04 16:26:29 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-06-05 14:59:28 +0000
 
 //
 //  CalcChallengeDaysProtocol.swift
@@ -329,7 +329,7 @@ public class CalcChallengeDaysProtocolStub: CalcChallengeDaysProtocol {
 }
 
 
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-06-04 16:26:29 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-06-05 14:59:28 +0000
 
 //
 //  ChallengeModelProtocol.swift
@@ -412,6 +412,21 @@ public class MockChallengeModelProtocol: ChallengeModelProtocol, Cuckoo.Protocol
         
     }
     
+    
+    
+    public func getDays()  {
+        
+    return cuckoo_manager.call("getDays()",
+            parameters: (),
+            escapingParameters: (),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.getDays())
+        
+    }
+    
 
 	public struct __StubbingProxy_ChallengeModelProtocol: Cuckoo.StubbingProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
@@ -434,6 +449,11 @@ public class MockChallengeModelProtocol: ChallengeModelProtocol, Cuckoo.Protocol
 	    func saveItem() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
 	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
 	        return .init(stub: cuckoo_manager.createStub(for: MockChallengeModelProtocol.self, method: "saveItem()", parameterMatchers: matchers))
+	    }
+	    
+	    func getDays() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return .init(stub: cuckoo_manager.createStub(for: MockChallengeModelProtocol.self, method: "getDays()", parameterMatchers: matchers))
 	    }
 	    
 	}
@@ -470,6 +490,12 @@ public class MockChallengeModelProtocol: ChallengeModelProtocol, Cuckoo.Protocol
 	        return cuckoo_manager.verify("saveItem()", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
+	    @discardableResult
+	    func getDays() -> Cuckoo.__DoNotUse<(), Void> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return cuckoo_manager.verify("getDays()", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
+	    
 	}
 }
 
@@ -488,6 +514,10 @@ public class ChallengeModelProtocolStub: ChallengeModelProtocol {
     }
     
     public func saveItem()   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    public func getDays()   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     

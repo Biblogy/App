@@ -8,6 +8,7 @@
 import Quick
 import Nimble
 import Cuckoo
+import Foundation
 @testable import Booer_Shared
 
 class BookModelTests: QuickSpec {
@@ -16,6 +17,10 @@ class BookModelTests: QuickSpec {
         var sut = BookModel(item: Book(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext)
         
 
+        beforeEach {
+            sut = BookModel(item: Book(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext)
+        }
+        
         describe("BookModel") {
             beforeEach {
                 sut = BookModel(item: Book(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext)
@@ -85,6 +90,26 @@ class BookModelTests: QuickSpec {
             
             it("getChallenge") {
                 let challenge = Challenges(context: persistenceController.container.viewContext)
+                let calcDays = MockCalcChallengeDaysProtocol()
+                
+                let day1 = Calendar.current.date(byAdding: .day, value: -3, to: Date())
+                let day2 = Calendar.current.date(byAdding: .day, value: -2, to: Date())
+                let day3 = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+                let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+
+                stub(calcDays) {
+                    $0.neededDays(challenge: any()).thenReturn([
+                                                                tomorrow!.removeTime(),
+                                                                day1!.removeTime(),
+                                                                day2!.removeTime(),
+                                                                day3!.removeTime()])
+                    $0.readDays(challenge: any()).thenReturn([
+                                                                day1!.removeTime(),
+                                                                day3!.removeTime()])
+                }
+                
+                sut.calcDays = calcDays
+                
                 challenge.isDone = true
                 sut.item.addToBookChallenge(challenge)
                 

@@ -15,7 +15,7 @@ class ChallengeModelTests: QuickSpec {
     override func spec() {
         let persistenceController = PersistenceController(inMemory: true)
         let mockCalcChallengeDays = MockCalcChallengeDaysProtocol()
-        var sut = ChallengeModel(challenge: Challenges(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext)
+        var sut: ChallengeModel!
         
         beforeEach() {
             stub(mockCalcChallengeDays) {
@@ -24,6 +24,15 @@ class ChallengeModelTests: QuickSpec {
             }
             
             sut = ChallengeModel(challenge: Challenges(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext, days: mockCalcChallengeDays)
+        }
+        
+        describe("getDays") {
+            it("should get day arrays") {
+                expect(sut.readDays).to(beEmpty())
+
+                sut.getDays()
+                expect(sut.readDays).notTo(beEmpty())
+            }
         }
         
         describe("Calc Streak") {
@@ -36,14 +45,37 @@ class ChallengeModelTests: QuickSpec {
             }
             
             it("should get streak of 1") {
+                sut.getDays()
                 sut.calcStreak()
                 
                 expect(sut.challenge.streak) == 1
                 expect(sut.challenge.isFailed).to(beFalse())
             }
             
+            it("should get streak of 3") {
+                let day1 = Calendar.current.date(byAdding: .day, value: -3, to: Date())
+                let day2 = Calendar.current.date(byAdding: .day, value: -2, to: Date())
+                let day3 = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+                let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+
+                stub(mockCalcChallengeDays) {
+                    $0.neededDays(challenge: any()).thenReturn([tomorrow!.removeTime(),day1!.removeTime(), day2!.removeTime(), day3!.removeTime()])
+                    $0.readDays(challenge: any()).thenReturn([day1!.removeTime(), day2!.removeTime(), day3!.removeTime()])
+                }
+                
+                sut = ChallengeModel(challenge: Challenges(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext, days: mockCalcChallengeDays)
+                
+                sut.getDays()
+                sut.calcStreak()
+                
+                expect(sut.challenge.streak) == 3
+                expect(sut.challenge.isFailed).to(beFalse())
+            }
+            
             it("should get streak of 0 and be failed") {
                 let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+                
+                sut.getDays()
                 sut.readDays = Set(arrayLiteral: yesterday!)
                 
                 sut.calcStreak()
@@ -51,6 +83,32 @@ class ChallengeModelTests: QuickSpec {
                 expect(sut.challenge.streak) == 0
                 expect(sut.challenge.isFailed).to(beTrue())
                 expect(sut.challenge.isDone).to(beFalse())
+            }
+            
+            it("should get streak of 0 and be failed") {
+                let day1 = Calendar.current.date(byAdding: .day, value: -3, to: Date())
+                let day2 = Calendar.current.date(byAdding: .day, value: -2, to: Date())
+                let day3 = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+                let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+
+                stub(mockCalcChallengeDays) {
+                    $0.neededDays(challenge: any()).thenReturn([
+                                                                tomorrow!.removeTime(),
+                                                                day1!.removeTime(),
+                                                                day2!.removeTime(),
+                                                                day3!.removeTime()])
+                    $0.readDays(challenge: any()).thenReturn([
+                                                                day1!.removeTime(),
+                                                                day3!.removeTime()])
+                }
+                
+                sut = ChallengeModel(challenge: Challenges(context: persistenceController.container.viewContext), context: persistenceController.container.viewContext, days: mockCalcChallengeDays)
+
+                sut.getDays()
+                sut.calcStreak()
+                
+                expect(sut.challenge.streak) == 0
+                expect(sut.challenge.isFailed).to(beTrue())
             }
         }
         

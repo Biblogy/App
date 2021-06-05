@@ -15,6 +15,7 @@ public class BookModel: ObservableObject, BookModelProtocol {
     
     var context: NSManagedObjectContext
     var challenge: ChallengeModelProtocol?
+    var calcDays: CalcChallengeDaysProtocol = CalcChallengeDays()
     
     public init(item: Book, context: NSManagedObjectContext) {
         self.item = item
@@ -65,7 +66,8 @@ public class BookModel: ObservableObject, BookModelProtocol {
             for item in item.bookChallenge!.allObjects {
                 let challenge = item as! Challenges
                 
-                self.challenge = ChallengeModel(challenge: challenge, context: context)
+                self.challenge = ChallengeModel(challenge: challenge, context: context, days: calcDays)
+                self.challenge?.getDays()
                 self.challenge?.calcStreak()
                 _ = self.challenge?.setDone()
                 self.challenge?.saveItem()

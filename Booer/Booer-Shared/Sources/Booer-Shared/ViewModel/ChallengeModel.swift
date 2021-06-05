@@ -10,7 +10,7 @@ import Combine
 import CoreData
 
 public class CalcChallengeDays: CalcChallengeDaysProtocol {
-    public func readDays(challenge: Challenges) -> Set<Date> {
+    public func neededDays(challenge: Challenges) -> Set<Date> {
         let start = challenge.start?.removeTime() ?? Date().removeTime()
         let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time), to: challenge.start!)!.removeTime()
 
@@ -25,7 +25,7 @@ public class CalcChallengeDays: CalcChallengeDaysProtocol {
         return dates
     }
     
-    public func neededDays(challenge: Challenges) -> Set<Date> {
+    public func readDays(challenge: Challenges) -> Set<Date> {
         if challenge.challengeBook != nil {
             var days = challenge.challengeBook!.bookProgress!.map({
                 ($0 as! ReadProgress).date!.removeTime()
@@ -44,6 +44,7 @@ public class ChallengeModel: ChallengeModelProtocol {
     var challenge: Challenges
     var readDays: Set<Date> = []
     var days: Set<Date> = []
+    var challengeDays: CalcChallengeDaysProtocol!
     
     var context: NSManagedObjectContext
     
@@ -54,9 +55,12 @@ public class ChallengeModel: ChallengeModelProtocol {
          days: CalcChallengeDaysProtocol = CalcChallengeDays()) {
         self.context = context
         self.challenge = challenge
-       
-        self.readDays = days.neededDays(challenge: challenge)
-        self.days = days.neededDays(challenge: challenge)
+        self.challengeDays = days
+    }
+        
+    public func getDays() {
+        self.readDays = challengeDays.readDays(challenge: challenge)
+        self.days = challengeDays.neededDays(challenge: challenge)
     }
     
     public func calcStreak() {
@@ -66,24 +70,31 @@ public class ChallengeModel: ChallengeModelProtocol {
         print(Array(days).sorted())
         print(readDays.isSubset(of: days))
         
-        if !readDays.isEmpty {
-            if readDays.isSubset(of: days) {
-                challenge.isFailed = false
-                challenge.streak = Int16(readDays.count)
+        var index = 0
+        var failed = false
+
+        readDays.sorted().forEach { day in
+            if day.removeTime() == Array(days).sorted()[index].removeTime() {
+                index += 1
+                print(day)
             } else {
-                challenge.streak = 0
-                challenge.isFailed = true
-                challenge.isDone = false
+                failed = true
             }
+        }
+        if !failed {
+            challenge.isFailed = false
+            challenge.streak = Int16(index)
         } else {
             challenge.streak = 0
-            challenge.isFailed = false
+            challenge.isFailed = true
+            challenge.isDone = false
         }
     }
     
     @discardableResult public func setDone() -> Bool {
+        guard let start = challenge.start else { return false }
         if readDays.max() != nil {
-            let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time) - 1, to: challenge.start!)!
+            guard let end = Calendar.current.date(byAdding: .day, value: Int(challenge.time) - 1, to: start) else { return false }
             if readDays.max()?.removeTime() == end.removeTime() {
                 challenge.isDone = true
             } else if challenge.challengeBook?.done ?? bookIsRead {

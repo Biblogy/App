@@ -11,4 +11,5 @@ public protocol ChallengeModelProtocol {
     func calcStreak()
     func setDone() -> Bool
     func saveItem()
+    func getDays()
 }
