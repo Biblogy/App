@@ -7,11 +7,11 @@ public struct TestIos: View {
     public var body: some View {
         TabView {
            NavigationIos()
-               .tabItem { Label("Books to read", systemImage: "books.vertical") }
-            TimeCounter()
-                .tabItem { Label("Timer", systemImage: "stopwatch") }
+               .tabItem { Label("Books to read", systemImage: "text.book.closed.fill") }
+//            TimeCounter()
+//                .tabItem { Label("Timer", systemImage: "stopwatch") }
             LibaryList()
-                .tabItem { Label("Libary", systemImage: "books.vertical.fill") }
+                .tabItem { Label("Bookshelf", systemImage: "books.vertical.fill") }
             ChallengeList()
                 .tabItem { Label("Challenges", systemImage: "checkmark.seal") }
        }
@@ -53,6 +53,8 @@ public struct NavigationIos: View {
             } else if sheetData.selectedSheet == .AddChallenge {
                 AddChallengeMobile(isOpen: self.$showAddView)
                     .environmentObject(alertData)
+            } else if sheetData.selectedSheet == .AddLibary {
+                AddViewLibary()
             }
         })
 //

@@ -44,18 +44,9 @@ struct DashCell: View {
     }
 }
 
-
-
-
-enum displayState: String {
-    case all = "all"
-    case done = "done"
-    case open = "open"
-}
 public struct BookOverview: View {
     @EnvironmentObject var sheetData: AddSheetData
     @EnvironmentObject var alertData: DeleteAlert
-    @State var display: displayState = .all
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
@@ -66,71 +57,78 @@ public struct BookOverview: View {
     public var body: some View {
 
         List() {
-            HStack(spacing: 15) {
-                DashCell(data: DashboardModel(items: items))
-                DashCell(data: DashboardModel(items: items))
-                DashCell(data: DashboardModel(items: items))
+            Section() {
+                HStack(spacing: 15) {
+    //                DashCell(data: DashboardModel(items: items))
+    //                DashCell(data: DashboardModel(items: items))
+    //                DashCell(data: DashboardModel(items: items))
+                    VStack() {
+                        Text("12")
+                            .font(.headline)
+                        Text("days of reading")
+                        Text("in streak")
+                            .font(.subheadline)
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    VStack() {
+                        Text("10")
+                            .font(.headline)
+                        Text("books finished")
+                        Text("in streak")
+                            .font(.subheadline)
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    VStack() {
+                        Text("300")
+                            .font(.headline)
+                        Text("min read")
+                        Text("in streak")
+                            .font(.subheadline)
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                }
             }
-            
-            if display == .done {
-                displayClose()
-            } else if display == .open {
-                displayOpen()
-            } else if display == .all {
+            Section() {
                 displayAll()
             }
         }
-        .toolbar(content: {
-            ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading, content: {
-                Menu(content: {
-                    Button("All") { self.display = .all }
-                    Button("Done") { self.display = .done }
-                    Button("Open") { self.display = .open }
-                }, label: {
-                    Image(systemName: "line.horizontal.3.decrease.circle")
-                        .imageScale(.large)
-                })
-            })
-        })
     }
     
     struct displayAll: View {
         @Environment(\.managedObjectContext) private var viewContext
         @FetchRequest(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)], animation: .default)
-        private var items: FetchedResults<Book>
-        
-        var body: some View {
-            ForEach(items) { item in
-                BookView(book: BookModel(item: item, context: viewContext))
-            }
-        }
-    }
-    
-    struct displayOpen: View {
-        @Environment(\.managedObjectContext) private var viewContext
-        @FetchRequest(
             sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)],
-            predicate: NSPredicate(format: "done == false"), animation: .default)
+            predicate: NSPredicate(format: "stateValue == 2"), animation: .default)
         private var items: FetchedResults<Book>
         
         var body: some View {
-            ForEach(items) { item in
-                BookView(book: BookModel(item: item, context: viewContext))
-            }
-        }
-    }
-    
-    struct displayClose: View {
-        @Environment(\.managedObjectContext) private var viewContext
-        @FetchRequest(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Book.addedAt, ascending: false)],
-            predicate: NSPredicate(format: "done == true"), animation: .default)
-        private var items: FetchedResults<Book>
-        
-        var body: some View {
-            ForEach(items) { item in
-                BookView(book: BookModel(item: item, context: viewContext))
+            if items.isEmpty {
+                Button(action: {
+                    
+                }, label: {
+                    Button(action: {
+
+                    }) {
+                        HStack {
+                            Spacer()
+                            VStack() {
+                                Image(systemName: "book")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                
+                                Text("You don't read a book curently")
+                            }
+                            Spacer()
+                        }
+                    }
+                })
+            } else {
+                ForEach(items) { item in
+                    BookView(book: BookModel(item: item, context: viewContext))
+                }
             }
         }
     }

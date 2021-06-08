@@ -40,6 +40,35 @@ private struct customSlider: View {
     }
 }
 
+struct BookCoverView: View {
+    @Binding var cover: Image?
+    var width: CGFloat
+    var body: some View {
+        GeometryReader() {geo in
+            if cover != nil {
+                cover!
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(7)
+                    .frame(width: width, height: geo.size.height)
+            } else {
+                Image(systemName: "book.closed.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                    .frame(width: width, height: geo.size.height)
+                    .foregroundColor(Color(UIColor.systemBackground))
+                    .background(Color.orange
+                                    .opacity(0.5)
+                                    .shadow(radius: 5))
+                    .frame(width: width, height: geo.size.height)
+            }
+        }
+        .padding([.bottom, .top], 10)
+        .frame(width: width)
+    }
+}
+
 public struct BookView: View {
     @ObservedObject var item: BookModel
     @State private var hasError = false
@@ -53,64 +82,30 @@ public struct BookView: View {
     public var body: some View {
             HStack(alignment: .top) {
                 if item.item.cover != nil {
-                    GeometryReader() {geo in
-                        Image(uiImage: UIImage(data: item.item.cover!)!)
-                            .resizable()
-                            .frame(width: 100, height: geo.size.height)
-                            .scaledToFill()
-                    }.frame(width: 100)
-                    .padding([.trailing], -10)
+                    BookCoverView(cover: $item.cover, width: 90)
                 }
                 VStack(alignment: .trailing) {
-                    HStack(alignment: .top) {
-                        Text("\(item.item.title ?? "error")").font(.title)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .layoutPriority(1)
-                        Spacer()
-                        Image(systemName: "xmark").onTapGesture {
-                            alertData.item = item.item
-                            alertData.objectName = item.item.title ?? "error"
-                            alertData.alertType = .delete
-                            alertData.type = "book"
-                            alertData.show = true
-                        }
-                    }
+                    Text("\(item.item.title ?? "error")").font(.headline)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .layoutPriority(1)
+                    Text("\(item.item.author ?? "error")").font(.subheadline)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .layoutPriority(1)
                     customSlider(progress: $item.item.progress, pages: $item.item.pages, read: $item.read)
                         .padding([.top], 10)
-
-//                    if item.item.progress != item.item.pages {
-                        Button(action: {
-                            let newRead = Float(item.read) ?? item.item.progress
-                            print(newRead)
-                            
-                            hasError = item.updateItem(read: newRead)
-                            item.getChallenge()
+                        .onReceive(Just(item.item.progress), perform: { _ in
                             item.saveBook()
-                        }, label: {
-                            Text("Change Read")
-                        }).buttonStyle(BorderlessButtonStyle())
-//                    } else {
-//                        Button(action: {
-//                            item.editItem()
-//                            item.saveBook()
-//                        }, label: {
-//                            Text("Not Done ?")
-//                        }).buttonStyle(BorderlessButtonStyle())
-//                    }
+                        })
                 }
-                .padding()
+                .padding(10)
         }
         .frame(minHeight: 100)
-        .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
-        .onAppear(perform: {
-            item.getChallenge()
-        })
     }
 }
 
-//struct BookView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BookView(item: ObservableBook(item: Iten))
-//    }
-//}
+struct BookView_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("ww")
+    }
+}

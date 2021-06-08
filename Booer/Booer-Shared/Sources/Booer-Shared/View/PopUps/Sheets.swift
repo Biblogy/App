@@ -9,6 +9,7 @@ import Foundation
 public enum addSheets {
     case AddBook
     case AddChallenge
+    case AddLibary
 }
 
 public class AddSheetData: ObservableObject {

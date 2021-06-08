@@ -7,11 +7,13 @@
 
 import Combine
 import Foundation
+import SwiftUI
 import CoreData
 
 public class BookModel: ObservableObject, BookModelProtocol {
-    @Published var item: Book
+    @Published public var item: Book
     @Published var read: String
+    @Published public var cover: Image?
     
     var context: NSManagedObjectContext
     var challenge: ChallengeModelProtocol?
@@ -21,6 +23,12 @@ public class BookModel: ObservableObject, BookModelProtocol {
         self.item = item
         self.context = context
         self.read = "\(Int(item.progress))"
+    }
+    
+    public func getCover() {
+        if item.cover != nil {
+            self.cover =  Image(uiImage: UIImage(data: item.cover!)!)
+        }
     }
     
     public func editItem() {
@@ -65,7 +73,7 @@ public class BookModel: ObservableObject, BookModelProtocol {
         if item.bookChallenge != nil {
             for item in item.bookChallenge!.allObjects {
                 let challenge = item as! Challenges
-                
+
                 self.challenge = ChallengeModel(challenge: challenge, context: context, days: calcDays)
                 self.challenge?.getDays()
                 self.challenge?.calcStreak()

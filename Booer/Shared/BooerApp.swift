@@ -35,6 +35,8 @@ struct BooerApp: App {
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .onAppear(perform: {
                 self.alertData.context = persistenceController.container.viewContext
+                let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                print(urls[urls.count-1] as URL)
             })
         }
     }

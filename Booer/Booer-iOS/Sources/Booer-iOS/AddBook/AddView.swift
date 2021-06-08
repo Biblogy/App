@@ -84,44 +84,54 @@ struct AddView: View {
     
     var body: some View {
         NavigationView() {
-            List() {
+            Form() {
                 if !isCorrect {
                     Text("There is some required feld missing, plase check")
                         .foregroundColor(Color.red)
                 }
                 
-                VStack() {
-                    if image != nil {
-                        image!
-                            .resizable()
-                            .frame(width: 70, height: 70)
+                Section(header: Text("Book Cover")) {
+                    HStack() {
+                        Spacer()
+                        VStack(alignment: .center) {
+                            if image != nil {
+                                image!
+                                    .resizable()
+                                    .frame(width: 70, height: 100)
+                            } else {
+                                Button(action: {
+                                    self.showingImagePicker = true
+                                }) {
+                                    Image(systemName: "text.below.photo")
+                                        .resizable()
+                                        .frame(width: 50, height: 60)
+                                    Text("Add Cover")
+                                }
+                            }
+                        }
+                        Spacer()
                     }
                 }
                 
-                Button(action: {
-                    self.showingImagePicker = true
-                }, label: {
-                    Text("Add Cover")
-                })
-                
                 Section(header: Text("Required")) {
-                    VStack() {
-                        HStack() {
-                            LabeledTextedField(title: "Search", textField: self.$book.title)
-                            
-                            Button(action: {
-                                self.showSheet.toggle()
-                            }, label: {
-                                Image(systemName: "magnifyingglass")
-                            })
-                        }
-                        LabeledTextedField(title: "Author", textField: self.$book.author)
-                        
-                        HStack() {
-                            Text("Pages:").bold()
-                            TextField("Pages", text: self.$book.pages)
-                                .modifier(ShowErrorBorder(isCorrect: self.$isCorrect))
-                        }
+                    HStack() {
+                        Text("Book:").bold()
+                        TextField("Title",text: self.$book.title)
+                        Button(action: {
+                            self.showSheet.toggle()
+                        }, label: {
+                            Image(systemName: "magnifyingglass")
+                        })
+                    }
+                    HStack() {
+                        Text("Author:").bold()
+                        TextField("Book author", text: self.$book.author)
+
+                    }
+                    
+                    HStack() {
+                        Text("Pages:").bold()
+                        TextField("Number of pages", text: self.$book.pages)
                     }
                 }
                 
@@ -130,6 +140,13 @@ struct AddView: View {
                         Text("Baugt at:").bold()
                     })
                         .datePickerStyle(CompactDatePickerStyle())
+                    
+                    Picker(selection: self.$book.state, label: Text("Book State")) {
+                        Text("Bookshelf").tag(BookProgressState.bookshelf)
+                        Text("Reading").tag(BookProgressState.progress)
+                        Text("Done").tag(BookProgressState.done)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                 }
             }
             .navigationTitle("Add Book")

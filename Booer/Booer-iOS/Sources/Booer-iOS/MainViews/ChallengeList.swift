@@ -88,36 +88,42 @@ struct ChallengeItemView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
-        HStack() {
-            Group() {
-                HStack() {
-                    Text(String(data.challengeBook?.title ?? "error"))
-                    Spacer()
-                    if data.isFailed {
-                        Text("Failed")
-                            .foregroundColor(Color.red)
-                            .bold()
-                    } else if data.isDone {
-                        Text("Done")
-                            .foregroundColor(Color.green)
-                            .bold()
-                    } else {
-                        Text(String("\(data.streak)/\(data.time)"))
-                            .foregroundColor(Color.green)
-                            .bold()
+        VStack() {
+            HStack() {
+                Group() {
+                    HStack() {
+                        Text(String(data.challengeBook?.title ?? "error"))
+                        Spacer()
+                        if data.isFailed {
+                            Text("Failed")
+                                .foregroundColor(Color.red)
+                                .bold()
+                        } else if data.isDone {
+                            Text("Done")
+                                .foregroundColor(Color.green)
+                                .bold()
+                        } else {
+                            Text(String("\(data.streak)/\(data.time)"))
+                                .foregroundColor(Color.green)
+                                .bold()
+                        }
                     }
+                    .font(.system(.title))
+                    
                 }
-                .font(.system(.title))
+                
+                Image(systemName: "xmark")
+                    .onTapGesture {
+                        alertData.item = data
+                        alertData.objectName = data.challengeBook?.title ?? "error"
+                        alertData.type = "challenge"
+                        alertData.alertType = .delete
+                        alertData.show = true
+                    }
             }
-            
-            Image(systemName: "xmark")
-                .onTapGesture {
-                    alertData.item = data
-                    alertData.objectName = data.challengeBook?.title ?? "error"
-                    alertData.type = "challenge"
-                    alertData.alertType = .delete
-                    alertData.show = true
-                }
+            Text("You want to read \(String(data.challengeBook?.title ?? "error")) in \(data.time) days")
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
         }
     }
 }

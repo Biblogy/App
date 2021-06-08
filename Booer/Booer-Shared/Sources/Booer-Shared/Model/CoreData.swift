@@ -7,19 +7,20 @@
 
 import Foundation
 
-public enum BookProgressState: String {
-    case progress = "Progress"
-    case done = "Done"
-    case notStarted = "Not Started"
+public enum BookProgressState: Int {
+    case progress = 2
+    case done = 3
+    case bookshelf = 1
 }
 
 extension Book {
-    var state: BookProgressState {
+    public var state: BookProgressState {
         get {
-            return BookProgressState(rawValue: self.stateValue ?? "Not Started")!
+            return BookProgressState(rawValue: Int(self.stateValue)) ?? BookProgressState.bookshelf
         }
         set{
-            self.stateValue = newValue.rawValue
+            self.stateValue = Int16(newValue.rawValue)
         }
     }
 }
+
