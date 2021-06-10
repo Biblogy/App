@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum BookProgressState: Int {
+public enum BookProgressState: Int16 {
     case progress = 2
     case done = 3
     case bookshelf = 1
@@ -16,10 +16,10 @@ public enum BookProgressState: Int {
 extension Book {
     public var state: BookProgressState {
         get {
-            return BookProgressState(rawValue: Int(self.stateValue)) ?? BookProgressState.bookshelf
+            return BookProgressState(rawValue: self.stateValue) ?? BookProgressState.bookshelf
         }
         set{
-            self.stateValue = Int16(newValue.rawValue)
+            self.stateValue = newValue.rawValue
         }
     }
 }

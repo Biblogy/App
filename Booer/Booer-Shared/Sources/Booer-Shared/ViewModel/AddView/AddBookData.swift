@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 import Combine
 import CoreData
+import AppKit
+import CoreGraphics
 
 public class AddBookData: ObservableObject {
     public init () {}
@@ -19,7 +21,23 @@ public class AddBookData: ObservableObject {
     @Published public var isbn = "000"
     @Published public var baugtAt = Date()
     @Published public var id = UUID().uuidString
+    #if os(iOS)
     @Published public var image: UIImage?
+    #else
+    @Published public var image: NSImage?
+    
+    func pngDataFrom(image:NSImage) -> Data {
+        let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)!
+        let bitmapRep = NSBitmapImageRep(cgImage: cgImage)
+        let jpegData = bitmapRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])!
+        return jpegData
+    }
+    
+    func nsImageFrom(data: Data) -> NSImage {
+        return NSImage(data: data)!
+    }
+    #endif
+    
     @Published public var state: BookProgressState = .bookshelf
     @Published public var pages = "" {
         didSet {
@@ -38,7 +56,10 @@ public class AddBookData: ObservableObject {
             newItem.progress = self.progress
             newItem.author = self.author
             newItem.isbn = self.isbn
-            newItem.cover = image?.pngData()
+            #if os(iOS)
+            #else
+            newItem.cover = pngDataFrom(image: image!)
+            #endif
             newItem.year = self.baugtAt
             newItem.state = .bookshelf
             newItem.id = self.id

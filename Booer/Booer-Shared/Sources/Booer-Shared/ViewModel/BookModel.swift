@@ -27,7 +27,11 @@ public class BookModel: ObservableObject, BookModelProtocol {
     
     public func getCover() {
         if item.cover != nil {
-            self.cover =  Image(uiImage: UIImage(data: item.cover!)!)
+            #if os(iOS)
+                self.cover =  Image(uiImage: UIImage(data: item.cover!)!)
+            #else
+                self.cover = Image(nsImage: NSImage(data: item.cover!)!)
+            #endif
         }
     }
     

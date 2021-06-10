@@ -7,7 +7,9 @@
 
 import SwiftUI
 import Combine
+import AppKit
 
+//MARK: customSlider
 private struct customSlider: View {
     @Binding var progress: Float
     @Binding var pages: Float
@@ -29,7 +31,12 @@ private struct customSlider: View {
             Slider(value: $progress, in: 0...pages, step: 1)
             GeometryReader { geometry in
                 HStack() {
-                    TextField("read pages", value: $progress, formatter: formatter)
+//                    TextField("read pages", value: $progress, formatter: formatter)
+//                        .position(x: CGFloat(progress) * geometry.size.width / CGFloat(pages))
+//                        .frame(alignment: .center)
+//                        .multilineTextAlignment(.center)
+//                        .frame(maxWidth: 100)
+                    Text("\(Int(progress))")
                         .position(x: CGFloat(progress) * geometry.size.width / CGFloat(pages))
                         .frame(alignment: .center)
                         .multilineTextAlignment(.center)
@@ -40,6 +47,7 @@ private struct customSlider: View {
     }
 }
 
+//MARK: BookCoverView
 struct BookCoverView: View {
     @Binding var cover: Image?
     var width: CGFloat
@@ -57,7 +65,11 @@ struct BookCoverView: View {
                     .scaledToFit()
                     .padding()
                     .frame(width: width, height: geo.size.height)
-                    .foregroundColor(Color(UIColor.systemBackground))
+//                #if os(iOS)
+//                    .foregroundColor(Color(UIColor.systemBackground))
+//                #else
+//                    .foregroundColor(Color(NSColor.))
+//                #endif
                     .background(Color.orange
                                     .opacity(0.5)
                                     .shadow(radius: 5))
@@ -69,6 +81,7 @@ struct BookCoverView: View {
     }
 }
 
+//MARK: BookView
 public struct BookView: View {
     @ObservedObject var item: BookModel
     @State private var hasError = false

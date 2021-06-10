@@ -8,9 +8,9 @@
 import SwiftUI
 import Booer_Shared
 import CoreData
-import Booer_iOS
 
 #if os(iOS)
+import Booer_iOS
 #else
 import Booer_macOS
 #endif
