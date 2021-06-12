@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 import Combine
 import CoreData
+#if !os(iOS)
 import AppKit
+#endif
 import CoreGraphics
 
 public class AddBookData: ObservableObject {

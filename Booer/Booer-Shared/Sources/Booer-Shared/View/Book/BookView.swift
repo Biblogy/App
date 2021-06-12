@@ -7,7 +7,9 @@
 
 import SwiftUI
 import Combine
+#if !os(iOS)
 import AppKit
+#endif
 
 //MARK: customSlider
 private struct customSlider: View {
