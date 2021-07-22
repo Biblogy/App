@@ -36,6 +36,7 @@ public class AddBookData: ObservableObject {
     }
     
     func nsImageFrom(data: Data) -> NSImage {
+        
         return NSImage(data: data)!
     }
     #endif
@@ -59,6 +60,7 @@ public class AddBookData: ObservableObject {
             newItem.author = self.author
             newItem.isbn = self.isbn
             #if os(iOS)
+            newItem.cover = image?.pngData()
             #else
             newItem.cover = pngDataFrom(image: image!)
             #endif

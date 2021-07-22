@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56397FFC26A46A0300202F19 /* Booer-iOS in Resources */ = {isa = PBXBuildFile; fileRef = 56397FFB26A46A0300202F19 /* Booer-iOS */; };
+		56397FFD26A46A0300202F19 /* Booer-iOS in Resources */ = {isa = PBXBuildFile; fileRef = 56397FFB26A46A0300202F19 /* Booer-iOS */; };
+		56397FFF26A46C3600202F19 /* Booer-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 56397FFE26A46C3600202F19 /* Booer-iOS */; };
 		5676B633263378780039E692 /* BooerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676B620263378760039E692 /* BooerApp.swift */; };
 		5676B634263378780039E692 /* BooerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676B620263378760039E692 /* BooerApp.swift */; };
 		5676B637263378780039E692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5676B622263378780039E692 /* Assets.xcassets */; };
 		5676B638263378780039E692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5676B622263378780039E692 /* Assets.xcassets */; };
 		5676B65F263436080039E692 /* Booer-macOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B65E263436080039E692 /* Booer-macOS */; };
-		5676B6652634366B0039E692 /* Booer-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B6642634366B0039E692 /* Booer-iOS */; };
 		5676B667263436700039E692 /* Booer-Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B666263436700039E692 /* Booer-Shared */; };
 		5676B6692634367B0039E692 /* Booer-Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B6682634367B0039E692 /* Booer-Shared */; };
 		56D09A9D26711CC300504A9F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D09A9C26711CC300504A9F /* CloudKit.framework */; };
@@ -20,11 +22,11 @@
 		56D09AA72671371300504A9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D09AA62671371300504A9F /* ContentView.swift */; };
 		56D09AA92671371500504A9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D09AA82671371500504A9F /* Assets.xcassets */; };
 		56D09AAC2671371500504A9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D09AAB2671371500504A9F /* Preview Assets.xcassets */; };
-		56D09AB12671377F00504A9F /* Booer-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 56D09AB02671377F00504A9F /* Booer-iOS */; };
 		56D09AB32671378400504A9F /* Booer-macOS in Frameworks */ = {isa = PBXBuildFile; productRef = 56D09AB22671378400504A9F /* Booer-macOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56397FFB26A46A0300202F19 /* Booer-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-iOS"; sourceTree = "<group>"; };
 		56720A5A2646B245003407DC /* BooerSharedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerSharedTests.swift; sourceTree = "<group>"; };
 		56720A5C2646B245003407DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5676B620263378760039E692 /* BooerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerApp.swift; sourceTree = "<group>"; };
@@ -34,7 +36,6 @@
 		5676B62F263378780039E692 /* Booer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5676B631263378780039E692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5676B632263378780039E692 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		5676B6432633789A0039E692 /* Booer-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-iOS"; sourceTree = "<group>"; };
 		5676B646263379030039E692 /* Booer-macOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-macOS"; sourceTree = "<group>"; };
 		5676B649263379090039E692 /* Booer-Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-Shared"; sourceTree = "<group>"; };
 		5676B675263478380039E692 /* Booer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Booer.entitlements; sourceTree = "<group>"; };
@@ -51,8 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56397FFF26A46C3600202F19 /* Booer-iOS in Frameworks */,
 				56D09A9D26711CC300504A9F /* CloudKit.framework in Frameworks */,
-				5676B6652634366B0039E692 /* Booer-iOS in Frameworks */,
 				5676B667263436700039E692 /* Booer-Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,7 +72,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56D09AB32671378400504A9F /* Booer-macOS in Frameworks */,
-				56D09AB12671377F00504A9F /* Booer-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				5676B675263478380039E692 /* Booer.entitlements */,
+				56397FFB26A46A0300202F19 /* Booer-iOS */,
 				5676B649263379090039E692 /* Booer-Shared */,
-				5676B6432633789A0039E692 /* Booer-iOS */,
 				5676B646263379030039E692 /* Booer-macOS */,
 				5676B61F263378760039E692 /* Shared */,
 				5676B629263378780039E692 /* iOS */,
@@ -185,8 +185,8 @@
 			);
 			name = "Booer (iOS)";
 			packageProductDependencies = (
-				5676B6642634366B0039E692 /* Booer-iOS */,
 				5676B666263436700039E692 /* Booer-Shared */,
+				56397FFE26A46C3600202F19 /* Booer-iOS */,
 			);
 			productName = "Booer (iOS)";
 			productReference = 5676B627263378780039E692 /* Booer.app */;
@@ -228,7 +228,6 @@
 			);
 			name = TestPreview;
 			packageProductDependencies = (
-				56D09AB02671377F00504A9F /* Booer-iOS */,
 				56D09AB22671378400504A9F /* Booer-macOS */,
 			);
 			productName = TestPreview;
@@ -283,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56397FFC26A46A0300202F19 /* Booer-iOS in Resources */,
 				5676B637263378780039E692 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56397FFD26A46A0300202F19 /* Booer-iOS in Resources */,
 				56D09AAC2671371500504A9F /* Preview Assets.xcassets in Resources */,
 				56D09AA92671371500504A9F /* Assets.xcassets in Resources */,
 			);
@@ -688,13 +689,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		56397FFE26A46C3600202F19 /* Booer-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "Booer-iOS";
+		};
 		5676B65E263436080039E692 /* Booer-macOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "Booer-macOS";
-		};
-		5676B6642634366B0039E692 /* Booer-iOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "Booer-iOS";
 		};
 		5676B666263436700039E692 /* Booer-Shared */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -703,10 +704,6 @@
 		5676B6682634367B0039E692 /* Booer-Shared */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "Booer-Shared";
-		};
-		56D09AB02671377F00504A9F /* Booer-iOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "Booer-iOS";
 		};
 		56D09AB22671378400504A9F /* Booer-macOS */ = {
 			isa = XCSwiftPackageProductDependency;

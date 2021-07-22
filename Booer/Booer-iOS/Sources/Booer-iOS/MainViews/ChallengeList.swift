@@ -9,21 +9,13 @@ import Foundation
 import SwiftUI
 import Booer_Shared
 
-public struct ChallengeList: View {
-    public init() {}
-    
-    public var body: some View {
-        ChallengeViewMobile()
-    }
-}
-
 struct ChallengeViewMobile: View {
     @State private var selected = 1
     
     @EnvironmentObject var sheetData: AddSheetData
     
     var body: some View {
-        NavigationView() {
+//        NavigationView() {
             List() {
                 ChallengeSectionNotDone()
                 ChallengeSectionDone()
@@ -39,7 +31,7 @@ struct ChallengeViewMobile: View {
                     }
                 })
             })
-        }
+//        }
     }
 }
 

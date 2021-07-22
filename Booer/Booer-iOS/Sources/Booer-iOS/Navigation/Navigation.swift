@@ -1,7 +1,7 @@
 import SwiftUI
 import Booer_Shared
 
-public struct TestIos: View {
+public struct TabbarView: View {
     public init() {}
     
     public var body: some View {
@@ -12,7 +12,7 @@ public struct TestIos: View {
 //                .tabItem { Label("Timer", systemImage: "stopwatch") }
             LibaryList()
                 .tabItem { Label("Bookshelf", systemImage: "books.vertical.fill") }
-            ChallengeList()
+            ChallengeViewMobile()
                 .tabItem { Label("Challenges", systemImage: "checkmark.seal") }
        }
     }
@@ -27,7 +27,7 @@ public struct NavigationIos: View {
     public init() {}
 
     public var body: some View {
-        NavigationView() {
+//        NavigationView() {
             BookOverview()
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarTrailing, content: {
@@ -44,19 +44,7 @@ public struct NavigationIos: View {
                     })
                 })
                 .navigationBarTitle("Booer")
-        }
-        .alert(isPresented: self.$alertData.show, content: self.alertData.getAlert)
-        .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: self.$sheetData.isOpen, content: {
-            if sheetData.selectedSheet == .AddBook {
-                AddView(isOpen: self.$showAddView)
-            } else if sheetData.selectedSheet == .AddChallenge {
-                AddChallengeMobile(isOpen: self.$showAddView)
-                    .environmentObject(alertData)
-            } else if sheetData.selectedSheet == .AddLibary {
-                AddViewLibary()
-            }
-        })
+//        }
 //
     }
 }

@@ -19,7 +19,17 @@ public struct NavigationMac: View {
     public var body: some View {
         VStack() {
             NavigationView() {
-                Sidebar()
+                Sidebar() {
+                    NavigationLink(destination: BookOverview(), label: {
+                        Label("Books to read", systemImage: "book")
+                    })
+                    NavigationLink(destination: BooksDoneRead(), label: {
+                        Label("Books Done", systemImage: "book.closed")
+                    })
+                    NavigationLink(destination: ChallengeView(), label: {
+                        Label("Challenges", systemImage: "book.closed")
+                    })
+                }
                 
                 BookOverview()
             }

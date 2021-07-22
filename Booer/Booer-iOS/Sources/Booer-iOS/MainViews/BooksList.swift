@@ -16,6 +16,38 @@ enum DashCellState: String {
     case streak = "Streak"
 }
 
+struct EmptyDataView: ViewModifier {
+    let condition: Bool
+    let message: String
+    func body(content: Content) -> some View {
+        valideView(content: content)
+    }
+    
+    @ViewBuilder
+    private func valideView(content: Content) -> some View {
+        if condition {
+            VStack{
+                Spacer()
+                Text(message)
+                    .font(.title)
+                    .foregroundColor(Color.gray)
+                    .multilineTextAlignment(.center)
+                Spacer()
+            }.listRowBackground(Color.clear)
+        } else {
+            content
+        }
+    }
+}
+
+//MARK: View Extension
+extension View {
+    func onEmpty(for condition: Bool, with message: String) -> some View {
+        self.modifier(EmptyDataView(condition: condition, message: message))
+    }
+}
+
+
 struct DashCell: View {
     @State var displayType: DashCellState = .streak
     @ObservedObject var data: DashboardModel
@@ -55,7 +87,6 @@ public struct BookOverview: View {
     var items: FetchedResults<ReadProgress>
     
     public var body: some View {
-
         List() {
             Section() {
                 HStack(spacing: 15) {
@@ -105,31 +136,9 @@ public struct BookOverview: View {
         private var items: FetchedResults<Book>
         
         var body: some View {
-            if items.isEmpty {
-                Button(action: {
-                    
-                }, label: {
-                    Button(action: {
-
-                    }) {
-                        HStack {
-                            Spacer()
-                            VStack() {
-                                Image(systemName: "book")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                
-                                Text("You don't read a book curently")
-                            }
-                            Spacer()
-                        }
-                    }
-                })
-            } else {
-                ForEach(items) { item in
-                    BookView(book: BookModel(item: item, context: viewContext))
-                }
-            }
+            ForEach(items) { item in
+                BookView(book: BookModel(item: item, context: viewContext))
+            }.onEmpty(for: items.isEmpty, with: "Oops, loos like there's no data...") //<--- Here
         }
     }
 }

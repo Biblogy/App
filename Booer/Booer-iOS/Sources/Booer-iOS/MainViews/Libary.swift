@@ -137,41 +137,39 @@ struct LibaryList: View {
     @State var display: displayStateLibary = .all
 
     var body: some View {
-        NavigationView() {
-            List() {
-                if display == .all {
-                    LibaryListAll()
-                } else if display == .done {
-                    LibaryListDone()
-                } else if display == .progress {
-                    LibaryListReading()
-                } else if display == .open {
-                    LibaryListNotStarted()
-                }
+        List() {
+            if display == .all {
+                LibaryListAll()
+            } else if display == .done {
+                LibaryListDone()
+            } else if display == .progress {
+                LibaryListReading()
+            } else if display == .open {
+                LibaryListNotStarted()
             }
-            .navigationTitle("Bookshelf: \(display.rawValue)")
-            .toolbar(content: {
-                ToolbarItem(content: {
-                    Button(action: {
-                        sheetData.selectedSheet = .AddBook
-                        sheetData.isOpen.toggle()
-                    }) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                })
-                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading, content: {
-                    Menu(content: {
-                        Button("All") { self.display = .all }
-                        Button("Done") { self.display = .done }
-                        Button("Open") { self.display = .open }
-                        Button("Progress") { self.display = .progress }
-                    }, label: {
-                        Image(systemName: "line.horizontal.3.decrease.circle")
-                            .imageScale(.large)
-                    })
+        }
+        .navigationTitle("Bookshelf: \(display.rawValue)")
+        .toolbar(content: {
+            ToolbarItem(content: {
+                Button(action: {
+                    sheetData.selectedSheet = .AddBook
+                    sheetData.isOpen.toggle()
+                }) {
+                    Label("Add Item", systemImage: "plus")
+                }
+            })
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading, content: {
+                Menu(content: {
+                    Button("All") { self.display = .all }
+                    Button("Done") { self.display = .done }
+                    Button("Open") { self.display = .open }
+                    Button("Progress") { self.display = .progress }
+                }, label: {
+                    Image(systemName: "line.horizontal.3.decrease.circle")
+                        .imageScale(.large)
                 })
             })
-        }
+        })
     }
 }
 

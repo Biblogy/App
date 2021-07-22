@@ -25,7 +25,7 @@ struct BooerApp: App {
         WindowGroup {
             VStack() {
                 #if os(iOS)
-                    TestIos()
+                    NavigationNew()
                 #else
                     NavigationMac()
                 #endif
