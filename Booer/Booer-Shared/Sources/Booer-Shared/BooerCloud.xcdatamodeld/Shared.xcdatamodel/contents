@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F5046g" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21A5506j" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
         <attribute name="addedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="avgCoverColor" optional="YES" attributeType="String"/>
         <attribute name="cover" optional="YES" attributeType="Binary"/>
         <attribute name="done" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="doneAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -34,7 +35,7 @@
         <relationship name="progressBook" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Book" inverseName="bookProgress" inverseEntity="Book"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-54" positionY="0" width="128" height="239"/>
+        <element name="Book" positionX="-54" positionY="0" width="128" height="254"/>
         <element name="Challenges" positionX="-36" positionY="9" width="128" height="164"/>
         <element name="ReadProgress" positionX="-63" positionY="-9" width="128" height="89"/>
     </elements>

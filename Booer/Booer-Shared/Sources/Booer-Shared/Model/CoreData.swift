@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 public enum BookProgressState: Int16 {
     case progress = 2
@@ -24,3 +25,13 @@ extension Book {
     }
 }
 
+extension Book {
+    public var coverColor: Color {
+        get {
+            return Color(hexString: self.avgCoverColor ?? "") ?? Color.gray
+        }
+        set {
+            self.avgCoverColor = UIColor(newValue).htmlRGBaColor
+        }
+    }
+}

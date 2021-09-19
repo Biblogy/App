@@ -18,12 +18,20 @@
 		5676B667263436700039E692 /* Booer-Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B666263436700039E692 /* Booer-Shared */; };
 		5676B6692634367B0039E692 /* Booer-Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 5676B6682634367B0039E692 /* Booer-Shared */; };
 		56D09A9D26711CC300504A9F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D09A9C26711CC300504A9F /* CloudKit.framework */; };
-		56D09AA52671371300504A9F /* TestPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D09AA42671371300504A9F /* TestPreviewApp.swift */; };
-		56D09AA72671371300504A9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D09AA62671371300504A9F /* ContentView.swift */; };
-		56D09AA92671371500504A9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D09AA82671371500504A9F /* Assets.xcassets */; };
-		56D09AAC2671371500504A9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D09AAB2671371500504A9F /* Preview Assets.xcassets */; };
 		56D09AB32671378400504A9F /* Booer-macOS in Frameworks */ = {isa = PBXBuildFile; productRef = 56D09AB22671378400504A9F /* Booer-macOS */; };
+		56ECF5E826F5FFF30014F418 /* BooerUITestsiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECF5E726F5FFF30014F418 /* BooerUITestsiOS.swift */; };
+		56ECF5EA26F5FFF30014F418 /* BooerUITestsiOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECF5E926F5FFF30014F418 /* BooerUITestsiOSLaunchTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56ECF5EB26F5FFF30014F418 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5676B61B263378760039E692 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5676B626263378780039E692;
+			remoteInfo = "Booer (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		56397FFB26A46A0300202F19 /* Booer-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-iOS"; sourceTree = "<group>"; };
@@ -41,10 +49,9 @@
 		5676B675263478380039E692 /* Booer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Booer.entitlements; sourceTree = "<group>"; };
 		56D09A9C26711CC300504A9F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		56D09AA22671371300504A9F /* TestPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		56D09AA42671371300504A9F /* TestPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPreviewApp.swift; sourceTree = "<group>"; };
-		56D09AA62671371300504A9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		56D09AA82671371500504A9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		56D09AAB2671371500504A9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56ECF5E526F5FFF20014F418 /* BooerUITestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooerUITestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ECF5E726F5FFF30014F418 /* BooerUITestsiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITestsiOS.swift; sourceTree = "<group>"; };
+		56ECF5E926F5FFF30014F418 /* BooerUITestsiOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITestsiOSLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +82,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56ECF5E226F5FFF20014F418 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -98,7 +112,7 @@
 				5676B629263378780039E692 /* iOS */,
 				5676B630263378780039E692 /* macOS */,
 				56720A592646B245003407DC /* BooerSharedTests */,
-				56D09AA32671371300504A9F /* TestPreview */,
+				56ECF5E626F5FFF30014F418 /* BooerUITestsiOS */,
 				5676B628263378780039E692 /* Products */,
 				5676B65D263436080039E692 /* Frameworks */,
 			);
@@ -119,6 +133,7 @@
 				5676B627263378780039E692 /* Booer.app */,
 				5676B62F263378780039E692 /* Booer.app */,
 				56D09AA22671371300504A9F /* TestPreview.app */,
+				56ECF5E526F5FFF20014F418 /* BooerUITestsiOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,23 +163,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		56D09AA32671371300504A9F /* TestPreview */ = {
+		56ECF5E626F5FFF30014F418 /* BooerUITestsiOS */ = {
 			isa = PBXGroup;
 			children = (
-				56D09AA42671371300504A9F /* TestPreviewApp.swift */,
-				56D09AA62671371300504A9F /* ContentView.swift */,
-				56D09AA82671371500504A9F /* Assets.xcassets */,
-				56D09AAA2671371500504A9F /* Preview Content */,
+				56ECF5E726F5FFF30014F418 /* BooerUITestsiOS.swift */,
+				56ECF5E926F5FFF30014F418 /* BooerUITestsiOSLaunchTests.swift */,
 			);
-			path = TestPreview;
-			sourceTree = "<group>";
-		};
-		56D09AAA2671371500504A9F /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				56D09AAB2671371500504A9F /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
+			path = BooerUITestsiOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +239,24 @@
 			productReference = 56D09AA22671371300504A9F /* TestPreview.app */;
 			productType = "com.apple.product-type.application";
 		};
+		56ECF5E426F5FFF20014F418 /* BooerUITestsiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56ECF5EF26F5FFF30014F418 /* Build configuration list for PBXNativeTarget "BooerUITestsiOS" */;
+			buildPhases = (
+				56ECF5E126F5FFF20014F418 /* Sources */,
+				56ECF5E226F5FFF20014F418 /* Frameworks */,
+				56ECF5E326F5FFF20014F418 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56ECF5EC26F5FFF30014F418 /* PBXTargetDependency */,
+			);
+			name = BooerUITestsiOS;
+			productName = BooerUITestsiOS;
+			productReference = 56ECF5E526F5FFF20014F418 /* BooerUITestsiOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,6 +278,10 @@
 					56D09AA12671371300504A9F = {
 						CreatedOnToolsVersion = 13.0;
 					};
+					56ECF5E426F5FFF20014F418 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 5676B626263378780039E692;
+					};
 				};
 			};
 			buildConfigurationList = 5676B61E263378760039E692 /* Build configuration list for PBXProject "Booer" */;
@@ -273,6 +300,7 @@
 				5676B626263378780039E692 /* Booer (iOS) */,
 				5676B62E263378780039E692 /* Booer (macOS) */,
 				56D09AA12671371300504A9F /* TestPreview */,
+				56ECF5E426F5FFF20014F418 /* BooerUITestsiOS */,
 			);
 		};
 /* End PBXProject section */
@@ -300,8 +328,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				56397FFD26A46A0300202F19 /* Booer-iOS in Resources */,
-				56D09AAC2671371500504A9F /* Preview Assets.xcassets in Resources */,
-				56D09AA92671371500504A9F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ECF5E326F5FFF20014F418 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,12 +399,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56D09AA72671371300504A9F /* ContentView.swift in Sources */,
-				56D09AA52671371300504A9F /* TestPreviewApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ECF5E126F5FFF20014F418 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ECF5EA26F5FFF30014F418 /* BooerUITestsiOSLaunchTests.swift in Sources */,
+				56ECF5E826F5FFF30014F418 /* BooerUITestsiOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56ECF5EC26F5FFF30014F418 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5676B626263378780039E692 /* Booer (iOS) */;
+			targetProxy = 56ECF5EB26F5FFF30014F418 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5676B639263378780039E692 /* Debug */ = {
@@ -647,6 +695,55 @@
 			};
 			name = Release;
 		};
+		56ECF5ED26F5FFF30014F418 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.BooerUITestsiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Booer (iOS)";
+			};
+			name = Debug;
+		};
+		56ECF5EE26F5FFF30014F418 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.BooerUITestsiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Booer (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,6 +779,15 @@
 			buildConfigurations = (
 				56D09AAE2671371500504A9F /* Debug */,
 				56D09AAF2671371500504A9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56ECF5EF26F5FFF30014F418 /* Build configuration list for PBXNativeTarget "BooerUITestsiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56ECF5ED26F5FFF30014F418 /* Debug */,
+				56ECF5EE26F5FFF30014F418 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -6,14 +6,18 @@ public struct TabbarView: View {
     
     public var body: some View {
         TabView {
-           NavigationIos()
-               .tabItem { Label("Books to read", systemImage: "text.book.closed.fill") }
+            NavigationView() {
+                NavigationIos()
+            } .tabItem { Label("Books to read", systemImage: "text.book.closed.fill") }
 //            TimeCounter()
 //                .tabItem { Label("Timer", systemImage: "stopwatch") }
-            LibaryList()
-                .tabItem { Label("Bookshelf", systemImage: "books.vertical.fill") }
+            NavigationView() {
+                LibaryList()
+            }.tabItem { Label("Bookshelf", systemImage: "books.vertical.fill") }
+            
+            NavigationView() {
             ChallengeViewMobile()
-                .tabItem { Label("Challenges", systemImage: "checkmark.seal") }
+            } .tabItem { Label("Challenges", systemImage: "checkmark.seal") }
        }
     }
 }

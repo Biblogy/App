@@ -19,29 +19,31 @@ public struct NavigationNew: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     public var body: some View {
-        NavigationView() {
+        Group(){
             if sizeClass == .compact {
                 TabbarView()
             } else {
-                if #available(iOS 15.0, *) {
-                    Sidebar(content: {
-                        NavigationLink(destination: NavigationIos(), label: {
-                            Label("Books to read", systemImage: "book")
+                NavigationView() {
+                    if #available(iOS 15.0, *) {
+                        Sidebar(content: {
+                            NavigationLink(destination: NavigationIos(), label: {
+                                Label("Books to read", systemImage: "book")
+                            })
+                            NavigationLink(destination: BooksDoneRead(), label: {
+                                Label("Books Done", systemImage: "book.closed")
+                            })
+                            NavigationLink(destination: ChallengeViewMobile(), label: {
+                                Label("Challenges", systemImage: "book.closed")
+                            })
+                            NavigationLink(destination: LibaryList(), label: {
+                                Label("Libary", systemImage: "book.closed")
+                            })
                         })
-                        NavigationLink(destination: BooksDoneRead(), label: {
-                            Label("Books Done", systemImage: "book.closed")
-                        })
-                        NavigationLink(destination: ChallengeViewMobile(), label: {
-                            Label("Challenges", systemImage: "book.closed")
-                        })
-                        NavigationLink(destination: LibaryList(), label: {
-                            Label("Libary", systemImage: "book.closed")
-                        })
-                    })
-                    
-                    NavigationIos()
-                } else {
-                    // Fallback on earlier versions
+                        
+                        NavigationIos()
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
             }
         }
