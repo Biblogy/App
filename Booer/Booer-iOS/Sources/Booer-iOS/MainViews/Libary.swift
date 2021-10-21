@@ -144,6 +144,7 @@ struct LibaryList: View {
         ScrollView() {
             LazyVGrid(columns: rows, content: {
                 if display == .all {
+                    LibaryListAll()
                 } else if display == .done {
                     LibaryListDone()
                 } else if display == .progress {

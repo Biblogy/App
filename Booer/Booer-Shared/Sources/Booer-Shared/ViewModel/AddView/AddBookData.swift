@@ -52,6 +52,15 @@ public class AddBookData: ObservableObject {
         }
     }
     
+    private func generateThundnailImage() -> UIImage {
+        if #available(iOS 15.0, *) {
+            return (image?.preparingThumbnail(of: CGSize(width: 720, height: 1080)))!
+        } else {
+            // Fallback on earlier versions
+            return image!
+        }
+    }
+    
     public func saveToDB(context: NSManagedObjectContext) -> Bool {
         if self.title != "" && self.pages != "" {
             let newItem = Book(context: context)
@@ -62,6 +71,7 @@ public class AddBookData: ObservableObject {
             newItem.coverColor = Color(self.image?.averageColor ?? UIColor.gray)
             #if os(iOS)
             newItem.cover = image?.pngData()
+            newItem.thumbnail = generateThundnailImage().pngData()
             #else
             newItem.cover = pngDataFrom(image: image!)
             #endif

@@ -30,17 +30,15 @@ struct LibaryGrid: View {
             VStack() {
                 ZStack() {
                     Group() {
-                        if book.cover != nil {
+                        if book.thumbnail != nil {
                             GeometryReader() {geo in
-                                Image(uiImage: UIImage(data: book.cover!)!)
+                                Image(uiImage: UIImage(data: book.thumbnail!)!)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: width, height: geo.size.height)
                             }
                             .frame(width: width)
                             .background(book.coverColor)
-                            
-
                         } else {
                             GeometryReader() { geo in
                                 Image("cover")

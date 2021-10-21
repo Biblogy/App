@@ -8,21 +8,34 @@
 import SwiftUI
 import Booer_Shared
 
-class BookDetailsData {
+class BookDetailsData: ObservableObject {
     var coverColor: Color?
-    var book: Book
+    @Published var book: Book
     
     init(book: Book) {
         self.book = book
         self.coverColor = book.coverColor
+        
+        if self.book.thumbnail == nil {
+            self.book.thumbnail = self.generateThundnailImage().pngData()
+        }
+    }
+    
+    func generateThundnailImage() -> UIImage {
+        if #available(iOS 15.0, *) {
+            return (UIImage(data: book.cover!)?.preparingThumbnail(of: CGSize(width: 720, height: 1080)))!
+        } else {
+            // Fallback on earlier versions
+            return UIImage(data: book.cover!)!
+        }
     }
 }
 
 struct LibaryDetails: View {
-    var data: BookDetailsData
+    @ObservedObject var data: BookDetailsData
     
     var body: some View {
-        LazyVStack() {
+        ScrollView() {
             ZStack(alignment: .leading) {
                 pageView(opacity: 0.5, width: 165, degrees: -3, leadingPaddig: 5, horizontalPadding: 4)
 
@@ -38,11 +51,26 @@ struct LibaryDetails: View {
                 
                 pageView(opacity: 0.7, width: 155, degrees: -5, leadingPaddig: 5, horizontalPadding: 9)
                 
-                coverView(cover: UIImage(data: data.book.cover!), color: data.coverColor ?? Color.red)
+                coverView(cover: UIImage(data: data.book.thumbnail!), color: data.coverColor ?? Color.red)
+                
             }.frame(height: 250)
-            .drawingGroup()
+            
+            Text(book)
         }
     }
+}
+
+struct RoundedRectangleButtonStyle: ButtonStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    HStack {
+      Spacer()
+      configuration.label.foregroundColor(.black)
+      Spacer()
+    }
+    .padding()
+    .background(Color.gray.cornerRadius(8))
+    .scaleEffect(configuration.isPressed ? 0.95 : 1)
+  }
 }
 
 struct pageView: View {

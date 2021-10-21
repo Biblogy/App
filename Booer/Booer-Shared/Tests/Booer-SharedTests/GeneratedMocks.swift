@@ -1,5 +1,5 @@
 @testable import Booer_Shared
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-09-19 12:16:33 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/BookModelProtocol.swift at 2021-10-02 14:07:02 +0000
 
 //
 //  BookModelProtocol.swift
@@ -194,7 +194,7 @@ public class BookModelProtocolStub: BookModelProtocol {
 }
 
 
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-09-19 12:16:33 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/CalcChallengeDaysProtocol.swift at 2021-10-02 14:07:02 +0000
 
 //
 //  CalcChallengeDaysProtocol.swift
@@ -329,7 +329,7 @@ public class CalcChallengeDaysProtocolStub: CalcChallengeDaysProtocol {
 }
 
 
-// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-09-19 12:16:33 +0000
+// MARK: - Mocks generated from file: Booer-Shared/Sources/Booer-Shared/ViewModel/Protocols/ChallengeModelProtocol.swift at 2021-10-02 14:07:02 +0000
 
 //
 //  ChallengeModelProtocol.swift

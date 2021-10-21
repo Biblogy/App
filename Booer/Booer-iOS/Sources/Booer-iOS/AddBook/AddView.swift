@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Booer_Shared
+import ImageIO
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
