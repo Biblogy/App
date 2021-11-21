@@ -55,7 +55,7 @@ struct LibaryDetails: View {
                 
             }.frame(height: 250)
             
-            Text(book)
+//            Text(book)
         }
     }
 }
