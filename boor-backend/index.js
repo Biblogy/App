@@ -10,7 +10,7 @@ var getBook= require("./App/Service/getBook.js");
 app.get('/book', (req, res) => {
 	// wenn book nicht in der DB vor kleiner als 30 tagen aktualisiert, aktualisiere db und sende passende Daten Strukturen 
 	const books = new getBook()
-	books.test().then(
+	books.test("Qualityland").then(
 		function(value) {
 			console.log("getBook")
 			res.send(value)

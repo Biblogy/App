@@ -25,17 +25,23 @@ module.exports = class getBook {
 		})
 	}
 
-	test() {
+	test(bookTitle) {
 		const self = this
 		return new Promise((resolve, reject) => {			
-			db.findByName("Qualityland").then(
+			db.findByName(bookTitle).then(
 				function(value) {
 					if (value.length != 0) {
 						resolve(formateBook.formateBooks(value))
 					} else {
 						self.addNewBooks().then(
 							function(value) {
-								self.test()
+								db.findByName(bookTitle).then(
+									function(value) {
+										resolve(formateBook.formateBooks(value))
+									},
+									function(error) {
+										reject(error)
+									})
 							},
 							function(error) {
 								reject(error)	

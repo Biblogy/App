@@ -10,7 +10,7 @@ class formateBook {
 	}
 	
 	formateBooks(books){
-		var formatedBooks = books.map(this.formateGoogleData)
+		var formatedBooks = books.map(this.formateGoogleData)		
 		return formatedBooks
 	}
 }
