@@ -1,6 +1,6 @@
 var db= require("../Data/mongoDB/db-setup.js");
 var googleAPI= require("../Data/googleAPI/loadBook.js");
-
+var formateBook = require("./formateBook.js");
 module.exports = class getBook {
 	constructor() {}
 	
@@ -24,14 +24,14 @@ module.exports = class getBook {
 			})
 		})
 	}
-	
+
 	test() {
 		const self = this
 		return new Promise((resolve, reject) => {			
 			db.findByName("Qualityland").then(
 				function(value) {
 					if (value.length != 0) {
-						resolve(value)
+						resolve(formateBook.formateBooks(value))
 					} else {
 						self.addNewBooks().then(
 							function(value) {
