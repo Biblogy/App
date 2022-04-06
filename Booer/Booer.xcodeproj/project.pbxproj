@@ -47,6 +47,7 @@
 		5676B646263379030039E692 /* Booer-macOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-macOS"; sourceTree = "<group>"; };
 		5676B649263379090039E692 /* Booer-Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Booer-Shared"; sourceTree = "<group>"; };
 		5676B675263478380039E692 /* Booer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Booer.entitlements; sourceTree = "<group>"; };
+		56B8371827D56B6A00677A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56D09A9C26711CC300504A9F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		56D09AA22671371300504A9F /* TestPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56ECF5E526F5FFF20014F418 /* BooerUITestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooerUITestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +122,7 @@
 		5676B61F263378760039E692 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				56B8371827D56B6A00677A6D /* Assets.xcassets */,
 				5676B620263378760039E692 /* BooerApp.swift */,
 				5676B622263378780039E692 /* Assets.xcassets */,
 			);

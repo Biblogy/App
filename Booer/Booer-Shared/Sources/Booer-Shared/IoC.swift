@@ -8,17 +8,10 @@
 import Foundation
 import Relay
 
-final class DefaultDependencyRegistry: DependencyRegistryType {
-
-  func registerDependencies() throws {
-    DependencyContainer.global.register(DeleteAlert.self) { _ in
-        DeleteAlert()
+final public class DefaultDependencyRegistry: DependencyRegistryType {
+    public init(){}
+    
+    public func registerDependencies() throws {
+        DependencyContainer.global.register(DateWorkerProtocol.self) { _ in DateWorker()}
     }
-    /// Recursive dependencies are lazily resolved
-//    DependencyContainer.global.register(MyViewControllerDataStoreType.self) { container in
-//        MyViewControllerDataStore(backendService: container.resolve())
-//    }
-    /// etc.
-  }
-
 }

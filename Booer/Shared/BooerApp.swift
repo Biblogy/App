@@ -8,6 +8,7 @@
 import SwiftUI
 import Booer_Shared
 import CoreData
+import Relay
 
 #if os(iOS)
 import Booer_iOS
@@ -37,7 +38,24 @@ struct BooerApp: App {
                 self.alertData.context = persistenceController.container.viewContext
                 let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
                 print(urls[urls.count-1] as URL)
+                registerDependencies()
             })
         }
+    }
+    
+    private func registerDependencies() {
+        do {
+            let defaultRegistry = DefaultDependencyRegistry()
+            try defaultRegistry.registerDependencies()
+        }
+        catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+}
+
+struct BooerApp_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationNew()
     }
 }

@@ -89,37 +89,8 @@ public struct BookOverview: View {
     public var body: some View {
         List() {
             Section() {
-                HStack(spacing: 15) {
-    //                DashCell(data: DashboardModel(items: items))
-    //                DashCell(data: DashboardModel(items: items))
-    //                DashCell(data: DashboardModel(items: items))
-                    VStack() {
-                        Text("12")
-                            .font(.headline)
-                        Text("days of reading")
-                        Text("in streak")
-                            .font(.subheadline)
-                    }.frame(minWidth: 0, maxWidth: .infinity)
+                HStack(){
                     
-                    Divider()
-                    
-                    VStack() {
-                        Text("10")
-                            .font(.headline)
-                        Text("books finished")
-                        Text("in streak")
-                            .font(.subheadline)
-                    }.frame(minWidth: 0, maxWidth: .infinity)
-                    
-                    Divider()
-                    
-                    VStack() {
-                        Text("300")
-                            .font(.headline)
-                        Text("min read")
-                        Text("in streak")
-                            .font(.subheadline)
-                    }.frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
             Section() {
