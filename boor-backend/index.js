@@ -22,24 +22,22 @@ app.get('/book', (req, res) => {
 	)
 })
 
-app.get('/connect', (req, res) => {
-	db.connectToDB("google").then(
-		function(value) {
-			res.send("connecting")
-			console.log("connectec")
-		},
-		function(error) {
-			res.send("fail")
-		}
-	);
-})
-
+/*
 app.get('/close', (req, res) => {
  	db.close()
 	res.send('ok')
 })
+*/
 			
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
+  db.connectToDB("google").then(
+	  function(value) {
+		  console.log("connected to google")
+	  },
+	  function(error) {
+		  console.log("error")
+	  }
+  )
 })

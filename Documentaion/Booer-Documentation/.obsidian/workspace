@@ -1,0 +1,100 @@
+{
+  "main": {
+    "id": "0983fc9ed9158720",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ebde2cf50e955fb",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Konkurenten/Bookey.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fdabef92ed15a503",
+    "type": "split",
+    "children": [
+      {
+        "id": "df8a82eff24a3606",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b67335386c7fe7fb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "382e0dcbcdd50d1a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ff4ba69a64f8508a",
+    "type": "split",
+    "children": [
+      {
+        "id": "59c9fe3d687e1d31",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fdb6e61dc57976fb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Konkurenten/Bookey.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "4ebde2cf50e955fb",
+  "lastOpenFiles": [
+    "Konkurenten/Bookey.md",
+    "Konkurenten/Vorlage.md",
+    "VIP for swiftUI.md",
+    "Design.md",
+    "Minimal Valuable Product.md",
+    "Was ist Booer?.md",
+    "Wo ist das problem mit der V0.md"
+  ]
+}
