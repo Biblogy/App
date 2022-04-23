@@ -11,7 +11,7 @@ public struct CalendarState: Equatable {
     var weekDays: [CalendarDate] = []
     var month: String = ""
     var monthList: [CalendarMonth] = []
-    var activeDate: Date = Date()
+    public internal(set) var activeDate: Date = Date()
     let calendar = Calendar.current
 
     public init(activeDate: Date = Date()){

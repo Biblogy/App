@@ -35,12 +35,27 @@ struct ContentView: View {
     
     var body: some View {
         VStack() {
-            AppView(store: store)
-            
-            Text("Hello, world!")
-                .padding()
+            List(){
+                Section(){
+                    AppView(store: store)
+                }
+                
+                Section(){
+                    WithViewStore(store) { viewStore in
+                        Text(getMonthString(from: viewStore.activeDate))
+                            .padding()
+                    }
+                    
+                }
+            }
         }.enableInjection()
        
+    }
+    
+    func getMonthString(from: Date) -> String {
+        let month = Calendar.current.component(.month, from: from)
+        let monthString = Calendar.current.monthSymbols[month - 1]
+        return monthString
     }
 }
 
