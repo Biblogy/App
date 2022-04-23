@@ -14,9 +14,9 @@ public struct CalendarDate: Identifiable, Equatable {
     public var active: Bool
     public var dateString: String
     
-    public init(date: Date, today: Bool) {
+    public init(date: Date) {
         self.date = date
-        self.isToday = today
+        self.isToday = date.getToday()
         self.active = false
         
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: date)

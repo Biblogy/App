@@ -20,8 +20,7 @@ public let calendarReducer = Reducer<CalendarState, CalendarAction, CalendarEnvi
         let weekdays = state.calendar.range(of: .weekday, in: .weekOfYear, for: dateInWeek)!
         let days = (weekdays.lowerBound ..< weekdays.upperBound).map { day -> CalendarDate in
             let day = state.calendar.date(byAdding: .day, value: day - dayOfWeek, to: dateInWeek)!
-            let today = day.getToday()
-            return CalendarDate(date: day, today: today)
+            return CalendarDate(date: day)
         }
         
         state.weekDays = days

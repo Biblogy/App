@@ -52,8 +52,7 @@ extension CalendarState {
     
     private func createCalenderDate(day forDate: Int, dayOfWeek: Int, dateInWeek: Date) -> CalendarDate {
         let day = calendar.date(byAdding: .day, value: forDate - dayOfWeek, to: dateInWeek)!
-        let today = day.getToday()
-        return CalendarDate(date: day, today: today)
+        return CalendarDate(date: day)
     }
 }
 
@@ -64,7 +63,7 @@ extension CalendarState {
         matching components: DateComponents
     ) -> [CalendarDate] {
         var dates: [CalendarDate] = []
-        dates.append(.init(date: interval.start, today: false))
+        dates.append(.init(date: interval.start))
 
         Calendar.current.enumerateDates(
             startingAfter: interval.start,
@@ -73,7 +72,7 @@ extension CalendarState {
         ) { date, _, stop in
             if let date = date {
                 if date < interval.end {
-                    dates.append(.init(date: date, today: false))
+                    dates.append(.init(date: date))
                 } else {
                     stop = true
                 }

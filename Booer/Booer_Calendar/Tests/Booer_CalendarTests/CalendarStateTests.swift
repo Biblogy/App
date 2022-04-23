@@ -9,7 +9,7 @@ import XCTest
 @testable import Booer_Calendar
 
 class ClendarStateTests: XCTestCase {
-    let sut = CalendarState()
+    let sut = CalendarState(activeDate: Date())
     
     func test_getMonths(){
         it("should return CalendarMonth array"){
