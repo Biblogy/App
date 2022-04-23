@@ -7,6 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+import Booer_Calendar
 
 enum AppAction: Equatable {
     case calendar(CalendarAction)

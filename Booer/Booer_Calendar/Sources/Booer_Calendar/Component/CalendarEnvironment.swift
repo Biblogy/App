@@ -7,4 +7,6 @@
 
 import Foundation
 
-struct CalendarEnvironment {}
+public struct CalendarEnvironment {
+    public init(){}
+}

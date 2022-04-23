@@ -23,7 +23,7 @@ fileprivate extension DateFormatter {
     }
 }
 
-struct CalendarView<DateView>: View where DateView: View {
+public struct CalendarView<DateView>: View where DateView: View {
     @Environment(\.calendar) var calendar
     let store: Store<CalendarState, CalendarAction>
 
@@ -31,7 +31,7 @@ struct CalendarView<DateView>: View where DateView: View {
     let content: (CalendarDate) -> DateView
     let month: CalendarMonth
 
-    init(
+    public init(
         store: Store<CalendarState, CalendarAction>,
         month: CalendarMonth,
         showHeaders: Bool = true,
@@ -43,7 +43,7 @@ struct CalendarView<DateView>: View where DateView: View {
         self.month = month
     }
 
-    var body: some View {
+    public var body: some View {
         WithViewStore(store) { viewStore in
             LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
                 Section(header: header(for: month.date)) {
@@ -73,11 +73,16 @@ struct CalendarView<DateView>: View where DateView: View {
     }
 }
 
-struct CalenderFullsize: View {
+public struct CalenderFullsize: View {
     @Binding var isOpen: Bool
     let store: Store<CalendarState, CalendarAction>
 
-    var body: some View {
+    public init(store: Store<CalendarState, CalendarAction>, isOpen:Binding<Bool>){
+        self.store = store
+        self._isOpen = isOpen
+    }
+    
+    public var body: some View {
         WithViewStore(store) { viewStore in
             NavigationView(){
                 ScrollViewReader { proxy in

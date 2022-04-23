@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "inject",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Inject.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "3f84e4f4671850ab1293c32b0133c608db15de34"
-      }
-    },
-    {
       "identity" : "swift-case-paths",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-case-paths",
@@ -39,7 +30,7 @@
     {
       "identity" : "swift-composable-architecture",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/swift-composable-architecture.git",
+      "location" : "https://github.com/pointfreeco/swift-composable-architecture",
       "state" : {
         "revision" : "2828dc44f6e3f81d84bcaba72c1ab1c0121d66f6",
         "version" : "0.34.0"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CalendarAction: Equatable {
+public enum CalendarAction: Equatable {
     case changeActiveDate(Date)
     case weekdays(Date)
     case getMonth(Date)

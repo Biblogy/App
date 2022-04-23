@@ -8,6 +8,7 @@
 import SwiftUI
 import Inject
 import ComposableArchitecture
+import Booer_Calendar
 
 struct AppView: View {
     let store: Store<AppState, AppAction>

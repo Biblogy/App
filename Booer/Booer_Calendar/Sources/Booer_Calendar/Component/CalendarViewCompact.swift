@@ -8,11 +8,15 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct CalenderViewCompact: View {
+public struct CalenderViewCompact: View {
     @State var openSheet = false
     let store: Store<CalendarState, CalendarAction>
 
-    var body: some View {
+    public init(store: Store<CalendarState, CalendarAction>){
+        self.store = store
+    }
+    
+    public var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack(alignment: .leading){
                 HStack(){
@@ -64,7 +68,7 @@ struct CalenderViewCompact: View {
             }
         }
         .sheet(isPresented: self.$openSheet, onDismiss: {}, content: {
-            CalenderFullsize(isOpen: self.$openSheet, store: store)
+            CalenderFullsize(store: store, isOpen: self.$openSheet)
         })
     }
 }

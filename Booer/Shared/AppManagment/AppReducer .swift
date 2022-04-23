@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import SwiftUI
+import Booer_Calendar
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     calendarReducer.pullback(state: \.calendar,

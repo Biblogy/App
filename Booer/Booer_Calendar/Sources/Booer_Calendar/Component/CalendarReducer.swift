@@ -7,8 +7,7 @@
 
 import ComposableArchitecture
 
-
-let calendarReducer = Reducer<CalendarState, CalendarAction, CalendarEnvironment> { state, action, environment in
+public let calendarReducer = Reducer<CalendarState, CalendarAction, CalendarEnvironment> { state, action, environment in
     switch action {
     case .changeActiveDate(let date):
         state.activeDate = date
