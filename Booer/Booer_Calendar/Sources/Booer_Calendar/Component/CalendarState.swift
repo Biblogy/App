@@ -14,7 +14,12 @@ public struct CalendarState: Equatable {
     var activeDate: Date = Date()
     let calendar = Calendar.current
 
-    public init(){}
+    public init(activeDate: Date = Date()){
+        self.activeDate = activeDate
+        self.weekDays = weekdays(from: activeDate)
+        self.month = activeDate.getMonthString()
+        self.monthList = getMonths()
+    }
 }
 
 extension CalendarState {
