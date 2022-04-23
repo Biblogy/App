@@ -15,6 +15,18 @@
 		560EB2E1280DE5CE00A54319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560EB2CE280DE5CE00A54319 /* Assets.xcassets */; };
 		560EB2EC280DE89700A54319 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB2EB280DE89700A54319 /* ComposableArchitecture */; };
 		560EB2EF280DE8A400A54319 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB2EE280DE8A400A54319 /* Inject */; };
+		560EB2FC28111C1F00A54319 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB2FB28111C1F00A54319 /* AppAction.swift */; };
+		560EB2FE28111C5900A54319 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB2FD28111C5900A54319 /* AppState.swift */; };
+		560EB30028111C6C00A54319 /* AppReducer .swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB2FF28111C6C00A54319 /* AppReducer .swift */; };
+		560EB30328111C9100A54319 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB30228111C9100A54319 /* AppEnvironment.swift */; };
+		560EB3062811230800A54319 /* CalendarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB3052811230800A54319 /* CalendarState.swift */; };
+		560EB3082811CD3300A54319 /* CalendarReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB3072811CD3300A54319 /* CalendarReducer.swift */; };
+		560EB30A2811CD6300A54319 /* CalendarEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB3092811CD6300A54319 /* CalendarEnvironment.swift */; };
+		560EB30C2811CE7900A54319 /* CalendarViewCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB30B2811CE7900A54319 /* CalendarViewCompact.swift */; };
+		560EB30F2811E57F00A54319 /* DateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB30E2811E57F00A54319 /* DateWorker.swift */; };
+		560EB3112811E5FD00A54319 /* CalendarAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB3102811E5FD00A54319 /* CalendarAction.swift */; };
+		560EB3142813425D00A54319 /* CalendarFullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB3132813425D00A54319 /* CalendarFullView.swift */; };
+		560EB31628140AD100A54319 /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB31528140AD100A54319 /* CalendarModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +36,18 @@
 		560EB2D3280DE5CE00A54319 /* Booer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		560EB2D9280DE5CE00A54319 /* Booer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		560EB2DB280DE5CE00A54319 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		560EB2FB28111C1F00A54319 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		560EB2FD28111C5900A54319 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		560EB2FF28111C6C00A54319 /* AppReducer .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppReducer .swift"; sourceTree = "<group>"; };
+		560EB30228111C9100A54319 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		560EB3052811230800A54319 /* CalendarState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarState.swift; sourceTree = "<group>"; };
+		560EB3072811CD3300A54319 /* CalendarReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarReducer.swift; sourceTree = "<group>"; };
+		560EB3092811CD6300A54319 /* CalendarEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEnvironment.swift; sourceTree = "<group>"; };
+		560EB30B2811CE7900A54319 /* CalendarViewCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCompact.swift; sourceTree = "<group>"; };
+		560EB30E2811E57F00A54319 /* DateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateWorker.swift; sourceTree = "<group>"; };
+		560EB3102811E5FD00A54319 /* CalendarAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAction.swift; sourceTree = "<group>"; };
+		560EB3132813425D00A54319 /* CalendarFullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFullView.swift; sourceTree = "<group>"; };
+		560EB31528140AD100A54319 /* CalendarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +82,9 @@
 		560EB2CB280DE5CD00A54319 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				560EB30D2811E57100A54319 /* Worker */,
+				560EB3042811228E00A54319 /* Calendar */,
+				560EB2FA28111BBA00A54319 /* AppManagment */,
 				560EB2CC280DE5CD00A54319 /* BooerApp.swift */,
 				560EB2CD280DE5CD00A54319 /* ContentView.swift */,
 				560EB2CE280DE5CE00A54319 /* Assets.xcassets */,
@@ -80,6 +107,39 @@
 				560EB2DB280DE5CE00A54319 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		560EB2FA28111BBA00A54319 /* AppManagment */ = {
+			isa = PBXGroup;
+			children = (
+				560EB2FB28111C1F00A54319 /* AppAction.swift */,
+				560EB2FD28111C5900A54319 /* AppState.swift */,
+				560EB2FF28111C6C00A54319 /* AppReducer .swift */,
+				560EB30228111C9100A54319 /* AppEnvironment.swift */,
+			);
+			path = AppManagment;
+			sourceTree = "<group>";
+		};
+		560EB3042811228E00A54319 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				560EB31528140AD100A54319 /* CalendarModels.swift */,
+				560EB3102811E5FD00A54319 /* CalendarAction.swift */,
+				560EB3052811230800A54319 /* CalendarState.swift */,
+				560EB3072811CD3300A54319 /* CalendarReducer.swift */,
+				560EB3092811CD6300A54319 /* CalendarEnvironment.swift */,
+				560EB30B2811CE7900A54319 /* CalendarViewCompact.swift */,
+				560EB3132813425D00A54319 /* CalendarFullView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		560EB30D2811E57100A54319 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				560EB30E2811E57F00A54319 /* DateWorker.swift */,
+			);
+			path = Worker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,8 +248,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560EB30C2811CE7900A54319 /* CalendarViewCompact.swift in Sources */,
 				560EB2DE280DE5CE00A54319 /* ContentView.swift in Sources */,
+				560EB30028111C6C00A54319 /* AppReducer .swift in Sources */,
+				560EB3112811E5FD00A54319 /* CalendarAction.swift in Sources */,
+				560EB2FC28111C1F00A54319 /* AppAction.swift in Sources */,
+				560EB30F2811E57F00A54319 /* DateWorker.swift in Sources */,
+				560EB3062811230800A54319 /* CalendarState.swift in Sources */,
+				560EB3142813425D00A54319 /* CalendarFullView.swift in Sources */,
+				560EB3082811CD3300A54319 /* CalendarReducer.swift in Sources */,
+				560EB30A2811CD6300A54319 /* CalendarEnvironment.swift in Sources */,
 				560EB2DC280DE5CE00A54319 /* BooerApp.swift in Sources */,
+				560EB2FE28111C5900A54319 /* AppState.swift in Sources */,
+				560EB30328111C9100A54319 /* AppEnvironment.swift in Sources */,
+				560EB31628140AD100A54319 /* CalendarModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +398,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -356,6 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
