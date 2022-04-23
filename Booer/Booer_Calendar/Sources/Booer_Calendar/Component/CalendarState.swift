@@ -59,7 +59,7 @@ extension CalendarState {
 
 
 extension CalendarState {
-    func generateDates(
+    private func generateDates(
         inside interval: DateInterval,
         matching components: DateComponents
     ) -> [CalendarDate] {
