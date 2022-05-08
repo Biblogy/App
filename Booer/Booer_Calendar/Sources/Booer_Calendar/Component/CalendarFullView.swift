@@ -121,16 +121,6 @@ public struct CalenderFullsize: View {
                         isOpen = false
                     }
                 })
-                .onAppear(perform: {
-                    //                viewStore.send(.weekdays(Date()))
-                    //                viewStore.send(.getMonth(Date()))
-                    viewStore.send(.getMonthList)
-                })
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                    //                viewStore.send(.weekdays(Date()))
-                    //                viewStore.send(.getMonth(Date()))
-                    viewStore.send(.getMonthList)
-                }
             }
         }
     }

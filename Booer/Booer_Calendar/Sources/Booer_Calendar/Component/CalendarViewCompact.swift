@@ -56,20 +56,19 @@ public struct CalenderViewCompact: View {
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity)
             }
-            .onAppear(perform: {
+//            .onAppear(perform: {
 //                viewStore.send(.weekdays(Date()))
 //                viewStore.send(.getMonth(Date()))
-                viewStore.send(.getMonthList)
-            })
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+//                viewStore.send(.getMonthList)
+//            })
+//            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
 //                viewStore.send(.weekdays(Date()))
 //                viewStore.send(.getMonth(Date()))
-                viewStore.send(.getMonthList)
-            }
-            .sheet(isPresented: self.$openSheet, onDismiss: {}, content: {
-                CalenderFullsize(store: store, isOpen: self.$openSheet)
-            })
+//                viewStore.send(.getMonthList)
+//            }
         }
-        
+        .sheet(isPresented: self.$openSheet, onDismiss: {}, content: {
+            CalenderFullsize(store: store, isOpen: self.$openSheet)
+        })
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 import Booer_Calendar
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
-    calendarReducer.pullback(state: \AppState.calendar,
+    calendarReducer.pullback(state: \.calendar,
                              action: /AppAction.calendar,
                              environment: { _ in CalendarEnvironment() }),
   Reducer { state, action, environment in

@@ -13,5 +13,4 @@ public enum CalendarAction: Equatable {
     case getMonth(Date)
     case getMonthList
     case getDay(Date)
-    case loadedWeekdays([CalendarDate])
 }
