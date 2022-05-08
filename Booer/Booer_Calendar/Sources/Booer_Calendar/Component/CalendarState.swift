@@ -18,22 +18,22 @@ public struct CalendarState: Equatable {
         self.activeDate = activeDate
         self.weekDays = weekdays(from: activeDate)
         self.month = activeDate.getMonthString()
-        self.monthList = getMonths()
+//        self.monthList = getMonths()
     }
 }
 
 extension CalendarState {
-    func getMonths() -> [CalendarMonth] {
-        var monthsList: [CalendarMonth] = []
-        while monthsList.count < 12 {
-            guard let monthInterval = calendar.dateInterval(of: .month, for: createFirstDay(month: monthsList.count + 1)) else {
-                return monthsList
-            }
-            let month = self.generateMonths(interval: monthInterval)
-            monthsList.append(month.first!)
-        }
-        return monthsList
-    }
+//    func getMonths() -> [CalendarMonth] {
+//        var monthsList: [CalendarMonth] = []
+//        while monthsList.count < 12 {
+//            guard let monthInterval = calendar.dateInterval(of: .month, for: createFirstDay(month: monthsList.count + 1)) else {
+//                return monthsList
+//            }
+//            let month = self.generateMonths(interval: monthInterval)
+//            monthsList.append(month.first!)
+//        }
+//        return monthsList
+//    }
     
     func weekdays(from dateInWeek: Date = Date()) -> [CalendarDate] {
         let dayOfWeek = calendar.component(.weekday, from: dateInWeek)
@@ -45,7 +45,7 @@ extension CalendarState {
         return days
     }
     
-    private func createFirstDay(month: Int) -> Date {
+    func createFirstDay(month: Int) -> Date {
         let year = calendar.component(.year, from: Date())
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
