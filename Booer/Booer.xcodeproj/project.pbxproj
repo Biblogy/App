@@ -35,6 +35,7 @@
 		560EB2FF28111C6C00A54319 /* AppReducer .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppReducer .swift"; sourceTree = "<group>"; };
 		560EB30228111C9100A54319 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		560EB330281438A200A54319 /* Booer_Calendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Booer_Calendar; sourceTree = "<group>"; };
+		562D60C9282AF63100A45798 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +113,7 @@
 		560EB31728142F2400A54319 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				562D60C9282AF63100A45798 /* BookManagment */,
 				560EB330281438A200A54319 /* Booer_Calendar */,
 			);
 			name = Packages;
