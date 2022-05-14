@@ -12,9 +12,9 @@ import Booer_Calendar
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
-
+    
     public init(store: Store<AppState, AppAction>) {
-      self.store = store
+        self.store = store
     }
     
     var body: some View {
@@ -28,28 +28,31 @@ struct ContentView: View {
     @ObservedObject private var iO = Inject.observer
     
     let store = Store(
-      initialState: AppState(),
-      reducer: appReducer,
-      environment: AppEnvironment()
+        initialState: AppState(),
+        reducer: appReducer,
+        environment: AppEnvironment()
     )
     
     var body: some View {
         VStack() {
-            List(){
-                Section(){
-                    AppView(store: store)
-                }
-                
-                Section(){
-                    WithViewStore(store) { viewStore in
-                        Text(getMonthString(from: viewStore.activeDate))
-                            .padding()
+            TabView{
+                List(){
+                    Section(){
+                        AppView(store: store)
                     }
-                    
+                    Section(){
+                        WithViewStore(store) { viewStore in
+                            Text(getMonthString(from: viewStore.activeDate))
+                                .padding()
+                        }
+                        
+                    }
                 }
+                .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
+                .tag(1)
             }
         }.enableInjection()
-       
+        
     }
     
     func getMonthString(from: Date) -> String {
@@ -57,6 +60,18 @@ struct ContentView: View {
         let monthString = Calendar.current.monthSymbols[month - 1]
         return monthString
     }
+    
+    struct TabLabel: View {
+       let imageName: String
+       let label: String
+       
+       var body: some View {
+           HStack {
+               Image(systemName: imageName)
+               Text(label)
+           }
+       }
+   }
 }
 
 //struct ContentView_Previews: PreviewProvider {
