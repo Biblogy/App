@@ -9,6 +9,7 @@ import SwiftUI
 import Inject
 import ComposableArchitecture
 import Booer_Calendar
+import BookManagment
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
@@ -50,6 +51,10 @@ struct ContentView: View {
                 }
                 .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                 .tag(1)
+                
+                AddBookView(store: store.scope(state: \.addBookState, action: AppAction.addBook))
+                    .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
+                    .tag(2)
             }
         }.enableInjection()
         

@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Booer_Calendar
+import BookManagment
 
 struct CallengeCompactState: Equatable {
     var activeDate: Date
@@ -27,4 +28,6 @@ struct AppState: Equatable {
         get { CalendarState(activeDate: activeDate) }
         set { activeDate = newValue.activeDate }
     }
+    
+    var addBookState = AddBookCore.State()
 }

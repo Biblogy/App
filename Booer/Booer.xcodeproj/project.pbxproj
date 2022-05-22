@@ -21,6 +21,7 @@
 		560EB30328111C9100A54319 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB30228111C9100A54319 /* AppEnvironment.swift */; };
 		560EB332281438D000A54319 /* Booer_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB331281438D000A54319 /* Booer_Calendar */; };
 		560EB334281438D800A54319 /* Booer_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB333281438D800A54319 /* Booer_Calendar */; };
+		562D60CB2830397200A45798 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 562D60CA2830397200A45798 /* BookManagment */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562D60CB2830397200A45798 /* BookManagment in Frameworks */,
 				560EB2EC280DE89700A54319 /* ComposableArchitecture in Frameworks */,
 				560EB332281438D000A54319 /* Booer_Calendar in Frameworks */,
 				560EB2EF280DE8A400A54319 /* Inject in Frameworks */,
@@ -146,6 +148,7 @@
 				560EB2EB280DE89700A54319 /* ComposableArchitecture */,
 				560EB2EE280DE8A400A54319 /* Inject */,
 				560EB331281438D000A54319 /* Booer_Calendar */,
+				562D60CA2830397200A45798 /* BookManagment */,
 			);
 			productName = "Booer (iOS)";
 			productReference = 560EB2D3280DE5CE00A54319 /* Booer.app */;
@@ -560,6 +563,10 @@
 		560EB333281438D800A54319 /* Booer_Calendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Booer_Calendar;
+		};
+		562D60CA2830397200A45798 /* BookManagment */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BookManagment;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
