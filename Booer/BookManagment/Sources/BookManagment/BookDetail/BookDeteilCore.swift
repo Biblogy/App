@@ -1,25 +1,22 @@
 //
-//  AddBookCore.swift
+//  BookDetailCore.swift
 //  
 //
-//  Created Veit Progl on 13.05.22.
+//  Created Veit Progl on 22.05.22.
 //  Copyright © 2022. All rights reserved.
 //
 
 import ComposableArchitecture
 
-public enum AddBookCore {}
+public enum BookDetailCore {}
 
-public extension AddBookCore {
+public extension BookDetailCore {
     struct State: Equatable {
         public init() {}
-        var bookDetail = BookDetailCore.State()
-
     }
 
     enum Action: Equatable {
         case onAppear
-        case bookDetail(BookDetailCore.Action)
     }
 
     struct Environment {

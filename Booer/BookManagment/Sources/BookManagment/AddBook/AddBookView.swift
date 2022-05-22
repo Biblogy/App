@@ -45,8 +45,11 @@ public struct AddBookView: View {
                         }
                         
                         Section() {
+                            NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail))) {
+                                                                cell()
+                                                            }
                             ForEach(1...5, id: \.self) { _ in
-                                    cell()
+                                
                             }
                         }
                     }.listStyle(InsetGroupedListStyle())
