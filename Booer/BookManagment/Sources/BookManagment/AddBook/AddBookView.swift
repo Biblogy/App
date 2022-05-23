@@ -12,26 +12,13 @@ import ComposableArchitecture
 public struct AddBookView: View {
     internal let store: Store<AddBookCore.State, AddBookCore.Action>
     
-    fileprivate struct ViewState: Equatable {
-        init(state: AddBookCore.State) {}
-    }
-    
-    fileprivate enum ViewAction: Equatable {
-        case onAppear
-    }
-    
     public init(store: Store<AddBookCore.State, AddBookCore.Action>) {
         self.store = store
     }
     @State private var seach = ""
     
     public var body: some View {
-        WithViewStore(
-            store.scope(
-                state: ViewState.init,
-                action: AddBookCore.Action.init
-            )
-        ) { viewStore in
+        WithViewStore(self.store) { viewStore in
             NavigationView() {
                 VStack() {
                     List() {
@@ -39,7 +26,7 @@ public struct AddBookView: View {
                             HStack{
                                 TextField("Seach", text: $seach)
                                 Button("Search"){
-                                    
+                                    viewStore.send(.requestBook("test"))
                                 }
                             }
                         }
@@ -99,16 +86,6 @@ struct cell: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             
         }.padding([.vertical], 10)
-    }
-}
-
-
-extension AddBookCore.Action {
-    fileprivate init(action: AddBookView.ViewAction) {
-        switch action {
-        case .onAppear:
-            self = .onAppear
-        }
     }
 }
 

@@ -8,11 +8,15 @@
 import ComposableArchitecture
 import SwiftUI
 import Booer_Calendar
+import BookManagment
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     calendarReducer.pullback(state: \.calendar,
                              action: /AppAction.calendar,
                              environment: { _ in CalendarEnvironment() }),
+    AddBookCore.reducer.pullback(state: \.addBookState,
+                                    action: /AppAction.addBook,
+                                    environment: { _ in AddBookCore.Environment() }),
   Reducer { state, action, environment in
       switch action {
       default:
