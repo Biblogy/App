@@ -26,7 +26,7 @@ public struct AddBookView: View {
                             HStack{
                                 TextField("Seach", text: $seach)
                                 Button("Search"){
-                                    viewStore.send(.requestBook("test"))
+                                    viewStore.send(.requestBook("Die 4 Stunden Woche"))
                                 }
                             }
                         }

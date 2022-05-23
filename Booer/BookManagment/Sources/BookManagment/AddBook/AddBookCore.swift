@@ -34,30 +34,39 @@ public extension AddBookCore {
                 return .none
             case .requestBook(let title):
                 return .result {
-                    guard let url = URL(string: "http://49.12.191.116/book?title=\(title)") else {
+                    let urlString = title.replacingOccurrences(of: " ", with: "%20")
+                    guard let url = URL(string: "http://49.12.191.116/book?title=\(urlString)") else {
                         return .success(.onAppear)
                     }
                     
+                    print(url)
+                    var messageG: [Book]!
                     let task = URLSession.shared.dataTask(with: url) { data, response, error in
                         if let error = error {
+                            print(error)
                             return
                         }
                         if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
+                            print(response)
                             return
                         }
                         
                         guard let data = data else {
+                            print(data)
                             return
                         }
                         
                         do {
                             let decoder = JSONDecoder()
-                            let message = try decoder.decode(Book.self, from: data)
-                        }
-                        catch {
-                            
+                            var message = try decoder.decode([Book].self, from: data)
+                            messageG = message
+                            print(message)
+                        } catch let err {
+                            print(err)
                         }
                     }
+                    task.resume()
+                    
                     return .success(.onAppear)
                 }
             case .bookDetail:
@@ -69,25 +78,14 @@ public extension AddBookCore {
 
 struct Book: Decodable {
     var title: String
-    var pageCount: String
-    var publisher: String
-    var author: String
-}
-
-let loadBooksEffect = {
-    Effect<Book, Error>.result {
-        let fileUrl = URL(
-            fileURLWithPath: NSSearchPathForDirectoriesInDomains(
-                .documentDirectory, .userDomainMask, true
-            )[0]
-        )
-            .appendingPathComponent("user.json")
-        
-        let result = Result<Book, Error> {
-            let data = try Data(contentsOf: fileUrl)
-            return try JSONDecoder().decode(Book.self, from: data)
-        }
-        
-        return result
-    }
+    var pageCount: Int?
+    var publisher: String?
+    var author: String?
+    var subtitle: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case pageCount = "pages"
+        case title = "title"
+        case subtitle = "subtitle"
+   }
 }
