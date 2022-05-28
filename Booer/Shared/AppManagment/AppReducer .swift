@@ -16,7 +16,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                              environment: { _ in CalendarEnvironment() }),
     AddBookCore.reducer.pullback(state: \.addBookState,
                                     action: /AppAction.addBook,
-                                    environment: { _ in AddBookCore.Environment() }),
+                                 environment: { _ in AddBookCore.Environment.live }),
   Reducer { state, action, environment in
       switch action {
       default:

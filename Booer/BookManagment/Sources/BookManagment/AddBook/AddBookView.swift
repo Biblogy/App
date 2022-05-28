@@ -89,14 +89,14 @@ struct cell: View {
     }
 }
 
-struct AddBookView_Preview: PreviewProvider {
-    static var previews: some View {
-        AddBookView(
-            store: Store<AddBookCore.State, AddBookCore.Action>(
-                initialState: AddBookCore.State(),
-                reducer: AddBookCore.reducer,
-                environment: AddBookCore.Environment()
-            )
-        )
-    }
-}
+//struct AddBookView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        AddBookView(
+//            store: Store<AddBookCore.State, AddBookCore.Action>(
+//                initialState: AddBookCore.State(),
+//                reducer: AddBookCore.reducer,
+//                environment: AddBookCore.Environment()
+//            )
+//        )
+//    }
+//}

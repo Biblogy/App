@@ -18,15 +18,50 @@ public extension AddBookCore {
         
     }
     
+    enum BooksLoaderError: Error, Equatable {
+        case invalidData
+        case invalidUrl
+        case message(String)
+    }
+    
     enum Action: Equatable {
         case onAppear
         case bookDetail(BookDetailCore.Action)
         case requestBook(String)
-        case loadedBooks([Book])
+        case loadedBooks(Result<[Book], BooksLoaderError>)
     }
     
     struct Environment {
-        public init() {}
+        public var fetchBooks: (URL?) -> Effect<[Book], BooksLoaderError>
+        public init(fetchBooks: @escaping (URL?) -> Effect<[Book], BooksLoaderError>) {
+            self.fetchBooks = fetchBooks
+        }
+        
+        public static var live: Environment = Environment { url in
+            guard let url = url else {
+                return Effect(error: BooksLoaderError.invalidUrl)
+            }
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .receive(on: RunLoop.main)
+                .map(\.data)
+                .tryMap({ data -> [Book] in
+                    do {
+                        let books = try JSONDecoder().decode([Book].self, from: data)
+                        return books
+                    } catch {
+                        throw BooksLoaderError.invalidData
+                    }
+                })
+                .mapError({ BooksLoaderError.message($0.localizedDescription) })
+                .eraseToEffect()
+        }
+        
+        public static var mock: Environment = Environment { url in
+            guard let url = url else {
+                return Effect(error: BooksLoaderError.invalidData)
+            }
+            return Effect(value: [])
+        }
     }
     
     static let reducer = Reducer<State, Action, Environment>.combine(
@@ -39,27 +74,17 @@ public extension AddBookCore {
                 guard let url = URL(string: "http://49.12.191.116/book?title=\(urlString)") else {
                     return .none
                 }
-                return Effect.future { promise in
-                  let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-                      guard let data = data else {
-                          promise(.success(.onAppear))
-                          return
-                      }
-                      do {
-                          let books = try JSONDecoder().decode([Book].self, from: data)
-                          promise(.success(.loadedBooks(books)))
-                      } catch {
-                          promise(.success(.onAppear))
-                      }
-                      
-                      promise(.success(.onAppear))
-                  }
-                    task.resume()
-                }
+                
+                return environment.fetchBooks(url)
+                    .catchToEffect()
+                    .map(Action.loadedBooks)
             case .bookDetail:
                 return .none
-            case .loadedBooks(let books):
+            case .loadedBooks(.success(let books)):
                 state.books = books
+                return .none
+            case .loadedBooks(.failure(let error)):
+                state.books = []
                 return .none
             }
         }
