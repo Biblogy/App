@@ -91,13 +91,13 @@ public extension AddBookCore {
     )
 }
 
-public struct Book: Decodable, Equatable {
+public struct Book: Decodable, Equatable, Identifiable {
     var title: String
     var pageCount: Int?
     var publisher: String?
     var author: String?
     var subtitle: String?
-    var id = UUID().uuidString
+    public var id = UUID().uuidString
     
     enum CodingKeys: String, CodingKey {
         case pageCount = "pages"

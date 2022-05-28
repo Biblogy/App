@@ -32,10 +32,10 @@ public struct AddBookView: View {
                         }
                         
                         Section() {
-                            ForEach(1...5, id: \.self) { _ in
+                            ForEach(viewStore.state.books) { book in
                                 NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail))) {
-                                                                                                cell()
-                                                                                            }
+                                    cell(book: book)
+                                }
                             }
                         }
                     }.listStyle(InsetGroupedListStyle())
@@ -47,6 +47,8 @@ public struct AddBookView: View {
 }
 
 struct cell: View {
+    var book: Book
+    
     var body: some View {
         HStack(){
             VStack() {
@@ -61,19 +63,19 @@ struct cell: View {
             
             VStack() {
                 VStack(){
-                    Text("Book Title")
+                    Text(book.title)
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         .font(.headline)
                     
-                    Text("Author")
+                    Text("Author: \(book.author ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         .font(.subheadline)
                         .padding([.bottom], 4)
                     
-                    Text("Verlag")
+                    Text("Verlag: \(book.publisher ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
-                    Text("Seiten")
+                    Text("Seiten: \(book.pageCount ?? 0)")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 Spacer()
