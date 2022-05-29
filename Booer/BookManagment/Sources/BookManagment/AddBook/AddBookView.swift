@@ -52,12 +52,15 @@ struct cell: View {
     var body: some View {
         HStack(){
             VStack() {
-                Image("someImage")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: 300)
-                    .cornerRadius(15)
-                    .padding([.leading], 10)
+                AsyncImage(url: URL(string: book.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: 300)
+                } placeholder: {
+                    Color.gray
+                }
+                .cornerRadius(15)
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             
@@ -67,12 +70,12 @@ struct cell: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         .font(.headline)
                     
-                    Text("Author: \(book.author ?? "")")
+                    Text("\(book.author?.first ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         .font(.subheadline)
                         .padding([.bottom], 4)
                     
-                    Text("Verlag: \(book.publisher ?? "")")
+                    Text("\(book.publisher ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                     Text("Seiten: \(book.pageCount ?? 0)")
@@ -90,15 +93,3 @@ struct cell: View {
         }.padding([.vertical], 10)
     }
 }
-
-//struct AddBookView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        AddBookView(
-//            store: Store<AddBookCore.State, AddBookCore.Action>(
-//                initialState: AddBookCore.State(),
-//                reducer: AddBookCore.reducer,
-//                environment: AddBookCore.Environment()
-//            )
-//        )
-//    }
-//}
