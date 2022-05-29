@@ -32,13 +32,33 @@ public extension AddBookCore {
     }
     
     struct Environment {
-        public var fetchBooks: (URL?) -> Effect<[Book], BooksLoaderError>
-        public init(fetchBooks: @escaping (URL?) -> Effect<[Book], BooksLoaderError>) {
+        public var fetchBooks: (String?) -> Effect<[Book], BooksLoaderError>
+        public init(fetchBooks: @escaping (String?) -> Effect<[Book], BooksLoaderError>) {
             self.fetchBooks = fetchBooks
         }
         
-        public static var live: Environment = Environment { url in
-            guard let url = url else {
+        public static var live: Environment = Environment { title in
+            guard let url = URL(string: "http://49.12.191.116/book?title=\(title ?? "")") else {
+                return Effect(error: BooksLoaderError.invalidUrl)
+            }
+            
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .receive(on: RunLoop.main)
+                .map(\.data)
+                .tryMap({ data -> [Book] in
+                    do {
+                        let books = try JSONDecoder().decode([Book].self, from: data)
+                        return books
+                    } catch {
+                        throw BooksLoaderError.invalidData
+                    }
+                })
+                .mapError({ BooksLoaderError.message($0.localizedDescription) })
+                .eraseToEffect()
+        }
+        
+        public static var dev: Environment = Environment { title in
+            guard let url = URL(string: "http://localhost:3000/book?title=\(title ?? "")") else {
                 return Effect(error: BooksLoaderError.invalidUrl)
             }
             return URLSession.shared.dataTaskPublisher(for: url)
@@ -71,11 +91,8 @@ public extension AddBookCore {
                 return .none
             case .requestBook(let title):
                 let urlString = title.replacingOccurrences(of: " ", with: "%20")
-                guard let url = URL(string: "http://49.12.191.116/book?title=\(urlString)") else {
-                    return .none
-                }
                 
-                return environment.fetchBooks(url)
+                return environment.fetchBooks(urlString)
                     .catchToEffect()
                     .map(Action.loadedBooks)
             case .bookDetail:
