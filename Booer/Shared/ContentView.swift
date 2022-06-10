@@ -25,7 +25,7 @@ struct AppView: View {
 }
 
 struct ContentView: View {
-    @ObservedObject private var iO = Inject.observer
+//    @ObservedObject private var iO = Inject.observer
     
     let store = Store(
         initialState: AppState(),
@@ -55,7 +55,8 @@ struct ContentView: View {
                     .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                     .tag(2)
             }
-        }.enableInjection()
+        }
+//        .enableInjection()
         
     }
     
