@@ -6,7 +6,7 @@
 //
 
 import ComposableArchitecture
-import Booer_Calendar
+import BooerCalendar
 import BookManagment
 
 struct CallengeCompactState: Equatable {

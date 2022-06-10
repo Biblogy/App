@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import Inject
 import ComposableArchitecture
-import Booer_Calendar
+import BooerCalendar
 import BookManagment
 
 struct AppView: View {

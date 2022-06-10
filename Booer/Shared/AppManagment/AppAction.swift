@@ -7,7 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
-import Booer_Calendar
+import BooerCalendar
 import BookManagment
 
 enum AppAction: Equatable {

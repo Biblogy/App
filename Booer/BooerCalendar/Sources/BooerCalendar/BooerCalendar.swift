@@ -1,6 +1,6 @@
 import ComposableArchitecture
 
-public struct Booer_Calendar {
+public struct BooerCalendar {
     public private(set) var text = "Hello, World!"
 
     public init() {

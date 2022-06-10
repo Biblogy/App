@@ -1,7 +1,7 @@
 import XCTest
-@testable import Booer_Calendar
+@testable import BooerCalendar
 
-final class Booer_CalendarTests: XCTestCase {
+final class BooerCalendarTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct

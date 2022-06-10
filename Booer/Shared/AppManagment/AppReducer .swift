@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 import SwiftUI
-import Booer_Calendar
+import BooerCalendar
 import BookManagment
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
