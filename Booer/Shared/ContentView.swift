@@ -25,8 +25,6 @@ struct AppView: View {
 }
 
 struct ContentView: View {
-//    @ObservedObject private var iO = Inject.observer
-    
     let store = Store(
         initialState: AppState(),
         reducer: appReducer,
@@ -59,9 +57,7 @@ struct ContentView: View {
                     .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                     .tag(2)
             }
-        }
-//        .enableInjection()
-        
+        }        
     }
     
     func getMonthString(from: Date) -> String {
