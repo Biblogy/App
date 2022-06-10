@@ -35,7 +35,7 @@ public struct AddBookView: View {
                         Section() {
                             ForEach(viewStore.state.books) { book in
                                 NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail))) {
-                                    cell(book: book)
+                                    cell(book: book, viewStore: viewStore)
                                 }
                             }
                         }
@@ -49,6 +49,7 @@ public struct AddBookView: View {
 
 struct cell: View {
     var book: Book
+    var viewStore: ViewStore<AddBookCore.State, AddBookCore.Action>
     
     var body: some View {
         HStack(){
@@ -85,7 +86,7 @@ struct cell: View {
                 Spacer()
                 
                 Button("Add Book") {
-                    
+                    viewStore.send(.saveBook(book))
                 }
                 .buttonStyle(BorderedButtonStyle())
             }

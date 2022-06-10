@@ -30,4 +30,6 @@ struct AppState: Equatable {
     }
     
     var addBookState = AddBookCore.State()
+    
+    var bookOverviewState = BookOverviewCore.State()
 }

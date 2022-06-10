@@ -17,6 +17,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     AddBookCore.reducer.pullback(state: \.addBookState,
                                     action: /AppAction.addBook,
                                  environment: { _ in AddBookCore.Environment.dev }),
+    BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /AppAction.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
   Reducer { state, action, environment in
       switch action {
       default:

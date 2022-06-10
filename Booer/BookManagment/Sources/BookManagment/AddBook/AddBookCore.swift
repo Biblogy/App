@@ -16,7 +16,7 @@ public extension AddBookCore {
         public init() {}
         var bookDetail = BookDetailCore.State()
         var books: [Book] = []
-        
+        private let bookDB = DatabaseBooer()
     }
     
     enum BooksLoaderError: Error, Equatable {
@@ -30,6 +30,7 @@ public extension AddBookCore {
         case bookDetail(BookDetailCore.Action)
         case requestBook(String)
         case loadedBooks(Result<[Book], BooksLoaderError>)
+        case saveBook(Book)
     }
     
     struct Environment {
@@ -103,6 +104,9 @@ public extension AddBookCore {
                 return .none
             case .loadedBooks(.failure(let error)):
                 state.books = []
+                return .none
+            case .saveBook(let book):
+                state.saveBook(book: book)
                 return .none
             }
         }

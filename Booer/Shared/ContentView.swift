@@ -34,7 +34,7 @@ struct ContentView: View {
     )
     
     var body: some View {
-        VStack() {
+        NavigationView() {
             TabView{
                 List(){
                     Section(){
@@ -46,6 +46,10 @@ struct ContentView: View {
                                 .padding()
                         }
                         
+                    }
+                    
+                    Section() {
+                        BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppAction.bookOverview))
                     }
                 }
                 .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })

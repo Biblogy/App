@@ -14,14 +14,13 @@
 		560EB2E0280DE5CE00A54319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560EB2CE280DE5CE00A54319 /* Assets.xcassets */; };
 		560EB2E1280DE5CE00A54319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560EB2CE280DE5CE00A54319 /* Assets.xcassets */; };
 		560EB2EC280DE89700A54319 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB2EB280DE89700A54319 /* ComposableArchitecture */; };
-		560EB2EF280DE8A400A54319 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB2EE280DE8A400A54319 /* Inject */; };
 		560EB2FC28111C1F00A54319 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB2FB28111C1F00A54319 /* AppAction.swift */; };
 		560EB2FE28111C5900A54319 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB2FD28111C5900A54319 /* AppState.swift */; };
 		560EB30028111C6C00A54319 /* AppReducer .swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB2FF28111C6C00A54319 /* AppReducer .swift */; };
 		560EB30328111C9100A54319 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EB30228111C9100A54319 /* AppEnvironment.swift */; };
-		560EB332281438D000A54319 /* Booer_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB331281438D000A54319 /* Booer_Calendar */; };
-		560EB334281438D800A54319 /* Booer_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 560EB333281438D800A54319 /* Booer_Calendar */; };
-		562D60CB2830397200A45798 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 562D60CA2830397200A45798 /* BookManagment */; };
+		56327638284FCAC5000168C7 /* BooerCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 56327637284FCAC5000168C7 /* BooerCalendar */; };
+		5632763A284FCAC9000168C7 /* DatabaseBooer in Frameworks */ = {isa = PBXBuildFile; productRef = 56327639284FCAC9000168C7 /* DatabaseBooer */; };
+		5632763C284FCACD000168C7 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 5632763B284FCACD000168C7 /* BookManagment */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +34,9 @@
 		560EB2FD28111C5900A54319 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		560EB2FF28111C6C00A54319 /* AppReducer .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppReducer .swift"; sourceTree = "<group>"; };
 		560EB30228111C9100A54319 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
-		560EB330281438A200A54319 /* Booer_Calendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Booer_Calendar; sourceTree = "<group>"; };
-		562D60C9282AF63100A45798 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
+		56327634284FCA6A000168C7 /* DatabaseBooer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DatabaseBooer; sourceTree = "<group>"; };
+		56327635284FCA7A000168C7 /* BooerCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerCalendar; sourceTree = "<group>"; };
+		56327636284FCA94000168C7 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,10 +44,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562D60CB2830397200A45798 /* BookManagment in Frameworks */,
+				5632763C284FCACD000168C7 /* BookManagment in Frameworks */,
+				56327638284FCAC5000168C7 /* BooerCalendar in Frameworks */,
 				560EB2EC280DE89700A54319 /* ComposableArchitecture in Frameworks */,
-				560EB332281438D000A54319 /* Booer_Calendar in Frameworks */,
-				560EB2EF280DE8A400A54319 /* Inject in Frameworks */,
+				5632763A284FCAC9000168C7 /* DatabaseBooer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				560EB334281438D800A54319 /* Booer_Calendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +114,9 @@
 		560EB31728142F2400A54319 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				562D60C9282AF63100A45798 /* BookManagment */,
-				560EB330281438A200A54319 /* Booer_Calendar */,
+				56327634284FCA6A000168C7 /* DatabaseBooer */,
+				56327635284FCA7A000168C7 /* BooerCalendar */,
+				56327636284FCA94000168C7 /* BookManagment */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -146,9 +146,9 @@
 			name = "Booer (iOS)";
 			packageProductDependencies = (
 				560EB2EB280DE89700A54319 /* ComposableArchitecture */,
-				560EB2EE280DE8A400A54319 /* Inject */,
-				560EB331281438D000A54319 /* Booer_Calendar */,
-				562D60CA2830397200A45798 /* BookManagment */,
+				56327637284FCAC5000168C7 /* BooerCalendar */,
+				56327639284FCAC9000168C7 /* DatabaseBooer */,
+				5632763B284FCACD000168C7 /* BookManagment */,
 			);
 			productName = "Booer (iOS)";
 			productReference = 560EB2D3280DE5CE00A54319 /* Booer.app */;
@@ -168,7 +168,6 @@
 			);
 			name = "Booer (macOS)";
 			packageProductDependencies = (
-				560EB333281438D800A54319 /* Booer_Calendar */,
 			);
 			productName = "Booer (macOS)";
 			productReference = 560EB2D9280DE5CE00A54319 /* Booer.app */;
@@ -203,7 +202,6 @@
 			mainGroup = 560EB2C6280DE5CD00A54319;
 			packageReferences = (
 				560EB2EA280DE89700A54319 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				560EB2ED280DE8A400A54319 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 560EB2D4280DE5CE00A54319 /* Products */;
 			projectDirPath = "";
@@ -535,14 +533,6 @@
 				minimumVersion = 0.9.0;
 			};
 		};
-		560EB2ED280DE8A400A54319 /* XCRemoteSwiftPackageReference "Inject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -551,20 +541,15 @@
 			package = 560EB2EA280DE89700A54319 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		560EB2EE280DE8A400A54319 /* Inject */ = {
+		56327637284FCAC5000168C7 /* BooerCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 560EB2ED280DE8A400A54319 /* XCRemoteSwiftPackageReference "Inject" */;
-			productName = Inject;
+			productName = BooerCalendar;
 		};
-		560EB331281438D000A54319 /* Booer_Calendar */ = {
+		56327639284FCAC9000168C7 /* DatabaseBooer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Booer_Calendar;
+			productName = DatabaseBooer;
 		};
-		560EB333281438D800A54319 /* Booer_Calendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Booer_Calendar;
-		};
-		562D60CA2830397200A45798 /* BookManagment */ = {
+		5632763B284FCACD000168C7 /* BookManagment */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BookManagment;
 		};

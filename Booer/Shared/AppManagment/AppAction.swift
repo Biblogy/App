@@ -13,4 +13,5 @@ import BookManagment
 enum AppAction: Equatable {
     case calendar(CalendarAction)
     case addBook(AddBookCore.Action)
+    case bookOverview(BookOverviewCore.Action)
 }

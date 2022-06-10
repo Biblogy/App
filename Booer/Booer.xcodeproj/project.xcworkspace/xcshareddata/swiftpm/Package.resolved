@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "inject",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Inject.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "3f84e4f4671850ab1293c32b0133c608db15de34"
-      }
-    },
-    {
       "identity" : "swift-case-paths",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-case-paths",
@@ -41,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-composable-architecture.git",
       "state" : {
-        "revision" : "2828dc44f6e3f81d84bcaba72c1ab1c0121d66f6",
-        "version" : "0.34.0"
+        "revision" : "db890996189ca27da9e56f4cc82a70057819429a",
+        "version" : "0.36.0"
       }
     },
     {
@@ -50,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-custom-dump",
       "state" : {
-        "revision" : "51698ece74ecf31959d3fa81733f0a5363ef1b4e",
-        "version" : "0.3.0"
+        "revision" : "c4f78db9b90ca57b7b6abc2223e235242739ea3c",
+        "version" : "0.4.0"
       }
     },
     {
@@ -59,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-identified-collections",
       "state" : {
-        "revision" : "680bf440178a78a627b1c2c64c0855f6523ad5b9",
-        "version" : "0.3.2"
+        "revision" : "2d6b7ffcc67afd9077fac5e5a29bcd6d39b71076",
+        "version" : "0.4.0"
       }
     },
     {
