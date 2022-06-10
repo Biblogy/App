@@ -109,44 +109,8 @@ public extension AddBookCore {
     )
 }
 
-public struct Book: Decodable, Equatable, Identifiable {
-    var title: String
-    var pageCount: Int?
-    var publisher: String?
-    var author: [String]?
-    var subtitle: String?
-    let cover: Cover?
-    public var id = UUID().uuidString
-    
-    enum CodingKeys: String, CodingKey {
-        case pageCount = "pages"
-        case title = "title"
-        case subtitle = "subtitle"
-        case author = "authors"
-        case publisher = "publisher"
-        case cover = "cover"
+extension AddBookCore.State {
+    func saveBook(book: Book) {
+        bookDB.saveBook(book: book)
     }
-    
-    public init(title: String, pageCount: Int?, publisher: String?, author: [String]?, subtitle: String?, cover: Cover?) {
-        self.title = title
-        self.pageCount = pageCount
-        self.publisher = publisher
-        self.author = author
-        self.subtitle = subtitle
-        self.cover = cover
-    }
-}
-
-public struct Cover: Equatable, Decodable {
-    public init(smallThumbnail: String, thumbnail: String) {
-//        let smallThumbnailSecure = smallThumbnail.replacingOccurrences(of: "http", with: "https")
-//        let thumbnailSecure = thumnail.replacingOccurrences(of: "http", with: "https")
-
-//        self.smallThumbnail = URL(string: smallThumbnailSecure) ?? nil
-//        self.thumbnail = URL(string: thumbnailSecure) ?? nil
-        self.smallThumbnail = smallThumbnail
-        self.thumbnail = thumbnail
-
-    }
-    let smallThumbnail, thumbnail: String?
 }
