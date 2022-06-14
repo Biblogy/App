@@ -19,25 +19,13 @@ struct AppView: View {
     }
     
     var body: some View {
-        VStack() {
-            CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
-        }
-    }
-}
-
-struct ContentView: View {
-    let store = Store(
-        initialState: AppCore.State(),
-        reducer: AppCore.reducer,
-        environment: AppCore.Environment()
-    )
-    
-    var body: some View {
         NavigationStack() {
             TabView{
                 List(){
                     Section(){
-                        AppView(store: store)
+                        VStack() {
+                            CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
+                        }
                     }
                     Section(){
                         WithViewStore(store) { viewStore in
@@ -56,7 +44,7 @@ struct ContentView: View {
                     .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                     .tag(2)
             }
-        }        
+        }
     }
     
     func getMonthString(from: Date) -> String {
@@ -76,6 +64,18 @@ struct ContentView: View {
            }
        }
    }
+}
+
+struct ContentView: View {
+    let store = Store(
+        initialState: AppCore.State(),
+        reducer: AppCore.reducer,
+        environment: AppCore.Environment()
+    )
+    
+    var body: some View {
+            AppView(store: store)
+    }
 }
 
 //struct ContentView_Previews: PreviewProvider {
