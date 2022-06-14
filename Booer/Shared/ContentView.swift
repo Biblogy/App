@@ -9,30 +9,31 @@ import SwiftUI
 import ComposableArchitecture
 import BooerCalendar
 import BookManagment
+import CasePaths
 
 struct AppView: View {
-    let store: Store<AppState, AppAction>
+    let store: Store<AppCore.State, AppCore.Action>
     
-    public init(store: Store<AppState, AppAction>) {
+    public init(store: Store<AppCore.State, AppCore.Action>) {
         self.store = store
     }
     
     var body: some View {
         VStack() {
-            CalenderViewCompact(store: store.scope(state: \.calendar, action: AppAction.calendar))
+            CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
         }
     }
 }
 
 struct ContentView: View {
     let store = Store(
-        initialState: AppState(),
-        reducer: appReducer,
-        environment: AppEnvironment()
+        initialState: AppCore.State(),
+        reducer: AppCore.reducer,
+        environment: AppCore.Environment()
     )
     
     var body: some View {
-        NavigationView() {
+        NavigationStack() {
             TabView{
                 List(){
                     Section(){
@@ -43,17 +44,15 @@ struct ContentView: View {
                             Text(getMonthString(from: viewStore.activeDate))
                                 .padding()
                         }
-                        
                     }
-                    
                     Section() {
-                        BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppAction.bookOverview))
+                        BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
                     }
                 }
                 .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                 .tag(1)
                 
-                AddBookView(store: store.scope(state: \.addBookState, action: AppAction.addBook))
+                AddBookView(store: store.scope(state: \.addBookState, action: AppCore.Action.addBook))
                     .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                     .tag(2)
             }
