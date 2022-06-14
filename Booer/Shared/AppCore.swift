@@ -37,36 +37,22 @@ public extension AppCore {
     }
     
     struct Environment {}
-
-//    static let Reducer = Reducer<State, Reducer, Environment>.combine(
-//        calendarReducer.pullback(state: \.calendar,
-//                                 action: /Action.calendar,
-//                                 environment: { _ in CalendarEnvironment() }),
-//        AddBookCore.reducer.pullback(state: \.addBookState,
-//                                        action: /Action.addBook,
-//                                     environment: { _ in AddBookCore.Environment.dev }),
-//        BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
-//      Reducer { state, action, environment in
-//          switch action {
-//          default:
-//              return .none
-//          }
-//      })
-        static let reducer = Reducer<State, Action, Environment>.combine(
-            calendarReducer.pullback(state: \.calendar,
-                                     action: /Action.calendar,
-                                     environment: { _ in CalendarEnvironment() }),
-            AddBookCore.reducer.pullback(state: \.addBookState,
-                                         action: /Action.addBook,
-                                         environment: { _ in AddBookCore.Environment.dev }),
-            BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
-            .init { state, action, environment in
-                switch action {
-                default:
-                    return .none
-                }
+    
+    static let reducer = Reducer<State, Action, Environment>.combine(
+        calendarReducer.pullback(state: \.calendar,
+                                 action: /Action.calendar,
+                                 environment: { _ in CalendarEnvironment() }),
+        AddBookCore.reducer.pullback(state: \.addBookState,
+                                     action: /Action.addBook,
+                                     environment: { _ in AddBookCore.Environment.dev }),
+        BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
+        .init { state, action, environment in
+            switch action {
+            default:
+                return .none
             }
-        )
+        }
+    )
 
 }
 
