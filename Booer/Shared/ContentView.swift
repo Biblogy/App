@@ -19,30 +19,32 @@ struct AppView: View {
     }
     
     var body: some View {
-        NavigationStack() {
-            TabView{
-                List(){
-                    Section(){
-                        VStack() {
-                            CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
+        WithViewStore(store) { ViewStore in
+            NavigationStack() {
+                TabView{
+                    List(){
+                        Section(){
+                            VStack() {
+                                CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
+                            }
+                        }
+                        Section(){
+                            WithViewStore(store) { viewStore in
+                                Text(getMonthString(from: viewStore.activeDate))
+                                    .padding()
+                            }
+                        }
+                        Section() {
+                            BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
                         }
                     }
-                    Section(){
-                        WithViewStore(store) { viewStore in
-                            Text(getMonthString(from: viewStore.activeDate))
-                                .padding()
-                        }
-                    }
-                    Section() {
-                        BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
-                    }
-                }
-                .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
-                .tag(1)
-                
-                AddBookView(store: store.scope(state: \.addBookState, action: AppCore.Action.addBook))
                     .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
-                    .tag(2)
+                    .tag(1)
+                    
+                    AddBookView(store: store.scope(state: \.addBookState, action: AppCore.Action.addBook))
+                        .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
+                        .tag(2)
+                }
             }
         }
     }
