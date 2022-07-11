@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Book: Decodable, Equatable, Identifiable {
+public struct Book: Decodable, Equatable, Identifiable, Hashable {
     public var title: String
     public var pageCount: Int?
     public var publisher: String?
@@ -44,5 +44,9 @@ public struct Book: Decodable, Equatable, Identifiable {
         self.author = author
         self.subtitle = subtitle
         self.cover = cover
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

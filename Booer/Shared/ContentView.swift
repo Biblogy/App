@@ -19,8 +19,8 @@ struct AppView: View {
     }
     
     var body: some View {
-        WithViewStore(store) { ViewStore in
-            NavigationStack() {
+        WithViewStore(store) { viewStore in
+            NavigationStack(path: viewStore.binding(get: \.navigation, send: AppCore.Action.navigationPathChanged)) {
                 TabView{
                     List(){
                         Section(){
@@ -45,6 +45,15 @@ struct AppView: View {
                         .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                         .tag(2)
                 }
+                .navigationDestination(for: AppCore.Route.self, destination: { route in
+                    switch route {
+                    case .second:
+                        IfLetStore(store.scope(state: \.bookDetail,
+                                               action: AppCore.Action.bookDetail)) { store in
+                            BookDetailView(store: store)
+                        }
+                    }
+                })
             }
         }
     }

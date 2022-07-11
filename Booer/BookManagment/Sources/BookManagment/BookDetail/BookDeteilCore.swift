@@ -11,7 +11,7 @@ import ComposableArchitecture
 public enum BookDetailCore {}
 
 public extension BookDetailCore {
-    struct State: Equatable {
+    struct State: Equatable, Hashable {
         public init() {}
     }
 

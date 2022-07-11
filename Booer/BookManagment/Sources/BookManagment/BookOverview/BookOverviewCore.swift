@@ -8,19 +8,26 @@
 
 import ComposableArchitecture
 import DatabaseBooer
+import SwiftUI
 
 public enum BookOverviewCore {}
 
 public extension BookOverviewCore {
+    enum Route: Hashable {
+        case second(BookDetailCore.State)
+    }
+    
     struct State: Equatable {
         public init() {}
         public var books: [Book] = []
         var bookDetail = BookDetailCore.State()
+        var router: [NavigationPath] = []
     }
 
     enum Action: Equatable {
         case onAppear
         case bookDetail(BookDetailCore.Action)
+        case navigateDetail(Book)
     }
 
     struct Environment {
@@ -34,6 +41,10 @@ public extension BookOverviewCore {
                 state.books = DatabaseBooer().getAllBooks()
                 return .none
             case .bookDetail(_):
+                return .none
+            case .navigateDetail(let book):
+//                state.router.append(book)
+                
                 return .none
             }
         }
