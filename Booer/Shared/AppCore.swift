@@ -1,30 +1,33 @@
 //
-//  ContentViewCore.swift
+//  AppCore.swift
 //  Booer
 //
-//  Created by Veit Progl on 14.06.22.
+//  Created by Veit Progl on 11.07.22.
 //
-
 import ComposableArchitecture
 import BooerCalendar
 import BookManagment
+import CasePaths
 
 public enum AppCore {}
 
 public extension AppCore {
+    
     enum Action: Equatable {
         case calendar(CalendarAction)
         case addBook(AddBookCore.Action)
         case bookOverview(BookOverviewCore.Action)
+        case bookDetail(BookDetailCore.Action)
     }
     
     struct State: Equatable {
         var activeDate: Date
-//        var navigation: [Route]
 
         public init() {
             self.activeDate = Date()
         }
+        
+        var bookDetail = BookDetailCore.State()
         
         var calendar: CalendarState {
             get { CalendarState(activeDate: activeDate) }
