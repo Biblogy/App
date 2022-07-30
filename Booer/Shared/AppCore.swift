@@ -47,7 +47,7 @@ public extension AppCore {
                                  environment: { _ in CalendarEnvironment() }),
         AddBookCore.reducer.pullback(state: \.addBookState,
                                      action: /Action.addBook,
-                                     environment: { _ in AddBookCore.Environment.dev }),
+                                     environment: { _ in AddBookCore.Environment.live }),
         BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
         .init { state, action, environment in
             switch action {
