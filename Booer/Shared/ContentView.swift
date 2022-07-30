@@ -21,20 +21,22 @@ struct AppView: View {
     var body: some View {
         WithViewStore(store) { ViewStore in
             TabView{
-                List(){
-                    Section(){
-                        VStack() {
-                            CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
+                NavigationView {
+                    List(){
+                        Section(){
+                            VStack() {
+                                CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
+                            }
                         }
-                    }
-                    Section(){
-                        WithViewStore(store) { viewStore in
-                            Text(getMonthString(from: viewStore.activeDate))
-                                .padding()
+                        Section(){
+                            WithViewStore(store) { viewStore in
+                                Text(getMonthString(from: viewStore.activeDate))
+                                    .padding()
+                            }
                         }
-                    }
-                    Section() {
-                        BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
+                        Section() {
+                            BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
+                        }
                     }
                 }
                 .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
@@ -54,16 +56,16 @@ struct AppView: View {
     }
     
     struct TabLabel: View {
-       let imageName: String
-       let label: String
-       
-       var body: some View {
-           HStack {
-               Image(systemName: imageName)
-               Text(label)
-           }
-       }
-   }
+        let imageName: String
+        let label: String
+        
+        var body: some View {
+            HStack {
+                Image(systemName: imageName)
+                Text(label)
+            }
+        }
+    }
 }
 
 struct ContentView: View {
@@ -74,7 +76,7 @@ struct ContentView: View {
     )
     
     var body: some View {
-            AppView(store: store)
+        AppView(store: store)
     }
 }
 

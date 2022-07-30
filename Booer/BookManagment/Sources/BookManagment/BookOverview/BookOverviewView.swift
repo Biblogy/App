@@ -24,25 +24,50 @@ public struct BookOverviewView: View {
         WithViewStore(store) { viewStore in
            LazyVGrid(columns: columns) {
                ForEach(viewStore.state.books) { idx in
-                   NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: BookOverviewCore.Action.bookDetail))) {
-                       VStack() {
-                           AsyncImage(url: URL(string: idx.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
-                               image
-                                   .resizable()
-                                   .scaledToFill()
-                                   .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: 300)
-                           } placeholder: {
-                               Color.gray
-                           }
-                           .cornerRadius(15)
-                           Text(idx.title)
-                       }
-                   }
+                   BookCoverView(store: store, book: idx)
                }
            }.onAppear(perform: {
                viewStore.send(.onAppear)
            })
         }
+    }
+}
+
+public struct BookCoverView: View {
+    internal let store: Store<BookOverviewCore.State, BookOverviewCore.Action>
+    internal let book: Book
+    @State private var isActive = false
+
+    public init(store: Store<BookOverviewCore.State, BookOverviewCore.Action>, book: Book) {
+        self.store = store
+        self.book = book
+    }
+    
+    public var body: some View {
+        VStack() {
+            AsyncImage(url: URL(string: book.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: 300)
+            } placeholder: {
+                Color.gray
+            }
+            .cornerRadius(15)
+            Text(book.title)
+        }
+        .onTapGesture {
+            isActive.toggle()
+        }
+        .background(
+            NavigationLink (
+                destination: BookDetailView(store: store.scope(state: \.bookDetail, action: BookOverviewCore.Action.bookDetail)),
+                isActive: $isActive,
+                label: {
+                    EmptyView()
+                }
+            )
+        )
     }
 }
 
