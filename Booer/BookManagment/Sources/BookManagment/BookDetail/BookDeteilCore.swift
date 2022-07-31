@@ -13,6 +13,7 @@ public enum BookDetailCore {}
 public extension BookDetailCore {
     struct State: Equatable {
         var book: Book?
+        var addMode: Bool = true
         
         public init() {}
     }

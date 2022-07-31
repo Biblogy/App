@@ -56,9 +56,12 @@ public struct BookDetailView: View {
                     }
                 }
                 
-                Button("Add Book") {}
-                    .buttonStyle(BorderedButtonStyle())
-            }.navigationBarItems(trailing: Button("Add", action: {}))
+                if viewStore.addMode {
+                    Button("Add Book") {}
+                        .buttonStyle(BorderedButtonStyle())
+                }
+            }
+            .navigationBarItems(trailing: Button("Add", action: {}))
         }
     }
 }

@@ -36,6 +36,7 @@ public extension BookOverviewCore {
                 return .none
             case .navigateToDetail(let book):
                 state.bookDetail.book = book
+                state.bookDetail.addMode = false
                 return .none
             case .bookDetail(_):
                 return .none
