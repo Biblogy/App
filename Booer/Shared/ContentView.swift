@@ -37,6 +37,8 @@ struct AppView: View {
                         Section() {
                             BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
                         }
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowBackground(Color.clear)
                     }
                 }
                 .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })

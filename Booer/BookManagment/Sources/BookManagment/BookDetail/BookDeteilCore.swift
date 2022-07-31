@@ -7,11 +7,13 @@
 //
 
 import ComposableArchitecture
-
+import DatabaseBooer
 public enum BookDetailCore {}
 
 public extension BookDetailCore {
     struct State: Equatable {
+        var book: Book?
+        
         public init() {}
     }
 

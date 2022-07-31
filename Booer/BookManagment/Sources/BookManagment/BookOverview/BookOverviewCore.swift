@@ -21,6 +21,7 @@ public extension BookOverviewCore {
     enum Action: Equatable {
         case onAppear
         case bookDetail(BookDetailCore.Action)
+        case navigateToDetail(Book)
     }
 
     struct Environment {
@@ -32,6 +33,9 @@ public extension BookOverviewCore {
             switch action {
             case .onAppear:
                 state.books = DatabaseBooer().getAllBooks()
+                return .none
+            case .navigateToDetail(let book):
+                state.bookDetail.book = book
                 return .none
             case .bookDetail(_):
                 return .none

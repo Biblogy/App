@@ -12,14 +12,6 @@ import ComposableArchitecture
 public struct BookDetailView: View {
     internal let store: Store<BookDetailCore.State, BookDetailCore.Action>
     
-    fileprivate struct ViewState: Equatable {
-        init(state: BookDetailCore.State) {}
-    }
-    
-    fileprivate enum ViewAction: Equatable {
-        case onAppear
-    }
-    
     public init(store: Store<BookDetailCore.State, BookDetailCore.Action>) {
         self.store = store
     }
@@ -27,24 +19,29 @@ public struct BookDetailView: View {
     @State private var pageCount = ""
     
     public var body: some View {
-        WithViewStore(
-            store.scope(
-                state: ViewState.init,
-                action: BookDetailCore.Action.init
-            )
-        ) { viewStore in
+        WithViewStore(store) { viewStore in
             VStack() {
                 Form {
                     Section() {
-                        HStack(){
-                            Spacer()
-                            Image("someImage")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 200, height: 300, alignment: .center)
-                                .cornerRadius(20)
-                            Spacer()
+                        VStack() {
+                            HStack(){
+                                Spacer()
+                                AsyncImage(url: URL(string: viewStore.state.book?.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                                                    image
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(maxHeight: 300, alignment: .center)
+                                                        .cornerRadius(20)
+                                                } placeholder: {
+                                                    Color.gray
+                                                }
+                                Spacer()
+                            }
+                            Text(viewStore.state.book?.title ?? "test")
+                                .font(.subheadline)
                         }
+                        
                         
                     }.listRowBackground(Color.clear)
                     
@@ -62,15 +59,6 @@ public struct BookDetailView: View {
                 Button("Add Book") {}
                     .buttonStyle(BorderedButtonStyle())
             }.navigationBarItems(trailing: Button("Add", action: {}))
-        }
-    }
-}
-
-extension BookDetailCore.Action {
-    fileprivate init(action: BookDetailView.ViewAction) {
-        switch action {
-        case .onAppear:
-            self = .onAppear
         }
     }
 }

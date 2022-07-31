@@ -17,8 +17,8 @@ public struct BookOverviewView: View {
         self.store = store
     }
 
-    let columns = [GridItem(.flexible()),
-                   GridItem(.flexible())]
+    let columns = [GridItem(.flexible(), alignment: .top),
+                   GridItem(.flexible(), alignment: .top)]
 
     public var body: some View {
         WithViewStore(store) { viewStore in
@@ -44,30 +44,33 @@ public struct BookCoverView: View {
     }
     
     public var body: some View {
-        VStack() {
-            AsyncImage(url: URL(string: book.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: 300)
-            } placeholder: {
-                Color.gray
-            }
-            .cornerRadius(15)
-            Text(book.title)
-        }
-        .onTapGesture {
-            isActive.toggle()
-        }
-        .background(
-            NavigationLink (
-                destination: BookDetailView(store: store.scope(state: \.bookDetail, action: BookOverviewCore.Action.bookDetail)),
-                isActive: $isActive,
-                label: {
-                    EmptyView()
+        WithViewStore(store) { viewStore in
+            VStack() {
+                AsyncImage(url: URL(string: book.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .aspectRatio(contentMode: .fit)
+                } placeholder: {
+                    Color.gray
                 }
+                .cornerRadius(15)
+                Text(book.title)
+            }
+            .onTapGesture {
+                viewStore.send(.navigateToDetail(book))
+                isActive.toggle()
+            }
+            .background(
+                NavigationLink (
+                    destination: BookDetailView(store: store.scope(state: \.bookDetail, action: BookOverviewCore.Action.bookDetail)),
+                    isActive: $isActive,
+                    label: {
+                        EmptyView()
+                    }
+                )
             )
-        )
+        }
     }
 }
 
