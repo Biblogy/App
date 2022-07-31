@@ -45,7 +45,7 @@ struct AppView: View {
                 .tag(1)
                 
                 AddBookView(store: store.scope(state: \.addBookState, action: AppCore.Action.addBook))
-                    .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
+                    .tabItem({ TabLabel(imageName: "plus.magnifyingglass", label: "Search") })
                     .tag(2)
             }
         }
