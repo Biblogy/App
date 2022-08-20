@@ -15,10 +15,10 @@ public struct DatabaseBooer: Equatable {
         let newBook = BooksDB(context: viewContext)
         newBook.id = UUID().uuidString
         newBook.title = book.title
-        newBook.pages = Int16(book.pageCount ?? 0)
+        newBook.pages = Int16(book.pageCount )
         newBook.subtitle = book.subtitle
-        newBook.coverSmall = book.cover?.smallThumbnail
-        newBook.coverThumbnail = book.cover?.thumbnail
+        newBook.coverSmall = book.cover.smallThumbnail
+        newBook.coverThumbnail = book.cover.thumbnail
         
         do {
             try viewContext.save()

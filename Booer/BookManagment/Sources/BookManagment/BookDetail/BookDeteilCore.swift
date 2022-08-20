@@ -12,14 +12,17 @@ public enum BookDetailCore {}
 
 public extension BookDetailCore {
     struct State: Equatable {
-        var book: Book?
+        var book: Book
         var addMode: Bool = true
         
-        public init() {}
+        public init(book: Book = Book(title: "")) {
+            self.book = book
+        }
     }
 
     enum Action: Equatable {
         case onAppear
+        case onPageCountChanged
     }
 
     struct Environment {

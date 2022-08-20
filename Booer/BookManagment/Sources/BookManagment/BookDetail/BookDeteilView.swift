@@ -8,6 +8,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import DatabaseBooer
 
 public struct BookDetailView: View {
     internal let store: Store<BookDetailCore.State, BookDetailCore.Action>
@@ -20,6 +21,8 @@ public struct BookDetailView: View {
     
     public var body: some View {
         WithViewStore(store) { viewStore in
+            TextField("Page Count", value: viewStore.binding(get: \.book.pageCount, send: BookDetailCore.Action.onPageCountChanged), formatter: NumberFormatter())
+
             VStack() {
                 Form {
                     Section() {
@@ -43,7 +46,7 @@ public struct BookDetailView: View {
                                 }
                                 Spacer()
                             }
-                            Text(viewStore.state.book?.title ?? "test")
+                            Text(viewStore.state.book.title)
                                 .font(.subheadline)
                         }
                         
@@ -51,12 +54,12 @@ public struct BookDetailView: View {
                     }.listRowBackground(Color.clear)
                     
                     Section(header: Text("Infoamation")) {
+                        //TextField("Page Count", text: viewStore.binding(get: \.description, send: BookDetailCore.Action.onPageCountChanged))
+                                                                                                        
+//                        TextField("Verlag", text: viewStore.book?.publisher ?? $pageCount)
+                                    
                         
-                        TextField("Page Count", text: $pageCount)
-                        
-                        TextField("Verlag", text: $pageCount)
-                        
-                        TextField("Author", text: $pageCount)
+//                        TextField("Author", text: viewStore.book?.author)
                         
                     }
                 }
@@ -75,7 +78,7 @@ struct BookDetailView_Preview: PreviewProvider {
     static var previews: some View {
         BookDetailView(
             store: Store<BookDetailCore.State, BookDetailCore.Action>(
-                initialState: BookDetailCore.State(),
+                initialState: BookDetailCore.State(book: Book()),
                 reducer: BookDetailCore.reducer,
                 environment: BookDetailCore.Environment()
             )
