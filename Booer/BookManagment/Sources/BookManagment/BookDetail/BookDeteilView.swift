@@ -26,16 +26,21 @@ public struct BookDetailView: View {
                         VStack() {
                             HStack(){
                                 Spacer()
-                                AsyncImage(url: URL(string: viewStore.state.book?.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
-                                                    image
-                                                        .resizable()
-                                                        .scaledToFill()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(maxHeight: 300, alignment: .center)
-                                                        .cornerRadius(20)
-                                                } placeholder: {
-                                                    Color.gray
-                                                }
+                                AsyncImage(url: URL(string: viewStore.state.book.cover.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxHeight: 300, alignment: .center)
+                                        .cornerRadius(20)
+                                } placeholder: {
+                                    Image("someImage")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxHeight: 300, alignment: .center)
+                                        .cornerRadius(20)
+                                }
                                 Spacer()
                             }
                             Text(viewStore.state.book?.title ?? "test")

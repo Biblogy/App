@@ -54,7 +54,7 @@ struct cell: View {
     var body: some View {
         HStack(){
             VStack() {
-                AsyncImage(url: URL(string: book.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                AsyncImage(url: URL(string: book.cover.thumbnail ?? "") ?? URL(string: "")) { image in
                     image
                         .resizable()
                         .scaledToFill()
@@ -72,7 +72,7 @@ struct cell: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         .font(.headline)
                     
-                    Text("\(book.author?.first ?? "")")
+                    Text("\(book.author.first ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         .font(.subheadline)
                         .padding([.bottom], 4)
@@ -80,7 +80,7 @@ struct cell: View {
                     Text("\(book.publisher ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
-                    Text("Seiten: \(book.pageCount ?? 0)")
+                    Text("Seiten: \(book.pageCount)")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 Spacer()

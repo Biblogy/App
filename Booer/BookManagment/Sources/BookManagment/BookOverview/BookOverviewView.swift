@@ -46,7 +46,7 @@ public struct BookCoverView: View {
     public var body: some View {
         WithViewStore(store) { viewStore in
             VStack() {
-                AsyncImage(url: URL(string: book.cover?.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                AsyncImage(url: URL(string: book.cover.thumbnail ?? "") ?? URL(string: "")) { image in
                     image
                         .resizable()
                         .scaledToFill()
