@@ -15,7 +15,6 @@ public extension BookDetailCore {
         var book: Book
         var title: String
         var addMode: Bool = true
-        var todo = Todo()
         
         public init(book: Book = Book(title: "")) {
             self.book = book
@@ -27,7 +26,6 @@ public extension BookDetailCore {
         case onAppear
         case onPageCountChanged(Int)
         case onPublisherChanged(String)
-        case testTodo(TodoAction)
     }
 
     struct Environment {
@@ -35,7 +33,6 @@ public extension BookDetailCore {
     }
 
     static let reducer = Reducer<State, Action, Environment>.combine(
-        todoReducer.pullback(state: \.todo, action: /Action.testTodo, environment: {_ in TodoEnvironment() }),
         .init { state, action, environment in
             switch action {
             case let .onPageCountChanged(newText):
@@ -47,8 +44,6 @@ public extension BookDetailCore {
                 print(newText)
                 return .none
             case .onAppear:
-                return .none
-            case .testTodo:
                 return .none
             }
         }
