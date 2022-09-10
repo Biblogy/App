@@ -8,6 +8,7 @@ import ComposableArchitecture
 import BooerCalendar
 import BookManagment
 import CasePaths
+import Foundation
 
 public enum AppCore {}
 
@@ -56,6 +57,5 @@ public extension AppCore {
             }
         }
     )
-
 }
 

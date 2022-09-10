@@ -21,15 +21,16 @@ public struct BookDetailView: View {
     
     public var body: some View {
         WithViewStore(store) { viewStore in
-            TextField("Page Count", value: viewStore.binding(get: \.book.pageCount, send: BookDetailCore.Action.onPageCountChanged), formatter: NumberFormatter())
-
             VStack() {
+//                TextField("Test", text: viewStore.binding(get: \.title, send: BookDetailCore.Action.onPublisherChanged))
+//
+//                TodoView(store: store.scope(state: \.todo, action: BookDetailCore.Action.testTodo))
                 Form {
                     Section() {
                         VStack() {
                             HStack(){
                                 Spacer()
-                                AsyncImage(url: URL(string: viewStore.state.book.cover.thumbnail?.replacingOccurrences(of: "http", with: "https") ?? "") ?? URL(string: "")) { image in
+                                AsyncImage(url: URL(string: viewStore.state.book.cover.thumbnail ?? "") ?? URL(string: "")) { image in
                                     image
                                         .resizable()
                                         .scaledToFill()
@@ -46,7 +47,7 @@ public struct BookDetailView: View {
                                 }
                                 Spacer()
                             }
-                            Text(viewStore.state.book.title)
+                            Text(viewStore.state.title)
                                 .font(.subheadline)
                         }
                         
@@ -54,10 +55,20 @@ public struct BookDetailView: View {
                     }.listRowBackground(Color.clear)
                     
                     Section(header: Text("Infoamation")) {
-                        //TextField("Page Count", text: viewStore.binding(get: \.description, send: BookDetailCore.Action.onPageCountChanged))
-                                                                                                        
-//                        TextField("Verlag", text: viewStore.book?.publisher ?? $pageCount)
-                                    
+                        HStack() {
+                            Text("Page Count: ")
+                            
+                        }
+                        
+                        HStack() {
+                            Text("Title: ")
+                            TextField("Test", text: viewStore.binding(get: \.book.title, send: BookDetailCore.Action.onPublisherChanged))
+//                            TextField("Verlag", value: viewStore.binding(get: \.book.publisher, send: BookDetailCore.Action.onPublisherChanged), formatter: NumberFormatter())
+                            
+//                            Text("Verlag:", text: viewStore.binding(get: \.book.publisher, send: BookDetailCore.Action.onPageCountChanged))
+//                                .frame(alignment: .trailing)
+//                                .multilineTextAlignment(.trailing)
+                        }
                         
 //                        TextField("Author", text: viewStore.book?.author)
                         

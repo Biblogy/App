@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/combine-schedulers",
       "state" : {
-        "revision" : "4cf088c29a20f52be0f2ca54992b492c54e0076b",
-        "version" : "0.5.3"
+        "revision" : "9e42b4b0453da417a44daa17174103e7d1c5be07",
+        "version" : "0.7.3"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-case-paths",
       "state" : {
-        "revision" : "ce9c0d897db8a840c39de64caaa9b60119cf4be8",
-        "version" : "0.8.1"
+        "revision" : "a09839348486db8866f85a727b8550be1d671c50",
+        "version" : "0.9.1"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-composable-architecture.git",
       "state" : {
-        "revision" : "db890996189ca27da9e56f4cc82a70057819429a",
-        "version" : "0.36.0"
+        "branch" : "main",
+        "revision" : "baaa8a61950f418d522d450595d22421b1ceb6b3"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-custom-dump",
       "state" : {
-        "revision" : "c4f78db9b90ca57b7b6abc2223e235242739ea3c",
-        "version" : "0.4.0"
+        "revision" : "21ec1d717c07cea5a026979cb0471dd95c7087e7",
+        "version" : "0.5.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
       "state" : {
-        "revision" : "50a70a9d3583fe228ce672e8923010c8df2deddd",
-        "version" : "0.2.1"
+        "revision" : "38bc9242e4388b80bd23ddfdf3071428859e3260",
+        "version" : "0.4.0"
       }
     }
   ],

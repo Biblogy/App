@@ -6,6 +6,7 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 public struct CalendarState: Equatable {
     var weekDays: [CalendarDate] = []

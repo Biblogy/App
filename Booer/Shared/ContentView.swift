@@ -10,6 +10,7 @@ import ComposableArchitecture
 import BooerCalendar
 import BookManagment
 import CasePaths
+import Foundation
 
 struct AppView: View {
     let store: Store<AppCore.State, AppCore.Action>
@@ -73,7 +74,7 @@ struct AppView: View {
 struct ContentView: View {
     let store = Store(
         initialState: AppCore.State(),
-        reducer: AppCore.reducer,
+        reducer: AppCore.reducer.debug(),
         environment: AppCore.Environment()
     )
     

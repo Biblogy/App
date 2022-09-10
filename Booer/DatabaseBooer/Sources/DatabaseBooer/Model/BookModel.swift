@@ -10,7 +10,7 @@ import Foundation
 public struct Book: Decodable, Equatable, Identifiable {
     public var title: String
     public var pageCount: Int
-    public var publisher: String?
+    public var publisher: String? 
     public var author: [String]
     public var subtitle: String
     public let cover: Cover

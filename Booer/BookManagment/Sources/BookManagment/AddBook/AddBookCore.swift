@@ -8,6 +8,7 @@
 
 import ComposableArchitecture
 import DatabaseBooer
+import Foundation
 
 public enum AddBookCore {}
 

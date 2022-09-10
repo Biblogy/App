@@ -29,6 +29,7 @@ public extension BookOverviewCore {
     }
 
     static let reducer = Reducer<State, Action, Environment>.combine(
+        BookDetailCore.reducer.pullback(state: \.bookDetail, action: /Action.bookDetail, environment: { _ in BookDetailCore.Environment() }),
         .init { state, action, environment in
             switch action {
             case .onAppear:
