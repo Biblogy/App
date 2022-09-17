@@ -10,7 +10,7 @@ import Foundation
 public struct Book: Decodable, Equatable, Identifiable {
     public var title: String
     public var pageCount: Int
-    public var publisher: String? 
+    public var publisher: String? // why does this need to be optional? It shoudn't!
     public var author: [String]
     public var subtitle: String
     public let cover: Cover
@@ -26,6 +26,7 @@ public struct Book: Decodable, Equatable, Identifiable {
     }
     
     public init(from book: BooksDB){
+        self.id = book.id!
         self.title = book.title ?? ""
         self.pageCount = Int(book.pages)
         self.subtitle = book.subtitle ?? ""
