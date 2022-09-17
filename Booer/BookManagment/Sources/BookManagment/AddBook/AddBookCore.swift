@@ -17,7 +17,7 @@ public extension AddBookCore {
         public init() {}
         var bookDetail = BookDetailCore.State()
         var books: [Book] = []
-        private let bookDB = DatabaseBooer()
+        private let bookDB = DatabaseBooer.shared
     }
     
     enum BooksLoaderError: Error, Equatable {
