@@ -1,7 +1,8 @@
 import CoreData
 public struct DatabaseBooer: Equatable {
     var viewContext = PersistenceController.shared.container.viewContext
-
+    public static let shared = DatabaseBooer()
+    
     public init() {
         getCoreDataLocation()
     }
@@ -9,6 +10,27 @@ public struct DatabaseBooer: Equatable {
     public init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
         getCoreDataLocation()
+    }
+    
+    public func updateBook(book: Book) {
+        let predicate = NSPredicate(format: "id == %@", book.id)
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BooksDB")
+        fetch.predicate = predicate
+        
+        do {
+            let bookObject = try viewContext.fetch(fetch)
+            let first = bookObject.first as? BooksDB
+            first?.title = book.title
+            first?.pages = Int16(book.pageCount)
+        } catch {
+            print("fetch failed")
+        }
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("error")
+        }
     }
     
     public func saveBook(book: Book) {
