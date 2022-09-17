@@ -22,9 +22,6 @@ public struct BookDetailView: View {
     public var body: some View {
         WithViewStore(store) { viewStore in
             VStack() {
-//                TextField("Test", text: viewStore.binding(get: \.title, send: BookDetailCore.Action.onPublisherChanged))
-//
-//                TodoView(store: store.scope(state: \.todo, action: BookDetailCore.Action.testTodo))
                 Form {
                     Section() {
                         VStack() {
@@ -47,7 +44,7 @@ public struct BookDetailView: View {
                                 }
                                 Spacer()
                             }
-                            Text(viewStore.state.title)
+                            Text(viewStore.state.book.title)
                                 .font(.subheadline)
                         }
                         
@@ -62,16 +59,11 @@ public struct BookDetailView: View {
                         
                         HStack() {
                             Text("Title: ")
-                            TextField("Test", text: viewStore.binding(get: \.book.title, send: BookDetailCore.Action.onPublisherChanged))
-//                            TextField("Verlag", value: viewStore.binding(get: \.book.publisher, send: BookDetailCore.Action.onPublisherChanged), formatter: NumberFormatter())
-                            
-//                            Text("Verlag:", text: viewStore.binding(get: \.book.publisher, send: BookDetailCore.Action.onPageCountChanged))
-//                                .frame(alignment: .trailing)
-//                                .multilineTextAlignment(.trailing)
+                            TextField("Buch Titel", text: viewStore.binding(get: \.book.title, send: BookDetailCore.Action.onTitleChanged))
+                                .frame(alignment: .trailing)
+                                .multilineTextAlignment(.trailing)
+                                
                         }
-                        
-//                        TextField("Author", text: viewStore.book?.author)
-                        
                     }
                 }
                 
@@ -80,7 +72,7 @@ public struct BookDetailView: View {
                         .buttonStyle(BorderedButtonStyle())
                 }
             }
-            .navigationBarItems(trailing: Button("Add", action: {}))
+            .navigationBarItems(trailing: viewStore.state.addMode ? Button("Add", action: {}) : Button("Update", action: {viewStore.send(.updateButtonTaped)}))
         }
     }
 }

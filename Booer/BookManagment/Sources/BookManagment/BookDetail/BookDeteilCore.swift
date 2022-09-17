@@ -14,18 +14,23 @@ public extension BookDetailCore {
     struct State: Equatable {
         var book: Book
         var title: String
+        var pageCount: Int
         var addMode: Bool = true
+        private let bookDB: DatabaseBooer
         
         public init(book: Book = Book(title: "")) {
             self.book = book
-            self.title = "test"
+            self.title = book.title
+            self.pageCount = 0
+            self.bookDB = DatabaseBooer.shared
         }
     }
 
     enum Action: Equatable {
         case onAppear
         case onPageCountChanged(Int)
-        case onPublisherChanged(String)
+        case onTitleChanged(String)
+        case updateButtonTaped
     }
 
     struct Environment {
@@ -39,13 +44,25 @@ public extension BookDetailCore {
                 state.book.pageCount = newText
                 print(newText)
                 return .none
-            case let .onPublisherChanged(newText):
+            case let .onTitleChanged(newText):
                 state.title = newText
-                print(newText)
+                state.book.title = newText
                 return .none
             case .onAppear:
+                return .none
+            case .updateButtonTaped:
+                state.book.title = state.title
+                state.book.pageCount = state.pageCount
+
+                state.updateBook(book: state.book)
                 return .none
             }
         }
     )
+}
+
+extension BookDetailCore.State {
+    func updateBook(book: Book) {
+        bookDB.updateBook(book: book)
+    }
 }
