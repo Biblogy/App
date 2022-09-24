@@ -47,16 +47,17 @@ public struct BookDetailView: View {
                             Text(viewStore.state.book.title)
                                 .font(.subheadline)
                         }
-                        
-                        
                     }.listRowBackground(Color.clear)
                     
-                    Section(header: Text("Infoamation")) {
-                        HStack() {
-                            Text("Page Count: ")
-                            
+                    Section {
+                        if #available(iOS 16.0, *) {
+                            TextField("Buch Subtitle", text: viewStore.binding(get: \.book.subtitle, send: BookDetailCore.Action.onSubtitleChanged), axis: .vertical)
+                        } else {
+                            TextField("Buch Subtitle", text: viewStore.binding(get: \.book.subtitle, send: BookDetailCore.Action.onSubtitleChanged))
                         }
-                        
+                    }
+                    
+                    Section(header: Text("Infoamation")) {
                         HStack() {
                             Text("Title: ")
                             TextField("Buch Titel", text: viewStore.binding(get: \.book.title, send: BookDetailCore.Action.onTitleChanged))
@@ -64,6 +65,15 @@ public struct BookDetailView: View {
                                 .multilineTextAlignment(.trailing)
                                 
                         }
+                        
+                        HStack() {
+                            Text("Page Count: ")
+                            TextField("Page Count:", value: viewStore.binding(get: \.book.pageCount, send: BookDetailCore.Action.onPageCountChanged), format: .number)
+                                .frame(alignment: .trailing)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        
+                        
                     }
                 }
                 
