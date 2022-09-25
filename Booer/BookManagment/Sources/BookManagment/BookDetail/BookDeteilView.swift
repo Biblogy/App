@@ -72,8 +72,13 @@ public struct BookDetailView: View {
                                 .frame(alignment: .trailing)
                                 .multilineTextAlignment(.trailing)
                         }
-                        
-                        
+                    }
+                    
+                    Section(header: Text("Danger zone")) {
+                        Button("Delete") {
+                            viewStore.send(BookDetailCore.Action.delete)
+                        }
+                        .foregroundColor(.red)
                     }
                 }
                 

@@ -66,6 +66,20 @@ public struct DatabaseBooer: Equatable {
         return books
     }
     
+    public func deleteBook(book: Book) {
+        let predicate = NSPredicate(format: "id == %@", book.id)
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BooksDB")
+        fetch.predicate = predicate
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetch)
+        
+        do {
+            try viewContext.execute(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+            print(error.localizedDescription)
+        }
+    }
+    
     func getCoreDataLocation(){
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         

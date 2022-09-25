@@ -28,6 +28,7 @@ public extension BookDetailCore {
         case onTitleChanged(String)
         case updateButtonTaped
         case onSubtitleChanged(String)
+        case delete
     }
 
     struct Environment {
@@ -52,6 +53,9 @@ public extension BookDetailCore {
             case .updateButtonTaped:
                 state.updateBook(book: state.book)
                 return .none
+            case .delete:
+                state.deleteBook(book: state.book)
+                return .none
             }
         }
     )
@@ -60,5 +64,9 @@ public extension BookDetailCore {
 extension BookDetailCore.State {
     func updateBook(book: Book) {
         bookDB.updateBook(book: book)
+    }
+    
+    func deleteBook(book: Book) {
+        bookDB.deleteBook(book: book)
     }
 }
