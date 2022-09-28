@@ -19,7 +19,19 @@
 		56327638284FCAC5000168C7 /* BooerCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 56327637284FCAC5000168C7 /* BooerCalendar */; };
 		5632763A284FCAC9000168C7 /* DatabaseBooer in Frameworks */ = {isa = PBXBuildFile; productRef = 56327639284FCAC9000168C7 /* DatabaseBooer */; };
 		5632763C284FCACD000168C7 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 5632763B284FCACD000168C7 /* BookManagment */; };
+		565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557BE28E4C175001AF944 /* BooerUITests.swift */; };
+		565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		565557C228E4C175001AF944 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 560EB2C7280DE5CD00A54319 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 560EB2D2280DE5CE00A54319;
+			remoteInfo = "Booer (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		560EB2CC280DE5CD00A54319 /* BooerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerApp.swift; sourceTree = "<group>"; };
@@ -32,6 +44,9 @@
 		56327634284FCA6A000168C7 /* DatabaseBooer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DatabaseBooer; sourceTree = "<group>"; };
 		56327635284FCA7A000168C7 /* BooerCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerCalendar; sourceTree = "<group>"; };
 		56327636284FCA94000168C7 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
+		565557BC28E4C175001AF944 /* BooerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		565557BE28E4C175001AF944 /* BooerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITests.swift; sourceTree = "<group>"; };
+		565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +68,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		565557B928E4C175001AF944 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +84,7 @@
 				560EB31728142F2400A54319 /* Packages */,
 				560EB2CB280DE5CD00A54319 /* Shared */,
 				560EB2DA280DE5CE00A54319 /* macOS */,
+				565557BD28E4C175001AF944 /* BooerUITests */,
 				560EB2D4280DE5CE00A54319 /* Products */,
 				560EB31A28142F8300A54319 /* Frameworks */,
 			);
@@ -83,6 +106,7 @@
 			children = (
 				560EB2D3280DE5CE00A54319 /* Booer.app */,
 				560EB2D9280DE5CE00A54319 /* Booer.app */,
+				565557BC28E4C175001AF944 /* BooerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +134,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		565557BD28E4C175001AF944 /* BooerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				565557BE28E4C175001AF944 /* BooerUITests.swift */,
+				565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */,
+			);
+			path = BooerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +190,24 @@
 			productReference = 560EB2D9280DE5CE00A54319 /* Booer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		565557BB28E4C175001AF944 /* BooerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 565557C428E4C175001AF944 /* Build configuration list for PBXNativeTarget "BooerUITests" */;
+			buildPhases = (
+				565557B828E4C175001AF944 /* Sources */,
+				565557B928E4C175001AF944 /* Frameworks */,
+				565557BA28E4C175001AF944 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				565557C328E4C175001AF944 /* PBXTargetDependency */,
+			);
+			name = BooerUITests;
+			productName = BooerUITests;
+			productReference = 565557BC28E4C175001AF944 /* BooerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -164,7 +215,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					560EB2D2280DE5CE00A54319 = {
@@ -172,6 +223,10 @@
 					};
 					560EB2D8280DE5CE00A54319 = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					565557BB28E4C175001AF944 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 560EB2D2280DE5CE00A54319;
 					};
 				};
 			};
@@ -193,6 +248,7 @@
 			targets = (
 				560EB2D2280DE5CE00A54319 /* Booer (iOS) */,
 				560EB2D8280DE5CE00A54319 /* Booer (macOS) */,
+				565557BB28E4C175001AF944 /* BooerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				560EB2E1280DE5CE00A54319 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565557BA28E4C175001AF944 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +300,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		565557B828E4C175001AF944 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */,
+				565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		565557C328E4C175001AF944 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 560EB2D2280DE5CE00A54319 /* Booer (iOS) */;
+			targetProxy = 565557C228E4C175001AF944 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		560EB2E2280DE5CE00A54319 /* Debug */ = {
@@ -476,6 +556,47 @@
 			};
 			name = Release;
 		};
+		565557C528E4C175001AF944 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.BooerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Booer (iOS)";
+			};
+			name = Debug;
+		};
+		565557C628E4C175001AF944 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RPD69GC7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = veit.pro.BooerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Booer (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -502,6 +623,15 @@
 			buildConfigurations = (
 				560EB2E8280DE5CE00A54319 /* Debug */,
 				560EB2E9280DE5CE00A54319 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		565557C428E4C175001AF944 /* Build configuration list for PBXNativeTarget "BooerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565557C528E4C175001AF944 /* Debug */,
+				565557C628E4C175001AF944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
