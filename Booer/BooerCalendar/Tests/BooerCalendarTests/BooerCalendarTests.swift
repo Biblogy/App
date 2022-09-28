@@ -6,6 +6,6 @@ final class BooerCalendarTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Booer_Calendar().text, "Hello, World!")
+        XCTAssertEqual(BooerCalendar().text, "Hello, World!")
     }
 }

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Booer_Calendar
+@testable import BooerCalendar
 
 class ClendarStateTests: XCTestCase {
     let sut = CalendarState(activeDate: Date())
