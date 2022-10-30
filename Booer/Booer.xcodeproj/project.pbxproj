@@ -19,6 +19,7 @@
 		56327638284FCAC5000168C7 /* BooerCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 56327637284FCAC5000168C7 /* BooerCalendar */; };
 		5632763A284FCAC9000168C7 /* DatabaseBooer in Frameworks */ = {isa = PBXBuildFile; productRef = 56327639284FCAC9000168C7 /* DatabaseBooer */; };
 		5632763C284FCACD000168C7 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 5632763B284FCACD000168C7 /* BookManagment */; };
+		56395B8028E4CAB70005DA7C /* CalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */; };
 		565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557BE28E4C175001AF944 /* BooerUITests.swift */; };
 		565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -44,9 +45,11 @@
 		56327634284FCA6A000168C7 /* DatabaseBooer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DatabaseBooer; sourceTree = "<group>"; };
 		56327635284FCA7A000168C7 /* BooerCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerCalendar; sourceTree = "<group>"; };
 		56327636284FCA94000168C7 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
+		56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUITests.swift; sourceTree = "<group>"; };
 		565557BC28E4C175001AF944 /* BooerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565557BE28E4C175001AF944 /* BooerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITests.swift; sourceTree = "<group>"; };
 		565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		56B44D34290BFC960078A4D4 /* TestKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TestKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,7 @@
 				56327634284FCA6A000168C7 /* DatabaseBooer */,
 				56327635284FCA7A000168C7 /* BooerCalendar */,
 				56327636284FCA94000168C7 /* BookManagment */,
+				56B44D34290BFC960078A4D4 /* TestKit */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -141,6 +145,7 @@
 			children = (
 				565557BE28E4C175001AF944 /* BooerUITests.swift */,
 				565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */,
+				56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */,
 			);
 			path = BooerUITests;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			files = (
 				565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */,
 				565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */,
+				56395B8028E4CAB70005DA7C /* CalendarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

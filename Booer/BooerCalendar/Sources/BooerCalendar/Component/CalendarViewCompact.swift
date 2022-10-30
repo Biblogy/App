@@ -27,6 +27,7 @@ public struct CalenderViewCompact: View {
                         .onTapGesture {
                             self.openSheet.toggle()
                         }
+                        .id("test")
                 }
                 
                 HStack() {
