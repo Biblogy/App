@@ -18,7 +18,20 @@ public struct ChallengePageView: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
-            Text("Hello world!")
+            NavigationView {
+                VStack(){
+                    Spacer()
+                    Text("Hello world!")
+                    Spacer()
+                    
+                    Button(action: {}) {
+                        Text("New Challenge")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                    }
+                        .buttonStyle(.borderedProminent)
+                        .padding([.horizontal], 50)
+                }.navigationTitle("Challenges")
+            }
         }
     }
 }

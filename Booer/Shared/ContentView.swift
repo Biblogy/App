@@ -11,6 +11,7 @@ import BooerCalendar
 import BookManagment
 import CasePaths
 import Foundation
+import Challenges
 
 struct AppView: View {
     let store: Store<AppCore.State, AppCore.Action>
@@ -44,6 +45,9 @@ struct AppView: View {
                 }
                 .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
                 .tag(1)
+                
+                ChallengePageView(store: store.scope(state: \.challengePage, action: AppCore.Action.challengePage))
+                    .tabItem({ TabLabel(imageName: "medal", label: "Challenges")})
                 
                 AddBookView(store: store.scope(state: \.addBookState, action: AppCore.Action.addBook))
                     .tabItem({ TabLabel(imageName: "plus.magnifyingglass", label: "Search") })
