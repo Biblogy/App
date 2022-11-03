@@ -9,6 +9,7 @@ import BooerCalendar
 import BookManagment
 import CasePaths
 import Foundation
+import Challenges
 
 public enum AppCore {}
 
@@ -19,6 +20,8 @@ public extension AppCore {
         case addBook(AddBookCore.Action)
         case bookOverview(BookOverviewCore.Action)
         case bookDetail(BookDetailCore.Action)
+        case challengePage(ChallengePageCore.Action)
+        case newChallenge(NewChallengePageCore.Action)
     }
     
     struct State: Equatable {
@@ -38,6 +41,10 @@ public extension AppCore {
         var addBookState = AddBookCore.State()
         
         var bookOverviewState = BookOverviewCore.State()
+        
+        var challengePage = ChallengePageCore.State()
+        
+        var newChallenge = NewChallengePageCore.State()
     }
     
     struct Environment {}
@@ -50,6 +57,8 @@ public extension AppCore {
                                      action: /Action.addBook,
                                      environment: { _ in AddBookCore.Environment.live }),
         BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
+        ChallengePageCore.reducer.pullback(state: \.challengePage, action: /Action.challengePage, environment: {_ in ChallengePageCore.Environment()}),
+        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: {_ in NewChallengePageCore.Environment()}),
         .init { state, action, environment in
             switch action {
             default:
