@@ -15,7 +15,8 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", .upToNextMajor(from: "0.34.0")),
-        .package(url: "./DatabaseBooer", from: "1.0.0")
+        .package(url: "./DatabaseBooer", from: "1.0.0"),
+        .package(url: "./BooerKit", from: "1.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -24,10 +25,11 @@ let package = Package(
             name: "Challenges",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                "DatabaseBooer"
+                "DatabaseBooer",
+                "BooerKit"
             ]),
         .testTarget(
             name: "ChallengesTests",
-            dependencies: ["Challenges", "DatabaseBooer"]),
+            dependencies: ["Challenges", "DatabaseBooer", "BooerKit"]),
     ]
 )
