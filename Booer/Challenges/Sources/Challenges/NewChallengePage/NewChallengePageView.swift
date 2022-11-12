@@ -18,7 +18,11 @@ public struct NewChallengePageView: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
-            Text("Hello world!")
+            NavigationView{
+                ScrollView([.vertical]) {
+                    
+                }
+            }
         }
     }
 }

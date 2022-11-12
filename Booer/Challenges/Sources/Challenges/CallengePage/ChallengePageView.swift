@@ -15,7 +15,9 @@ public struct ChallengePageView: View {
     public init(store: Store<ChallengePageCore.State, ChallengePageCore.Action>) {
         self.store = store
     }
-
+    
+    @State var navigateToNewChallenge = false
+    
     public var body: some View {
         WithViewStore(store) { viewStore in
             NavigationView {
@@ -24,13 +26,30 @@ public struct ChallengePageView: View {
                     Text("Hello world!")
                     Spacer()
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        viewStore.send(.navigateToNewChallenge)
+                        navigateToNewChallenge.toggle()
+                    }) {
                         Text("New Challenge")
                             .frame(minWidth: 0, maxWidth: .infinity)
                     }
-                        .buttonStyle(.borderedProminent)
-                        .padding([.horizontal], 50)
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                    .padding([.horizontal], 17)
+                    .padding([.vertical], 10)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(9)
+                    .padding()
                 }.navigationTitle("Challenges")
+                .background(
+                    NavigationLink (
+                        destination: NewChallengePageView(store: store.scope(state: \.newChallenge, action: ChallengePageCore.Action.newChallenge)),
+                        isActive: $navigateToNewChallenge,
+                        label: {
+                            EmptyView()
+                        }
+                    )
+                )
             }
         }
     }

@@ -13,10 +13,14 @@ public enum ChallengePageCore {}
 public extension ChallengePageCore {
     struct State: Equatable {
         public init() {}
+        var newChallenge = NewChallengePageCore.State()
     }
 
     enum Action: Equatable {
         case onAppear
+        case newChallenge(NewChallengePageCore.Action)
+        case navigateToNewChallenge
+        
     }
 
     struct Environment {
@@ -24,8 +28,16 @@ public extension ChallengePageCore {
     }
 
     static let reducer = Reducer<State, Action, Environment>.combine(
+        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { _ in NewChallengePageCore.Environment() }),
         .init { state, action, environment in
-            return .none
+            switch action {
+            case .navigateToNewChallenge:
+                return .none
+            case .newChallenge:
+                return .none
+            case .onAppear:
+                return .none
+            }
         }
     )
 }
