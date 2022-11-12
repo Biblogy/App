@@ -47,6 +47,7 @@
 		56327635284FCA7A000168C7 /* BooerCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerCalendar; sourceTree = "<group>"; };
 		56327636284FCA94000168C7 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
 		56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUITests.swift; sourceTree = "<group>"; };
+		5649700629202C1D00472083 /* BooerKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerKit; sourceTree = "<group>"; };
 		565557BC28E4C175001AF944 /* BooerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565557BE28E4C175001AF944 /* BooerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITests.swift; sourceTree = "<group>"; };
 		565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		560EB31728142F2400A54319 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				5649700629202C1D00472083 /* BooerKit */,
 				56D9542D29116DD200671D3B /* Challenges */,
 				56327634284FCA6A000168C7 /* DatabaseBooer */,
 				56327635284FCA7A000168C7 /* BooerCalendar */,
