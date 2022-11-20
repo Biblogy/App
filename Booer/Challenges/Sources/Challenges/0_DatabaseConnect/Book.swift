@@ -12,13 +12,17 @@ protocol BookProtocol {
 
 }
 
-class Book: BookProtocol {
-    let id: String
+public class Book: BookProtocol, Equatable, Identifiable {
+    public static func == (lhs: Book, rhs: Book) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public let id: String
     let title: String
-    let cover: AsyncImage
+    let cover: URL
     let author: [String]
     
-    init(id: String, title: String, cover: AsyncImage, author: [String]) {
+    init(id: String, title: String, cover: URL, author: [String]) {
         self.id = id
         self.title = title
         self.cover = cover

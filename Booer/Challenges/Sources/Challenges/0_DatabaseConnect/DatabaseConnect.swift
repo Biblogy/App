@@ -15,12 +15,14 @@ protocol DatabaseConnectProtocol {
 
 class DatabaseConnect {
     func getAllBooks() -> [Book] {
-        let allBooks = DatabaseBooer.shared.getAllBooks().map({ book in
+        let allBooks = DatabaseBooer.shared.getAllBooks().map { book -> Book in
+            let coverUrl = URL(string: book.cover.thumbnail ?? "") ?? URL(string: "")
+            
             return Book(id: book.id,
                         title: book.title,
-                        cover: AsyncImage(url: URL(string: book.cover.thumbnail ?? "") ?? URL(string: "")),
+                        cover: coverUrl!,
                         author: book.author)
-        })
+        }
         
         return allBooks
     }
