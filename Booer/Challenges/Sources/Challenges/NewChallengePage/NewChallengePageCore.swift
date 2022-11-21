@@ -13,13 +13,12 @@ public enum NewChallengePageCore {}
 public extension NewChallengePageCore {
     struct State: Equatable {
         public init() {}
-        public var books: [Book] = []
-        public var selectedBookId: String?
+        var selectBook = BooksListCore.State()
     }
 
     enum Action: Equatable {
         case onAppear
-        case changeBook(String?)
+        case selectBook(BooksListCore.Action)
     }
 
     struct Environment {
@@ -27,15 +26,9 @@ public extension NewChallengePageCore {
     }
 
     static let reducer = Reducer<State, Action, Environment>.combine(
+        BooksListCore.reducer.pullback(state: \.selectBook, action: /Action.selectBook, environment: { _ in BooksListCore.Environment() }),
         .init { state, action, environment in
-            switch action {
-            case .onAppear:
-                state.books = DatabaseConnect().getAllBooks()
-                return .none
-            case .changeBook(let bookId):
-                state.selectedBookId = bookId ?? nil
-                return .none
-            }
+            return .none
         }
     )
 }

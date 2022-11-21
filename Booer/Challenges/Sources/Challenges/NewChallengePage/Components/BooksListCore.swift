@@ -13,10 +13,13 @@ public enum BooksListCore {}
 public extension BooksListCore {
     struct State: Equatable {
         public init() {}
+        public var books: [Book] = []
+        public var selectedBookId: String?
     }
 
     enum Action: Equatable {
         case onAppear
+        case changeBook(String?)
     }
 
     struct Environment {
@@ -25,7 +28,14 @@ public extension BooksListCore {
 
     static let reducer = Reducer<State, Action, Environment>.combine(
         .init { state, action, environment in
-            return .none
+            switch action {
+            case .onAppear:
+                state.books = DatabaseConnect().getAllBooks()
+                return .none
+            case .changeBook(let bookId):
+                state.selectedBookId = bookId ?? nil
+                return .none
+            }
         }
     )
 }
