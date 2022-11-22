@@ -7,6 +7,13 @@
 //
 
 import ComposableArchitecture
+import Foundation
+
+struct ChallengeType: Identifiable, Equatable {
+    var id = UUID().uuidString
+    let title: String
+    let description: String
+}
 
 public enum NewChallengePageCore {}
 
@@ -14,6 +21,9 @@ public extension NewChallengePageCore {
     struct State: Equatable {
         public init() {}
         var selectBook = BooksListCore.State()
+        var bookChallengeTypes = [ChallengeType(title: "Pages Goal", description: ""),
+                                  ChallengeType(title: "Time Goal", description: ""),
+                                  ChallengeType(title: "Reading Time Goal", description: "")]
     }
 
     enum Action: Equatable {

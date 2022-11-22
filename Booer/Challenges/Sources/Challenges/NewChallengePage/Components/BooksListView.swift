@@ -76,7 +76,6 @@ public struct BooksListView: View {
                 viewStore.send(.onAppear)
             }
         }.frame(height: 210)
-         .padding([.vertical])
     }
 }
 
