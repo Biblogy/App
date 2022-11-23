@@ -28,22 +28,7 @@ public struct NewChallengePageView: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
                     Section("challenge type") {
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(viewStore.bookChallengeTypes) { type in
-                                    HStack() {
-                                        Image(systemName: "clock.badge.checkmark")
-                                            .imageScale(.large)
-                                        Text(type.title)
-                                            .bold()
-                                    }
-                                    .padding()
-                                    .background(Color.systemGray)
-                                    .cornerRadius(14)
-                                    .foregroundColor(.white)
-                                }
-                            }
-                        }
+                        TypeListView(store: store.scope(state: \.selectType, action: NewChallengePageCore.Action.selectType))
                     }
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))

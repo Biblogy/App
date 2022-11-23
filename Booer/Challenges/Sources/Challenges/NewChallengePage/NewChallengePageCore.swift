@@ -21,14 +21,13 @@ public extension NewChallengePageCore {
     struct State: Equatable {
         public init() {}
         var selectBook = BooksListCore.State()
-        var bookChallengeTypes = [ChallengeType(title: "Pages Goal", description: ""),
-                                  ChallengeType(title: "Time Goal", description: ""),
-                                  ChallengeType(title: "Reading Time Goal", description: "")]
+        var selectType = TypeListCore.State()
     }
 
     enum Action: Equatable {
         case onAppear
         case selectBook(BooksListCore.Action)
+        case selectType(TypeListCore.Action)
     }
 
     struct Environment {
@@ -37,6 +36,7 @@ public extension NewChallengePageCore {
 
     static let reducer = Reducer<State, Action, Environment>.combine(
         BooksListCore.reducer.pullback(state: \.selectBook, action: /Action.selectBook, environment: { _ in BooksListCore.Environment() }),
+        TypeListCore.reducer.pullback(state: \.selectType, action: /Action.selectType, environment: { _ in TypeListCore.Environment() }),
         .init { state, action, environment in
             return .none
         }
