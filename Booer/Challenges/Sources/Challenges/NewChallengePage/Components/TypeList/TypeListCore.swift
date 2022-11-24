@@ -16,10 +16,12 @@ public extension TypeListCore {
         var bookChallengeTypes = [ChallengeType(title: "Pages Goal", description: ""),
                                   ChallengeType(title: "Time Goal", description: ""),
                                   ChallengeType(title: "Reading Time Goal", description: "")]
+        var selectedTypeIndex = 0
     }
 
     enum Action: Equatable {
         case onAppear
+        case selectType(Int)
     }
 
     struct Environment {
@@ -28,7 +30,14 @@ public extension TypeListCore {
 
     static let reducer = Reducer<State, Action, Environment>.combine(
         .init { state, action, environment in
-            return .none
+//            return .none
+            switch action {
+            case .onAppear:
+                return .none
+            case .selectType(let index):
+                state.selectedTypeIndex = index
+                return .none
+            }
         }
     )
 }
