@@ -24,6 +24,7 @@
 		565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557BE28E4C175001AF944 /* BooerUITests.swift */; };
 		565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */; };
 		5655EFE4291453180040E4F6 /* Challenges in Frameworks */ = {isa = PBXBuildFile; productRef = 5655EFE3291453180040E4F6 /* Challenges */; };
+		56DB9ED9292F4C14001AF0F6 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 56DB9ED8292F4C14001AF0F6 /* HotReloading */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DB9ED9292F4C14001AF0F6 /* HotReloading in Frameworks */,
 				5632763C284FCACD000168C7 /* BookManagment in Frameworks */,
 				56327638284FCAC5000168C7 /* BooerCalendar in Frameworks */,
 				560EB2EC280DE89700A54319 /* ComposableArchitecture in Frameworks */,
@@ -181,6 +183,7 @@
 				56327639284FCAC9000168C7 /* DatabaseBooer */,
 				5632763B284FCACD000168C7 /* BookManagment */,
 				5655EFE3291453180040E4F6 /* Challenges */,
+				56DB9ED8292F4C14001AF0F6 /* HotReloading */,
 			);
 			productName = "Booer (iOS)";
 			productReference = 560EB2D3280DE5CE00A54319 /* Booer.app */;
@@ -257,6 +260,7 @@
 			packageReferences = (
 				560EB2EA280DE89700A54319 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				56D9542A291154E800671D3B /* XCRemoteSwiftPackageReference "mockingbird" */,
+				56DB9ED7292F4C14001AF0F6 /* XCRemoteSwiftPackageReference "HotReloading" */,
 			);
 			productRefGroup = 560EB2D4280DE5CE00A54319 /* Products */;
 			projectDirPath = "";
@@ -673,6 +677,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		56DB9ED7292F4C14001AF0F6 /* XCRemoteSwiftPackageReference "HotReloading" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/HotReloading";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -696,6 +708,11 @@
 		5655EFE3291453180040E4F6 /* Challenges */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Challenges;
+		};
+		56DB9ED8292F4C14001AF0F6 /* HotReloading */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56DB9ED7292F4C14001AF0F6 /* XCRemoteSwiftPackageReference "HotReloading" */;
+			productName = HotReloading;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,8 +9,13 @@
 import SwiftUI
 import ComposableArchitecture
 import BooerKit
+@_exported import HotSwiftUI
 
 public struct NewChallengePageView: View {
+    #if DEBUG
+   @ObservedObject var iO = injectionObserver
+   #endif
+    
     internal let store: Store<NewChallengePageCore.State, NewChallengePageCore.Action>
 
     public init(store: Store<NewChallengePageCore.State, NewChallengePageCore.Action>) {
@@ -37,7 +42,7 @@ public struct NewChallengePageView: View {
             .onAppear(perform: {
                 viewStore.send(.onAppear)
             })
-        }
+        }.eraseToAnyView()
     }
 }
 
