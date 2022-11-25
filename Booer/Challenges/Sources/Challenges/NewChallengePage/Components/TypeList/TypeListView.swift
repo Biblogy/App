@@ -27,7 +27,8 @@ public struct TypeListView: View {
                             Text(type.title)
                                 .bold()
                         }
-                        .padding()
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
                         .background(Color.systemGray)
                         .cornerRadius(14)
                         .foregroundColor(.white)
