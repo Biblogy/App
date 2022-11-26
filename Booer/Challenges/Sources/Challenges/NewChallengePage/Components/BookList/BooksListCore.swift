@@ -12,7 +12,13 @@ public enum BooksListCore {}
 
 public extension BooksListCore {
     struct State: Equatable {
-        public init() {}
+        
+        // main problem: init is called to many times, database is 4x requested way to often
+        public init(id: String?) {
+            self.selectedBookId = id
+            self.books = DatabaseConnect().getAllBooks()
+        }
+        
         public var books: [Book] = []
         public var selectedBookId: String?
     }
@@ -30,7 +36,6 @@ public extension BooksListCore {
         .init { state, action, environment in
             switch action {
             case .onAppear:
-                state.books = DatabaseConnect().getAllBooks()
                 return .none
             case .changeBook(let bookId):
                 state.selectedBookId = bookId ?? nil
