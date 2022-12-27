@@ -13,6 +13,8 @@ protocol DatabaseConnectProtocol {
     func getAllBooks()
 }
 
+
+// aktuell braucht das Package neue Logic um mit der Datenbank arbeiten zu können. Schöner wäre wenn das Package unangerührt bleibe und nur ein Protocoll bereit stellt den die Datenbank folge leisten muss.
 class DatabaseConnect {
     func getAllBooks() -> [Book] {
         let allBooks = DatabaseBooer.shared.getAllBooks().map { book -> Book in

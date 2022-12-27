@@ -30,7 +30,6 @@ public extension TypeListCore {
 
     static let reducer = Reducer<State, Action, Environment>.combine(
         .init { state, action, environment in
-//            return .none
             switch action {
             case .onAppear:
                 return .none
