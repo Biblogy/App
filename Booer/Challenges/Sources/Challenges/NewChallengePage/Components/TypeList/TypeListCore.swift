@@ -13,9 +13,7 @@ public enum TypeListCore {}
 public extension TypeListCore {
     struct State: Equatable {
         public init() {}
-        var bookChallengeTypes = [ChallengeType(title: "Pages Goal", description: ""),
-                                  ChallengeType(title: "Time Goal", description: ""),
-                                  ChallengeType(title: "Reading Time Goal", description: "")]
+        var bookChallengeTypes = ChallengTypeModell.bookChallengeTypes
         var selectedTypeIndex = 0
     }
 

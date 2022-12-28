@@ -9,12 +9,6 @@
 import ComposableArchitecture
 import Foundation
 
-struct ChallengeType: Identifiable, Equatable {
-    var id = UUID().uuidString
-    let title: String
-    let description: String
-}
-
 public enum NewChallengePageCore {}
 
 public extension NewChallengePageCore {
