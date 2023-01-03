@@ -20,7 +20,7 @@ public struct TypeListView: View {
         WithViewStore(store) { viewStore in
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(Array(viewStore.bookChallengeTypes.enumerated()), id: \.element.id) { index, type in
+                    ForEach(viewStore.bookChallengeTypes) { type in
                         HStack() {
                             Image(systemName: "clock.badge.checkmark")
                                 .imageScale(.large)
@@ -34,7 +34,7 @@ public struct TypeListView: View {
                         .foregroundColor(.white)
                         .overlay(
                             Group{
-                                if viewStore.state.selectedTypeIndex == index {
+                                if viewStore.state.selectedType.id == type.id {
                                     RoundedRectangle(cornerRadius: 13)
                                         .stroke(.green, lineWidth: 4)
                                         .padding(2)
@@ -44,7 +44,7 @@ public struct TypeListView: View {
                             }.drawingGroup()
                         )
                         .onTapGesture {
-                            viewStore.send(.selectType(index))
+                            viewStore.send(.selectType(type))
                         }
                     }
                 }

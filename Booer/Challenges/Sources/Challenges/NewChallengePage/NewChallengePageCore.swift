@@ -16,7 +16,6 @@ public extension NewChallengePageCore {
         var selectedBookId: String?
         
         public init() {}
-        //var selectBook = BooksListCore.State()
         var selectBook: BooksListCore.State {
             get { BooksListCore.State(id: selectedBookId) }
             set { selectedBookId = newValue.selectedBookId }

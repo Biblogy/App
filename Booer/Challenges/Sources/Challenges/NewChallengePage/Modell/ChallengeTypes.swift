@@ -20,8 +20,8 @@ struct ChallengeField: Identifiable, Equatable {
     var value: String
 }
 
-struct ChallengeType: Identifiable, Equatable {
-    var id = UUID().uuidString
+public struct ChallengeType: Identifiable, Equatable {
+    public var id = UUID().uuidString
     let title: String
     let description: String
     

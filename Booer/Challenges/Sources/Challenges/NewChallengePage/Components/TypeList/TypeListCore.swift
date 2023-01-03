@@ -14,12 +14,12 @@ public extension TypeListCore {
     struct State: Equatable {
         public init() {}
         var bookChallengeTypes = ChallengTypeModell.bookChallengeTypes
-        var selectedTypeIndex = 0
+        var selectedType: ChallengeType = ChallengeType(title: "", description: "", fields: [])
     }
 
     enum Action: Equatable {
         case onAppear
-        case selectType(Int)
+        case selectType(ChallengeType)
     }
 
     struct Environment {
@@ -31,8 +31,8 @@ public extension TypeListCore {
             switch action {
             case .onAppear:
                 return .none
-            case .selectType(let index):
-                state.selectedTypeIndex = index
+            case .selectType(let type):
+                state.selectedType = type
                 return .none
             }
         }
