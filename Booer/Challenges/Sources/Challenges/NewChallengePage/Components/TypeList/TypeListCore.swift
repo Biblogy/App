@@ -12,9 +12,14 @@ public enum TypeListCore {}
 
 public extension TypeListCore {
     struct State: Equatable {
-        public init() {}
-        var bookChallengeTypes = ChallengTypeModell.bookChallengeTypes
-        var selectedType: ChallengeType = ChallengeType(title: "", description: "", fields: [])
+        var selectedType: ChallengeType?
+        var bookChallengeTypes: [ChallengeType]
+        
+        public init(selectedType: ChallengeType?) {
+            self.selectedType = selectedType
+            self.bookChallengeTypes = ChallengTypeModell.bookChallengeTypes
+        }
+        
     }
 
     enum Action: Equatable {

@@ -34,6 +34,14 @@ public struct NewChallengePageView: View {
                     }
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    
+                    Section("challenge type") {
+                        if viewStore.selectedBookId != nil {
+                            TypeDetailsView(store: store.scope(state: \.typeDetails, action: NewChallengePageCore.Action.selectTypeDetails))
+                        }
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
             .navigationTitle("Create a challenge")
             .onAppear(perform: {

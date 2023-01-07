@@ -34,7 +34,7 @@ public struct TypeListView: View {
                         .foregroundColor(.white)
                         .overlay(
                             Group{
-                                if viewStore.state.selectedType.id == type.id {
+                                if viewStore.state.selectedType?.id == type.id {
                                     RoundedRectangle(cornerRadius: 13)
                                         .stroke(.green, lineWidth: 4)
                                         .padding(2)
@@ -53,14 +53,14 @@ public struct TypeListView: View {
     }
 }
 
-struct TypeListView_Preview: PreviewProvider {
-    static var previews: some View {
-        TypeListView(
-            store: Store<TypeListCore.State, TypeListCore.Action>(
-                initialState: TypeListCore.State(),
-                reducer: TypeListCore.reducer,
-                environment: TypeListCore.Environment()
-            )
-        )
-    }
-}
+//struct TypeListView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        TypeListView(
+//            store: Store<TypeListCore.State, TypeListCore.Action>(
+//                initialState: TypeListCore.State(selectedType: <#ChallengeType?#>),
+//                reducer: TypeListCore.reducer,
+//                environment: TypeListCore.Environment()
+//            )
+//        )
+//    }
+//}

@@ -19,7 +19,6 @@ public extension AppCore {
         case calendar(CalendarAction)
         case addBook(AddBookCore.Action)
         case bookOverview(BookOverviewCore.Action)
-        case bookDetail(BookDetailCore.Action)
         case challengePage(ChallengePageCore.Action)
         case newChallenge(NewChallengePageCore.Action)
     }
@@ -30,9 +29,7 @@ public extension AppCore {
         public init() {
             self.activeDate = Date()
         }
-        
-        var bookDetail = BookDetailCore.State()
-        
+                
         var calendar: CalendarState {
             get { CalendarState(activeDate: activeDate) }
             set { activeDate = newValue.activeDate }

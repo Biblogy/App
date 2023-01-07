@@ -18,7 +18,13 @@ public struct TypeDetailsView: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
-            Text("Hello world!")
+            ForEachStore(self.store.scope(state: \.inputFields,
+                                          action: TypeDetailsCore.Action.timeGoalAction(id:action:))) {
+                TypeDetailsFieldView(store: $0)
+            }
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
         }
     }
 }
@@ -27,7 +33,7 @@ struct TypeDetailsView_Preview: PreviewProvider {
     static var previews: some View {
         TypeDetailsView(
             store: Store<TypeDetailsCore.State, TypeDetailsCore.Action>(
-                initialState: TypeDetailsCore.State(),
+                initialState: TypeDetailsCore.State(selectedType: ChallengTypeModell.bookChallengeTypes.first!),
                 reducer: TypeDetailsCore.reducer,
                 environment: TypeDetailsCore.Environment()
             )

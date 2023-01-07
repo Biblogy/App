@@ -7,6 +7,7 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 public enum TypeDetailsCore {}
 
@@ -15,11 +16,25 @@ public enum TypeDetailsCore {}
 
 public extension TypeDetailsCore {
     struct State: Equatable {
-        public init() {}
+        let placeholder = ChallengeType(title: "", description: "", fields: [])
+        
+        public init(selectedType: ChallengeType?) {
+            self.selectedType = selectedType ?? placeholder
+            
+            self.inputFields = IdentifiedArrayOf(
+                uniqueElements: self.selectedType.fields.map { field in
+                    TypeDetailsFieldCore.State(id: field.id, field: field)
+                })
+        }
+        
+        var selectedType: ChallengeType
+        var inputFields: IdentifiedArrayOf<TypeDetailsFieldCore.State>
     }
 
     enum Action: Equatable {
         case onAppear
+        case fieldChanged(String)
+        case timeGoalAction(id: TypeDetailsFieldCore.State.ID,action: TypeDetailsFieldCore.Action)
     }
 
     struct Environment {
@@ -27,8 +42,19 @@ public extension TypeDetailsCore {
     }
 
     static let reducer = Reducer<State, Action, Environment>.combine(
+        AnyReducer { environment in
+            TypeDetailsFieldCore()
+        }.forEach(state: \.inputFields, action: /TypeDetailsCore.Action.timeGoalAction(id:action:), environment: {$0}),
         .init { state, action, environment in
-            return .none
+            switch action {
+            case let .fieldChanged(newValue):
+                state.selectedType.title = newValue
+                return .none
+            case .onAppear:
+                return .none
+            case .timeGoalAction(_, _):
+                return .none
+            }
         }
     )
 }
