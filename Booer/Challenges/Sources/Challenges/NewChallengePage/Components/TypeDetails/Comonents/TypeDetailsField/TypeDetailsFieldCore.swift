@@ -20,16 +20,33 @@ public struct TypeDetailsFieldCore: ReducerProtocol {
 
     public enum Action: Equatable {
         case onAppear
-        case fieldChanged(String)
+        case textFieldChanged(String)
+        case numberFieldChanged(String)
+        
     }
 
     public func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .onAppear:
             return .none
-        case let .fieldChanged(newValue):
-            state.field.value = newValue
+        case let .textFieldChanged(newValue):
+            switch state.field.type {
+            case .numberField:
+                if newValue == "" {
+                    state.field.value = newValue
+                    return .none
+                }
+                guard let intValue = Int(newValue) else { return .none }
+                state.field.value = String(intValue)
+            case .textField:
+                state.field.value = String(newValue)
+            case .intervallPicker:
+                state.field.value = String(newValue)
+            }
+            return .none
+        case .numberFieldChanged(_):
             return .none
         }
+        
     }
 }

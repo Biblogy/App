@@ -34,7 +34,7 @@ public extension TypeDetailsCore {
     enum Action: Equatable {
         case onAppear
         case fieldChanged(String)
-        case timeGoalAction(id: TypeDetailsFieldCore.State.ID,action: TypeDetailsFieldCore.Action)
+        case typeDetailsField(id: TypeDetailsFieldCore.State.ID,action: TypeDetailsFieldCore.Action)
     }
 
     struct Environment {
@@ -44,7 +44,7 @@ public extension TypeDetailsCore {
     static let reducer = Reducer<State, Action, Environment>.combine(
         AnyReducer { environment in
             TypeDetailsFieldCore()
-        }.forEach(state: \.inputFields, action: /TypeDetailsCore.Action.timeGoalAction(id:action:), environment: {$0}),
+        }.forEach(state: \.inputFields, action: /TypeDetailsCore.Action.typeDetailsField(id:action:), environment: {$0}),
         .init { state, action, environment in
             switch action {
             case let .fieldChanged(newValue):
@@ -52,7 +52,7 @@ public extension TypeDetailsCore {
                 return .none
             case .onAppear:
                 return .none
-            case .timeGoalAction(_, _):
+            case .typeDetailsField(_, _):
                 return .none
             }
         }

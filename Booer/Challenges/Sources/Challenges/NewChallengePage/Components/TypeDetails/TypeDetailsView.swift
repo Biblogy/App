@@ -19,7 +19,7 @@ public struct TypeDetailsView: View {
     public var body: some View {
         WithViewStore(store) { viewStore in
             ForEachStore(self.store.scope(state: \.inputFields,
-                                          action: TypeDetailsCore.Action.timeGoalAction(id:action:))) {
+                                          action: TypeDetailsCore.Action.typeDetailsField(id:action:))) {
                 TypeDetailsFieldView(store: $0)
             }
             .onAppear {
