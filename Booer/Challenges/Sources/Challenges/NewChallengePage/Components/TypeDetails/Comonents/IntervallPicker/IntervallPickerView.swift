@@ -26,11 +26,7 @@ public struct IntervallPickerView: View {
 struct IntervallPickerView_Preview: PreviewProvider {
     static var previews: some View {
         IntervallPickerView(
-            store: Store<IntervallPickerCore.State, IntervallPickerCore.Action>(
-                initialState: IntervallPickerCore.State(),
-                reducer: IntervallPickerCore.reducer,
-                environment: IntervallPickerCore.Environment()
-            )
+            store: Store(initialState: IntervallPickerCore.State(), reducer: IntervallPickerCore())
         )
     }
 }

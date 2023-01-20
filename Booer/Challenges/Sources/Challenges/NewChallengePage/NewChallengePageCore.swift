@@ -46,7 +46,9 @@ public extension NewChallengePageCore {
     static let reducer = Reducer<State, Action, Environment>.combine(
         BooksListCore.reducer.pullback(state: \State.selectBook, action: /Action.selectBook, environment: { _ in BooksListCore.Environment() }),
         TypeListCore.reducer.pullback(state: \State.selectType, action: /Action.selectType, environment: { _ in TypeListCore.Environment() }),
-        TypeDetailsCore.reducer.pullback(state: \State.typeDetails, action: /Action.selectTypeDetails, environment: { _ in TypeDetailsCore.Environment() }),
+        AnyReducer  {environment  in
+            TypeDetailsCore()
+        }.pullback(state: \State.typeDetails, action: /Action.selectTypeDetails, environment: { $0 }),
         .init { state, action, environment in
             return .none
         }

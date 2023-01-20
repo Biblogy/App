@@ -32,11 +32,7 @@ public struct TypeDetailsView: View {
 struct TypeDetailsView_Preview: PreviewProvider {
     static var previews: some View {
         TypeDetailsView(
-            store: Store<TypeDetailsCore.State, TypeDetailsCore.Action>(
-                initialState: TypeDetailsCore.State(selectedType: ChallengTypeModell.bookChallengeTypes.first!),
-                reducer: TypeDetailsCore.reducer,
-                environment: TypeDetailsCore.Environment()
-            )
+            store: Store(initialState: TypeDetailsCore.State(selectedType: .none), reducer: TypeDetailsCore())
         )
     }
 }

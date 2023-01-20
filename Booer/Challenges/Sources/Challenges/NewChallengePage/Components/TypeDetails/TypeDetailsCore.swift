@@ -9,13 +9,10 @@
 import ComposableArchitecture
 import Foundation
 
-public enum TypeDetailsCore {}
-
-
 /// die Challenge Typem müssen hietr ein Protocoll versteckt werden sodass es hier egal ist welches verwendet wird! Protokolle erlauben das wechseln der Klassen so das es hier flexible bleibt.
 
-public extension TypeDetailsCore {
-    struct State: Equatable {
+public struct TypeDetailsCore: ReducerProtocol {
+    public struct State: Equatable {
         let placeholder = ChallengeType(title: "", description: "", fields: [])
         
         public init(selectedType: ChallengeType?) {
@@ -31,30 +28,29 @@ public extension TypeDetailsCore {
         var inputFields: IdentifiedArrayOf<TypeDetailsFieldCore.State>
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case fieldChanged(String)
         case typeDetailsField(id: TypeDetailsFieldCore.State.ID,action: TypeDetailsFieldCore.Action)
     }
 
-    struct Environment {
-        public init() {}
-    }
-
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        AnyReducer { environment in
-            TypeDetailsFieldCore()
-        }.forEach(state: \.inputFields, action: /TypeDetailsCore.Action.typeDetailsField(id:action:), environment: {$0}),
-        .init { state, action, environment in
+//    public struct Environment {
+//        public init() {}
+//    }
+    
+    public var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
             switch action {
             case let .fieldChanged(newValue):
                 state.selectedType.title = newValue
                 return .none
             case .onAppear:
                 return .none
-            case .typeDetailsField(_, _):
+            case .typeDetailsField(id: _, action: _):
                 return .none
             }
+        }.forEach(\.inputFields, action: /Action.typeDetailsField) {
+            TypeDetailsFieldCore()
         }
-    )
+    }
 }
