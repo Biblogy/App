@@ -8,10 +8,8 @@
 
 import ComposableArchitecture
 
-public enum BooksListCore {}
-
-public extension BooksListCore {
-    struct State: Equatable {
+public struct BooksListCore: ReducerProtocol {
+    public struct State: Equatable {
         
         // main problem: init is called to many times, database is 4x requested way to often
         public init(id: String?) {
@@ -23,17 +21,13 @@ public extension BooksListCore {
         public var selectedBookId: String?
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case changeBook(String?)
     }
 
-    struct Environment {
-        public init() {}
-    }
-
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        .init { state, action, environment in
+    public var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
             switch action {
             case .onAppear:
                 return .none
@@ -42,5 +36,5 @@ public extension BooksListCore {
                 return .none
             }
         }
-    )
+    }
 }

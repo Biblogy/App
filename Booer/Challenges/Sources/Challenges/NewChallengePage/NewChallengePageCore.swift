@@ -9,10 +9,8 @@
 import ComposableArchitecture
 import Foundation
 
-public enum NewChallengePageCore {}
-
-public extension NewChallengePageCore {
-    struct State: Equatable {
+public struct NewChallengePageCore: ReducerProtocol {
+    public struct State: Equatable {
         var selectedBookId: String?
         var selectedChallengeType: ChallengeType?
         
@@ -32,7 +30,7 @@ public extension NewChallengePageCore {
         }
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case selectBook(BooksListCore.Action)
         case selectType(TypeListCore.Action)
@@ -43,14 +41,32 @@ public extension NewChallengePageCore {
         public init() {}
     }
 
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        BooksListCore.reducer.pullback(state: \State.selectBook, action: /Action.selectBook, environment: { _ in BooksListCore.Environment() }),
-        TypeListCore.reducer.pullback(state: \State.selectType, action: /Action.selectType, environment: { _ in TypeListCore.Environment() }),
-        AnyReducer  {environment  in
+    public var body: some ReducerProtocol<State, Action> {
+        //        BooksListCore.reducer.pullback(state: \State.selectBook, action: /Action.selectBook, environment: { _ in BooksListCore.Environment() }),
+        //        AnyReducer { environment in
+        //           TypeListCore()
+        //        }.pullback(state: \State.selectType, action: /Action.selectType, environment: { $0 }),
+        //        AnyReducer  {environment  in
+        //            TypeDetailsCore()
+        //        }.pullback(state: \State.typeDetails, action: /Action.selectTypeDetails, environment: { $0 }),
+        //        .init { state, action, environment in
+        //            return .none
+        //        }
+        Scope(state: \State.selectBook, action: /Action.selectBook) {
+            BooksListCore()
+        }
+        
+        Scope(state: \State.selectType, action: /Action.selectType) {
+            TypeListCore()
+        }
+        
+        Scope(state: \State.typeDetails, action: /Action.selectTypeDetails) {
             TypeDetailsCore()
-        }.pullback(state: \State.typeDetails, action: /Action.selectTypeDetails, environment: { $0 }),
-        .init { state, action, environment in
+        }
+        
+        Reduce { state, action in
             return .none
         }
-    )
+    }
+    
 }

@@ -8,10 +8,8 @@
 
 import ComposableArchitecture
 
-public enum TypeListCore {}
-
-public extension TypeListCore {
-    struct State: Equatable {
+public struct TypeListCore: ReducerProtocol {
+    public struct State: Equatable {
         var selectedType: ChallengeType?
         var bookChallengeTypes: [ChallengeType]
         
@@ -22,17 +20,17 @@ public extension TypeListCore {
         
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case selectType(ChallengeType)
     }
 
-    struct Environment {
+    public struct Environment {
         public init() {}
     }
 
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        .init { state, action, environment in
+    public var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
             switch action {
             case .onAppear:
                 return .none
@@ -41,5 +39,5 @@ public extension TypeListCore {
                 return .none
             }
         }
-    )
+    }
 }

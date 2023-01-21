@@ -82,11 +82,7 @@ public struct BooksListView: View {
 struct BooksListView_Preview: PreviewProvider {
     static var previews: some View {
         BooksListView(
-            store: Store<BooksListCore.State, BooksListCore.Action>(
-                initialState: BooksListCore.State(id: "0"),
-                reducer: BooksListCore.reducer,
-                environment: BooksListCore.Environment()
-            )
+            store: Store(initialState: BooksListCore.State(id: ""), reducer: BooksListCore())
         )
     }
 }

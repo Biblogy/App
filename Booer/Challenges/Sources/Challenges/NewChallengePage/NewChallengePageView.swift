@@ -54,11 +54,7 @@ public struct NewChallengePageView: View {
 struct NewChallengePageView_Preview: PreviewProvider {
     static var previews: some View {
         NewChallengePageView(
-            store: Store<NewChallengePageCore.State, NewChallengePageCore.Action>(
-                initialState: NewChallengePageCore.State(),
-                reducer: NewChallengePageCore.reducer,
-                environment: NewChallengePageCore.Environment()
-            )
+            store: Store(initialState: NewChallengePageCore.State(), reducer: NewChallengePageCore())
         )
     }
 }

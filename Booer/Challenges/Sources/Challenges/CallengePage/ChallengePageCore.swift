@@ -28,7 +28,10 @@ public extension ChallengePageCore {
     }
 
     static let reducer = Reducer<State, Action, Environment>.combine(
-        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { _ in NewChallengePageCore.Environment() }),
+//        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { _ in NewChallengePageCore.Environment() }),
+        AnyReducer { environment in
+            NewChallengePageCore()
+        }.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { $0 }),
         .init { state, action, environment in
             switch action {
             case .navigateToNewChallenge:
