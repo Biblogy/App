@@ -1,5 +1,5 @@
 //
-//  CalendarState.swift
+//  CalendarReducer.swift
 //  Booer (iOS)
 //
 //  Created by Veit Progl on 21.04.22.
@@ -8,22 +8,68 @@
 import ComposableArchitecture
 import Foundation
 
-public struct CalendarState: Equatable {
-    var weekDays: [CalendarDate] = []
-    var month: String = ""
-    var monthList: [CalendarMonth] = []
-    public internal(set) var activeDate: Date = Date()
-    let calendar = Calendar.current
 
-    public init(activeDate: Date = Date()){
-        self.activeDate = activeDate
-        self.weekDays = weekdays(from: activeDate)
-        self.month = activeDate.getMonthString()
-        self.monthList = getMonths()
+public class CalendarCore: ReducerProtocol {
+    public init() {}
+    
+    public struct State: Equatable {
+        var weekDays: [CalendarDate] = []
+        var month: String = ""
+        var monthList: [CalendarMonth] = []
+        public internal(set) var activeDate: Date = Date()
+        let calendar = Calendar.current
+
+        public init(activeDate: Date = Date()){
+            self.activeDate = activeDate
+            self.weekDays = weekdays(from: activeDate)
+            self.month = activeDate.getMonthString()
+            self.monthList = getMonths()
+        }
+    }
+    
+    public enum Action: Equatable {
+        case changeActiveDate(Date)
+        case weekdays(Date)
+        case getMonth(Date)
+        case getMonthList
+        case getDay(Date)
+    }
+    
+    public var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .changeActiveDate(let date):
+                state.activeDate = date
+                state.weekDays = state.weekdays(from: date)
+                state.month = date.getMonthString()
+                return .none
+                
+            case .weekdays(let dateInWeek):
+                let dayOfWeek = state.calendar.component(.weekday, from: dateInWeek)
+                let weekdays = state.calendar.range(of: .weekday, in: .weekOfYear, for: dateInWeek)!
+                let days = (weekdays.lowerBound ..< weekdays.upperBound).map { day -> CalendarDate in
+                    let day = state.calendar.date(byAdding: .day, value: day - dayOfWeek, to: dateInWeek)!
+                    return CalendarDate(date: day)
+                }
+                
+                state.weekDays = days
+                return .none
+            case .getMonth(let date):
+                state.month = date.getMonthString()
+                return .none
+                
+            case .getMonthList:
+                state.monthList = state.getMonths()
+                return .none
+                
+            case .getDay(_):
+                return .none
+            }
+        }
     }
 }
 
-extension CalendarState {
+extension CalendarCore.State {
     func getMonths() -> [CalendarMonth] {
         var monthsList: [CalendarMonth] = []
         while monthsList.count < 12 {
@@ -63,7 +109,7 @@ extension CalendarState {
 }
 
 
-extension CalendarState {
+extension CalendarCore.State {
     private func generateDates(
         inside interval: DateInterval,
         matching components: DateComponents

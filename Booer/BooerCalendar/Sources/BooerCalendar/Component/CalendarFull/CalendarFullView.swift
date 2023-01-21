@@ -25,14 +25,14 @@ fileprivate extension DateFormatter {
 
 public struct CalendarView<DateView>: View where DateView: View {
     @Environment(\.calendar) var calendar
-    let store: Store<CalendarState, CalendarAction>
+    let store: Store<CalendarCore.State, CalendarCore.Action>
 
     let showHeaders: Bool
     let content: (CalendarDate) -> DateView
     let month: CalendarMonth
 
     public init(
-        store: Store<CalendarState, CalendarAction>,
+        store: Store<CalendarCore.State, CalendarCore.Action>,
         month: CalendarMonth,
         showHeaders: Bool = true,
         @ViewBuilder content: @escaping (CalendarDate) -> DateView
@@ -75,9 +75,9 @@ public struct CalendarView<DateView>: View where DateView: View {
 
 public struct CalenderFullsize: View {
     @Binding var isOpen: Bool
-    let store: Store<CalendarState, CalendarAction>
+    let store: Store<CalendarCore.State, CalendarCore.Action>
 
-    public init(store: Store<CalendarState, CalendarAction>, isOpen:Binding<Bool>){
+    public init(store: Store<CalendarCore.State, CalendarCore.Action>, isOpen:Binding<Bool>){
         self.store = store
         self._isOpen = isOpen
     }

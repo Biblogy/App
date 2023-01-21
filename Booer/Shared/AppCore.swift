@@ -16,7 +16,7 @@ public enum AppCore {}
 public extension AppCore {
     
     enum Action: Equatable {
-        case calendar(CalendarAction)
+        case calendar(CalendarCore.Action)
         case addBook(AddBookCore.Action)
         case bookOverview(BookOverviewCore.Action)
         case challengePage(ChallengePageCore.Action)
@@ -30,8 +30,8 @@ public extension AppCore {
             self.activeDate = Date()
         }
                 
-        var calendar: CalendarState {
-            get { CalendarState(activeDate: activeDate) }
+        var calendar: CalendarCore.State {
+            get { CalendarCore.State(activeDate: activeDate) }
             set { activeDate = newValue.activeDate }
         }
         
@@ -47,9 +47,9 @@ public extension AppCore {
     struct Environment {}
     
     static let reducer = Reducer<State, Action, Environment>.combine(
-        calendarReducer.pullback(state: \.calendar,
-                                 action: /Action.calendar,
-                                 environment: { _ in CalendarEnvironment() }),
+        AnyReducer {environment in
+            CalendarCore()
+        }.pullback(state: \State.calendar, action: /Action.calendar, environment: {$0}),
         AddBookCore.reducer.pullback(state: \.addBookState,
                                      action: /Action.addBook,
                                      environment: { _ in AddBookCore.Environment.live }),

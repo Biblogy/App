@@ -10,9 +10,9 @@ import ComposableArchitecture
 
 public struct CalenderViewCompact: View {
     @State var openSheet = false
-    let store: Store<CalendarState, CalendarAction>
+    let store: Store<CalendarCore.State, CalendarCore.Action>
 
-    public init(store: Store<CalendarState, CalendarAction>){
+    public init(store: Store<CalendarCore.State, CalendarCore.Action>){
         self.store = store
     }
     
