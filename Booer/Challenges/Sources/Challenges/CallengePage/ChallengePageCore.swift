@@ -8,31 +8,28 @@
 
 import ComposableArchitecture
 
-public enum ChallengePageCore {}
-
-public extension ChallengePageCore {
-    struct State: Equatable {
+public struct ChallengePageCore: ReducerProtocol {
+    public init() {}
+    
+    public struct State: Equatable {
         public init() {}
         var newChallenge = NewChallengePageCore.State()
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case newChallenge(NewChallengePageCore.Action)
         case navigateToNewChallenge
         
     }
 
-    struct Environment {
-        public init() {}
-    }
-
-    static let reducer = Reducer<State, Action, Environment>.combine(
-//        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { _ in NewChallengePageCore.Environment() }),
-        AnyReducer { environment in
+    public var body: some ReducerProtocol<State, Action> {
+        //        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { _ in NewChallengePageCore.Environment() }),
+        Scope(state: \State.newChallenge, action: /Action.newChallenge) {
             NewChallengePageCore()
-        }.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { $0 }),
-        .init { state, action, environment in
+        }
+        
+        Reduce { state, action in
             switch action {
             case .navigateToNewChallenge:
                 return .none
@@ -42,5 +39,5 @@ public extension ChallengePageCore {
                 return .none
             }
         }
-    )
+    }
 }

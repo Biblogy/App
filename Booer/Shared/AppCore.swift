@@ -54,8 +54,9 @@ public extension AppCore {
                                      action: /Action.addBook,
                                      environment: { _ in AddBookCore.Environment.live }),
         BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
-        ChallengePageCore.reducer.pullback(state: \State.challengePage, action: /Action.challengePage, environment: {_ in ChallengePageCore.Environment()}),
-//        NewChallengePageCore.reducer.pullback(state: \State.newChallenge, action: /Action.newChallenge, environment: {_ in NewChallengePageCore.Environment()}),
+        AnyReducer {environment in
+            ChallengePageCore()
+        }.pullback(state: \State.challengePage, action: /Action.challengePage, environment: {$0}),
         .init { state, action, environment in
             switch action {
             default:
