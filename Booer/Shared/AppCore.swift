@@ -11,11 +11,9 @@ import CasePaths
 import Foundation
 import Challenges
 
-public enum AppCore {}
-
-public extension AppCore {
+public struct AppCore: ReducerProtocol {
     
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case calendar(CalendarCore.Action)
         case addBook(AddBookCore.Action)
         case bookOverview(BookOverviewCore.Action)
@@ -23,7 +21,7 @@ public extension AppCore {
         case newChallenge(NewChallengePageCore.Action)
     }
     
-    struct State: Equatable {
+    public struct State: Equatable {
         var activeDate: Date
 
         public init() {
@@ -43,26 +41,56 @@ public extension AppCore {
         
         var newChallenge = NewChallengePageCore.State()
     }
-    
-    struct Environment {}
-    
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        AnyReducer {environment in
+        
+//    public static let reducer = Reducer<State, Action, Environment>.combine(
+//        AnyReducer {environment in
+//            CalendarCore()
+//        }.pullback(state: \State.calendar, action: /Action.calendar, environment: {$0}),
+//        AddBookCore.reducer.pullback(state: \.addBookState,
+//                                     action: /Action.addBook,
+//                                     environment: { _ in AddBookCore.Environment.live }),
+//        BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
+//        AnyReducer {environment in
+//            ChallengePageCore()
+//        }.pullback(state: \State.challengePage, action: /Action.challengePage, environment: {$0}),
+//        .init { state, action, environment in
+//            switch action {
+//            default:
+//                return .none
+//            }
+//        }
+//    )
+    public var body: some ReducerProtocol<State, Action> {
+        Scope(state: \State.calendar, action: /Action.calendar) {
             CalendarCore()
-        }.pullback(state: \State.calendar, action: /Action.calendar, environment: {$0}),
-        AddBookCore.reducer.pullback(state: \.addBookState,
-                                     action: /Action.addBook,
-                                     environment: { _ in AddBookCore.Environment.live }),
-        BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
-        AnyReducer {environment in
+        }
+        
+        Scope(state: \State.addBookState, action: /Action.addBook) {
+            AddBookCore()
+        }
+        
+        Scope(state: \State.bookOverviewState, action: /Action.bookOverview) {
+            BookOverviewCore()
+        }
+        
+        Scope(state: \State.challengePage, action: /Action.challengePage) {
             ChallengePageCore()
-        }.pullback(state: \State.challengePage, action: /Action.challengePage, environment: {$0}),
-        .init { state, action, environment in
+        }
+        
+        Reduce { state, action in
             switch action {
-            default:
+            case .calendar(_):
+                return .none
+            case .addBook(_):
+                return .none
+            case .bookOverview(_):
+                return .none
+            case .challengePage(_):
+                return .none
+            case .newChallenge(_):
                 return .none
             }
         }
-    )
+    }
 }
 

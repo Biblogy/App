@@ -76,11 +76,7 @@ struct AppView: View {
 }
 
 struct ContentView: View {
-    let store = Store(
-        initialState: AppCore.State(),
-        reducer: AppCore.reducer.debug(),
-        environment: AppCore.Environment()
-    )
+    let store = Store(initialState: AppCore.State(), reducer: AppCore())
     
     var body: some View {
         AppView(store: store)

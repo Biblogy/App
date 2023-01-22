@@ -14,9 +14,9 @@
             filePath = "BookManagment/Sources/BookManagment/BookDetail/BookDeteilCore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "reducer"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "BookManagment/Sources/BookManagment/BookDetail/BookDeteilCore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "reducer"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
