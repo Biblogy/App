@@ -8,10 +8,8 @@
 
 import ComposableArchitecture
 import DatabaseBooer
-public enum BookDetailCore {}
-
-public extension BookDetailCore {
-    struct State: Equatable {
+public struct BookDetailCore: ReducerProtocol {
+    public struct State: Equatable {
         var book: Book
         var addMode: Bool = true
         private let bookDB: DatabaseBooer
@@ -22,7 +20,7 @@ public extension BookDetailCore {
         }
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case onPageCountChanged(Int)
         case onTitleChanged(String)
@@ -31,12 +29,8 @@ public extension BookDetailCore {
         case delete
     }
 
-    struct Environment {
-        public init() {}
-    }
-
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        .init { state, action, environment in
+    public var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
             switch action {
             case let .onPageCountChanged(newText):
                 state.book.pageCount = newText
@@ -58,7 +52,7 @@ public extension BookDetailCore {
                 return .none
             }
         }
-    )
+    }
 }
 
 extension BookDetailCore.State {

@@ -95,11 +95,7 @@ public struct BookDetailView: View {
 struct BookDetailView_Preview: PreviewProvider {
     static var previews: some View {
         BookDetailView(
-            store: Store<BookDetailCore.State, BookDetailCore.Action>(
-                initialState: BookDetailCore.State(book: Book()),
-                reducer: BookDetailCore.reducer,
-                environment: BookDetailCore.Environment()
-            )
+            store: Store(initialState: BookDetailCore.State(), reducer: BookDetailCore())
         )
     }
 }
