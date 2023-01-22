@@ -9,28 +9,27 @@
 import ComposableArchitecture
 import DatabaseBooer
 
-public enum BookOverviewCore {}
-
-public extension BookOverviewCore {
-    struct State: Equatable {
+public struct BookOverviewCore: ReducerProtocol {
+    public init() {}
+    
+    public struct State: Equatable {
         public init() {}
         public var books: [Book] = []
         var bookDetail = BookDetailCore.State()
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case onAppear
         case bookDetail(BookDetailCore.Action)
         case navigateToDetail(Book)
     }
 
-    struct Environment {
-        public init() {}
-    }
-
-    static let reducer = Reducer<State, Action, Environment>.combine(
-        BookDetailCore.reducer.pullback(state: \.bookDetail, action: /Action.bookDetail, environment: { _ in BookDetailCore.Environment() }),
-        .init { state, action, environment in
+    public var body: some ReducerProtocol<State, Action> {
+        Scope(state: \State.bookDetail, action: /Action.bookDetail) {
+            BookDetailCore()
+        }
+        
+        Reduce { state, action in
             switch action {
             case .onAppear:
                 state.books = DatabaseBooer().getAllBooks()
@@ -43,5 +42,5 @@ public extension BookOverviewCore {
                 return .none
             }
         }
-    )
+    }
 }

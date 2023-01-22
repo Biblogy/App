@@ -77,11 +77,7 @@ public struct BookCoverView: View {
 struct BookOverviewView_Preview: PreviewProvider {
     static var previews: some View {
         BookOverviewView(
-            store: Store<BookOverviewCore.State, BookOverviewCore.Action>(
-                initialState: BookOverviewCore.State(),
-                reducer: BookOverviewCore.reducer,
-                environment: BookOverviewCore.Environment()
-            )
+            store: Store(initialState: BookOverviewCore.State(), reducer: BookOverviewCore())
         )
     }
 }
