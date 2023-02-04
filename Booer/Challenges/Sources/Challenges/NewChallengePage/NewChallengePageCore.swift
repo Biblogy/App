@@ -42,16 +42,6 @@ public struct NewChallengePageCore: ReducerProtocol {
     }
 
     public var body: some ReducerProtocol<State, Action> {
-        //        BooksListCore.reducer.pullback(state: \State.selectBook, action: /Action.selectBook, environment: { _ in BooksListCore.Environment() }),
-        //        AnyReducer { environment in
-        //           TypeListCore()
-        //        }.pullback(state: \State.selectType, action: /Action.selectType, environment: { $0 }),
-        //        AnyReducer  {environment  in
-        //            TypeDetailsCore()
-        //        }.pullback(state: \State.typeDetails, action: /Action.selectTypeDetails, environment: { $0 }),
-        //        .init { state, action, environment in
-        //            return .none
-        //        }
         Scope(state: \State.selectBook, action: /Action.selectBook) {
             BooksListCore()
         }

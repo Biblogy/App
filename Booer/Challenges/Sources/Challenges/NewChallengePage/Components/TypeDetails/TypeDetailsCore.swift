@@ -33,10 +33,6 @@ public struct TypeDetailsCore: ReducerProtocol {
         case fieldChanged(String)
         case typeDetailsField(id: TypeDetailsFieldCore.State.ID,action: TypeDetailsFieldCore.Action)
     }
-
-//    public struct Environment {
-//        public init() {}
-//    }
     
     public var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
