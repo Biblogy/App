@@ -25,7 +25,14 @@ public struct TypeDetailsFieldView: View {
                 TextField(viewStore.state.field.name, text: viewStore.binding(get: \.field.value, send: TypeDetailsFieldCore.Action.textFieldChanged))
                     .keyboardType(.numberPad)
             case .intervallPicker:
-                IntervallPickerView(store: store.scope(state: \.intervallPicker, action: TypeDetailsFieldCore.Action.intervallPicker))
+                VStack {
+                    Text("Repeat")
+                        .font(.subheadline)
+                        .foregroundColor(.systemGray2)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    IntervallPickerView(store: store.scope(state: \.intervallPicker, action: TypeDetailsFieldCore.Action.intervallPicker))
+                }
+                .padding(.vertical)
             }
         }
     }
