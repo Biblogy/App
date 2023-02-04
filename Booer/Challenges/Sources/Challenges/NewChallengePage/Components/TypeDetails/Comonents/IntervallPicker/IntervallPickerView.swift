@@ -18,7 +18,33 @@ public struct IntervallPickerView: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
-            Text("Hello world!")
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(viewStore.state.selectableIntervallTypes) { type in
+                        Text(type.rawValue)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 8)
+                            .background(Color.systemGray)
+                            .cornerRadius(14)
+                            .foregroundColor(.white)
+                            .overlay(
+                                Group{
+                                    if viewStore.state.selectedIntervall == type {
+                                        RoundedRectangle(cornerRadius: 13)
+                                            .stroke(.green, lineWidth: 4)
+                                            .padding(2)
+                                    } else {
+                                        EmptyView()
+                                    }
+                                }.drawingGroup()
+                            )
+                            .onTapGesture {
+                                viewStore.send(.changeSelection(type))
+                            }
+                    }
+                }
+            }
+            
         }
     }
 }
@@ -26,7 +52,7 @@ public struct IntervallPickerView: View {
 struct IntervallPickerView_Preview: PreviewProvider {
     static var previews: some View {
         IntervallPickerView(
-            store: Store(initialState: IntervallPickerCore.State(), reducer: IntervallPickerCore())
+            store: Store(initialState: IntervallPickerCore.State(value: ""), reducer: IntervallPickerCore())
         )
     }
 }

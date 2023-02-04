@@ -25,7 +25,7 @@ public struct TypeDetailsFieldView: View {
                 TextField(viewStore.state.field.name, text: viewStore.binding(get: \.field.value, send: TypeDetailsFieldCore.Action.textFieldChanged))
                     .keyboardType(.numberPad)
             case .intervallPicker:
-                TextField(viewStore.state.field.name, text: viewStore.binding(get: \.field.value, send: TypeDetailsFieldCore.Action.textFieldChanged))
+                IntervallPickerView(store: store.scope(state: \.intervallPicker, action: TypeDetailsFieldCore.Action.intervallPicker))
             }
         }
     }
