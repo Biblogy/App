@@ -10,12 +10,13 @@ import DatabaseBooer
 import SwiftUI
 
 protocol DatabaseConnectProtocol {
-    func getAllBooks()
+    func getAllBooks() -> [Book]
+    func save(challeng: BookChallenge)
 }
 
 
 // aktuell braucht das Package neue Logic um mit der Datenbank arbeiten zu können. Schöner wäre wenn das Package unangerührt bleibe und nur ein Protocoll bereit stellt den die Datenbank folge leisten muss.
-class DatabaseConnect {
+class DatabaseConnect: DatabaseConnectProtocol {
     func getAllBooks() -> [Book] {
         let allBooks = DatabaseBooer.shared.getAllBooks().map { book -> Book in
             let coverUrl = URL(string: book.cover.thumbnail ?? "") ?? URL(string: "")
@@ -27,5 +28,9 @@ class DatabaseConnect {
         }
         
         return allBooks
+    }
+    
+    func save(challeng: BookChallenge) {
+        print(challeng)
     }
 }

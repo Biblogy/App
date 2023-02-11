@@ -31,4 +31,6 @@ struct ChallengTypeModell {
                               timeGoal,
                               readingTimeGoal]
     
+    
+    
 }

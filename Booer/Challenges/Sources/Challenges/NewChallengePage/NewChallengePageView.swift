@@ -19,6 +19,7 @@ public struct NewChallengePageView: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
+            ZStack {
                 List() {
                     Section("select a book") {
                         BooksListView(store: store.scope(state: \.selectBook, action: NewChallengePageCore.Action.selectBook))
@@ -28,21 +29,36 @@ public struct NewChallengePageView: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
                     Section("challenge type") {
-//                        if viewStore.selectedBookId != nil {
-                            TypeListView(store: store.scope(state: \.selectType, action: NewChallengePageCore.Action.selectType))
-//                        }
+                        TypeListView(store: store.scope(state: \.selectType, action: NewChallengePageCore.Action.selectType))
                     }
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
                     Section("challenge type") {
-//                        if viewStore.selectedBookId != nil {
-                            TypeDetailsView(store: store.scope(state: \.typeDetails, action: NewChallengePageCore.Action.selectTypeDetails))
-//                        }
+                        TypeDetailsView(store: store.scope(state: \.typeDetails, action: NewChallengePageCore.Action.selectTypeDetails))
                     }
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
+                
+                VStack() {
+                    Spacer()
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Save")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                    }
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                    .padding([.horizontal], 17)
+                    .padding([.vertical], 10)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(9)
+                    .padding()
+                }
+            }
             .navigationTitle("Create a challenge")
             .onAppear(perform: {
                 viewStore.send(.onAppear)

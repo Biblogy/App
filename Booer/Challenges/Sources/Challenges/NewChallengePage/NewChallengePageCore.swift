@@ -35,6 +35,7 @@ public struct NewChallengePageCore: ReducerProtocol {
         case selectBook(BooksListCore.Action)
         case selectType(TypeListCore.Action)
         case selectTypeDetails(TypeDetailsCore.Action)
+        case saveChallenge
     }
 
     struct Environment {
@@ -55,8 +56,30 @@ public struct NewChallengePageCore: ReducerProtocol {
         }
         
         Reduce { state, action in
-            return .none
+            switch action {
+            case .onAppear:
+                return .none
+            case .selectBook(_):
+                return .none
+            case .selectTypeDetails(_):
+                return .none
+            case .saveChallenge:
+                guard let bookId = state.selectedBookId else { return .none }
+                guard let type = state.selectedChallengeType else { return .none }
+                
+                return .run { send in
+                    let challenge = BookChallenge(bookId: bookId, challengeType: type)
+                    await self.save(challenge: challenge)
+                }
+            case .selectType(_):
+                return .none
+            }
         }
     }
-    
+}
+
+extension NewChallengePageCore {
+    func save(challenge: BookChallenge) async {
+        DatabaseConnect().save(challeng: challenge)
+    }
 }
