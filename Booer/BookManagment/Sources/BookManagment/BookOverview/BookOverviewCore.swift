@@ -32,7 +32,7 @@ public struct BookOverviewCore: ReducerProtocol {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                state.books = DatabaseBooer().getAllBooks()
+                state.books = BiblogyDatabase().books.getAllBooks()
                 return .none
             case .navigateToDetail(let book):
                 state.bookDetail.book = book

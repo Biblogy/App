@@ -12,11 +12,9 @@ public struct BookDetailCore: ReducerProtocol {
     public struct State: Equatable {
         var book: Book
         var addMode: Bool = true
-        private let bookDB: DatabaseBooer
         
         public init(book: Book = Book(title: "")) {
             self.book = book
-            self.bookDB = DatabaseBooer.shared
         }
     }
 
@@ -57,10 +55,10 @@ public struct BookDetailCore: ReducerProtocol {
 
 extension BookDetailCore.State {
     func updateBook(book: Book) {
-        bookDB.updateBook(book: book)
+        BiblogyDatabase.shared.books.updateBook(book: book)
     }
     
     func deleteBook(book: Book) {
-        bookDB.deleteBook(book: book)
+        BiblogyDatabase.shared.books.deleteBook(book: book)
     }
 }

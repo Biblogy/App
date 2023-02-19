@@ -1,17 +1,35 @@
+//
+//  BookDatabase.swift
+//  
+//
+//  Created by Veit Progl on 19.02.23.
+//
+
+import Foundation
 import CoreData
-public struct DatabaseBooer: Equatable {
-    var viewContext = PersistenceController.shared.container.viewContext
-    public static let shared = DatabaseBooer()
-    
-    public init() {
-        getCoreDataLocation()
+
+public protocol BookDatabaseProtrocol {
+    func updateBook(book: Book)
+    func saveBook(book: Book)
+    func getAllBooks() -> [Book]
+    func deleteBook(book: Book)
+}
+
+
+struct BookDatabaseProviderKey: InjectionKey {
+    static var currentValue: BookDatabaseProtrocol = BookDatabase()
+}
+
+extension InjectedValues {
+    var bookDatabase: BookDatabaseProtrocol {
+        get { Self[BookDatabaseProviderKey.self] }
+        set { Self[BookDatabaseProviderKey.self] = newValue }
     }
-    
-    public init(viewContext: NSManagedObjectContext) {
-        self.viewContext = viewContext
-        getCoreDataLocation()
-    }
-    
+}
+
+struct BookDatabase: BookDatabaseProtrocol {
+    private var viewContext = PersistenceController.shared.container.viewContext
+
     public func updateBook(book: Book) {
         let predicate = NSPredicate(format: "id == %@", book.id)
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BooksDB")
@@ -78,12 +96,6 @@ public struct DatabaseBooer: Equatable {
             // TODO: handle the error
             print(error.localizedDescription)
         }
-    }
-    
-    func getCoreDataLocation(){
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        print(urls[urls.count-1] as URL)
     }
     
 }

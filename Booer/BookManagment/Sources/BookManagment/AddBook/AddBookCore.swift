@@ -17,7 +17,6 @@ public struct AddBookCore: ReducerProtocol {
         public init() {}
         var bookDetail = BookDetailCore.State()
         var books: [Book] = []
-        private let bookDB = DatabaseBooer.shared
     }
     
     public enum BooksLoaderError: Error, Equatable {
@@ -64,7 +63,7 @@ public struct AddBookCore: ReducerProtocol {
 
 extension AddBookCore.State {
     func saveBook(book: Book) {
-        bookDB.saveBook(book: book)
+        BiblogyDatabase.shared.books.saveBook(book: book)
     }
 }
 

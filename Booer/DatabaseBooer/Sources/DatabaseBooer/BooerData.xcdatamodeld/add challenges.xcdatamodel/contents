@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AuthorDB" representedClassName="DatabaseBooer.AuthorDB" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
@@ -23,14 +23,14 @@
         <attribute name="typeID" optional="YES" attributeType="String"/>
         <relationship name="challengeBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BooksDB" inverseName="bookChallenge" inverseEntity="BooksDB"/>
     </entity>
-    <entity name="ChallengeDayPages" representedClassName="ChallengeDayPages" syncable="YES" codeGenerationType="class">
+    <entity name="ChallengeEndDate" representedClassName="ChallengeEndDate" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ChallengeIntervallPages" representedClassName="ChallengeIntervallPages" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="intervallValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="pages" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
-    <entity name="ChallengeEndDate" representedClassName="ChallengeEndDate" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
     </entity>
     <entity name="ChallengeReadTime" representedClassName="ChallengeReadTime" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String"/>
