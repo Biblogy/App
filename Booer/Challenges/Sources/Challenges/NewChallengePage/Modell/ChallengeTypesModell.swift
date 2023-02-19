@@ -8,7 +8,7 @@
 import Foundation
 
 struct ChallengTypeModell {
-    private static let pagesGoal = ChallengeType(title: "Pages Goal",
+    static let pagesGoal = ChallengeType(title: "Pages Goal",
                                           description: "",
                                           fields: [
                                             ChallengeField(name: "Pages",
@@ -19,11 +19,11 @@ struct ChallengTypeModell {
                                                            value: "")
                                           ])
     
-    private static let timeGoal = ChallengeType(title: "Time Goal",
+    static let timeGoal = ChallengeType(title: "Time Goal",
                                          description: "",
                                          fields: [])
     
-    private static let readingTimeGoal = ChallengeType(title: "Reading Time Goal",
+    static let readingTimeGoal = ChallengeType(title: "Reading Time Goal",
                                                 description: "",
                                                 fields: [])
     

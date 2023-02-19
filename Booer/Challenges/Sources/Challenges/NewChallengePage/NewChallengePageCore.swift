@@ -69,7 +69,7 @@ public struct NewChallengePageCore: ReducerProtocol {
                 
                 return .run { send in
                     let challenge = BookChallenge(bookId: bookId, challengeType: type)
-                    await self.save(challenge: challenge)
+                    await self.save(bookChallenge: challenge)
                 }
             case .selectType(_):
                 return .none
@@ -79,7 +79,10 @@ public struct NewChallengePageCore: ReducerProtocol {
 }
 
 extension NewChallengePageCore {
-    func save(challenge: BookChallenge) async {
-        DatabaseConnect().save(challeng: challenge)
+    func save(bookChallenge: BookChallenge) async {
+        let database = DatabaseConnect()
+        if bookChallenge.challengeType.id == ChallengTypeModell.pagesGoal.id {
+            database.save(bookIntervallPages: bookChallenge)
+        }
     }
 }

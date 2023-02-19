@@ -90,7 +90,7 @@ public struct AppCore: ReducerProtocol {
             case .newChallenge(_):
                 return .none
             }
-        }
+        }._printChanges()
     }
 }
 

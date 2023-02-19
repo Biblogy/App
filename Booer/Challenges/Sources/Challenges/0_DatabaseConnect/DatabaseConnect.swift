@@ -11,14 +11,14 @@ import SwiftUI
 
 protocol DatabaseConnectProtocol {
     func getAllBooks() -> [Book]
-    func save(challeng: BookChallenge)
+    func save(bookIntervallPages: BookChallenge)
 }
 
 
 // aktuell braucht das Package neue Logic um mit der Datenbank arbeiten zu können. Schöner wäre wenn das Package unangerührt bleibe und nur ein Protocoll bereit stellt den die Datenbank folge leisten muss.
 class DatabaseConnect: DatabaseConnectProtocol {
     func getAllBooks() -> [Book] {
-        let allBooks = DatabaseBooer.shared.getAllBooks().map { book -> Book in
+        let allBooks = BiblogyDatabase.shared.books.getAllBooks().map { book -> Book in
             let coverUrl = URL(string: book.cover.thumbnail ?? "") ?? URL(string: "")
             
             return Book(id: book.id,
@@ -30,7 +30,31 @@ class DatabaseConnect: DatabaseConnectProtocol {
         return allBooks
     }
     
-    func save(challeng: BookChallenge) {
-        print(challeng)
+    func save(bookIntervallPages book: BookChallenge) {
+        var databaseIntervall: DatabaseBooer.Intervall?
+        var pages: Int?
+        
+        for field in book.challengeType.fields {
+            switch field.type {
+            case .intervallPicker:
+                if field.value == "month" {
+                    databaseIntervall = .month
+                } else if field.value == "year" {
+                    databaseIntervall = .year
+                } else if field.value == "day" {
+                    databaseIntervall = .day
+                }
+            case .numberField:
+                pages = Int(field.value) ?? 0
+            default:
+                print("nope error")
+            }
+        }
+        
+        guard let databaseIntervall, let pages else { return }
+        
+        let bookGoalChallenge = BookIntervallPages(bookID: book.bookId, intervall: databaseIntervall, pages: pages)
+        
+        BiblogyDatabase().challenge.save_Book_IntervallPagesChallenge(data: bookGoalChallenge)
     }
 }

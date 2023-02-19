@@ -45,7 +45,7 @@ public struct NewChallengePageView: View {
                     Spacer()
                     
                     Button(action: {
-                        
+                        viewStore.send(.saveChallenge)
                     }) {
                         Text("Save")
                             .frame(minWidth: 0, maxWidth: .infinity)

@@ -8,14 +8,14 @@
 import Foundation
 import CoreData
 
-enum Intervall: Int16 {
+public enum Intervall: Int16 {
     case day = 0
     case week = 1
     case month = 2
     case year = 3
 }
 
-extension ChallengeDayPages {
+extension ChallengeIntervallPages {
     var intervall: Intervall {
         get {
             guard let newValue = Intervall(rawValue: self.intervallValue) else {

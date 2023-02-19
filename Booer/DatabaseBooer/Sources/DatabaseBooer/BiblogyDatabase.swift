@@ -14,6 +14,9 @@ public struct BiblogyDatabase {
         getCoreDataLocation()
     }
     
+    public let challenge: ChallengeDatabaseProtocol = ChallengeDatabase() 
+    //public let books: BookDatabaseProtrocol = BookDatabase()
+    
     func getCoreDataLocation(){
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
