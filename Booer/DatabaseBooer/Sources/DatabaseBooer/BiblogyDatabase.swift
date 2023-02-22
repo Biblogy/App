@@ -3,8 +3,6 @@ public struct BiblogyDatabase {
     var viewContext = PersistenceController.shared.container.viewContext
     public static let shared = BiblogyDatabase()
     
-    @Injected(\.bookDatabase) public var books: BookDatabaseProtrocol
-    
     public init() {
         getCoreDataLocation()
     }
@@ -15,8 +13,8 @@ public struct BiblogyDatabase {
     }
     
     public let challenge: ChallengeDatabaseProtocol = ChallengeDatabase() 
-    //public let books: BookDatabaseProtrocol = BookDatabase()
-    
+    public let books: BookDatabaseProtrocol = BookDatabase()
+
     func getCoreDataLocation(){
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         

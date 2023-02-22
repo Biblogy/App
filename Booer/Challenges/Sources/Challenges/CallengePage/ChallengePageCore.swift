@@ -24,7 +24,6 @@ public struct ChallengePageCore: ReducerProtocol {
     }
 
     public var body: some ReducerProtocol<State, Action> {
-        //        NewChallengePageCore.reducer.pullback(state: \.newChallenge, action: /Action.newChallenge, environment: { _ in NewChallengePageCore.Environment() }),
         Scope(state: \State.newChallenge, action: /Action.newChallenge) {
             NewChallengePageCore()
         }

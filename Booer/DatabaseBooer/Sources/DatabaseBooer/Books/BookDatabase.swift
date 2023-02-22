@@ -28,7 +28,7 @@ extension InjectedValues {
 }
 
 struct BookDatabase: BookDatabaseProtrocol {
-    private var viewContext = PersistenceController.shared.container.viewContext
+    var viewContext = PersistenceController.shared.container.viewContext
 
     public func updateBook(book: Book) {
         let predicate = NSPredicate(format: "id == %@", book.id)
