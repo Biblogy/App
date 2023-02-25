@@ -21,9 +21,10 @@ final class ChallengeTests: XCTestCase {
             
             let uuid = UUID().uuidString
             let bookIntervallPage = BookIntervallPagesModell(bookID: uuid,
-                                                       intervall: .month,
-                                                       pages: 2,
-                                                       challengeID: uuid)
+                                                             intervall: .month,
+                                                             pages: 2,
+                                                             challengeID: uuid,
+                                                             bookTitle: "test title")
             
             sut.save_Book_IntervallPagesChallenge(data: bookIntervallPage)
             

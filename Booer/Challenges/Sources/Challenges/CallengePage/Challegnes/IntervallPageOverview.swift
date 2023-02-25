@@ -19,9 +19,8 @@ public struct IntervallPageOverview: View {
     public var body: some View {
         WithViewStore(store) { viewStore in
             VStack(){
-                ForEach(viewStore.state.challenges){ challenge in
-                    Text(challenge.bookId)
-                    Divider()
+                ForEach(viewStore.state.challenges) {challenge in
+                    Text(challenge.getBookTitle())
                 }
             }.onAppear {
                 viewStore.send(.onAppear)

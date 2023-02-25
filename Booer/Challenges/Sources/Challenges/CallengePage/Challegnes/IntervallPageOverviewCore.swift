@@ -11,7 +11,7 @@ import ComposableArchitecture
 public struct IntervallPageOverviewCore: ReducerProtocol {
     public struct State: Equatable {
         public init() {}
-        var challenges: [BookChallenge] = []
+        var challenges: [ChallengeOverviewModell] = []
     }
 
     public enum Action: Equatable {
@@ -37,7 +37,7 @@ public struct IntervallPageOverviewCore: ReducerProtocol {
 }
 
 extension IntervallPageOverviewCore.State {
-    func loadAll() -> [BookChallenge] {
+    func loadAll() -> [ChallengeOverviewModell] {
         return DatabaseConnect().loadAllIntervallPage()
     }
 }

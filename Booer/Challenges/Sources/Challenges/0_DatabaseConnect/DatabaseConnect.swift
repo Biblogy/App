@@ -12,7 +12,7 @@ import SwiftUI
 protocol DatabaseConnectProtocol {
     func getAllBooks() -> [Book]
     func save(bookIntervallPages: BookChallenge)
-    func loadAllIntervallPage() -> [BookChallenge]
+    func loadAllIntervallPage() -> [ChallengeOverviewModell]
 }
 
 
@@ -54,15 +54,25 @@ class DatabaseConnect: DatabaseConnectProtocol {
         
         guard let databaseIntervall, let pages else { return }
         
-        let bookGoalChallenge = BookIntervallPagesModell(bookID: book.bookId, intervall: databaseIntervall, pages: pages)
+        let bookTitleResult = BiblogyDatabase().books.getBook(id: book.bookId)
+        var bookTitle = ""
+        switch bookTitleResult {
+        case .success(let book):
+            guard let title = book.title else { return }
+            bookTitle = title
+        case .failure(_):
+            print("error")
+            return
+        }
+        
+        let bookGoalChallenge = BookIntervallPagesModell(bookID: book.bookId, intervall: databaseIntervall, pages: pages, bookTitle: bookTitle)
         
         BiblogyDatabase().challenge.save_Book_IntervallPagesChallenge(data: bookGoalChallenge)
     }
     
-    func loadAllIntervallPage() -> [BookChallenge] {
+    func loadAllIntervallPage() -> [ChallengeOverviewModell] {
         let intervallChallenges = BiblogyDatabase().challenge.getAll_BookIntervallPageChallenges()
-        var challenges: [BookChallenge] = []
-        var challengeTitle = ChallengTypeModell.pagesGoal.title
+        var challenges: [ChallengeOverviewModell] = []
         
         for intervallChallenge in intervallChallenges {
             let page = ChallengeField(name: "Page", type: .numberField, value: String(intervallChallenge.pages))
@@ -78,11 +88,21 @@ class DatabaseConnect: DatabaseConnectProtocol {
             case .year:
                 intervall.value = "year"
             }
+                        
+            let challengeDescription = "Read \(page.value) every \(intervall.value)"
             
-            let challengeType = ChallengeType(title: challengeTitle, description: "", fields: [])
-            var challenge = BookChallenge(bookId: intervallChallenge.bookID, challengeType: challengeType)
-            challenges.append(challenge)
+            let bookTitle = BiblogyDatabase().books.getBookTitle(id: intervallChallenge.bookID)
+            
+            switch bookTitle {
+            case .success(let title):
+                let overview = ChallengeOverviewModell(bookTitle: title, description: challengeDescription, progress: 0, challengeId: intervallChallenge.challengeID)
+                challenges.append(overview)
+            case .failure(let error):
+                print(error)
+                return []
+            }
         }
+        
         
         return challenges
     }
