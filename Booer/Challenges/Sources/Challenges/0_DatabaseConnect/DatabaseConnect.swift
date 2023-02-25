@@ -12,6 +12,7 @@ import SwiftUI
 protocol DatabaseConnectProtocol {
     func getAllBooks() -> [Book]
     func save(bookIntervallPages: BookChallenge)
+    func loadAllIntervallPage() -> [BookChallenge]
 }
 
 
@@ -56,5 +57,33 @@ class DatabaseConnect: DatabaseConnectProtocol {
         let bookGoalChallenge = BookIntervallPagesModell(bookID: book.bookId, intervall: databaseIntervall, pages: pages)
         
         BiblogyDatabase().challenge.save_Book_IntervallPagesChallenge(data: bookGoalChallenge)
+    }
+    
+    func loadAllIntervallPage() -> [BookChallenge] {
+        let intervallChallenges = BiblogyDatabase().challenge.getAll_BookIntervallPageChallenges()
+        var challenges: [BookChallenge] = []
+        var challengeTitle = ChallengTypeModell.pagesGoal.title
+        
+        for intervallChallenge in intervallChallenges {
+            let page = ChallengeField(name: "Page", type: .numberField, value: String(intervallChallenge.pages))
+            let intervall = ChallengeField(name: "Intervall", type: .intervallPicker, value: "month")
+            
+            switch intervallChallenge.intervall {
+            case .month:
+                intervall.value = "month"
+            case .day:
+                intervall.value = "day"
+            case .week:
+                intervall.value = "week"
+            case .year:
+                intervall.value = "year"
+            }
+            
+            let challengeType = ChallengeType(title: challengeTitle, description: "", fields: [])
+            var challenge = BookChallenge(bookId: intervallChallenge.bookID, challengeType: challengeType)
+            challenges.append(challenge)
+        }
+        
+        return challenges
     }
 }

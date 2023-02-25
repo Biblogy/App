@@ -10,6 +10,7 @@ import CoreData
 
 public protocol ChallengeDatabaseProtocol {
     func save_Book_IntervallPagesChallenge(data: BookIntervallPagesModell)
+    func getAll_BookIntervallPageChallenges() -> [BookIntervallPagesModell]
 }
 
 class ChallengeDatabase: ChallengeDatabaseProtocol {
@@ -28,25 +29,6 @@ class ChallengeDatabase: ChallengeDatabaseProtocol {
         }
     }
     
-    /*
-    func loadAllChallenges() -> [CHallenge] {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BooksDB")
-
-        var books: [Book] = []
-        do {
-            let objects = try viewContext.fetch(fetch)
-            for es in objects {
-                if let object = es as? BooksDB {
-                    books.append(Book(from: object))
-                }
-            }
-        } catch {
-            print("error")
-        }
-        return books
-    }
-     */
-    
     func getAll_BookIntervallPageChallenges() -> [BookIntervallPagesModell] {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChallengeIntervallPages")
 
@@ -55,7 +37,6 @@ class ChallengeDatabase: ChallengeDatabaseProtocol {
             let objects = try viewContext.fetch(fetch)
             for es in objects {
                 if let object = es as? ChallengeIntervallPages {
-//                            books.append(Book(from: object))
                     challenges.append(BookIntervallPagesModell(from: object))
                 }
             }

@@ -8,10 +8,10 @@
 import Foundation
 
 public struct BookIntervallPagesModell {
-    var bookID: String
-    var intervall: Intervall
-    var pages: Int
-    var challengeID: String
+    public var bookID: String
+    public var intervall: Intervall
+    public var pages: Int
+    public var challengeID: String
     
     public init(bookID:String, intervall: Intervall, pages: Int, challengeID: String = UUID().uuidString) {
         self.bookID = bookID

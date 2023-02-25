@@ -22,9 +22,11 @@ public struct ChallengePageView: View {
         WithViewStore(store) { viewStore in
             NavigationView {
                 VStack(){
-                    Spacer()
-                    Text("Hello world!")
-                    Spacer()
+                    List {
+                        Section("Intervall Page:") {
+                            IntervallPageOverview(store: store.scope(state: \.intervallPage, action: ChallengePageCore.Action.intervallPageOverview))
+                        }
+                    }
                     
                     Button(action: {
                         viewStore.send(.navigateToNewChallenge)

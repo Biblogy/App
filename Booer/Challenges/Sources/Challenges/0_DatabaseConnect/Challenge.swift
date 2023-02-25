@@ -7,7 +7,11 @@
 
 import Foundation
 
-class BookChallenge {
+class BookChallenge: Equatable, Identifiable {
+    static func == (lhs: BookChallenge, rhs: BookChallenge) -> Bool {
+        lhs.bookId == rhs.bookId
+    }
+    
     var bookId: String
     var challengeType: ChallengeType
     
