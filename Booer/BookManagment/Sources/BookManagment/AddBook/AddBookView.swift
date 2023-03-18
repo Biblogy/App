@@ -23,37 +23,34 @@ public struct AddBookView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView() {
                 VStack() {
-                    ZStack(){
-                        List() {
-                            Section() {
-                                ForEach(viewStore.state.books) { book in
-                                    NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail))) {
-                                        cell(book: book, viewStore: viewStore)
-                                    }
+                    List() {
+                        Section() {
+                            ForEach(viewStore.state.books) { book in
+                                NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail))) {
+                                    cell(book: book, viewStore: viewStore)
                                 }
                             }
-                        }.listStyle(InsetGroupedListStyle())
-                        
-                        VStack() {
-                            Spacer()
-                            
-                            HStack{
-                                TextField("Seach", text: $seach)
-                                    .textContentType(.name)
-                                    .foregroundColor(Color.white)
-                                Button("Search"){
-                                    viewStore.send(.requestBook("Die 4 Stunden Woche"))
-                                }
-                            }
-                                .ignoresSafeArea(.keyboard, edges: .bottom)
-                                .padding([.horizontal], 17)
-                                .padding([.vertical], 10)
-                                .background(Color.systemGray2)
-                                .cornerRadius(9)
-                                .padding()
                         }
-                    }
+                    }.listStyle(InsetGroupedListStyle())
                     
+                    VStack() {
+                        HStack{
+                            TextField("Seach", text: $seach)
+                                .textContentType(.name)
+                            Button("Search"){
+                                viewStore.send(.requestBook("Die 4 Stunden Woche"))
+                            }
+                        }
+                            .ignoresSafeArea(.keyboard, edges: .bottom)
+                            .padding([.horizontal], 17)
+                            .padding([.vertical], 10)
+                            .cornerRadius(9)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 9)
+                                        .stroke(.blue, lineWidth: 2)
+                            )
+                            .padding()
+                    }
                 }
                 .navigationTitle("Add Book")
             }
