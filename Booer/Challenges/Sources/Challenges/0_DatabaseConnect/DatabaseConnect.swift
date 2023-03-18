@@ -89,7 +89,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
                 intervall.value = "year"
             }
                         
-            let challengeDescription = "Read \(page.value) every \(intervall.value)"
+            let challengeDescription = "Read \(page.value) Pages every \(intervall.value)"
             
             let bookTitle = BiblogyDatabase().books.getBookTitle(id: intervallChallenge.bookID)
             

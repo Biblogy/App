@@ -9,12 +9,13 @@ import Foundation
 
 public struct Book: Decodable, Equatable, Identifiable {
     public var title: String
-    public var pageCount: Int
+    public var pageCount: Float
     public var publisher: String? // why does this need to be optional? It shoudn't!
     public var author: [String]
     public var subtitle: String
     public let cover: Cover
     public var id = UUID().uuidString
+    public var progress: Float = 1
     
     enum CodingKeys: String, CodingKey {
         case pageCount = "pages"
@@ -28,7 +29,7 @@ public struct Book: Decodable, Equatable, Identifiable {
     public init(from book: BooksDB){
         self.id = book.id!
         self.title = book.title ?? ""
-        self.pageCount = Int(book.pages)
+        self.pageCount = Float(book.pages)
         self.subtitle = book.subtitle ?? ""
         self.publisher = book.publisher ?? ""
         self.cover = Cover(smallThumbnail: book.coverSmall ?? "", thumbnail: book.coverThumbnail ?? "")
@@ -38,9 +39,9 @@ public struct Book: Decodable, Equatable, Identifiable {
         }
     }
     
-    public init(title: String, pageCount: Int = 0, publisher: String = "", author: [String] = [""], subtitle: String = "", cover: Cover = Cover(smallThumbnail: "", thumbnail: "")) {
+    public init(title: String, pageCount: Int = 10, publisher: String = "", author: [String] = [""], subtitle: String = "", cover: Cover = Cover(smallThumbnail: "", thumbnail: "")) {
         self.title = title
-        self.pageCount = pageCount
+        self.pageCount = Float(pageCount)
         self.publisher = publisher
         self.author = author
         self.subtitle = subtitle

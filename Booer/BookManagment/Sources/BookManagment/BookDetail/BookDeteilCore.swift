@@ -13,6 +13,22 @@ public struct BookDetailCore: ReducerProtocol {
         var book: Book
         var addMode: Bool = true
         
+        var progress:Float {
+            get { book.progress }
+            set { book.progress = newValue }
+        }
+        var pages:Float  {
+            get { book.pageCount}
+            set { book.pageCount = newValue}
+        }
+        
+        var customSlider: CustomSliderCore.State {
+            get { CustomSliderCore.State(progress: progress, pages: pages) }
+            set {
+                progress = newValue.progressValue
+            }
+        }
+        
         public init(book: Book = Book(title: "")) {
             self.book = book
         }
@@ -20,14 +36,21 @@ public struct BookDetailCore: ReducerProtocol {
 
     public enum Action: Equatable {
         case onAppear
-        case onPageCountChanged(Int)
+        case onPageCountChanged(Float)
         case onTitleChanged(String)
         case updateButtonTaped
         case onSubtitleChanged(String)
         case delete
+        case progressChanged(Float)
+        case customSlider(CustomSliderCore.Action)
+
     }
 
     public var body: some ReducerProtocol<State, Action> {
+        Scope(state: \State.customSlider, action: /Action.customSlider) {
+            CustomSliderCore()
+        }
+        
         Reduce { state, action in
             switch action {
             case let .onPageCountChanged(newText):
@@ -47,6 +70,11 @@ public struct BookDetailCore: ReducerProtocol {
                 return .none
             case .delete:
                 state.deleteBook(book: state.book)
+                return .none
+            case .progressChanged(let progress):
+                state.book.progress = progress
+                return .none
+            case .customSlider(_):
                 return .none
             }
         }

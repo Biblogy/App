@@ -17,13 +17,13 @@ class ChallengeDatabase: ChallengeDatabaseProtocol {
     var viewContext = PersistenceController.shared.container.viewContext
 
     func save_Book_IntervallPagesChallenge(data: BookIntervallPagesModell) {
-        
         let bookResult = BookDatabase().getBook(id: data.bookID)
         
         let newChallenge = ChallengeIntervallPages(context: viewContext)
         newChallenge.id = data.challengeID
         newChallenge.pages = Int16(data.pages)
         newChallenge.intervall = data.intervall
+        
         switch bookResult {
         case let .success(book):
             newChallenge.book = book

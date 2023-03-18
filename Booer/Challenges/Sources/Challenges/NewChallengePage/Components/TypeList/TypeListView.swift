@@ -16,6 +16,7 @@ public struct TypeListView: View {
         self.store = store
     }
 
+    //TODO: Use a picker for this
     public var body: some View {
         WithViewStore(store) { viewStore in
             ScrollView(.horizontal) {

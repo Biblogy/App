@@ -43,7 +43,7 @@ struct AppView: View {
                         .listRowBackground(Color.clear)
                     }
                 }
-                .tabItem({ TabLabel(imageName: "house.fill", label: "Home") })
+                .tabItem({ TabLabel(imageName: "books.vertical.fill", label: "Bookshelf") })
                 .tag(1)
                 
                 ChallengePageView(store: store.scope(state: \.challengePage, action: AppCore.Action.challengePage))

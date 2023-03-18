@@ -57,6 +57,10 @@ public struct BookDetailView: View {
                         }
                     }
                     
+                    Section(header: Text("Progress")) {
+                        CustomSliderView(store: store.scope(state: \.customSlider, action: BookDetailCore.Action.customSlider))
+                    }
+                    
                     Section(header: Text("Infoamation")) {
                         HStack() {
                             Text("Title: ")

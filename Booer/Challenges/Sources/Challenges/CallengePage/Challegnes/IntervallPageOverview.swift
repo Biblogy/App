@@ -21,6 +21,7 @@ public struct IntervallPageOverview: View {
             VStack(){
                 ForEach(viewStore.state.challenges) {challenge in
                     Text(challenge.getBookTitle())
+                    Text(challenge.getDescription())
                 }
             }.onAppear {
                 viewStore.send(.onAppear)

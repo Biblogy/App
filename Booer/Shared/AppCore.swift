@@ -41,25 +41,7 @@ public struct AppCore: ReducerProtocol {
         
         var newChallenge = NewChallengePageCore.State()
     }
-        
-//    public static let reducer = Reducer<State, Action, Environment>.combine(
-//        AnyReducer {environment in
-//            CalendarCore()
-//        }.pullback(state: \State.calendar, action: /Action.calendar, environment: {$0}),
-//        AddBookCore.reducer.pullback(state: \.addBookState,
-//                                     action: /Action.addBook,
-//                                     environment: { _ in AddBookCore.Environment.live }),
-//        BookOverviewCore.reducer.pullback(state: \.bookOverviewState, action: /Action.bookOverview, environment: {_ in BookOverviewCore.Environment()}),
-//        AnyReducer {environment in
-//            ChallengePageCore()
-//        }.pullback(state: \State.challengePage, action: /Action.challengePage, environment: {$0}),
-//        .init { state, action, environment in
-//            switch action {
-//            default:
-//                return .none
-//            }
-//        }
-//    )
+    
     public var body: some ReducerProtocol<State, Action> {
         Scope(state: \State.calendar, action: /Action.calendar) {
             CalendarCore()
