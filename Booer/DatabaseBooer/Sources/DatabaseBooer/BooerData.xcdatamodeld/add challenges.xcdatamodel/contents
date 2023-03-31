@@ -24,7 +24,7 @@
         <relationship name="bookAuthos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AuthorDB" inverseName="authorBooks" inverseEntity="AuthorDB"/>
         <relationship name="bookChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChallengeBookDB" inverseName="challengeBook" inverseEntity="ChallengeBookDB"/>
         <relationship name="bookIntervallChallenges" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChallengeIntervallPages" inverseName="book" inverseEntity="ChallengeIntervallPages"/>
-        <relationship name="bookProgress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BookProgressDB" inverseName="book" inverseEntity="BookProgressDB"/>
+        <relationship name="bookProgress" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookProgressDB" inverseName="book" inverseEntity="BookProgressDB"/>
     </entity>
     <entity name="ChallengeBookDB" representedClassName="ChallengeBookDB" syncable="YES" codeGenerationType="class">
         <attribute name="bookId" optional="YES" attributeType="String"/>

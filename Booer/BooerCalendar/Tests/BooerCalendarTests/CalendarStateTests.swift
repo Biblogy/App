@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import BooerCalendar
+import BooerKit
 
 class ClendarStateTests: XCTestCase {
     let sut = CalendarCore.State(activeDate: Date())

@@ -8,6 +8,7 @@
 import Foundation
 import XCTest
 @testable import DatabaseBooer
+import BooerKit
 
 final class BookDatabaseTests: XCTestCase {
     var sut: BookDatabase!

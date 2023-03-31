@@ -7,95 +7,93 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C91FA053-84DF-4809-9FA4-C11ECAA5A946"
+            uuid = "4E8601C1-D6B1-44E5-8E8E-E5DDA51D7C17"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DatabaseBooer/Sources/DatabaseBooer/Books/BookDatabase.swift"
+            filePath = "BookManagment/Sources/BookManagment/BookDetail/BookDeteilCore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "getBook(id:)"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "updateProgress(bookProgress:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "739DC0F6-FCE2-487A-89DC-0E1029A8469D"
+            uuid = "F0D68822-9873-4614-834E-68ABB53D3519"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DatabaseBooer/Sources/DatabaseBooer/Books/BookDatabase.swift"
+            filePath = "DatabaseBooer/Sources/DatabaseBooer/Model/BookModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "getBook(id:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "862DC057-BBED-40BC-BF40-5FE637A8D817"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DatabaseBooer/Sources/DatabaseBooer/Books/BookDatabase.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "getBook(id:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8B710DEC-025F-426E-9695-85AE057DAD5E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DatabaseBooer/Sources/DatabaseBooer/Books/BookDatabase.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "getBook(id:)"
-            landmarkType = "7">
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "CodingKeys"
+            landmarkType = "13">
             <Locations>
                <Location
-                  uuid = "8B710DEC-025F-426E-9695-85AE057DAD5E - 49ef71214c0afa92"
+                  uuid = "F0D68822-9873-4614-834E-68ABB53D3519 - 8bfafd75b06b96c7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "DatabaseBooer.BookDatabase.getBook(id: Swift.String) -&gt; Swift.Result&lt;DatabaseBooer.BooksDB, DatabaseBooer.BooksError&gt;"
+                  symbolName = "DatabaseBooer.Book.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;DatabaseBooer.Book.CodingKeys&gt;"
                   moduleName = "Booer"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/DatabaseBooer/Sources/DatabaseBooer/Books/BookDatabase.swift"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/DatabaseBooer/Sources/DatabaseBooer/Model/BookModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "616">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "364">
                </Location>
                <Location
-                  uuid = "8B710DEC-025F-426E-9695-85AE057DAD5E - 49ef71214c0afa92"
+                  uuid = "F0D68822-9873-4614-834E-68ABB53D3519 - 1c5005c92c035344"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "DatabaseBooer.BookDatabase.getBook(id: Swift.String) -&gt; Swift.Result&lt;DatabaseBooer.BooksDB, DatabaseBooer.BooksError&gt;"
+                  symbolName = "DatabaseBooer.Book.CodingKeys.rawValue.getter : Swift.String"
                   moduleName = "Booer"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/DatabaseBooer/Sources/DatabaseBooer/Books/BookDatabase.swift"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/DatabaseBooer/Sources/DatabaseBooer/Model/BookModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "784">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "F0D68822-9873-4614-834E-68ABB53D3519 - 5417ece9051e01a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DatabaseBooer.Book.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;DatabaseBooer.Book.CodingKeys&gt;"
+                  moduleName = "ChallengesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/DatabaseBooer/Sources/DatabaseBooer/Model/BookModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "F0D68822-9873-4614-834E-68ABB53D3519 - c3bd14559976c420"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DatabaseBooer.Book.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "ChallengesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/DatabaseBooer/Sources/DatabaseBooer/Model/BookModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "324">
                </Location>
             </Locations>
          </BreakpointContent>
