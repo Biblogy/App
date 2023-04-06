@@ -8,6 +8,7 @@
 
 import ComposableArchitecture
 import DatabaseBooer
+import Foundation
 public struct BookDetailCore: ReducerProtocol {
     public struct State: Equatable {
         var book: Book
@@ -23,7 +24,15 @@ public struct BookDetailCore: ReducerProtocol {
         }
         
         var customSlider: CustomSliderCore.State {
-            get { CustomSliderCore.State(progress: progress, pages: pages) }
+            get { CustomSliderCore.State(progress: progress,
+                                         pages: pages,
+                                         saveEdit: { progress in
+                self.updateProgress(bookProgress: BookProgress(book: self.book,
+                                                                pages: Int(progress),
+                                                                date: Date())
+                                    )
+                })
+            }
             set {
                 progress = newValue.progressValue
             }
@@ -84,6 +93,17 @@ public struct BookDetailCore: ReducerProtocol {
 extension BookDetailCore.State {
     func updateBook(book: Book) {
         BiblogyDatabase.shared.books.updateBook(book: book)
+    }
+    
+    func updateProgress(bookProgress: BookProgress) {
+        let result = BiblogyDatabase.shared.books.setBookProgress(progress: bookProgress)
+        switch result {
+        case .failure(let err):
+            print("found error: ")
+            print(err.localizedDescription)
+        case.success(_):
+            return
+        }
     }
     
     func deleteBook(book: Book) {

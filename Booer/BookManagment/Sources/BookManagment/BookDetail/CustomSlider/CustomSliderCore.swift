@@ -10,9 +10,16 @@ import ComposableArchitecture
 
 public struct CustomSliderCore: ReducerProtocol {
     public struct State: Equatable {
-        public init(progress: Float, pages: Float) {
+        public static func == (lhs: CustomSliderCore.State, rhs: CustomSliderCore.State) -> Bool {
+            return lhs.pages == rhs.pages
+        }
+        
+        let saveEdit: (Float) -> ()
+        
+        public init(progress: Float, pages: Float, saveEdit: @escaping (Float) -> ()) {
             self.progressValue = progress
             self.pages = pages
+            self.saveEdit = saveEdit
         }
         
         public var progressValue: Float
@@ -22,6 +29,7 @@ public struct CustomSliderCore: ReducerProtocol {
     public enum Action: Equatable {
         case onAppear
         case progressChanged(Float)
+        case saveProgress
     }
 
     public struct Environment {
@@ -36,6 +44,9 @@ public struct CustomSliderCore: ReducerProtocol {
             if progress < state.pages {
                 state.progressValue = progress
             }
+            return .none
+        case .saveProgress:
+            state.saveEdit(state.progressValue)
             return .none
         }
     }

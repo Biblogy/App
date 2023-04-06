@@ -36,7 +36,11 @@ public struct CustomSliderView: View {
                     Slider(value: viewStore.binding(get: \.progressValue,
                                                     send: CustomSliderCore.Action.progressChanged),
                            in: 0...viewStore.pages,
-                           step: 1)
+                           step: 1) { change in
+                        if !change {
+                            viewStore.send(.saveProgress)
+                        }
+                    }
                     GeometryReader { geometry in
                         HStack() {
                             Text("\(Int(viewStore.progressValue))")
@@ -70,7 +74,7 @@ public struct CustomSliderView: View {
 struct CustomSliderView_Preview: PreviewProvider {
     static var previews: some View {
         CustomSliderView(
-            store:  Store(initialState: CustomSliderCore.State(progress: 2, pages: 10), reducer: CustomSliderCore())
+            store:  Store(initialState: CustomSliderCore.State(progress: 2, pages: 10, saveEdit: {_ in }), reducer: CustomSliderCore())
         )
     }
 }
