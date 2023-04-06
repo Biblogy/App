@@ -30,7 +30,7 @@ public struct PersistenceController {
             newAuthor.id = UUID().uuidString
             newAuthor.name = "test"
 
-            newItem.bookAuthos = newAuthor
+            newItem.addToBookAuthos(newAuthor)
         }
         do {
             try viewContext.save()

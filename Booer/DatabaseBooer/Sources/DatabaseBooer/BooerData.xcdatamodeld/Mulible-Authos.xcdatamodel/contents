@@ -3,7 +3,7 @@
     <entity name="AuthorDB" representedClassName="DatabaseBooer.AuthorDB" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="authorBooks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BooksDB" inverseName="bookAuthos" inverseEntity="BooksDB"/>
+        <relationship name="authorBooks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BooksDB" inverseName="bookAuthos" inverseEntity="BooksDB"/>
     </entity>
     <entity name="BookProgressDB" representedClassName="BookProgressDB" syncable="YES" codeGenerationType="class">
         <attribute name="bookID" optional="YES" attributeType="String"/>

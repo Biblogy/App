@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 @testable import DatabaseBooer
-import BooerKit
+//import BooerKit
 
 final class BookDatabaseTests: XCTestCase {
     var sut: BookDatabase!
@@ -23,7 +23,7 @@ final class BookDatabaseTests: XCTestCase {
     
     
     func test_saveBook() throws {
-        it("should save new book") {
+        test("should save new book") {
             let mockBook = Book(title: testTitle)
             
             sut.saveBook(book: mockBook)
@@ -34,7 +34,7 @@ final class BookDatabaseTests: XCTestCase {
     }
     
     func test_deleteBook() throws {
-        it("should remvoe book") {
+        test("should remvoe book") {
             let mockBook = Book(title: testTitle)
             
             sut.saveBook(book: mockBook)
@@ -53,7 +53,7 @@ final class BookDatabaseTests: XCTestCase {
     }
     
     func test_updateBook() throws {
-        it("should change book title") {
+        test("should change book title") {
             var mockBook = Book(title: testTitle)
             
             sut.saveBook(book: mockBook)
@@ -73,5 +73,11 @@ final class BookDatabaseTests: XCTestCase {
 
             
         }
+    }
+}
+
+extension XCTestCase {
+    func test<T>(_ description: String, block: () throws -> T) rethrows -> T {
+        try XCTContext.runActivity(named: description, block: { _ in try block() })
     }
 }

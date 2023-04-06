@@ -9,13 +9,13 @@ import Foundation
 import XCTest
 @testable import DatabaseBooer
 import CoreData
-import BooerKit
+//import BooerKit
 
 final class ChallengeTests: XCTestCase {
     func test_save_Book_IntervallPagesChallenge() throws {
         let persistenceController = PersistenceController(inMemory: true)
         
-        it("should save new challenge") {
+        test("should save new challenge") {
             let sut = ChallengeDatabase()
             let mockViewContext = persistenceController.container.viewContext
             sut.viewContext = mockViewContext

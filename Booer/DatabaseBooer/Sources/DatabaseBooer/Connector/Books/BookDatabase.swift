@@ -15,6 +15,7 @@ public protocol BookDatabaseProtrocol {
     func deleteBook(book: Book)
     func getBook(id: String) -> Result<BooksDB, BooksError>
     func getBookTitle(id: String) -> Result<String, BooksError>
+    func setBookProgress(progress: BookProgress) -> Result<Void, Error>
 }
 
 
@@ -53,6 +54,31 @@ struct BookDatabase: BookDatabaseProtrocol {
         }
     }
     
+    public func setBookProgress(progress: BookProgress) -> Result<Void, Error> {
+        let newProgress = BookProgressDB(context: viewContext)
+        let bookResult = self.getBook(id: progress.book.id)
+        
+        switch bookResult {
+        case .success(let book):
+            newProgress.book = book
+            newProgress.bookID = book.id
+        case .failure(let err):
+            print(err.localizedDescription)
+            return Result.failure(err)
+        }
+        
+        newProgress.pages = Int16(progress.pages)
+        newProgress.date = progress.date
+        
+        do {
+            try viewContext.save()
+        } catch (let err ) {
+            print("error")
+            return .failure(err)
+        }
+        return .success(())
+    }
+    
     public func saveBook(book: Book) {
         let newBook = BooksDB(context: viewContext)
         newBook.id = book.id
@@ -77,7 +103,7 @@ struct BookDatabase: BookDatabaseProtrocol {
             let objects = try viewContext.fetch(fetch)
             for es in objects {
                 if let object = es as? BooksDB {
-                    books.append(Book(from: object))
+                    books.append(Book(from: object, progress: BookProgressProvider().currentProgress(of: object)))
                 }
             }
         } catch {
