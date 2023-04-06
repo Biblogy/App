@@ -25,7 +25,8 @@ class DatabaseConnect: DatabaseConnectProtocol {
             return Book(id: book.id,
                         title: book.title,
                         cover: coverUrl!,
-                        author: book.author)
+                        author: book.author,
+                        pages: Int(book.pageCount))
         }
         
         return allBooks
@@ -70,6 +71,8 @@ class DatabaseConnect: DatabaseConnectProtocol {
         BiblogyDatabase().challenge.save_Book_IntervallPagesChallenge(data: bookGoalChallenge)
     }
     
+    
+    //TODO: create a factory to produce Generell Modell from Spezific Data
     func loadAllIntervallPage() -> [ChallengeOverviewModell] {
         let intervallChallenges = BiblogyDatabase().challenge.getAll_BookIntervallPageChallenges()
         var challenges: [ChallengeOverviewModell] = []
@@ -91,11 +94,29 @@ class DatabaseConnect: DatabaseConnectProtocol {
                         
             let challengeDescription = "Read \(page.value) Pages every \(intervall.value)"
             
-            let bookTitle = BiblogyDatabase().books.getBookTitle(id: intervallChallenge.bookID)
+            let bookResult = BiblogyDatabase().books.getBook(id: intervallChallenge.bookID)
             
-            switch bookTitle {
-            case .success(let title):
-                let overview = ChallengeOverviewModell(bookTitle: title, description: challengeDescription, progress: 0, challengeId: intervallChallenge.challengeID)
+//            let progress = CalcIntervallPage()
+            
+            switch bookResult {
+            case .success(let bookdb):
+                guard let bookID = bookdb.id,
+                        let bookTitle = bookdb.title,
+                        let bookCover = bookdb.coverThumbnail,
+                        let bookAuthor = bookdb.bookAuthos else { return [] }
+                
+                let bookPages = Int(bookdb.pages)
+                
+                guard let bookCoverUrl = URL(string: bookCover) else { return [] }
+//                let bookAuthors  = bookAuthor.map( $0.name )
+                
+                let book = Book(id: bookID,
+                                title: bookTitle,
+                                cover: bookCoverUrl,
+                                author: [],
+                                pages: bookPages)
+                
+                let overview = ChallengeOverviewModell(book: book, description: challengeDescription, progress: 0, challengeId: intervallChallenge.challengeID)
                 challenges.append(overview)
             case .failure(let error):
                 print(error)

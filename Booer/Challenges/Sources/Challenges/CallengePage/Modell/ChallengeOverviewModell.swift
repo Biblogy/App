@@ -18,7 +18,7 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
         lhs.challengeId == rhs.challengeId
     }
     
-    private let bookTitle: String
+    private let book: Book
     private let description: String
     private let progress: Int
     let challengeId: String
@@ -28,15 +28,15 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
     }
     
     func getBookTitle() -> String {
-        return bookTitle
+        return book.title
     }
     
     func getDescription() -> String {
         return description
     }
     
-    init(bookTitle: String, description: String, progress: Int, challengeId: String) {
-        self.bookTitle = bookTitle
+    init(book: Book, description: String, progress: Int, challengeId: String) {
+        self.book = book
         self.description = description
         self.progress = progress
         self.challengeId = challengeId

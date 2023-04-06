@@ -9,7 +9,7 @@
 import ComposableArchitecture
 import Foundation
 
-public struct NewChallengePageCore: ReducerProtocol {
+ public struct NewChallengePageCore: ReducerProtocol {
     public struct State: Equatable {
         var selectedBookId: String?
         var selectedChallengeType: ChallengeType?

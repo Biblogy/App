@@ -21,11 +21,13 @@ public class Book: BookProtocol, Equatable, Identifiable {
     let title: String
     let cover: URL
     let author: [String]
+    let pages: Int
     
-    init(id: String, title: String, cover: URL, author: [String]) {
+    init(id: String, title: String, cover: URL, author: [String], pages: Int) {
         self.id = id
         self.title = title
         self.cover = cover
         self.author = author
+        self.pages = pages
     }
 }
