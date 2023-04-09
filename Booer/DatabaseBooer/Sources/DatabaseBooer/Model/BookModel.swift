@@ -15,7 +15,7 @@ public struct Book: Decodable, Equatable, Identifiable {
     public var subtitle: String
     public let cover: Cover
     public var id = UUID().uuidString
-    public var progress: Float
+    public var progress: Float?
     
     enum CodingKeys: String, CodingKey {
         case pageCount = "pages"

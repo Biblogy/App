@@ -15,7 +15,7 @@ public struct BookDetailCore: ReducerProtocol {
         var addMode: Bool = true
         
         var progress:Float {
-            get { book.progress }
+            get { book.progress ?? 0 }
             set { book.progress = newValue }
         }
         var pages:Float  {

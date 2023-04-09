@@ -32,6 +32,7 @@ public struct AddBookView: View {
                             }
                         }
                     }.listStyle(InsetGroupedListStyle())
+                    .overlay(Divider(), alignment: .bottom)
                     
                     VStack() {
                         HStack{
@@ -91,7 +92,7 @@ struct cell: View {
                     Text("\(book.publisher ?? "")")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
-                    Text("Seiten: \(book.pageCount)")
+                    Text("Seiten: \(Int(book.pageCount))")
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 Spacer()
