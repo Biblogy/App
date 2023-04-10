@@ -20,6 +20,7 @@
 		5632763A284FCAC9000168C7 /* DatabaseBooer in Frameworks */ = {isa = PBXBuildFile; productRef = 56327639284FCAC9000168C7 /* DatabaseBooer */; };
 		5632763C284FCACD000168C7 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 5632763B284FCACD000168C7 /* BookManagment */; };
 		56395B8028E4CAB70005DA7C /* CalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */; };
+		564889AF29E42B8500FC7BD7 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 564889AE29E42B8500FC7BD7 /* Logging */; };
 		56505A7A292C162800AA2E46 /* NewChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56505A79292C162800AA2E46 /* NewChallengeUITests.swift */; };
 		565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557BE28E4C175001AF944 /* BooerUITests.swift */; };
 		565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */; };
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564889AF29E42B8500FC7BD7 /* Logging in Frameworks */,
 				5632763C284FCACD000168C7 /* BookManagment in Frameworks */,
 				56327638284FCAC5000168C7 /* BooerCalendar in Frameworks */,
 				560EB2EC280DE89700A54319 /* ComposableArchitecture in Frameworks */,
@@ -181,6 +183,7 @@
 				56327639284FCAC9000168C7 /* DatabaseBooer */,
 				5632763B284FCACD000168C7 /* BookManagment */,
 				5655EFE3291453180040E4F6 /* Challenges */,
+				564889AE29E42B8500FC7BD7 /* Logging */,
 			);
 			productName = "Booer (iOS)";
 			productReference = 560EB2D3280DE5CE00A54319 /* Booer.app */;
@@ -257,6 +260,7 @@
 			packageReferences = (
 				560EB2EA280DE89700A54319 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				56D9542A291154E800671D3B /* XCRemoteSwiftPackageReference "mockingbird" */,
+				564889AD29E42B8500FC7BD7 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = 560EB2D4280DE5CE00A54319 /* Products */;
 			projectDirPath = "";
@@ -665,6 +669,14 @@
 				kind = branch;
 			};
 		};
+		564889AD29E42B8500FC7BD7 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		56D9542A291154E800671D3B /* XCRemoteSwiftPackageReference "mockingbird" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/birdrides/mockingbird.git";
@@ -692,6 +704,11 @@
 		5632763B284FCACD000168C7 /* BookManagment */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BookManagment;
+		};
+		564889AE29E42B8500FC7BD7 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 564889AD29E42B8500FC7BD7 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 		5655EFE3291453180040E4F6 /* Challenges */ = {
 			isa = XCSwiftPackageProductDependency;

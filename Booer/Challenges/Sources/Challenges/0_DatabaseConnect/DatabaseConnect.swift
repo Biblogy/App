@@ -67,6 +67,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
             guard let title = book.title else { return }
             bookTitle = title
         case .failure(_):
+            ErrorHandler.showError(ChallengeError(.saveFailed))
             print("error")
             return
         }

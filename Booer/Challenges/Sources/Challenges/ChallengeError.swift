@@ -25,6 +25,8 @@ struct ChallengeError: ErrorProtocol {
         switch code {
         case 210:
             return NSLocalizedString("generic", comment: "")
+        case 212:
+            return NSLocalizedString("One of the fields is empty", comment: "")
         default:
             return DefaultErrorCopy.message
         }

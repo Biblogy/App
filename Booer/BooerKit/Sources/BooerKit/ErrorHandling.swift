@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Logging
 
 // Define the Error protocol with required properties
 public protocol ErrorProtocol: LocalizedError {
@@ -18,24 +19,28 @@ public protocol ErrorProtocol: LocalizedError {
 // Define a struct to hold the default error titles and messages
 public struct DefaultErrorCopy {
     public static let title = NSLocalizedString("Error", comment: "")
-    public static let message = NSLocalizedString("An error has occurred. Please try again later.", comment: "")
+    public static let message = NSLocalizedString("An error has occurred. Please try again later, if this happens multiple times contact support", comment: "")
 }
 
 // Create a ErrorHandler class that handles all errors in the app
 public class ErrorHandler {
     public static func showError(_ error: ErrorProtocol) {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let topController = windowScene.windows.first?.rootViewController else {
-            return
-        }
-        
-        let errorMessage = error.message + "error code: " + String(error.code)
-        
-        let alert = UIAlertController(title: error.title, message: errorMessage, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(action)
+        DispatchQueue.main.async {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let topController = windowScene.windows.first?.rootViewController else {
+                return
+            }
+            
+            let errorMessage = error.message + " error code: " + String(error.code)
+            
+            Logger(label: "BiblogyKit: ErrorHandler").error(Logger.Message(stringLiteral: errorMessage))
+            
+            let alert = UIAlertController(title: error.title, message: errorMessage, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(action)
 
-        topController.present(alert, animated: true, completion: nil)
+            topController.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
