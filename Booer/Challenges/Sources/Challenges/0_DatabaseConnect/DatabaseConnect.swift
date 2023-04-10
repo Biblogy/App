@@ -8,6 +8,7 @@
 import Foundation
 import DatabaseBooer
 import SwiftUI
+import BooerKit
 
 protocol DatabaseConnectProtocol {
     func getAllBooks() -> [Book]
@@ -45,11 +46,15 @@ class DatabaseConnect: DatabaseConnectProtocol {
                     databaseIntervall = .year
                 } else if field.value == "day" {
                     databaseIntervall = .day
+                } else {
+                    ErrorHandler.showError(ChallengeError(.valueNotFound))
                 }
             case .numberField:
                 pages = Int(field.value) ?? 0
             default:
                 print("nope error")
+                ErrorHandler.showError(ChallengeError(.typeNotFound))
+                
             }
         }
         
@@ -116,7 +121,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
                                 author: [],
                                 pages: bookPages)
                 
-                let overview = ChallengeOverviewModell(book: book, description: challengeDescription, progress: 0, challengeId: intervallChallenge.challengeID)
+                let overview = ChallengeOverviewModell(book: book, description: challengeDescription, progress: 0, challengeId: intervallChallenge.challengeID, type: .intervall)
                 challenges.append(overview)
             case .failure(let error):
                 print(error)

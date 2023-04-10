@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import ComposableArchitecture
 
-public enum ChallengeFieldTypes {
+public enum ChallengeFieldTypes: Equatable {
     case textField
     case numberField
     case intervallPicker

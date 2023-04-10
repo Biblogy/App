@@ -44,5 +44,180 @@
             </Actions>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3CF95148-78D6-45D6-A27D-3050CA86F461"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "save(bookIntervallPages:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F024612E-F1EF-4793-9271-C6B6F0807A0A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "save(bookIntervallPages:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F024612E-F1EF-4793-9271-C6B6F0807A0A - 5ca392a812be2641"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "F024612E-F1EF-4793-9271-C6B6F0807A0A - 5ca392a812be2660"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "2040">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1438D55B-64CE-4C03-96BA-EF78884EC3DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "save(bookIntervallPages:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1438D55B-64CE-4C03-96BA-EF78884EC3DB - 5ca392a812be21c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "1880">
+               </Location>
+               <Location
+                  uuid = "1438D55B-64CE-4C03-96BA-EF78884EC3DB - 5ca392a812be21c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "1788">
+               </Location>
+               <Location
+                  uuid = "1438D55B-64CE-4C03-96BA-EF78884EC3DB - 5ca392a812be21c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "1844">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B293D320-3976-41A6-8FC4-D1F6AC1D1F53"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "save(bookIntervallPages:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B293D320-3976-41A6-8FC4-D1F6AC1D1F53 - 5ca392a812be2052"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "1240">
+               </Location>
+               <Location
+                  uuid = "B293D320-3976-41A6-8FC4-D1F6AC1D1F53 - 5ca392a812be2071"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenges.DatabaseConnect.save(bookIntervallPages: Challenges.BookChallenge) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

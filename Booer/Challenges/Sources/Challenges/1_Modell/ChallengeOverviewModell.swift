@@ -21,9 +21,13 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
     private let book: Book
     private let description: String
     private let progress: Int
+    private let type: ChallengeTypes
     let challengeId: String
     
     func getProgress() -> Int {
+//        if type == .intervall {
+//            return CalcIntervallPage().isFailed(pages: <#T##Int#>, intervall: <#T##IntervallTypes#>, progressData: <#T##[ProgressData]#>, start: <#T##Date#>, end: <#T##Date#>, book: <#T##Book#>)
+//        }
         return progress
     }
     
@@ -35,10 +39,11 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
         return description
     }
     
-    init(book: Book, description: String, progress: Int, challengeId: String) {
+    init(book: Book, description: String, progress: Int, challengeId: String, type: ChallengeTypes) {
         self.book = book
         self.description = description
         self.progress = progress
         self.challengeId = challengeId
+        self.type = type
     }
 }
