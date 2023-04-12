@@ -10,10 +10,10 @@ import ComposableArchitecture
 
 public struct TypeListCore: ReducerProtocol {
     public struct State: Equatable {
-        var selectedType: ChallengeType?
-        var bookChallengeTypes: [ChallengeType]
+        var selectedType: ChallengeTypesWrapper?
+        var bookChallengeTypes: [ChallengeTypesWrapper]
         
-        public init(selectedType: ChallengeType?) {
+        public init(selectedType: ChallengeTypesWrapper?) {
             self.selectedType = selectedType
             self.bookChallengeTypes = ChallengTypeModell.bookChallengeTypes
         }
@@ -22,7 +22,7 @@ public struct TypeListCore: ReducerProtocol {
 
     public enum Action: Equatable {
         case onAppear
-        case selectType(ChallengeType)
+        case selectType(ChallengeTypesWrapper)
     }
 
     public struct Environment {

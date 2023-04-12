@@ -25,7 +25,7 @@ public struct TypeListView: View {
                         HStack() {
                             Image(systemName: "clock.badge.checkmark")
                                 .imageScale(.large)
-                            Text(type.title)
+                            Text(type.type.getTitel())
                                 .bold()
                         }
                         .padding(.horizontal, 10)

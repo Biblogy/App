@@ -34,7 +34,10 @@ public class ChallengeField: Identifiable, Equatable, ObservableObject {
 
 public struct ChallengeType: Identifiable, Equatable {
     public var id = UUID().uuidString
-    var title: String
+    var type: ChallegeTypes
+    var title: String {
+        return type.rawValue
+    }
     var description: String
     
     var fields: [ChallengeField]

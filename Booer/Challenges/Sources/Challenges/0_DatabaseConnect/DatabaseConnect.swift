@@ -37,7 +37,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
         var databaseIntervall: DatabaseBooer.Intervall?
         var pages: Int?
         
-        for field in book.challengeType.fields {
+        for field in book.challengeType.type.getFields() {
             switch field.type {
             case .intervallPicker:
                 if field.value == "month" {

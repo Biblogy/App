@@ -13,33 +13,30 @@ import Foundation
 
 public struct TypeDetailsCore: ReducerProtocol {
     public struct State: Equatable {
-        let placeholder = ChallengeType(title: "", description: "", fields: [])
+//        let placeholder = ChallengeType(type: .intervall, description: "", fields: [])
+        let placeholder = ChallengeTypesWrapper(type: PagesGoalChallenge(type: .intervall, description: "", progress: 0, titel: ""))
         
-        public init(selectedType: ChallengeType?) {
+        public init(selectedType: ChallengeTypesWrapper?) {
             self.selectedType = selectedType ?? placeholder
             
             self.inputFields = IdentifiedArrayOf(
-                uniqueElements: self.selectedType.fields.map { field in
+                uniqueElements: self.selectedType.type.getFields().map { field in
                     TypeDetailsFieldCore.State(id: field.id, field: field)
                 })
         }
         
-        var selectedType: ChallengeType
+        var selectedType: ChallengeTypesWrapper
         var inputFields: IdentifiedArrayOf<TypeDetailsFieldCore.State>
     }
 
     public enum Action: Equatable {
         case onAppear
-        case fieldChanged(String)
         case typeDetailsField(id: TypeDetailsFieldCore.State.ID,action: TypeDetailsFieldCore.Action)
     }
     
     public var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
-            case let .fieldChanged(newValue):
-                state.selectedType.title = newValue
-                return .none
             case .onAppear:
                 return .none
             case .typeDetailsField(id: _, action: _):

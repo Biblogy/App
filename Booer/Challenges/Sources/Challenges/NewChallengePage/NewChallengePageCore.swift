@@ -12,7 +12,7 @@ import Foundation
  public struct NewChallengePageCore: ReducerProtocol {
     public struct State: Equatable {
         var selectedBookId: String?
-        var selectedChallengeType: ChallengeType?
+        var selectedChallengeType: ChallengeTypesWrapper?
         
         public init() {}
         var selectBook: BooksListCore.State {
@@ -81,8 +81,8 @@ import Foundation
 extension NewChallengePageCore {
     func save(bookChallenge: BookChallenge) async {
         let database = DatabaseConnect()
-        if bookChallenge.challengeType.id == ChallengTypeModell.pagesGoal.id {
-            database.save(bookIntervallPages: bookChallenge)
-        }
+//        if bookChallenge.challengeType.type.id == ChallegeTypesMo {
+//            database.save(bookIntervallPages: bookChallenge)
+//        }
     }
 }

@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Veit Progl on 25.02.23.
 //
@@ -21,12 +21,13 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
     private let book: Book
     private let description: String
     private let progress: Int
-    private let type: ChallengeTypes
+    private let type: ChallegeTypes
     let challengeId: String
     
     func getProgress() -> Int {
 //        if type == .intervall {
-//            return CalcIntervallPage().isFailed(pages: <#T##Int#>, intervall: <#T##IntervallTypes#>, progressData: <#T##[ProgressData]#>, start: <#T##Date#>, end: <#T##Date#>, book: <#T##Book#>)
+//            return CalcIntervallPage().isFailed(pages: book.pages,
+//                                                intervall: type.fields[1].value, progressData: <#T##[ProgressData]#>, start: <#T##Date#>, end: <#T##Date#>, book: <#T##Book#>)
 //        }
         return progress
     }
@@ -39,11 +40,20 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
         return description
     }
     
-    init(book: Book, description: String, progress: Int, challengeId: String, type: ChallengeTypes) {
+    init(book: Book, description: String, progress: Int, challengeId: String, type: ChallegeTypes) {
         self.book = book
         self.description = description
         self.progress = progress
         self.challengeId = challengeId
         self.type = type
     }
+    
+    init(book: Book, challengeId: String, type: ChallengeType) {
+        self.book = book
+        self.description = type.description
+        self.progress = 0
+        self.challengeId = challengeId
+        self.type = type.type
+    }
+
 }

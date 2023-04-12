@@ -13,9 +13,9 @@ class BookChallenge: Equatable, Identifiable {
     }
     
     var bookId: String
-    var challengeType: ChallengeType
+    var challengeType: ChallengeTypesWrapper
     
-    init(bookId: String, challengeType: ChallengeType) {
+    init(bookId: String, challengeType: ChallengeTypesWrapper) {
         self.bookId = bookId
         self.challengeType = challengeType
     }
