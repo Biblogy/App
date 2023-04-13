@@ -18,10 +18,21 @@ public struct IntervallPageOverview: View {
 
     public var body: some View {
         WithViewStore(store) { viewStore in
-            VStack(){
+            VStack(alignment: .leading){
                 ForEach(viewStore.state.challenges) {challenge in
-                    Text(challenge.getBookTitle())
-                    Text(challenge.getDescription())
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(challenge.getBookTitle())
+                            Text(challenge.getDescription())
+                        }
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text(String(challenge.getProgress()) + "%").bold()
+                        }
+                    }
+                    ProgressView("", value: 20, total: 100)
+
+                    Divider()
                 }
             }.onAppear {
                 viewStore.send(.onAppear)
