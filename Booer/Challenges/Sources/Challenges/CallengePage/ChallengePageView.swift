@@ -26,7 +26,7 @@ public struct ChallengePageView: View {
                         Section("Intervall Page:") {
                             IntervallPageOverview(store: store.scope(state: \.intervallPage, action: ChallengePageCore.Action.intervallPageOverview))
                         }
-                    }
+                    }.listStyle(InsetGroupedListStyle())
                     
                     Button(action: {
                         viewStore.send(.navigateToNewChallenge)
