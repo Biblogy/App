@@ -109,9 +109,9 @@ public struct CalenderFullsize: View {
                             }
                         }
                         .onAppear(perform: {
-//                            withAnimation {
-//                                proxy.scrollTo(viewStore.state.activeDate.getMonthString(), anchor: .top)
-//                            }
+                            withAnimation {
+                                proxy.scrollTo(viewStore.state.activeDate.getMonthString(), anchor: .top)
+                            }
                         })
                     }
                 }

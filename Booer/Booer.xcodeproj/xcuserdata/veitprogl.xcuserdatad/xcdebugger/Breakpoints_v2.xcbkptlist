@@ -49,6 +49,21 @@
                   endingLineNumber = "99"
                   offsetFromSymbolStart = "100">
                </Location>
+               <Location
+                  uuid = "4E8601C1-D6B1-44E5-8E8E-E5DDA51D7C17 - be9281eb1e908116"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookManagment.BookDetailCore.State.updateProgress(bookProgress: DatabaseBooer.BookProgress) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/BookDetail/BookDeteilCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "68">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,6 +89,38 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+            <Locations>
+               <Location
+                  uuid = "5E63A3D5-1111-4FCA-A9C1-CCA5CD6BF8E9 - 30b3b2c21ef6ec15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; BookManagment.AddBookCore.BooksLoaderError in BookManagment.AddBookCore.getBook(title: Swift.String) -&gt; ComposableArchitecture.EffectPublisher&lt;Swift.Array&lt;DatabaseBooer.Book&gt;, BookManagment.AddBookCore.BooksLoaderError&gt;"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "5E63A3D5-1111-4FCA-A9C1-CCA5CD6BF8E9 - 30b3b2c21ef6ec15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; BookManagment.AddBookCore.BooksLoaderError in BookManagment.AddBookCore.getBook(title: Swift.String) -&gt; ComposableArchitecture.EffectPublisher&lt;Swift.Array&lt;DatabaseBooer.Book&gt;, BookManagment.AddBookCore.BooksLoaderError&gt;"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,6 +137,38 @@
             endingLineNumber = "71"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "94445E76-3214-4F59-AE39-2F0CE1598DC8 - 5f729bc599717ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (ComposableArchitecture.Send&lt;Challenges.NewChallengePageCore.Action&gt;) async -&gt; () in closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "94445E76-3214-4F59-AE39-2F0CE1598DC8 - 5f729bc599717ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (ComposableArchitecture.Send&lt;Challenges.NewChallengePageCore.Action&gt;) async -&gt; () in closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,6 +185,38 @@
             endingLineNumber = "67"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "94061D37-5FDC-46EF-9B80-CC1FF558CEE8 - 991e283d0073837"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "94061D37-5FDC-46EF-9B80-CC1FF558CEE8 - 991e283d0073837"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "768">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -152,6 +263,36 @@
                   startingLineNumber = "68"
                   endingLineNumber = "68"
                   offsetFromSymbolStart = "1056">
+               </Location>
+               <Location
+                  uuid = "BD088D00-6816-492C-82A0-5A08FD5891C9 - 991e283d0073814"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "880">
+               </Location>
+               <Location
+                  uuid = "BD088D00-6816-492C-82A0-5A08FD5891C9 - 991e283d0073814"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "936">
                </Location>
             </Locations>
          </BreakpointContent>
