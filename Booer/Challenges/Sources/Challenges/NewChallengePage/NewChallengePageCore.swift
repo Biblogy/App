@@ -81,8 +81,8 @@ import Foundation
 extension NewChallengePageCore {
     func save(bookChallenge: BookChallenge) async {
         let database = DatabaseConnect()
-//        if bookChallenge.challengeType.type.id == ChallegeTypesMo {
-//            database.save(bookIntervallPages: bookChallenge)
-//        }
+        if bookChallenge.challengeType.id == ChallengTypeModell.pagesGoal.id {
+            database.save(bookIntervallPages: bookChallenge)
+        }
     }
 }
