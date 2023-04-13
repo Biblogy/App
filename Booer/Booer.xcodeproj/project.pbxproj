@@ -20,6 +20,7 @@
 		5632763A284FCAC9000168C7 /* DatabaseBooer in Frameworks */ = {isa = PBXBuildFile; productRef = 56327639284FCAC9000168C7 /* DatabaseBooer */; };
 		5632763C284FCACD000168C7 /* BookManagment in Frameworks */ = {isa = PBXBuildFile; productRef = 5632763B284FCACD000168C7 /* BookManagment */; };
 		56395B8028E4CAB70005DA7C /* CalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */; };
+		56469A8229E6BB1500E4C6FB /* ErrorAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56469A8129E6BB1500E4C6FB /* ErrorAlertTests.swift */; };
 		564889AF29E42B8500FC7BD7 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 564889AE29E42B8500FC7BD7 /* Logging */; };
 		56505A7A292C162800AA2E46 /* NewChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56505A79292C162800AA2E46 /* NewChallengeUITests.swift */; };
 		565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565557BE28E4C175001AF944 /* BooerUITests.swift */; };
@@ -49,6 +50,7 @@
 		56327635284FCA7A000168C7 /* BooerCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerCalendar; sourceTree = "<group>"; };
 		56327636284FCA94000168C7 /* BookManagment */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BookManagment; sourceTree = "<group>"; };
 		56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUITests.swift; sourceTree = "<group>"; };
+		56469A8129E6BB1500E4C6FB /* ErrorAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertTests.swift; sourceTree = "<group>"; };
 		5649700629202C1D00472083 /* BooerKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BooerKit; sourceTree = "<group>"; };
 		56505A79292C162800AA2E46 /* NewChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeUITests.swift; sourceTree = "<group>"; };
 		565557BC28E4C175001AF944 /* BooerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				565557C028E4C175001AF944 /* BooerUITestsLaunchTests.swift */,
 				56395B7F28E4CAB70005DA7C /* CalendarUITests.swift */,
 				56505A79292C162800AA2E46 /* NewChallengeUITests.swift */,
+				56469A8129E6BB1500E4C6FB /* ErrorAlertTests.swift */,
 			);
 			path = BooerUITests;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				565557C128E4C175001AF944 /* BooerUITestsLaunchTests.swift in Sources */,
 				565557BF28E4C175001AF944 /* BooerUITests.swift in Sources */,
 				56505A7A292C162800AA2E46 /* NewChallengeUITests.swift in Sources */,
+				56469A8229E6BB1500E4C6FB /* ErrorAlertTests.swift in Sources */,
 				56395B8028E4CAB70005DA7C /* CalendarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

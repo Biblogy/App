@@ -6,44 +6,58 @@
 //
 
 import XCTest
+import SwiftUI
 @testable import BooerKit
 
-class ErrorHandlerTests: XCTestCase {
-    
-    // Testet, ob showError() der ErrorHandler-Klasse ein Alert-Fenster anzeigt
-    func testShowErrorDisplaysAlert() {
-        let error = TestError()
-        let handler = ErrorHandler()
-        
-        DispatchQueue.main.async {
-            ErrorHandler.showError(error)
-        }
+// Define a custom error to test with
+enum CustomError: ErrorProtocol {
+    case testError
 
-        let expectation = self.expectation(for: NSPredicate(format: "count > 0"), evaluatedWith: XCUIApplication().windows, handler: nil)
-        wait(for: [expectation], timeout: 1)
-        
-        let alertExists = XCUIApplication().alerts.element.exists
-        XCTAssertTrue(alertExists)
-    }
-    
-    // Testet, ob showError() der ErrorHandler-Klasse die richtige Fehlermeldung anzeigt
-    func testShowErrorDisplaysCorrectMessage() {
-        let error = TestError()
-        let handler = ErrorHandler()
-        
-        DispatchQueue.main.async {
-            ErrorHandler.showError(error)
+    var code: Int {
+        switch self {
+        case .testError:
+            return 999
         }
-        
-        let alert = XCUIApplication().alerts.element
-        let message = alert.staticTexts.element.label
-        XCTAssertEqual(message, error.message + "error code: " + String(error.code))
+    }
+
+    var title: String {
+        switch self {
+        case .testError:
+            return "Test Error"
+        }
+    }
+
+    var message: String {
+        switch self {
+        case .testError:
+            return "This is a test error."
+        }
     }
 }
 
-// Helper Klasse, um einen einfachen Mock-Error zu erstellen
-class TestError: ErrorProtocol {
-    var code: Int = 500
-    var title: String = "Test Error"
-    var message: String = "This is a test error message."
+class ErrorHandlerTests: XCTestCase {
+    var mockViewController: UIViewController!
+
+    override func setUp() {
+        super.setUp()
+        mockViewController = UIViewController()
+    }
+
+    override func tearDown() {
+        mockViewController = nil
+        super.tearDown()
+    }
+
+    func testDefaultErrorCopy() {
+        XCTAssertEqual(DefaultErrorCopy.title, "Error")
+        XCTAssertEqual(DefaultErrorCopy.message, "An error has occurred. Please try again later, if this happens multiple times contact support")
+    }
+
+    func testErrorProtocol() {
+        let error = CustomError.testError
+        XCTAssertEqual(error.code, 999)
+        XCTAssertEqual(error.title, "Test Error")
+        XCTAssertEqual(error.message, "This is a test error.")
+    }
+
 }

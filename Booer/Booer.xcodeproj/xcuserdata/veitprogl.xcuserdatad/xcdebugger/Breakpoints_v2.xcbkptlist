@@ -18,6 +18,38 @@
             endingLineNumber = "99"
             landmarkName = "updateProgress(bookProgress:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4E8601C1-D6B1-44E5-8E8E-E5DDA51D7C17 - 71bbc642c496ff22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookManagment.BookDetailCore.State.updateProgress(bookProgress: DatabaseBooer.BookProgress) -&gt; ()"
+                  moduleName = "BookManagmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/BookDetail/BookDeteilCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "4E8601C1-D6B1-44E5-8E8E-E5DDA51D7C17 - be9281eb1e908116"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookManagment.BookDetailCore.State.updateProgress(bookProgress: DatabaseBooer.BookProgress) -&gt; ()"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/BookDetail/BookDeteilCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,6 +74,38 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+            <Locations>
+               <Location
+                  uuid = "5E63A3D5-1111-4FCA-A9C1-CCA5CD6BF8E9 - ff9af56bc4f08d9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; BookManagment.AddBookCore.BooksLoaderError in BookManagment.AddBookCore.getBook(title: Swift.String) -&gt; ComposableArchitecture.EffectPublisher&lt;Swift.Array&lt;DatabaseBooer.Book&gt;, BookManagment.AddBookCore.BooksLoaderError&gt;"
+                  moduleName = "BookManagmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "5E63A3D5-1111-4FCA-A9C1-CCA5CD6BF8E9 - 30b3b2c21ef6f3a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; BookManagment.AddBookCore.BooksLoaderError in BookManagment.AddBookCore.getBook(title: Swift.String) -&gt; ComposableArchitecture.EffectPublisher&lt;Swift.Array&lt;DatabaseBooer.Book&gt;, BookManagment.AddBookCore.BooksLoaderError&gt;"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
