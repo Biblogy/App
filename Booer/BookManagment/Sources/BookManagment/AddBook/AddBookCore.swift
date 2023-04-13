@@ -31,6 +31,7 @@ public struct AddBookCore: ReducerProtocol {
         case requestBook(String)
         case loadedBooks(Result<[Book], BooksLoaderError>)
         case saveBook(Book)
+        case onCellTap(Book)
     }
         
     public var body: some ReducerProtocol<State, Action> {
@@ -55,6 +56,9 @@ public struct AddBookCore: ReducerProtocol {
                 return .none
             case .saveBook(let book):
                 state.saveBook(book: book)
+                return .none
+            case .onCellTap(let book):
+                state.bookDetail.book = book
                 return .none
             }
         }

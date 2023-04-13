@@ -18,7 +18,8 @@ public struct AddBookView: View {
         self.store = store
     }
     @State private var seach = ""
-    
+    @State private var isActiveNavigate = false
+
     public var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView() {
@@ -26,9 +27,19 @@ public struct AddBookView: View {
                     List() {
                         Section() {
                             ForEach(viewStore.state.books) { book in
-                                NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail))) {
-                                    cell(book: book, viewStore: viewStore)
-                                }
+                                cell(book: book, viewStore: viewStore)
+                                    .onTapGesture {
+                                        viewStore.send(.onCellTap(book))
+                                        isActiveNavigate = true
+                                    }
+                                    .background {
+                                        NavigationLink(destination: BookDetailView(store: store.scope(state: \.bookDetail, action: AddBookCore.Action.bookDetail)),
+                                                       isActive: $isActiveNavigate,
+                                                       label: {
+                                            EmptyView()
+                                        })
+                                    }
+                                
                             }
                         }
                     }.listStyle(InsetGroupedListStyle())
@@ -39,7 +50,7 @@ public struct AddBookView: View {
                             TextField("Seach", text: $seach)
                                 .textContentType(.name)
                             Button("Search"){
-                                viewStore.send(.requestBook("Die 4 Stunden Woche"))
+                                viewStore.send(.requestBook(seach))
                             }
                         }
                             .ignoresSafeArea(.keyboard, edges: .bottom)

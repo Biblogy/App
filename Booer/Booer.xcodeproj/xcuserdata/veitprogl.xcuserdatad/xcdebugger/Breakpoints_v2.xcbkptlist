@@ -61,9 +61,9 @@
             continueAfterRunningActions = "No"
             filePath = "BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
             startingColumnNumber = "53"
-            endingColumnNumber = "73"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            endingColumnNumber = "53"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "getBook(title:)"
             landmarkType = "7">
             <Actions>
@@ -74,36 +74,84 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94445E76-3214-4F59-AE39-2F0CE1598DC8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94061D37-5FDC-46EF-9B80-CC1FF558CEE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD088D00-6816-492C-82A0-5A08FD5891C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "body"
+            landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "5E63A3D5-1111-4FCA-A9C1-CCA5CD6BF8E9 - ff9af56bc4f08d9d"
+                  uuid = "BD088D00-6816-492C-82A0-5A08FD5891C9 - 991e283d0073814"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Error) -&gt; BookManagment.AddBookCore.BooksLoaderError in BookManagment.AddBookCore.getBook(title: Swift.String) -&gt; ComposableArchitecture.EffectPublisher&lt;Swift.Array&lt;DatabaseBooer.Book&gt;, BookManagment.AddBookCore.BooksLoaderError&gt;"
-                  moduleName = "BookManagmentTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "5E63A3D5-1111-4FCA-A9C1-CCA5CD6BF8E9 - 30b3b2c21ef6f3a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Error) -&gt; BookManagment.AddBookCore.BooksLoaderError in BookManagment.AddBookCore.getBook(title: Swift.String) -&gt; ComposableArchitecture.EffectPublisher&lt;Swift.Array&lt;DatabaseBooer.Book&gt;, BookManagment.AddBookCore.BooksLoaderError&gt;"
+                  symbolName = "closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
                   moduleName = "Booer"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/BookManagment/Sources/BookManagment/AddBook/AddBookCore.swift"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "56">
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "996">
+               </Location>
+               <Location
+                  uuid = "BD088D00-6816-492C-82A0-5A08FD5891C9 - 991e283d0073814"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (inout Challenges.NewChallengePageCore.State, Challenges.NewChallengePageCore.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;Challenges.NewChallengePageCore.Action, Swift.Never&gt; in Challenges.NewChallengePageCore.body.getter : some"
+                  moduleName = "Booer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/NewChallengePage/NewChallengePageCore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1056">
                </Location>
             </Locations>
          </BreakpointContent>
