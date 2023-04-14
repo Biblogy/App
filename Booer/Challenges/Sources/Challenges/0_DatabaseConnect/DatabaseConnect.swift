@@ -86,23 +86,42 @@ class DatabaseConnect: DatabaseConnectProtocol {
         for intervallChallenge in intervallChallenges {
             let page = ChallengeField(name: "Page", type: .numberField, value: String(intervallChallenge.pages))
             let intervall = ChallengeField(name: "Intervall", type: .intervallPicker, value: "month")
-            
+            var endDate: Date?
+
             switch intervallChallenge.intervall {
             case .month:
                 intervall.value = "month"
+                if let startDate = intervallChallenge.startDate,
+                   let maxBookPages = intervallChallenge.maxBookPages {
+                    let neededIntervalls = maxBookPages / intervallChallenge.pages
+                    endDate = Calendar.current.date(byAdding: .month, value: neededIntervalls, to: startDate)!
+                }
             case .day:
                 intervall.value = "day"
+                if let startDate = intervallChallenge.startDate,
+                   let maxBookPages = intervallChallenge.maxBookPages {
+                    let neededIntervalls = maxBookPages / intervallChallenge.pages
+                    endDate = Calendar.current.date(byAdding: .day, value: neededIntervalls, to: startDate)!
+                }
             case .week:
                 intervall.value = "week"
+                if let startDate = intervallChallenge.startDate,
+                   let maxBookPages = intervallChallenge.maxBookPages {
+                    let neededIntervalls = maxBookPages / intervallChallenge.pages
+                    endDate = Calendar.current.date(byAdding: .weekOfYear, value: neededIntervalls, to: startDate)!
+                }
             case .year:
                 intervall.value = "year"
+                if let startDate = intervallChallenge.startDate,
+                   let maxBookPages = intervallChallenge.maxBookPages {
+                    let neededIntervalls = maxBookPages / intervallChallenge.pages
+                    endDate = Calendar.current.date(byAdding: .year, value: neededIntervalls, to: startDate)!
+                }
             }
                         
             let challengeDescription = "Read \(page.value) Pages every \(intervall.value)"
             
             let bookResult = BiblogyDatabase().books.getBook(id: intervallChallenge.bookID)
-            
-//            let progress = CalcIntervallPage()
             
             switch bookResult {
             case .success(let bookdb):
@@ -122,7 +141,15 @@ class DatabaseConnect: DatabaseConnectProtocol {
                                 author: [],
                                 pages: bookPages)
                 
-                let overview = ChallengeOverviewModell(book: book, description: challengeDescription, progress: 0, challengeId: intervallChallenge.challengeID, type: .intervall)
+                var progress = ProgressState.progress(1)
+                if let startDate = intervallChallenge.startDate, let progressDataModel = intervallChallenge.bookProgress, let endDate = endDate {
+                    let progressData = progressDataModel.map { progress in
+                        return ProgressData(date: progress.date, currentPage: progress.pages, id: UUID().uuidString)
+                    }
+                    progress = CalcIntervallPage().isFailed(pages: intervallChallenge.pages, intervall: .month, progressData:  progressData, start: startDate, end: endDate, book: book)
+                }
+                
+                let overview = ChallengeOverviewModell(book: book, description: challengeDescription, progress: progress, challengeId: intervallChallenge.challengeID, type: .intervall)
                 challenges.append(overview)
             case .failure(let error):
                 print(error)

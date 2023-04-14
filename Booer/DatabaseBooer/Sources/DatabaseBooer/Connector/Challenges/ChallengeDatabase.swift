@@ -23,6 +23,7 @@ class ChallengeDatabase: ChallengeDatabaseProtocol {
         newChallenge.id = data.challengeID
         newChallenge.pages = Int16(data.pages)
         newChallenge.intervall = data.intervall
+        newChallenge.start = data.startDate
         
         switch bookResult {
         case let .success(book):

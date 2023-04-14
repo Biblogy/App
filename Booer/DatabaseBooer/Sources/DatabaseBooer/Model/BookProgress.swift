@@ -8,9 +8,9 @@
 import Foundation
 
 public struct BookProgress {
-    let book: Book
-    let pages: Int
-    let date: Date
+    public let book: Book
+    public let pages: Int
+    public let date: Date
     
     public init(book: Book, pages: Int, date: Date) {
         self.book = book

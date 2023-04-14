@@ -13,6 +13,10 @@ public struct BookIntervallPagesModell {
     public var pages: Int
     public var challengeID: String
     public var bookTitle: String
+    public var startDate: Date?
+    public var endDate: Date?
+    public var bookProgress: [BookProgress]?
+    public var maxBookPages: Int?
     
     public init(bookID:String, intervall: Intervall, pages: Int, challengeID: String = UUID().uuidString, bookTitle: String) {
         self.bookID = bookID
@@ -29,5 +33,18 @@ public struct BookIntervallPagesModell {
         self.pages = Int(challenge.pages)
         self.challengeID = challenge.id!
         self.bookTitle = challenge.book?.title ?? "error"
+        self.startDate = challenge.start
+        self.maxBookPages = Int(challenge.book?.pages ?? 10)
+        
+        self.bookProgress = getProgressFromBook(book: challenge.book)
+    }
+    
+    func getProgressFromBook(book: BooksDB?) -> [BookProgress] {
+        guard let book = book else { return [] }
+        let bookModel = Book(from: book, progress: 0)
+        guard let bookProgressData = book.bookProgress?.allObjects as? [BookProgressDB] else { return [] }
+        return bookProgressData.map { progress in
+            BookProgress(book: bookModel, pages: Int(progress.pages), date: progress.date ?? Date())
+        }
     }
 }

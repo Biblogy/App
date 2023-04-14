@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ChallengeOverviewModellProtocol {
-    func getProgress() -> Int
+    func getProgress() -> ProgressState
     func getBookTitle() -> String
     func getDescription() -> String
 }
@@ -20,15 +20,11 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
     
     private let book: Book
     private let description: String
-    private let progress: Int
+    private let progress: ProgressState
     private let type: ChallegeTypes
     let challengeId: String
     
-    func getProgress() -> Int {
-//        if type == .intervall {
-//            return CalcIntervallPage().isFailed(pages: book.pages,
-//                                                intervall: type.fields[1].value, progressData: <#T##[ProgressData]#>, start: <#T##Date#>, end: <#T##Date#>, book: <#T##Book#>)
-//        }
+    func getProgress() -> ProgressState {
         return progress
     }
     
@@ -40,7 +36,7 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
         return description
     }
     
-    init(book: Book, description: String, progress: Int, challengeId: String, type: ChallegeTypes) {
+    init(book: Book, description: String, progress: ProgressState, challengeId: String, type: ChallegeTypes) {
         self.book = book
         self.description = description
         self.progress = progress
@@ -51,7 +47,7 @@ class ChallengeOverviewModell: ChallengeOverviewModellProtocol, Equatable, Ident
     init(book: Book, challengeId: String, type: ChallengeType) {
         self.book = book
         self.description = type.description
-        self.progress = 0
+        self.progress = ProgressState.progress(0)
         self.challengeId = challengeId
         self.type = type.type
     }

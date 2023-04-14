@@ -27,7 +27,14 @@ public struct IntervallPageOverview: View {
                         }
                         Spacer()
                         VStack(alignment: .trailing) {
-                            Text(String(challenge.getProgress()) + "%").bold()
+                            switch challenge.getProgress() {
+                            case .progress(let progress):
+                                Text(String(progress) + "%").bold()
+                            case .failed:
+                                Text("fail")
+                            case .success:
+                                Text("success")
+                            }
                         }
                     }
                     ProgressView("", value: 20, total: 100)
