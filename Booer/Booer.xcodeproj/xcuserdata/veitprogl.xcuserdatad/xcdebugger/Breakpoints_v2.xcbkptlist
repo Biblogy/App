@@ -148,57 +148,10 @@
             filePath = "Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "loadAllIntervallPage()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "07FD6101-A117-4B83-8CAA-3BC47A878618 - 47a1eeab6cf03bd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Challenges.DatabaseConnect.loadAllIntervallPage() -&gt; Swift.Array&lt;Challenges.ChallengeOverviewModell&gt;"
-                  moduleName = "Booer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "7280">
-               </Location>
-               <Location
-                  uuid = "07FD6101-A117-4B83-8CAA-3BC47A878618 - 47a1eeab6cf03bd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Challenges.DatabaseConnect.loadAllIntervallPage() -&gt; Swift.Array&lt;Challenges.ChallengeOverviewModell&gt;"
-                  moduleName = "Booer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "7456">
-               </Location>
-               <Location
-                  uuid = "07FD6101-A117-4B83-8CAA-3BC47A878618 - 47a1eeab6cf03bd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Challenges.DatabaseConnect.loadAllIntervallPage() -&gt; Swift.Array&lt;Challenges.ChallengeOverviewModell&gt;"
-                  moduleName = "Booer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/veitprogl/Documents/Git/Booer/App/Booer/Challenges/Sources/Challenges/0_DatabaseConnect/DatabaseConnect.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "7492">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

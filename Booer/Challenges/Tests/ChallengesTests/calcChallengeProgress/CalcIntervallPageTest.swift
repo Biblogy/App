@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Veit Progl on 25.03.23.
 //
@@ -12,7 +12,7 @@ import XCTest
 
 final class CalcIntervallPageTest: XCTestCase {
     let sut = CalcIntervallPage()
-    var book = Book(id: "1", title: "test", cover: URL(string: "https://veit.po")!, author: [], pages: 300)
+    var book = Book(id: "1", title: "test", cover: URL(string: "https://veit.pro")!, author: [], pages: 300)
     
     func testIsFailed_Time() throws {
         it("should return true") {
@@ -70,11 +70,55 @@ final class CalcIntervallPageTest: XCTestCase {
 
             XCTAssert(result == ProgressState.progress(66))
         }
+        
+        it("should return success") {
+            let progress = self.createMock(progress: ["2022-9-21"])
+            let start = self.createMock(date: "2022-9-21")
+            let end = self.createMock(date: "2022-9-21")
+            let result   = sut.isFailed(pages: 20,
+                                        intervall: .month,
+                                        progressData: progress,
+                                        start: start,
+                                        end: end,
+                                        book: book)
+
+            XCTAssert(result == ProgressState.success)
+        }
+        
+        it("should return failed") {
+            let progress = self.createMock(progress: ["2022-9-21"])
+            let start = self.createMock(date: "2022-9-21")
+            let end = self.createMock(date: "2022-8-19")
+            let result   = sut.isFailed(pages: 20,
+                                        intervall: .month,
+                                        progressData: progress,
+                                        start: start,
+                                        end: end,
+                                        book: book)
+
+            XCTAssert(result == ProgressState.failed)
+        }
+    }
+    
+    func testIsFailed_inputDates() throws {
+        it("should not fail if too early progress") {
+            let progress = self.createMock(progress: ["2022-6-21", "2022-7-21", "2022-8-21", "2022-9-21"], maxPages: 900)
+            let start = self.createMock(date: "2022-8-21")
+            let end = self.createMock(date: "2022-10-19")
+            let result   = sut.isFailed(pages: 20,
+                                        intervall: .month,
+                                        progressData: progress,
+                                        start: start,
+                                        end: end,
+                                        book: book)
+
+            XCTAssert(result == ProgressState.progress(66))
+        }
     }
     
     func testIsFailed_Pages() throws {
         it("should return true, if book is finished early") {
-            book = Book(id: "1", title: "test", cover: URL(string: "https://veit.po")!, author: [], pages: 100)
+            book = Book(id: "1", title: "test", cover: URL(string: "https://veit.pro")!, author: [], pages: 100)
 
             let progress = self.createMock(progress: ["2022-8-20", "2022-8-22", "2022-8-23", "2022-9-20"], maxPages: 100)
             let start = self.createMock(date: "2022-8-19")
@@ -90,7 +134,7 @@ final class CalcIntervallPageTest: XCTestCase {
         }
         
         it("should return false, if book is not egouth pages per day") {
-            book = Book(id: "1", title: "test", cover: URL(string: "https://veit.po")!, author: [], pages: 100)
+            book = Book(id: "1", title: "test", cover: URL(string: "https://veit.pro")!, author: [], pages: 100)
 
             let progress = self.createMock(progress: ["2022-8-20", "2022-8-22", "2022-8-23", "2022-9-20"], maxPages: 100)
             let start = self.createMock(date: "2022-8-19")

@@ -72,7 +72,8 @@ class DatabaseConnect: DatabaseConnectProtocol {
             return
         }
         
-        let bookGoalChallenge = BookIntervallPagesModell(bookID: book.bookId, intervall: databaseIntervall, pages: pages, bookTitle: bookTitle)
+        var bookGoalChallenge = BookIntervallPagesModell(bookID: book.bookId, intervall: databaseIntervall, pages: pages, bookTitle: bookTitle)
+        bookGoalChallenge.startDate = Date()
         
         BiblogyDatabase().challenge.save_Book_IntervallPagesChallenge(data: bookGoalChallenge)
     }

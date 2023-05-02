@@ -37,15 +37,22 @@ struct CalcIntervallPage {
         // 1. Reduce to only months used
         // 2. loop thouse months check if missing one
         // 3. calc progress from month used and max months
-        
-        var month: Set<Int> = []
-        progressData.forEach { progress in
-            month.insert(progress.date.getMonth())
-        }
-        
-
         let startMonth = start.getMonth()
         let endMonth = end.getMonth()
+        
+        if endMonth < startMonth {
+            return .failed
+        }
+        
+        var month: Set<Int> = []
+        var challengeProgressData: [ProgressData] = []
+        progressData.forEach { progress in
+            let progressMonth = progress.date.getMonth()
+            if startMonth <= progressMonth && endMonth >= progressMonth {
+                month.insert(progressMonth)
+                challengeProgressData.append(progress)
+            }
+        }
         
         let sortedMonth  = Array(month).sorted()
         let neededMonths = Array(startMonth...endMonth)
@@ -55,9 +62,9 @@ struct CalcIntervallPage {
             return .success
         }
         
-        let readPage = progressData.max(by: { $0.currentPage < $1.currentPage })
+        let readPage = challengeProgressData.max(by: { $0.currentPage < $1.currentPage })
         
-        let progressChanges = self.calcPageChanges(progressData: progressData)
+        let progressChanges = self.calcPageChanges(progressData: challengeProgressData)
         if progressChanges.min() ?? pages < pages {
             return ProgressState.failed
         }
