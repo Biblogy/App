@@ -89,9 +89,11 @@ class DatabaseConnect: DatabaseConnectProtocol {
             let intervall = ChallengeField(name: "Intervall", type: .intervallPicker, value: "month")
             var endDate: Date?
 
+            var intervallType = IntervallTypes.month
             switch intervallChallenge.intervall {
             case .month:
                 intervall.value = "month"
+                intervallType = .month
                 if let startDate = intervallChallenge.startDate,
                    let maxBookPages = intervallChallenge.maxBookPages {
                     let neededIntervalls = maxBookPages / intervallChallenge.pages
@@ -99,6 +101,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
                 }
             case .day:
                 intervall.value = "day"
+                intervallType = .day
                 if let startDate = intervallChallenge.startDate,
                    let maxBookPages = intervallChallenge.maxBookPages {
                     let neededIntervalls = maxBookPages / intervallChallenge.pages
@@ -106,6 +109,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
                 }
             case .week:
                 intervall.value = "week"
+//                intervallType = .
                 if let startDate = intervallChallenge.startDate,
                    let maxBookPages = intervallChallenge.maxBookPages {
                     let neededIntervalls = maxBookPages / intervallChallenge.pages
@@ -113,6 +117,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
                 }
             case .year:
                 intervall.value = "year"
+                intervallType = .year
                 if let startDate = intervallChallenge.startDate,
                    let maxBookPages = intervallChallenge.maxBookPages {
                     let neededIntervalls = maxBookPages / intervallChallenge.pages
@@ -147,7 +152,7 @@ class DatabaseConnect: DatabaseConnectProtocol {
                     let progressData = progressDataModel.map { progress in
                         return ProgressData(date: progress.date, currentPage: progress.pages, id: UUID().uuidString)
                     }
-                    progress = CalcIntervallPage().isFailed(pages: intervallChallenge.pages, intervall: .month, progressData:  progressData, start: startDate, end: endDate, book: book)
+                    progress = CalcIntervallPage().isFailed(pages: intervallChallenge.pages, intervall: intervallType, progressData:  progressData, start: startDate, end: endDate, book: book)
                 }
                 
                 let overview = ChallengeOverviewModell(book: book, description: challengeDescription, progress: progress, challengeId: intervallChallenge.challengeID, type: .intervall)

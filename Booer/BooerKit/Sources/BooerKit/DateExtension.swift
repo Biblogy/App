@@ -32,4 +32,9 @@ public extension Date {
         let monthString = Calendar.current.monthSymbols[month - 1]
         return monthString
     }
+    
+    func getYear() -> Int {
+        let components = Calendar.current.dateComponents([.year], from: self)
+        return components.year!
+    }
 }

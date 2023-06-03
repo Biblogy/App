@@ -21,33 +21,99 @@ enum ProgressState: Equatable {
 }
 
 struct CalcIntervallPage {
-    func calcProgress(pages: Int, intervall: IntervallTypes, progressData: [ProgressData]) -> Int {
-        let currentNewest = progressData.first
-//        progressData.forEach { progress in
-//            guard let currentDate = currentNewest?.date else { return }
-//            if currentDate > progress.date {
-//                currentNewest = progress
-//            }
-//        }
-        guard let currentPage =  currentNewest?.currentPage else { return 0 }
-        return currentPage
+    private func getIntervallDate(intervall: IntervallTypes, from date: Date) -> Int {
+        switch intervall {
+        case .day:
+            return date.getDay()
+        case .month:
+            return date.getMonth()
+        case .year:
+            return date.getYear()
+        }
+    }
+    
+    private func datesRange(from: Date, to: Date) -> [Date] {
+        // in case of the "from" date is more than "to" date,
+        // it should returns an empty array:
+        if from > to { return [Date]() }
+
+        var tempDate = from
+        var array = [tempDate]
+
+        while tempDate < to {
+            tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
+            array.append(tempDate)
+        }
+
+        return array
+    }
+    
+    func calcDayChallenge(pages: Int, start: Date, end: Date, progressData: [ProgressData], book: Book) -> ProgressState {
+        if end < Date() || start < end {
+            return .failed
+        }
+        
+        let neededDays = datesRange(from: start, to: end)
+        var challengeProgressData: [ProgressData] = []
+
+        progressData.forEach { progress in
+            if start <= progress.date && end >= progress.date {
+                challengeProgressData.append(progress)
+            }
+        }
+        
+        let prozent = (Float(challengeProgressData.count) / Float(neededDays.count)) * 100
+        
+        if prozent == 100 {
+            return .success
+        }
+        
+        let readPage = challengeProgressData.max(by: { $0.currentPage < $1.currentPage })
+        let progressChanges = self.calcPageChanges(progressData: challengeProgressData)
+        if progressChanges.min() ?? pages < pages {
+            return ProgressState.failed
+        }
+        
+        if readPage?.currentPage ?? 0 >= book.pages {
+            return .progress(Int(prozent))
+        }
+        
+        var i = 0
+        for neededDay in neededDays {
+            if neededDay == challengeProgressData[i].date {
+                i += 1
+                continue
+            } else {
+                return ProgressState.failed
+            }
+        }
+        
+        return .progress(Int(prozent))
     }
     
     func isFailed(pages: Int, intervall: IntervallTypes, progressData: [ProgressData], start: Date, end: Date, book: Book) -> ProgressState {
         // 1. Reduce to only months used
         // 2. loop thouse months check if missing one
         // 3. calc progress from month used and max months
-        let startMonth = start.getMonth()
-        let endMonth = end.getMonth()
         
-        if endMonth < startMonth {
+        // limit to 12 Month!
+        // reduce makes no sense for day challenges!
+        
+        if intervall == .day {
+            return calcDayChallenge(pages: pages, start: start, end: end, progressData: progressData, book: book)
+        }
+        
+        let startMonth = getIntervallDate(intervall: intervall, from: start)
+        let endMonth = getIntervallDate(intervall: intervall, from: end)
+        
+        if end < Date() || endMonth < startMonth {
             return .failed
         }
         
         var month: Set<Int> = []
         var challengeProgressData: [ProgressData] = []
         progressData.forEach { progress in
-            let progressMonth = progress.date.getMonth()
+            let progressMonth = getIntervallDate(intervall: intervall, from: progress.date)
             if startMonth <= progressMonth && endMonth >= progressMonth {
                 month.insert(progressMonth)
                 challengeProgressData.append(progress)

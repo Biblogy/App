@@ -152,6 +152,48 @@ final class CalcIntervallPageTest: XCTestCase {
         
     }
     
+    //MARK: Day Challenges
+    
+    func testCalcPagesPerDay() throws {
+        book = Book(id: "2",
+                    title: "test",
+                    cover: URL(string: "https://veit.pro")!,
+                    author: [],
+                    pages: 100)
+
+        let progress = self.createMock(progress: ["2022-8-23", "2022-8-24", "2022-8-25", "2022-9-20"], maxPages: 4)
+
+        let start = self.createMock(date: "2022-8-19")
+        let end = self.createMock(date: "2022-8-21")
+        let result = sut.isFailed(pages: 2,
+                                  intervall: .day,
+                                  progressData: progress,
+                                  start: start,
+                                  end: end,
+                                  book: book)
+
+        XCTAssert(result == ProgressState.failed)
+    }
+        
+    func testCalcPagesPerDay_empty_input_endDate() throws {
+        book = Book(id: "2",
+                    title: "test",
+                    cover: URL(string: "https://veit.pro")!,
+                    author: [],
+                    pages: 100)
+
+        let start = self.createMock(date: "2022-8-19")
+        let end = self.createMock(date: "2022-8-21")
+        let result = sut.isFailed(pages: 2,
+                                  intervall: .day,
+                                  progressData: [],
+                                  start: start,
+                                  end: end,
+                                  book: book)
+
+        XCTAssert(result == ProgressState.failed)
+    }
+    
     func testcalcPageChanges() throws {
         let progress = self.createMock(progress: ["2022-8-20", "2022-8-22", "2022-8-23", "2022-9-20"], maxPages: 100)
 
