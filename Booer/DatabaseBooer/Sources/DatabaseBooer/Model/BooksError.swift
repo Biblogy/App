@@ -10,4 +10,5 @@ import Foundation
 public enum BooksError: Error {
     case BookIdNotFound
     case TitleNotFound
+    case DeleteFailed
 }

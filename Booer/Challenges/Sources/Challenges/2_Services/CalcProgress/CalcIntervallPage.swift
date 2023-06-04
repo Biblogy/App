@@ -49,7 +49,7 @@ struct CalcIntervallPage {
     }
     
     func calcDayChallenge(pages: Int, start: Date, end: Date, progressData: [ProgressData], book: Book) -> ProgressState {
-        if end < Date() || start < end {
+        if start < end {
             return .failed
         }
         
@@ -66,6 +66,8 @@ struct CalcIntervallPage {
         
         if prozent == 100 {
             return .success
+        } else if end < Date() {
+            return .failed
         }
         
         let readPage = challengeProgressData.max(by: { $0.currentPage < $1.currentPage })
@@ -106,7 +108,7 @@ struct CalcIntervallPage {
         let startMonth = getIntervallDate(intervall: intervall, from: start)
         let endMonth = getIntervallDate(intervall: intervall, from: end)
         
-        if end < Date() || endMonth < startMonth {
+        if endMonth < startMonth {
             return .failed
         }
         
@@ -126,6 +128,8 @@ struct CalcIntervallPage {
         
         if prozent == 100 {
             return .success
+        } else if end > Date() {
+            return .failed
         }
         
         let readPage = challengeProgressData.max(by: { $0.currentPage < $1.currentPage })

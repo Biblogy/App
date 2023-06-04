@@ -12,7 +12,7 @@ public protocol BookDatabaseProtrocol {
     func updateBook(book: Book)
     func saveBook(book: Book)
     func getAllBooks() -> [Book]
-    func deleteBook(book: Book)
+    func deleteBook(book: Book) -> Result<Void, BooksError>
     func getBook(id: String) -> Result<BooksDB, BooksError>
     func getBookTitle(id: String) -> Result<String, BooksError>
     func setBookProgress(progress: BookProgress) -> Result<Void, Error>
@@ -112,7 +112,7 @@ struct BookDatabase: BookDatabaseProtrocol {
         return books
     }
     
-    public func deleteBook(book: Book) {
+    public func deleteBook(book: Book) -> Result<Void, BooksError> {
         let predicate = NSPredicate(format: "id == %@", book.id)
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BooksDB")
         fetch.predicate = predicate
@@ -121,9 +121,10 @@ struct BookDatabase: BookDatabaseProtrocol {
         do {
             try viewContext.execute(deleteRequest)
         } catch let error as NSError {
-            // TODO: handle the error
             print(error.localizedDescription)
+            return .failure(.DeleteFailed)
         }
+        return .success(())
     }
     
     func getBook(id: String) -> Result<BooksDB, BooksError> {
