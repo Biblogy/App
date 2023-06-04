@@ -25,23 +25,24 @@ struct AppView: View {
             TabView{
                 NavigationView {
                     List(){
-                        Section(){
-                            VStack() {
-                                CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
-                            }
-                        }
-                        Section(){
-                            WithViewStore(store) { viewStore in
-                                Text(getMonthString(from: viewStore.activeDate))
-                                    .padding()
-                            }
-                        }
+//                        Section(){
+//                            VStack() {
+//                                CalenderViewCompact(store: store.scope(state: \.calendar, action: AppCore.Action.calendar))
+//                            }
+//                        }
+//                        Section(){
+//                            WithViewStore(store) { viewStore in
+//                                Text(getMonthString(from: viewStore.activeDate))
+//                                    .padding()
+//                            }
+//                        }
                         Section() {
                             BookOverviewView(store: store.scope(state: \.bookOverviewState, action: AppCore.Action.bookOverview))
                         }
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .listRowBackground(Color.clear)
                     }
+                    .navigationTitle("Bookshelf")
                 }
                 .tabItem({ TabLabel(imageName: "books.vertical.fill", label: "Bookshelf") })
                 .tag(1)
